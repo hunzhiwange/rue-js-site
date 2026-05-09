@@ -1,0 +1,12 @@
+import{A as e,F as t,H as n,I as r,N as i,P as a,W as o,c as s,j as c,pt as l,rt as u,t as d,u as f,ut as p}from"./vapor-runtime-BZZbPG7x.js";import{a as m}from"./vapor-helpers-vapor-DuGQh50d.js";import{t as h}from"./Code-C8wy38VS.js";import{t as g}from"./SidebarPlaygroundExample-Dv_xU0wR.js";var _=()=>{let{activeTab:_}=m(`useSetup:0:0`,()=>p(()=>({activeTab:m(`ref:1:0`,()=>u(`code`))})));return f(()=>{let u=a(),p=i(`rue:component:anchor`);return c(u,p),s(d(g,{children:f(()=>{let u=a(),p=t(`h1`);c(u,p),o(p,`text-5xl font-semibold mb-4 md:mb-4`),c(p,r(`Fragments`));let m=t(`div`);c(u,m),n(m,`role`,`tablist`),o(m,`tabs tabs-box`);let g=t(`button`);c(m,g),n(g,`role`,`tab`),l(()=>{o(g,String(`tab ${_.value===`preview`?`tab-active`:``}`))}),e(g,`click`,()=>{_.value=`preview`}),c(g,r(`效果`));let v=t(`button`);c(m,v),n(v,`role`,`tab`),l(()=>{o(v,String(`tab ${_.value===`code`?`tab-active`:``}`))}),e(v,`click`,()=>{_.value=`code`}),c(v,r(`代码`));let y=t(`div`);c(u,y),o(y,`mt-4 grid md:grid-cols-1 gap-6 items-start`);let b=i(`rue:slot:anchor`);c(y,b),l(()=>{s(_.value===`code`?f(()=>{let e=a(),n=t(`div`);c(e,n),o(n,`card bg-base-100 shadow overflow-auto`);let r=t(`div`);c(n,r),o(r,`card-body p-0`);let u=i(`rue:component:anchor`);return c(r,u),l(()=>{s(d(h,{className:`h-full`,lang:`tsx`,code:`import { type FC } from '@rue-js/rue';
+
+const Fragments: FC = () => (
+  <div className="grid gap-2">
+    <>
+      <span>片段 1</span>
+      <span>片段 2</span>
+    </>
+  </div>
+);
+
+export default Fragments;`}),r,u)}),e}):``,y,b)}),c(y,r(` `));let x=i(`rue:slot:anchor`);return c(y,x),l(()=>{s(_.value===`preview`?f(()=>{let e=a(),n=t(`div`);c(e,n),o(n,`card bg-base-100 shadow`);let i=t(`div`);c(n,i),o(i,`card-body grid gap-2`),c(i,r(` `));let s=t(`span`);c(i,s),c(s,r(`片段 1`)),c(i,r(` `));let l=t(`span`);return c(i,l),c(l,r(`片段 2`)),c(i,r(` `)),e}):``,y,x)}),u})}),u,p),u})};export{_ as default};
