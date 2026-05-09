@@ -13,8 +13,8 @@ Web 无障碍访问（也称为 a11y）是指创建任何人都可以使用的�
 通常在 `App.tsx` 的顶部完成，因为它将是您所有页面上第一个可聚焦的元素：
 
 ```tsx
-import { useRef, useEffect } from 'rues'
-import type { FC } from 'rues'
+import { useRef, useEffect } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const App: FC = () => {
   const backToTop = useRef<HTMLSpanElement>(null)
@@ -61,12 +61,12 @@ const App: FC = () => {
 }
 ```
 
-当用户更改路由时，将焦点返回到页面的最开始，就在跳过链接之前。这可以通过在 `backToTop` ref 上调用 focus 来实现（假设使用了 `rues-router`）：
+当用户更改路由时，将焦点返回到页面的最开始，就在跳过链接之前。这可以通过在 `backToTop` ref 上调用 focus 来实现（假设使用了 `@rue-js/rue-router`）：
 
 ```tsx
-import { useEffect, useRef } from 'rues'
-import { useLocation } from 'rues-router'
-import type { FC } from 'rues'
+import { useEffect, useRef } from '@rue-js/rue'
+import { useLocation } from '@rue-js/rue-router'
+import type { FC } from '@rue-js/rue'
 
 const App: FC = () => {
   const location = useLocation()
@@ -143,8 +143,8 @@ const App: FC = () => {
 标签通常放置在表单字段的上方或左侧：
 
 ```tsx
-import { useState } from 'rues'
-import type { FC } from 'rues'
+import { useState } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 interface FormItem {
   id: string
@@ -169,9 +169,7 @@ const MyForm: FC = () => {
             id={item.id}
             name={item.id}
             value={values[item.id] || ''}
-            onChange={e =>
-              setValues(prev => ({ ...prev, [item.id]: e.target.value }))
-            }
+            onChange={e => setValues(prev => ({ ...prev, [item.id]: e.target.value }))}
           />
         </div>
       ))}
@@ -232,12 +230,7 @@ const MyForm: FC = () => {
 使用 [`aria-labelledby`](https://developer.mozilla.org/zh-CN/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) 与 `aria-label` 类似，不同之处在于它在标签文本在屏幕上可见时使用。它通过 `id` 与其他元素配对，您可以链接多个 `id`：
 
 ```tsx
-<form
-  className="demo"
-  action="/dataCollectionLocation"
-  method="post"
-  autoComplete="on"
->
+<form className="demo" action="/dataCollectionLocation" method="post" autoComplete="on">
   <h1 id="billing">账单</h1>
   <div className="form-item">
     <label htmlFor="name">姓名: </label>
@@ -254,12 +247,7 @@ const MyForm: FC = () => {
 [aria-describedby](https://developer.mozilla.org/zh-CN/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) 的使用方式与 `aria-labelledby` 相同，不同之处在于它提供了用户可能需要的额外信息描述。这可用于描述任何输入的条件：
 
 ```tsx
-<form
-  className="demo"
-  action="/dataCollectionLocation"
-  method="post"
-  autoComplete="on"
->
+<form className="demo" action="/dataCollectionLocation" method="post" autoComplete="on">
   <h1 id="billing">账单</h1>
   <div className="form-item">
     <label htmlFor="name">全名: </label>
@@ -289,21 +277,11 @@ const MyForm: FC = () => {
 ![无障碍占位符](./images/AccessiblePlaceholder.png)
 
 ```tsx
-<form
-  className="demo"
-  action="/dataCollectionLocation"
-  method="post"
-  autoComplete="on"
->
+<form className="demo" action="/dataCollectionLocation" method="post" autoComplete="on">
   {formItems.map(item => (
     <div key={item.id} className="form-item">
       <label htmlFor={item.id}>{item.label}: </label>
-      <input
-        type="text"
-        id={item.id}
-        name={item.id}
-        placeholder={item.placeholder}
-      />
+      <input type="text" id={item.id} name={item.id} placeholder={item.placeholder} />
     </div>
   ))}
   <button type="submit">提交</button>
@@ -343,12 +321,7 @@ const MyForm: FC = () => {
   <label id="date-label" htmlFor="date">
     当前日期:{' '}
   </label>
-  <input
-    type="date"
-    name="date"
-    id="date"
-    aria-labelledby="date-label date-instructions"
-  />
+  <input type="date" name="date" id="date" aria-labelledby="date-label date-instructions" />
   <p id="date-instructions">MM/DD/YYYY</p>
 </fieldset>
 ```
@@ -439,12 +412,7 @@ const MyForm: FC = () => {
       搜索:{' '}
     </label>
     <input type="text" name="search" id="search" />
-    <input
-      type="image"
-      className="btnImg"
-      src="https://img.icons8.com/search"
-      alt="搜索"
-    />
+    <input type="image" className="btnImg" src="https://img.icons8.com/search" alt="搜索" />
   </form>
   ```
 

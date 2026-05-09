@@ -56,7 +56,7 @@
 - **示例**
 
   ```js
-  import { createRenderer } from '@rue/runtime-core'
+  import { createRenderer } from '@rue-js/runtime-core'
 
   const { render, createApp } = createRenderer({
     patchProp,
@@ -71,7 +71,7 @@
   export { render, createApp }
 
   // 重新导出 Rue 核心 API
-  export * from '@rue/runtime-core'
+  export * from '@rue-js/runtime-core'
   ```
 
-  Rue 自己的 `@rue/runtime` [使用相同的 API 实现](https://github.com/rues/core/blob/main/packages/runtime/src/index.ts)。有关更简单的实现，请查看 [`@rue/runtime-test`](https://github.com/rues/core/blob/main/packages/runtime-test/src/index.ts)，这是用于 Rue 自己单元测试的私有包。
+  Rue 自己的 `@rue-js/runtime` [使用相同的 API 实现](https://github.com/hunzhiwange/ruejs/blob/main/packages/runtime/src/index.ts)。有关更简单的实现，请查看 [`@rue-js/runtime-test`](https://github.com/hunzhiwange/ruejs/blob/main/packages/runtime-test/src/index.ts)，这是用于 Rue 自己单元测试的私有包。

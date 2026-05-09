@@ -3,10 +3,7 @@
 在前端处理表单时，我们经常需要将表单输入元素的状态与 JavaScript 中的相应状态同步。手动连接值绑定和变更事件监听器可能会很麻烦：
 
 ```tsx
-<input
-  value={text.value}
-  onInput={e => (text.value = (e.target as HTMLInputElement).value)}
-/>
+<input value={text.value} onInput={e => (text.value = (e.target as HTMLInputElement).value)} />
 ```
 
 在 Rue 中，我们可以使用 `value` 绑定和事件处理器来简化上述过程，或者创建可复用的输入组件。
@@ -26,8 +23,8 @@ Rue 的响应式系统可以与不同输入类型的输入框、`<textarea>` 和
 ### 文本 {#text}
 
 ```tsx
-import { ref } from 'rues'
-import type { FC } from 'rues'
+import { ref } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const TextInput: FC = () => {
   const message = ref('')
@@ -52,8 +49,8 @@ const TextInput: FC = () => {
 ### 多行文本 {#multiline-text}
 
 ```tsx
-import { ref } from 'rues'
-import type { FC } from 'rues'
+import { ref } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const TextArea: FC = () => {
   const message = ref('')
@@ -91,8 +88,8 @@ const TextArea: FC = () => {
 单个复选框，布尔值：
 
 ```tsx
-import { ref } from 'rues'
-import type { FC } from 'rues'
+import { ref } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const Checkbox: FC = () => {
   const checked = ref(false)
@@ -114,8 +111,8 @@ const Checkbox: FC = () => {
 我们也可以将多个复选框绑定到同一个数组或 [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) 值：
 
 ```tsx
-import { ref } from 'rues'
-import type { FC } from 'rues'
+import { ref } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const MultiCheckbox: FC = () => {
   const checkedNames = ref<string[]>([])
@@ -140,9 +137,7 @@ const MultiCheckbox: FC = () => {
         id="jack"
         value="Jack"
         checked={checkedNames.value.includes('Jack')}
-        onChange={e =>
-          handleChange('Jack', (e.target as HTMLInputElement).checked)
-        }
+        onChange={e => handleChange('Jack', (e.target as HTMLInputElement).checked)}
       />
       <label for="jack">Jack</label>
 
@@ -151,9 +146,7 @@ const MultiCheckbox: FC = () => {
         id="john"
         value="John"
         checked={checkedNames.value.includes('John')}
-        onChange={e =>
-          handleChange('John', (e.target as HTMLInputElement).checked)
-        }
+        onChange={e => handleChange('John', (e.target as HTMLInputElement).checked)}
       />
       <label for="john">John</label>
 
@@ -162,9 +155,7 @@ const MultiCheckbox: FC = () => {
         id="mike"
         value="Mike"
         checked={checkedNames.value.includes('Mike')}
-        onChange={e =>
-          handleChange('Mike', (e.target as HTMLInputElement).checked)
-        }
+        onChange={e => handleChange('Mike', (e.target as HTMLInputElement).checked)}
       />
       <label for="mike">Mike</label>
     </div>
@@ -177,8 +168,8 @@ const MultiCheckbox: FC = () => {
 ### 单选框 {#radio}
 
 ```tsx
-import { ref } from 'rues'
-import type { FC } from 'rues'
+import { ref } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const Radio: FC = () => {
   const picked = ref('')
@@ -214,8 +205,8 @@ const Radio: FC = () => {
 单选：
 
 ```tsx
-import { ref } from 'rues'
-import type { FC } from 'rues'
+import { ref } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const Select: FC = () => {
   const selected = ref('')
@@ -247,8 +238,8 @@ const Select: FC = () => {
 多选（绑定到数组）：
 
 ```tsx
-import { ref } from 'rues'
-import type { FC } from 'rues'
+import { ref } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const MultiSelect: FC = () => {
   const selected = ref<string[]>([])
@@ -284,8 +275,8 @@ const MultiSelect: FC = () => {
 可以使用 `map()` 动态渲染选择器选项：
 
 ```tsx
-import { ref } from 'rues'
-import type { FC } from 'rues'
+import { ref } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const DynamicSelect: FC = () => {
   const selected = ref('A')
@@ -321,11 +312,7 @@ const DynamicSelect: FC = () => {
 {
   /* `picked` 被选中时是字符串 "a" */
 }
-;<input
-  type="radio"
-  checked={picked.value === 'a'}
-  onChange={() => (picked.value = 'a')}
-/>
+;<input type="radio" checked={picked.value === 'a'} onChange={() => (picked.value = 'a')} />
 
 {
   /* `toggle` 是 true 或 false */
@@ -414,10 +401,7 @@ const DynamicSelect: FC = () => {
 {
   /* 在 "change" 之后同步而不是 "input" */
 }
-;<input
-  value={msg.value}
-  onChange={e => (msg.value = (e.target as HTMLInputElement).value)}
-/>
+;<input value={msg.value} onChange={e => (msg.value = (e.target as HTMLInputElement).value)} />
 ```
 
 ### `.number` {#number}
@@ -441,10 +425,7 @@ const DynamicSelect: FC = () => {
 如果你想自动修剪用户输入的空白字符，你可以在事件处理器中使用 `trim()`：
 
 ```tsx
-<input
-  value={msg.value}
-  onInput={e => (msg.value = (e.target as HTMLInputElement).value.trim())}
-/>
+<input value={msg.value} onInput={e => (msg.value = (e.target as HTMLInputElement).value.trim())} />
 ```
 
 ## 与组件一起使用 {#v-model-with-components}

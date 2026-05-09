@@ -5,7 +5,7 @@
 从技术上讲，每个 Rue 组件实例已经"管理"着自己的响应式状态。以一个简单的计数器组件为例：
 
 ```tsx
-import { ref, type FC } from 'rues'
+import { ref, type FC } from '@rue-js/rue'
 
 export const Counter: FC = () => {
   // 状态
@@ -49,7 +49,7 @@ export const Counter: FC = () => {
 如果你有一块应该由多个实例共享的状态，你可以使用 [`reactive()`](/api/reactivity-core#reactive) 创建一个响应式对象，然后将其导入多个组件：
 
 ```ts [store.ts]
-import { reactive } from 'rues'
+import { reactive } from '@rue-js/rue'
 
 export const store = reactive({
   count: 0,
@@ -57,7 +57,7 @@ export const store = reactive({
 ```
 
 ```tsx [ComponentA.tsx]
-import { type FC } from 'rues'
+import { type FC } from '@rue-js/rue'
 import { store } from './store'
 
 export const ComponentA: FC = () => {
@@ -66,7 +66,7 @@ export const ComponentA: FC = () => {
 ```
 
 ```tsx [ComponentB.tsx]
-import { type FC } from 'rues'
+import { type FC } from '@rue-js/rue'
 import { store } from './store'
 
 export const ComponentB: FC = () => {
@@ -85,7 +85,7 @@ export const ComponentB: FC = () => {
 虽然这在简单情况下有效，但长期而言，任何组件都可以任意改变的全局状态并不是非常可维护的。为了确保改变状态的逻辑像状态本身一样集中，建议在 store 上定义表达动作意图的方法名：
 
 ```ts{5-7} [store.ts]
-import { reactive } from 'rues'
+import { reactive } from '@rue-js/rue'
 
 export const store = reactive({
   count: 0,
@@ -108,7 +108,7 @@ export const store = reactive({
 虽然这里我们使用单个响应式对象作为 store，但你也可以使用其他 [响应式 API](/api/reactivity-core)（如 `ref()` 或 `computed()`）创建共享的响应式状态，甚至从 [Composable](/guide/reusability/composables) 返回全局状态：
 
 ```ts
-import { ref } from 'rues'
+import { ref } from '@rue-js/rue'
 
 // 全局状态，在模块作用域中创建
 const globalCount = ref(1)
@@ -126,10 +126,6 @@ export function useCount() {
 
 Rue 的响应式系统与组件模型解耦，这使其极具灵活性。
 
-## SSR 注意事项 {#ssr-considerations}
-
-如果你正在构建利用[服务端渲染（SSR）](./ssr)的应用，上述模式可能会导致问题，因为 store 是在多个请求之间共享的单例。这在 SSR 指南的[更多细节](./ssr#cross-request-state-pollution)中有详细讨论。
-
 ## Pinia {#pinia}
 
 虽然我们的手动状态管理解决方案在简单场景下足够使用，但在大型生产应用中还有很多事情需要考虑：
@@ -137,7 +133,6 @@ Rue 的响应式系统与组件模型解耦，这使其极具灵活性。
 - 更强的团队协作约定
 - 与 Rue DevTools 的集成，包括时间线、组件内检查和时光旅行调试
 - 热模块替换
-- 服务端渲染支持
 
 [Pinia](https://pinia.vuejs.org) 是一个实现了上述所有功能的状态管理库。它由 Rue 核心团队维护，同时适用于 Vue 2 和 Vue 3。
 
@@ -151,7 +146,7 @@ Pinia 最初是作为 Vuex 下一个迭代的探索，包含了核心团队对 V
 
 ```ts [stores/counter.ts]
 import { defineStore } from 'pinia'
-import { ref, computed } from 'rues'
+import { ref, computed } from '@rue-js/rue'
 
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0)
@@ -166,7 +161,7 @@ export const useCounterStore = defineStore('counter', () => {
 ```
 
 ```tsx [Counter.tsx]
-import { type FC } from 'rues'
+import { type FC } from '@rue-js/rue'
 import { useCounterStore } from '../stores/counter'
 
 export const Counter: FC = () => {
@@ -186,7 +181,7 @@ export const Counter: FC = () => {
 
 ```ts [stores/user.ts]
 import { defineStore } from 'pinia'
-import { ref } from 'rues'
+import { ref } from '@rue-js/rue'
 
 export const useUserStore = defineStore('user', () => {
   const user = ref(null)

@@ -133,7 +133,7 @@ Rue 使用 JSX/TSX 作为主要模板语法，因此大多数 Vue 的模板指�
 使用受控组件模式：
 
 ```tsx
-import { useState } from 'rues'
+import { useState } from '@rue-js/rue'
 
 // 输入框
 const [value, setValue] = useState('')
@@ -169,7 +169,7 @@ const [selected, setSelected] = useState('')
 使用 `use` 钩子或 ref 回调：
 
 ```tsx
-import { useEffect, useRef } from 'rues'
+import { useEffect, useRef } from '@rue-js/rue'
 
 // 使用 ref 和 useEffect 实现自定义指令逻辑
 const MyComponent = () => {
@@ -191,7 +191,7 @@ const MyComponent = () => {
 使用 `useMemo` 或常量：
 
 ```tsx
-import { useMemo } from 'rues'
+import { useMemo } from '@rue-js/rue'
 
 // 使用 useMemo 缓存内容
 const staticContent = useMemo(
@@ -213,7 +213,7 @@ const staticMessage = <span>This will never change: {initialMsg}</span>
 使用 `memo` 或 `useMemo`：
 
 ```tsx
-import { memo, useMemo } from 'rues'
+import { memo, useMemo } from '@rue-js/rue'
 
 // 组件级别的 memo
 const MemoizedComponent = memo(({ valueA, valueB }) => {

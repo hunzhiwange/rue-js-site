@@ -12,7 +12,7 @@
 
 ```tsx
 // 永远不要这样做！
-import { createApp } from 'rues'
+import { createApp } from '@rue-js/rue'
 
 const app = createApp({
   template: `<div>${userProvidedString}</div>`, // 永远不要这样做
@@ -170,10 +170,6 @@ Rue 模板被编译成 JavaScript，模板内的表达式将作为渲染过程�
 ## 后端协调 (Backend Coordination) {#backend-coordination}
 
 HTTP 安全漏洞，如跨站请求伪造 (CSRF/XSRF) 和跨站脚本包含 (XSSI)，主要在后端解决，因此不是 Rue 关注的问题。但是，与后端团队沟通以了解如何最好地与他们的 API 交互仍然是一个好主意，例如，通过表单提交提交 CSRF 令牌。
-
-## 服务器端渲染 (SSR) {#server-side-rendering-ssr}
-
-使用 SSR 时有一些额外的安全问题，因此请务必遵循 [我们的 SSR 文档](/guide/scaling-up/ssr) 中概述的最佳实践以避免漏洞。
 
 ## 内容安全策略 (CSP) {#content-security-policy}
 

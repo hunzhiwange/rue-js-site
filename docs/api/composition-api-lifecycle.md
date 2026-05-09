@@ -1,7 +1,7 @@
 # 组合式 API：生命周期钩子 {#composition-api-lifecycle-hooks}
 
 :::info 使用说明
-本页列出的所有 API 必须在组件的 `setup()` 阶段同步调用。有关更多详细信息，请参阅[指南 - 生命周期钩子](/guide/essentials/lifecycle)。
+本页列出的所有 API 都必须在组件初始化阶段同步调用。在函数组件里，这通常就是组件函数同步执行期间；在对象形式组件里，则对应 `setup()` 的同步执行期间。有关更多详细信息，请参阅[指南 - 生命周期钩子](/guide/essentials/lifecycle)。
 :::
 
 ## onMounted() {#onmounted}
@@ -11,10 +11,7 @@
 - **类型**
 
   ```ts
-  function onMounted(
-    callback: () => void,
-    target?: ComponentInternalInstance | null,
-  ): void
+  function onMounted(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **详情**
@@ -33,12 +30,12 @@
   通过模板 ref 访问元素：
 
   ```js
-  import { ref, onMounted } from 'rues'
+  import { onMounted, useRef } from '@rue-js/rue'
 
-  const el = ref()
+  const el = useRef<HTMLDivElement>()
 
   onMounted(() => {
-    el.value // <div>
+    el.current // <div>
   })
   ```
 
@@ -49,10 +46,7 @@
 - **类型**
 
   ```ts
-  function onUpdated(
-    callback: () => void,
-    target?: ComponentInternalInstance | null,
-  ): void
+  function onUpdated(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **详情**
@@ -72,7 +66,7 @@
   访问更新的 DOM：
 
   ```js
-  import { ref, onUpdated } from 'rues'
+  import { ref, onUpdated } from '@rue-js/rue'
 
   const count = ref(0)
 
@@ -89,10 +83,7 @@
 - **类型**
 
   ```ts
-  function onUnmounted(
-    callback: () => void,
-    target?: ComponentInternalInstance | null,
-  ): void
+  function onUnmounted(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **详情**
@@ -100,7 +91,7 @@
   组件在以下情况下被视为已卸载：
   - 所有其子组件都已卸载。
 
-  - 所有其关联的响应式 effect（渲染 effect 和在 `setup()` 期间创建的 computed/watchers）都已停止。
+  - 所有其关联的响应式 effect（渲染 effect 和在组件初始化阶段创建的 computed/watchers）都已停止。
 
   使用此钩子清理手动创建的副作用，如计时器、DOM 事件监听器或服务器连接。
 
@@ -109,7 +100,7 @@
 - **示例**
 
   ```js
-  import { onMounted, onUnmounted } from 'rues'
+  import { onMounted, onUnmounted } from '@rue-js/rue'
 
   let intervalId
   onMounted(() => {
@@ -128,10 +119,7 @@
 - **类型**
 
   ```ts
-  function onBeforeMount(
-    callback: () => void,
-    target?: ComponentInternalInstance | null,
-  ): void
+  function onBeforeMount(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **详情**
@@ -147,10 +135,7 @@
 - **类型**
 
   ```ts
-  function onBeforeUpdate(
-    callback: () => void,
-    target?: ComponentInternalInstance | null,
-  ): void
+  function onBeforeUpdate(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **详情**
@@ -166,10 +151,7 @@
 - **类型**
 
   ```ts
-  function onBeforeUnmount(
-    callback: () => void,
-    target?: ComponentInternalInstance | null,
-  ): void
+  function onBeforeUnmount(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **详情**
@@ -178,7 +160,7 @@
 
   **此钩子在服务器端渲染期间不会被调用。**
 
-## onErrorCaptured() {#onerrorcaptured}
+## onErrorCaptured() {#onerrorcaptured} @todo
 
 注册一个钩子，在从后代组件捕获到传播的错误时调用。
 
@@ -200,7 +182,7 @@
   - 组件渲染
   - 事件处理器
   - 生命周期钩子
-  - `setup()` 函数
+  - 组件初始化入口
   - Watchers
   - 自定义指令钩子
   - 过渡钩子
@@ -224,7 +206,7 @@
 
   - `errorCaptured` 钩子可以返回 `false` 来阻止错误进一步传播。这实质上是说"此错误已处理，应忽略"。它将阻止为此错误调用任何额外的 `errorCaptured` 钩子或 `app.config.errorHandler`。
 
-## onRenderTracked() {#onrendertracked}
+## onRenderTracked() {#onrendertracked} @todo
 
 注册一个调试钩子，在组件的渲染 effect 追踪到响应式依赖时调用。
 
@@ -247,7 +229,7 @@
 
 - **另请参阅** [深入响应式系统](/guide/extras/reactivity-in-depth)
 
-## onRenderTriggered() {#onrendertriggered}
+## onRenderTriggered() {#onrendertriggered} @todo
 
 注册一个调试钩子，在响应式依赖触发组件的渲染 effect 重新运行时调用。
 
@@ -273,7 +255,7 @@
 
 - **另请参阅** [深入响应式系统](/guide/extras/reactivity-in-depth)
 
-## onActivated() {#onactivated}
+## onActivated() {#onactivated} @todo
 
 注册一个回调，在组件实例作为被 [`<KeepAlive>`](/api/built-in-components#keepalive) 缓存的树的一部分插入到 DOM 后调用。
 
@@ -282,15 +264,12 @@
 - **类型**
 
   ```ts
-  function onActivated(
-    callback: () => void,
-    target?: ComponentInternalInstance | null,
-  ): void
+  function onActivated(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **另请参阅** [指南 - 缓存实例的生命周期](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
-## onDeactivated() {#ondeactivated}
+## onDeactivated() {#ondeactivated} @todo
 
 注册一个回调，在组件实例作为被 [`<KeepAlive>`](/api/built-in-components#keepalive) 缓存的树的一部分从 DOM 中移除后调用。
 
@@ -299,15 +278,12 @@
 - **类型**
 
   ```ts
-  function onDeactivated(
-    callback: () => void,
-    target?: ComponentInternalInstance | null,
-  ): void
+  function onDeactivated(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **另请参阅** [指南 - 缓存实例的生命周期](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
-## onServerPrefetch() {#onserverprefetch}
+## onServerPrefetch() {#onserverprefetch} @todo
 
 注册一个异步函数，在组件实例即将在服务器上渲染之前解析。
 
@@ -326,7 +302,7 @@
 - **示例**
 
   ```js
-  import { ref, onServerPrefetch, onMounted } from 'rues'
+  import { ref, onServerPrefetch, onMounted } from '@rue-js/rue'
 
   const data = ref(null)
 

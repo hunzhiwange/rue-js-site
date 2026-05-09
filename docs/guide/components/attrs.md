@@ -13,10 +13,7 @@ interface MyButtonProps {
   children?: React.ReactNode
 }
 
-function MyButton({
-  children,
-  ...attrs
-}: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
+function MyButton({ children, ...attrs }: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
   return <button {...attrs}>{children}</button>
 }
 ```
@@ -40,10 +37,7 @@ function MyButton({
 如果子组件的根元素已经有现有的 `class` 或 `style` 属性，它们会与从父组件继承的值合并。假设我们将之前示例中的 `<MyButton>` 模板改为：
 
 ```tsx
-function MyButton({
-  children,
-  ...attrs
-}: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
+function MyButton({ children, ...attrs }: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
   return (
     <button class="btn" {...attrs}>
       {children}
@@ -61,7 +55,7 @@ function MyButton({
 注意：在 Rue/TSX 中，后续属性会覆盖前面的属性。要正确合并 class，你需要使用辅助函数：
 
 ```tsx
-import { clsx } from 'rues'
+import { clsx } from '@rue-js/rue'
 
 function MyButton({
   children,
@@ -134,10 +128,7 @@ interface MyButtonProps {
   children?: React.ReactNode
 }
 
-function MyButton({
-  children,
-  ...attrs
-}: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
+function MyButton({ children, ...attrs }: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
   return (
     <div class="btn-wrapper">
       <button class="btn" {...attrs}>
@@ -153,10 +144,7 @@ function MyButton({
 我们希望所有透传属性如 `class` 和事件监听器都应用于内部的 `<button>`，而不是外部的 `<div>`。我们可以通过展开运算符实现这一点：
 
 ```tsx {2}
-function MyButton({
-  children,
-  ...attrs
-}: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
+function MyButton({ children, ...attrs }: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
   return (
     <div class="btn-wrapper">
       <button class="btn" {...attrs}>
@@ -178,10 +166,7 @@ interface CustomLayoutProps {
   children?: React.ReactNode
 }
 
-function CustomLayout({
-  children,
-  ...attrs
-}: CustomLayoutProps & JSX.HTMLAttributes<HTMLElement>) {
+function CustomLayout({ children, ...attrs }: CustomLayoutProps & JSX.HTMLAttributes<HTMLElement>) {
   return (
     <>
       <header>...</header>
@@ -209,10 +194,7 @@ interface MyButtonProps {
   children?: React.ReactNode
 }
 
-function MyButton({
-  children,
-  ...attrs
-}: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
+function MyButton({ children, ...attrs }: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
   // 透传属性在 attrs 对象中
   console.log(attrs)
 
@@ -233,10 +215,7 @@ interface MyButtonProps {
   children?: React.ReactNode
 }
 
-function MyButton({
-  children,
-  ...attrs
-}: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
+function MyButton({ children, ...attrs }: MyButtonProps & JSX.HTMLAttributes<HTMLButtonElement>) {
   // 访问特定的透传属性
   const { class: className, onClick, id } = attrs
 

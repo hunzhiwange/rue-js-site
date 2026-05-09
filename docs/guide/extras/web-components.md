@@ -77,148 +77,104 @@ module.exports = {
 
 自定义元素的主要好处是它们可以与任何框架一起使用，甚至可以完全不使用框架。这使它们成为分发组件的理想选择，因为最终消费者可能不使用相同的前端技术栈，或者当你想将最终应用程序与其实现细节隔离时。
 
-### defineCustomElement {#definecustomelement}
+### useCustomElement {#definecustomelement}
 
-Rue 支持使用与 Rue 组件 API 完全相同的方式创建自定义元素，通过 [`defineCustomElement`](/api/custom-elements#definecustomelement) 方法。该方法接受与 [`defineComponent`](/api/general#definecomponent) 相同的参数，但返回一个扩展 `HTMLElement` 的自定义元素构造函数：
+Rue 当前提供一个最小但可用的 `useCustomElement()` 包装器，用于把 Rue 组件注册为原生 Custom Element。它返回一个扩展 `HTMLElement` 的构造函数：
 
 ```vue-html
 <my-rue-element></my-rue-element>
 ```
 
 ```js
-import { defineCustomElement } from 'rues'
+import { useCustomElement } from '@rue-js/rue'
 
-const MyRueElement = defineCustomElement({
-  // 普通 Rue 组件选项在这里
-  props: {},
-  emits: {},
-  template: `...`,
-
-  // defineCustomElement 特有：要注入到 shadow root 的 CSS
-  styles: [`/* 内联 css */`],
-})
+const MyRueElement = useCustomElement(
+  props => {
+    return <p>{props.label ?? 'hello'}</p>
+  },
+  {
+    styles: [':host { display: block; }'],
+    shadowRoot: true,
+  },
+)
 
 // 注册自定义元素。
-// 注册后，页面上所有 `<my-rue-element>` 标签
-// 都将被升级。
+// 注册后，页面上所有 <my-rue-element> 标签都会被升级。
 customElements.define('my-rue-element', MyRueElement)
 
-// 你也可以以编程方式实例化元素：
-// （只能在注册后完成）
-document.body.appendChild(
-  new MyRueElement({
-    // 初始 props（可选）
-  }),
-)
+const el = document.createElement('my-rue-element')
+el.setAttribute('label', 'from-attr')
+el.props = { count: 1 }
+document.body.appendChild(el)
 ```
 
-#### 生命周期 {#lifecycle}
+#### 当前行为 {#lifecycle}
 
-- 当元素的 [`connectedCallback`](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#using_the_lifecycle_callbacks) 首次被调用时，Rue 自定义元素将在其 shadow root 中挂载一个内部 Rue 组件实例。
+- 当元素进入文档时，Rue 会在宿主元素或 shadow root 中挂载一个内部 Rue 应用实例。
 
-- 当元素的 `disconnectedCallback` 被调用时，Rue 会在微任务 tick 后检查元素是否已从文档中分离。
-  - 如果元素仍在文档中，这是一次移动，组件实例将被保留；
-  - 如果元素已从文档中分离，这是一次移除，组件实例将被卸载。
+- 当元素离开文档时，当前实现会直接卸载内部 Rue 应用实例。
 
 #### Props {#props}
 
-- 使用 `props` 选项声明的所有 props 将在自定义元素上定义为属性。Rue 将在适当的情况下自动处理属性/属性之间的反射。
-  - 属性始终反射到相应的属性。
-  - 具有原始值（`string`、`boolean` 或 `number`）的属性将反射为属性。
+- 宿主元素上的 HTML 属性会被读取并转换为 camelCase 字符串 props。
 
-- Rue 还会自动将声明为 `Boolean` 或 `Number` 类型的 props 在作为属性设置时（始终是字符串）转换为所需类型。例如，给定以下 props 声明：
+- 对于非字符串值，可以直接写入宿主实例的 `props` 对象：
 
   ```js
-  props: {
-    selected: Boolean,
-    index: Number
+  const el = document.querySelector('my-rue-element')
+  el.props = {
+    count: 1,
+    enabled: true,
   }
   ```
 
-  和自定义元素用法：
+- 当属性或 `props` 变化时，当前实现会把新值同步到同一个响应式 props 容器，由已有组件子树完成细粒度更新，不再整棵重挂载。
 
-  ```vue-html
-  <my-element selected index="1"></my-element>
-  ```
+#### Hooks {#hooks}
 
-  在组件中，`selected` 将被转换为 `true`（布尔值），`index` 将被转换为 `1`（数字）。
+- `useHost()` 可返回当前自定义元素宿主节点。
+- `useShadowRoot()` 可返回当前自定义元素的 shadow root；若当前元素使用 light DOM，则返回 `null`。
 
 #### 事件 {#events}
 
-通过 `this.$emit` 或 setup `emit` 发出的事件将在自定义元素上作为原生 [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events#adding_custom_data_%E2%80%93_customevent) 调度。额外的事件参数（payload）将作为 CustomEvent 对象 `detail` 属性的数组暴露。
+- 组件内部通过 `emitted(props)` 发出的事件，会在宿主元素上桥接为同名 `CustomEvent`。
+- 事件参数会按原顺序放到 `event.detail` 数组里。
+- 桥接事件使用 `bubbles: true` 和 `composed: true`，因此可以用 `el.addEventListener(...)` 在宿主或外层节点上监听。
 
 #### 插槽 {#slots}
 
-在组件内部，可以像往常一样使用 `<slot/>` 元素渲染插槽。然而，在使用生成的元素时，它只接受[原生插槽语法](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots)：
+- 在 `shadowRoot: true` 模式下，组件中的原生 `<slot>` 会直接使用浏览器的原生 slot 分发。
+- 命名插槽继续使用原生 `slot` 属性，例如 `<div slot="named">...</div>`。
+- `shadowRoot: false` 时没有原生 shadow DOM slot 投影。
 
-- [作用域插槽](/guide/components/slots#scoped-slots)不受支持。
-- 传递命名插槽时，使用 `slot` 属性而不是 `v-slot` 指令：
+#### 支持的选项 {#app-level-config}
 
-  ```vue-html
-  <my-element>
-    <div slot="named">hello</div>
-  </my-element>
-  ```
+- `styles`：把一组内联 CSS 字符串注入到挂载目标。
+- `shadowRoot`：默认 `true`。设置为 `false` 时改为 light DOM 渲染。
+- `nonce`：为注入的 `<style>` 标签设置 `nonce`。
+- `configureApp`：可拿到 `useApp()` 返回值以安装插件或追加应用级配置。
 
-#### Provide / Inject {#provide-inject}
+#### 当前限制 {#events}
 
-[Provide / Inject API](/guide/components/provide-inject#provide-inject) 及其 [Composition API 等效项](/api/composition-api-dependency-injection#provide) 也在 Rue 定义的自定义元素之间工作。然而，请注意这**仅在自定义元素之间**工作。也就是说，Rue 定义的自定义元素将无法注入由非自定义元素 Rue 组件提供的属性。
-
-#### 应用级别配置 <sup class="vt-badge" data-text="3.5+" /> {#app-level-config}
-
-你可以使用 `configureApp` 选项配置 Rue 自定义元素的应用实例：
-
-```js
-defineCustomElement(MyComponent, {
-  configureApp(app) {
-    app.config.errorHandler = err => {
-      /* ... */
-    }
-  },
-})
-```
-
-### SFC 作为自定义元素 {#sfc-as-custom-element}
-
-`defineCustomElement` 也适用于 Rue 单文件组件（SFC）。然而，使用默认的工具设置，SFC 中的 `<style>` 仍将在生产构建期间提取并合并到单个 CSS 文件中。当使用 SFC 作为自定义元素时，通常希望将 `<style>` 标签注入到自定义元素的 shadow root 中。
-
-官方 SFC 工具支持以"自定义元素模式"导入 SFC（需要 `@vitejs/plugin-rue@^1.4.0` 或 `rue-loader@^16.5.0`）。以自定义元素模式加载的 SFC 将其 `<style>` 标签内联为 CSS 字符串，并在组件的 `styles` 选项下暴露它们。这将被 `defineCustomElement` 获取并在实例化时注入到元素的 shadow root 中。
-
-要选择加入此模式，只需将组件文件名以 `.ce.rue` 结尾：
-
-```js
-import { defineCustomElement } from 'rues'
-import Example from './Example.ce.rue'
-
-console.log(Example.styles) // ["/* 内联 css */"]
-
-// 转换为自定义元素构造函数
-const ExampleElement = defineCustomElement(Example)
-
-// 注册
-customElements.define('my-example', ExampleElement)
-```
-
-如果你希望自定义哪些文件应以自定义元素模式导入（例如，将所有 SFC 视为自定义元素），你可以将 `customElement` 选项传递给相应的构建插件：
-
-- [@vitejs/plugin-rue](https://github.com/vitejs/vite-plugin-rue/tree/main/packages/plugin-rue#using-rue-sfcs-as-custom-elements)
-- [rue-loader](https://github.com/ruesjs/rue-loader/tree/next#v16-only-options)
+- 还没有 `this.$host`。
+- 还没有作用域插槽或自定义元素专用的 provide/inject 语义。
+- 还没有单文件组件的 custom-element 专用构建链路；如果你要注入样式，请显式通过 `styles` 选项传入。
 
 ### Rue 自定义元素库技巧 {#tips-for-a-rue-custom-elements-library}
 
-使用 Rue 构建自定义元素时，元素将依赖 Rue 的运行时。根据使用的功能数量，有约 16kb 的基线大小成本。这意味着如果你要交付单个自定义元素，使用 Rue 并不理想——你可能希望使用纯 JavaScript、[petite-rue](https://github.com/ruesjs/petite-rue)，或专门优化小运行时大小的框架。然而，如果你要交付一组具有复杂逻辑的自定义元素，基线大小是合理的，因为 Rue 将允许每个组件用更少的代码编写。一起交付的元素越多，权衡就越好。
+使用 Rue 构建自定义元素时，元素将依赖 Rue 的运行时。根据使用的功能数量，有约 16kb 的基线大小成本。这意味着如果你要交付单个自定义元素，使用 Rue 并不理想——你可能希望使用纯 JavaScript、[petite-rue](https://github.com/@rue-js/ruejs/petite-rue)，或专门优化小运行时大小的框架。然而，如果你要交付一组具有复杂逻辑的自定义元素，基线大小是合理的，因为 Rue 将允许每个组件用更少的代码编写。一起交付的元素越多，权衡就越好。
 
 如果自定义元素将在也使用 Rue 的应用程序中使用，你可以选择将 Rue 从构建包中外部化，以便元素将使用主机应用程序中的相同 Rue 副本。
 
 建议导出单个元素构造函数，以给用户按需导入并使用所需标签名注册的灵活性。你还可以导出一个便利函数来自动注册所有元素。以下是 Rue 自定义元素库的入口点示例：
 
 ```js [elements.js]
-import { defineCustomElement } from 'rues'
-import Foo from './MyFoo.ce.rue'
-import Bar from './MyBar.ce.rue'
+import { useCustomElement } from '@rue-js/rue'
+import Foo from './MyFoo'
+import Bar from './MyBar'
 
-const MyFoo = defineCustomElement(Foo)
-const MyBar = defineCustomElement(Bar)
+const MyFoo = useCustomElement(Foo)
+const MyBar = useCustomElement(Bar)
 
 // 导出单个元素
 export { MyFoo, MyBar }
@@ -265,24 +221,24 @@ export function MyComponent() {
 
 编写 Rue SFC 模板时，你可能希望[类型检查](/guide/scaling-up/tooling.html#typescript)你的 Rue 组件，包括那些定义为自定义元素的组件。
 
-自定义元素使用浏览器内置 API 全局注册，默认情况下在 Rue 模板中使用它们时没有类型推断。要为注册为自定义元素的 Rue 组件提供类型支持，我们可以通过扩充 [`GlobalComponents` 接口](https://github.com/ruesjs/language-tools/wiki/Global-Component-Types)来注册全局组件类型以在 Rue 模板中进行类型检查（JSX 用户可以改为扩充 [JSX.IntrinsicElements](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements) 类型，此处未展示）。
+自定义元素使用浏览器内置 API 全局注册，默认情况下在 Rue 模板中使用它们时没有类型推断。要为注册为自定义元素的 Rue 组件提供类型支持，我们可以通过扩充 [`GlobalComponents` 接口](https://github.com/@rue-js/ruejs/language-tools/wiki/Global-Component-Types)来注册全局组件类型以在 Rue 模板中进行类型检查（JSX 用户可以改为扩充 [JSX.IntrinsicElements](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements) 类型，此处未展示）。
 
 以下是如何为使用 Rue 制作的自定义元素定义类型：
 
 ```typescript
-import { defineCustomElement } from 'rues'
+import { useCustomElement } from '@rue-js/rue'
 
 // 导入 Rue 组件。
 import SomeComponent from './src/components/SomeComponent.ce.rue'
 
 // 将 Rue 组件转换为自定义元素类。
-export const SomeElement = defineCustomElement(SomeComponent)
+export const SomeElement = useCustomElement(SomeComponent)
 
 // 记住在浏览器中注册元素类。
 customElements.define('some-element', SomeElement)
 
 // 将新元素类型添加到 Rue 的 GlobalComponents 类型。
-declare module 'rues' {
+declare module '@rue-js/rue' {
   interface GlobalComponents {
     // 确保在此处传入 Rue 组件类型
     //（SomeComponent，*不是* SomeElement）。
@@ -354,9 +310,7 @@ type DefineCustomElement<
   // props 组合在一起。
   /** @deprecated 不要在自定义元素 ref 上使用 $props 属性，
     这仅用于模板 prop 类型。 */
-  $props: HTMLAttributes &
-    Partial<Pick<ElementType, SelectedAttributes>> &
-    PublicProps
+  $props: HTMLAttributes & Partial<Pick<ElementType, SelectedAttributes>> & PublicProps
 
   // 使用 $emit 专门定义事件类型。Rue 专门从
   // `$emit` 类型读取事件类型。注意 `$emit` 期望的特定
@@ -383,22 +337,14 @@ type RueEmit<T extends EventMap> = EmitFn<{
 使用类型辅助工具，我们现在可以选择应在 Rue 模板中暴露进行类型检查的 JS 属性：
 
 ```ts [some-lib/src/SomeElement.rue.ts]
-import {
-  SomeElement,
-  SomeElementAttributes,
-  SomeElementEvents,
-} from './SomeElement.js'
-import type { Component } from 'rues'
+import { SomeElement, SomeElementAttributes, SomeElementEvents } from './SomeElement.js'
+import type { Component } from '@rue-js/rue'
 import type { DefineCustomElement } from './DefineCustomElement'
 
 // 将新元素类型添加到 Rue 的 GlobalComponents 类型。
-declare module 'rues' {
+declare module '@rue-js/rue' {
   interface GlobalComponents {
-    'some-element': DefineCustomElement<
-      SomeElement,
-      SomeElementAttributes,
-      SomeElementEvents
-    >
+    'some-element': DefineCustomElement<SomeElement, SomeElementAttributes, SomeElementEvents>
   }
 }
 ```
@@ -406,7 +352,7 @@ declare module 'rues' {
 假设 `some-lib` 将其源 TypeScript 文件构建到 `dist/` 文件夹中。`some-lib` 的用户然后可以导入 `SomeElement` 并在 Rue SFC 中使用它，如下所示：
 
 ```vue [SomeElementImpl.vue]
-<script setup lang="ts">
+<script lang="ts">
 // 这将创建并向浏览器注册元素。
 import 'some-lib/dist/SomeElement.js'
 
@@ -415,29 +361,24 @@ import 'some-lib/dist/SomeElement.js'
 // 导入其他框架特定的类型定义）。
 import type {} from 'some-lib/dist/SomeElement.rue.js'
 
-import { useTemplateRef, onMounted } from 'rues'
+import { onMounted, useRef } from '@rue-js/rue'
 
-const el = useTemplateRef('el')
+const el = useRef<SomeElement>()
 
 onMounted(() => {
-  console.log(
-    el.value!.foo,
-    el.value!.bar,
-    el.value!.lorem,
-    el.value!.someMethod(),
-  )
+  console.log(el.current!.foo, el.current!.bar, el.current!.lorem, el.current!.someMethod())
 
   // 不要使用这些 props，它们是 `undefined`
   // IDE 会显示它们被划线
-  el.$props
-  el.$emit
+  el.current!.$props
+  el.current!.$emit
 })
 </script>
 
 <template>
   <!-- 现在我们可以使用元素并进行类型检查： -->
   <some-element
-    ref="el"
+    :ref="el"
     :foo="456"
     :blah="'hello'"
     @apple-fell="
@@ -467,7 +408,7 @@ interface AppleFellEvent extends Event {
 }
 
 // 将新元素类型添加到 Rue 的 GlobalComponents 类型。
-declare module 'rues' {
+declare module '@rue-js/rue' {
   interface GlobalComponents {
     'some-element': DefineCustomElement<SomeElementProps, SomeElementEvents>
   }
@@ -491,7 +432,6 @@ declare module 'rues' {
 
 - 一个声明式和高效的模板系统；
 - 一个响应式状态管理系统，便于跨组件逻辑提取和复用；
-- 一种在服务器上渲染组件并在客户端水合它们的高性能方式（SSR），这对 SEO 和 [Web Vitals 指标如 LCP](https://web.dev/vitals/) 很重要。原生自定义元素 SSR 通常涉及在 Node.js 中模拟 DOM 然后序列化变异的 DOM，而 Rue SSR 尽可能编译为字符串连接，这要高效得多。
 
 Rue 的组件模型将这些需求设计为一个连贯的系统。
 
@@ -502,7 +442,5 @@ Rue 的组件模型将这些需求设计为一个连贯的系统。
 我们还发现自定义元素在某些方面有限制：
 
 - 急切的插槽评估阻碍了组件组合。Rue 的[作用域插槽](/guide/components/slots#scoped-slots)是一种强大的组件组合机制，由于原生插槽的急切特性，无法被自定义元素支持。急切的插槽也意味着接收组件无法控制何时或是否渲染一段插槽内容。
-
-- 今天使用 shadow DOM 交付带有作用域 CSS 的自定义元素需要将 CSS 嵌入 JavaScript 中，以便它们可以在运行时注入到 shadow root 中。它们在 SSR 场景中也导致标记中的重复样式。有[平台功能](https://github.com/whatwg/html/pull/4898/)正在这个领域开发——但截至目前它们尚未普遍支持，并且仍有生产性能/SSR 问题需要解决。与此同时，Rue SFC 提供支持将样式提取到纯 CSS 文件的 [CSS 作用域机制](/api/sfc-css-features)。
 
 Rue 将始终与 Web 平台的最新标准保持同步，如果平台提供的任何东西能让我们的工作更轻松，我们将很乐意利用它。然而，我们的目标是提供今天运行良好且有效的解决方案。这意味着我们必须以批判的态度纳入新平台功能——这涉及在标准仍有不足时填补空白。

@@ -1,12 +1,8 @@
 # 路由 {#routing}
 
-## 客户端路由 vs 服务端路由 {#client-side-vs-server-side-routing}
+## 客户端路由
 
-服务端路由意味着服务器根据用户访问的 URL 路径发送响应。当我们在传统的服务端渲染 Web 应用中点击链接时，浏览器会从服务器接收 HTML 响应，并用新的 HTML 重新加载整个页面。
-
-然而，在[单页应用](https://developer.mozilla.org/en-US/docs/Glossary/SPA)（SPA）中，客户端 JavaScript 可以拦截导航，动态获取新数据，并更新当前页面而无需完全重新加载。这通常会带来更流畅的用户体验，特别是对于更像实际"应用"的用例，用户预计在较长时间内进行多次交互。
-
-在这样的 SPA 中，"路由"在客户端浏览器中完成。客户端路由器负责使用浏览器 API（如 [History API](https://developer.mozilla.org/en-US/docs/Web/API/History) 或 [`hashchange` 事件](https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event)）管理应用的渲染视图。
+服务端路由意味着服务器根据用户访问的 URL 路径发送响应。
 
 ## 官方路由 {#official-router}
 
@@ -19,7 +15,7 @@ Rue 非常适合构建 SPA。对于大多数 SPA，建议使用官方支持的 [
 以下是一个最简单的示例：
 
 ```tsx
-import { ref, computed, type FC } from 'rues'
+import { ref, computed, type FC } from '@rue-js/rue'
 import Home from './Home'
 import About from './About'
 import NotFound from './NotFound'
@@ -53,7 +49,7 @@ export const App: FC = () => {
 这是一个使用 History API 的改进版本：
 
 ```tsx
-import { ref, computed, type FC } from 'rues'
+import { ref, computed, type FC } from '@rue-js/rue'
 import Home from './Home'
 import About from './About'
 import NotFound from './NotFound'
@@ -116,17 +112,13 @@ export const App: FC = () => {
 }
 ```
 
-## 使用 @rue/router {#using-rue-router}
+## 使用 @rue-js/router {#using-@rue-js/router}
 
-对于生产环境应用，推荐使用 `@rue/router`。以下是一个基本示例：
+对于生产环境应用，推荐使用 `@rue-js/router`。以下是一个基本示例：
 
 ```tsx
-import {
-  createRouter,
-  createWebHistory,
-  type RouteRecordRaw,
-} from '@rue/router'
-import { createApp } from 'rues'
+import { createRouter, createWebHistory, type RouteRecordRaw } from '@rue-js/router'
+import { createApp } from '@rue-js/rue'
 import Home from './views/Home'
 import About from './views/About'
 
@@ -148,7 +140,7 @@ app.mount('#app')
 在组件中使用路由：
 
 ```tsx
-import { useRoute, useRouter, type FC } from 'rues'
+import { useRoute, useRouter, type FC } from '@rue-js/rue'
 
 export const UserProfile: FC = () => {
   const route = useRoute()
@@ -172,7 +164,7 @@ export const UserProfile: FC = () => {
 ### 路由守卫
 
 ```tsx
-import { useRouter } from '@rue/router'
+import { useRouter } from '@rue-js/router'
 
 const router = useRouter()
 
@@ -199,8 +191,8 @@ const routes = [
 ### 路由配置
 
 ```tsx
-import { createRouter, createWebHistory } from '@rue/router'
-import type { RouteRecordRaw } from '@rue/router'
+import { createRouter, createWebHistory } from '@rue-js/router'
+import type { RouteRecordRaw } from '@rue-js/router'
 
 const routes: RouteRecordRaw[] = [
   {

@@ -145,7 +145,7 @@ function whenDepsChange(update) {
 Rue 提供了一个允许你创建响应式 effect 的 API：[`watchEffect()`](/api/reactivity-core#watcheffect)。事实上，你可能已经注意到它的工作方式与示例中神奇的 `whenDepsChange()` 非常相似。我们现在可以使用实际的 Rue API 重写原始示例：
 
 ```tsx
-import { ref, watchEffect } from 'rues'
+import { ref, watchEffect } from '@rue-js/rue'
 
 const A0 = ref(0)
 const A1 = ref(1)
@@ -163,7 +163,7 @@ A0.value = 2
 使用响应式 effect 来修改 ref 并不是最有趣的用例——事实上，使用计算属性使其更具声明性：
 
 ```tsx
-import { ref, computed } from 'rues'
+import { ref, computed } from '@rue-js/rue'
 
 const A0 = ref(0)
 const A1 = ref(1)
@@ -177,7 +177,7 @@ A0.value = 2
 那么常见且有用的响应式 effect 示例是什么呢？嗯，更新 DOM！我们可以这样实现简单的"响应式渲染"：
 
 ```tsx
-import { ref, watchEffect } from 'rues'
+import { ref, watchEffect } from '@rue-js/rue'
 
 const count = ref(0)
 
@@ -203,7 +203,7 @@ Rue 的响应式系统主要基于运行时：跟踪和触发都在浏览器中�
 
 一些框架，例如 [Svelte](https://svelte.dev/)，选择在编译期间实现响应式来克服此类限制。它分析和转换代码以模拟响应式。编译步骤允许框架改变 JavaScript 本身的语义——例如，隐式注入在访问局部定义变量时执行依赖分析和 effect 触发的代码。缺点是这样的转换需要构建步骤，而改变 JavaScript 语义本质上是在创建一种看起来像 JavaScript 但编译成其他东西的语言。
 
-Rue 团队确实通过一个名为 [Reactivity Transform](/guide/extras/reactivity-transform) 的实验性功能探索了这个方向，但最终我们决定由于[这里的原因](https://github.com/ruesjs/rfcs/discussions/369#discussioncomment-5059028)它不适合该项目。
+Rue 团队确实通过一个名为 [Reactivity Transform](/guide/extras/reactivity-transform) 的实验性功能探索了这个方向，但最终我们决定由于[这里的原因](https://github.com/@rue-js/ruejs/rfcs/discussions/369#discussioncomment-5059028)它不适合该项目。
 
 ## 响应式调试 {#reactivity-debugging}
 
@@ -216,8 +216,8 @@ Rue 的响应式系统自动跟踪依赖是很好的，但在某些情况下，�
 <div class="composition-api">
 
 ```tsx
-import { onRenderTracked, onRenderTriggered } from 'rues'
-import type { FC } from 'rues'
+import { onRenderTracked, onRenderTriggered } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const App: FC = () => {
   onRenderTracked(event => {
@@ -266,7 +266,7 @@ type DebuggerEvent = {
 两个回调都将接收与组件调试钩子[相同格式](#debugger-event)的调试器事件：
 
 ```tsx
-import { computed, ref } from 'rues'
+import { computed, ref } from '@rue-js/rue'
 
 const count = ref(0)
 
@@ -297,7 +297,7 @@ count.value++
 与 `computed()` 类似，watchers 也支持 `onTrack` 和 `onTrigger` 选项：
 
 ```tsx
-import { watch, watchEffect, ref } from 'rues'
+import { watch, watchEffect, ref } from '@rue-js/rue'
 
 const source = ref(0)
 
@@ -351,7 +351,7 @@ Rue 的响应式系统通过将普通 JavaScript 对象深度转换为响应式�
 
 ```tsx
 import { produce } from 'immer'
-import { shallowRef } from 'rues'
+import { shallowRef } from '@rue-js/rue'
 
 export function useImmer<T>(baseState: T) {
   const state = shallowRef(baseState)
@@ -371,7 +371,7 @@ JavaScript 中最流行的状态机实现之一是 [XState](https://xstate.js.or
 
 ```tsx
 import { createMachine, interpret } from 'xstate'
-import { shallowRef } from 'rues'
+import { shallowRef } from '@rue-js/rue'
 
 export function useMachine<T>(options: T) {
   const machine = createMachine(options)
@@ -400,7 +400,94 @@ export function useMachine<T>(options: T) {
 
 从根本上讲，signals 与 Rue refs 是同一种响应式原语。它是一个值容器，在访问时提供依赖跟踪，在修改时触发副作用。这种基于响应式原语的范式在前端世界中并不是一个特别新的概念：它可以追溯到十多年前的实现，如 [Knockout observables](https://knockoutjs.com/documentation/observables.html) 和 [Meteor Tracker](https://docs.meteor.com/api/tracker.html)。Rue Options API 和 React 状态管理库 [MobX](https://mobx.js.org/) 也基于相同的原理，但将原语隐藏在对象属性后面。
 
-虽然不是某物有资格成为 signals 的必要特征，但如今这个概念经常与通过细粒度订阅执行更新的渲染模型一起讨论。由于使用虚拟 DOM，Rue 目前[依靠编译器来实现类似的优化](/guide/extras/rendering-mechanism#compiler-informed-virtual-dom)。然而，我们也在探索一种受 Solid 启发的新编译策略，称为 [Vapor Mode](https://github.com/ruesjs/core-vapor)，它不依赖虚拟 DOM，并更多地利用 Rue 的内置响应式系统。
+虽然不是某物有资格成为 signals 的必要特征，但如今这个概念经常与通过细粒度订阅执行更新的渲染模型一起讨论。Rue 当前默认已经把编译期知识下沉到 Block / Vapor 渲染路径中，并通过[编译器知情的 Block / Vapor](/guide/extras/rendering-mechanism#compiler-informed-virtual-dom)把更新收敛到更小的动态边界，而不是依赖整棵运行时树的全量 diff。
+
+这也是 Rue 响应式系统与运行时结合的关键点：响应式依赖不只是决定“重新执行哪段代码”，还决定“重新接管哪个 block、哪个区间、哪个 DOM 边界”。
+\*\*\* Add File: /Users/Shared/work/dir/data/codes/rue/docs/guide/migration/renderable-default.md
+
+# 默认 Block / Vapor 路径迁移
+
+Rue 当前默认的编译与运行时路径已经是 Block / Vapor / Renderable-first。对大多数应用来说，这只是内部实现升级，你仍然写模板或普通 JSX；但如果你维护的是旧的手写渲染 helper、库级桥接层或预编译产物，这一页就是你需要的迁移清单。
+
+## 谁需要关注这次迁移
+
+下面这些场景需要显式检查：
+
+- 你从默认主入口导入过旧的手写渲染 helper
+- 你手写过依赖旧渲染输出内部字段的渲染 helper
+- 你分发的是预编译后的组件、指令或运行时桥接代码
+- 你在库内部手动拼接 children / slot 对象以模拟旧渲染路径
+
+如果你的应用只是写模板、普通 JSX、`FC` 组件和响应式状态，通常无需改动。
+
+## 需要修改的导入
+
+默认主入口和显式 compat 子路径都已经不再提供这类 helper。历史导入现在都需要直接改写为默认 Renderable / children / raw node 路径，而不是切到新的 compat 导入。
+
+## 推荐迁移方式
+
+### 1. 新代码不要继续扩历史桥接边界
+
+新组件优先使用：
+
+- 模板
+- 普通 JSX
+- `props.children`
+- render prop / callback props
+
+如果仍有历史桥接文件，请在这轮升级里直接重写，不要继续保留 compat 壳层。
+
+### 2. 不要继续依赖旧渲染输出内部结构
+
+Rue 公开的历史渲染输出别名仍然存在，但它现在只是显式边界上的兼容说法。请不要继续假设所有输出都具备稳定的 `type / props / children / patchFlag` 内部布局。
+
+如果你仍在维护旧的对象形态桥接，请在迁移时直接删除这层桥接，而不是继续让业务组件感知它。
+
+### 3. 子内容优先建模成 children / render prop
+
+对默认内容，直接传 `children`。
+
+```tsx
+<Card>body</Card>
+```
+
+对作用域插槽，直接传函数：
+
+```tsx
+<List>{item => <span>{item.label}</span>}</List>
+```
+
+对具名内容，优先使用显式 props，而不是继续拼 slot 对象：
+
+```tsx
+<Layout footer={({ text }) => <small>{text}</small>}>body</Layout>
+```
+
+## 库作者还需要检查什么
+
+- 编译器与运行时请保持同一小版本线
+- 如果你分发预编译产物，请在 peer 依赖中声明最低运行时版本
+- 如果你内部还有历史桥接文件，请在升级时一并改写，而不是继续保留 compat 壳层
+
+## compat 的当前状态
+
+显式 compat 子路径已经删除。历史 helper、render-function 桥接和预编译产物都需要直接迁到默认路径，而不是继续保留任何兼容壳层。
+
+迁移方向只有四类：
+
+- 直接传 `children`
+- 直接传 render prop / callback props
+- 直接返回 raw node / fragment / mount handle
+- 直接使用默认 `render*` 入口
+
+## 迁移后的判断标准
+
+完成迁移后，你的代码应尽量符合下面这些特征：
+
+- 新组件不再从默认主入口期待 compat-only helper
+- 业务组件不用感知旧渲染输出内部字段
+- children / render prop / callback props 取代旧的手写 slot 对象桥接
+- 历史桥接文件已经完成重写，而不是继续保留 compat 壳层
 
 ### API 设计权衡 {#api-design-trade-offs}
 
@@ -420,7 +507,7 @@ setCount(1) // 更新值
 注意 `count` signal 可以在没有 setter 的情况下传递下去。这确保了除非 setter 也被显式暴露，否则状态永远不会被突变。这种安全保证是否证明更冗长的语法是值得的，可能取决于项目的要求和个人品味——但如果你喜欢这种 API 风格，你可以在 Rue 中轻松复制它：
 
 ```tsx
-import { shallowRef, triggerRef } from 'rues'
+import { shallowRef, triggerRef } from '@rue-js/rue'
 
 export function createSignal<T>(value: T, options?: { equals?: boolean }) {
   const r = shallowRef(value)
@@ -448,7 +535,7 @@ count.update(v => v + 1) // 基于前值更新
 同样，我们可以在 Rue 中轻松复制 API：
 
 ```tsx
-import { shallowRef } from 'rues'
+import { shallowRef } from '@rue-js/rue'
 
 export function signal<T>(initialValue: T) {
   const r = shallowRef(initialValue)

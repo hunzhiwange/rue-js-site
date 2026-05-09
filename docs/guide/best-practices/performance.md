@@ -34,10 +34,6 @@ Rue 旨在在大多数常见用例中具有良好的性能，无需太多手动�
 
 有许多与框架无关的方面可以优化页面加载性能 - 查看 [此 web.dev 指南](https://web.dev/fast/) 以获取全面的总结。在这里，我们将主要关注 Rue 特定的技术。
 
-### 选择正确的架构 (Choosing the Right Architecture) {#choosing-the-right-architecture}
-
-如果您的用例对页面加载性能敏感，请避免将其作为纯客户端 SPA 交付。您希望服务器直接发送包含用户想要看到的内容的 HTML。纯客户端渲染存在内容到达时间慢的问题。这可以通过 [服务器端渲染 (SSR)](/guide/extras/ways-of-using-rue#fullstack-ssr) 或 [静态站点生成 (SSG)](/guide/extras/ways-of-using-rue#jamstack-ssg) 来缓解。查阅 [SSR 指南](/guide/scaling-up/ssr) 了解如何使用 Rue 执行 SSR。如果您的应用没有丰富的交互需求，您还可以使用传统的后端服务器来渲染 HTML 并在客户端用 Rue 增强它。
-
 如果您的主应用必须是 SPA，但有营销页面（落地页、关于、博客），请将它们分开部署！您的营销页面最好使用 SSG 部署为具有最少 JS 的静态 HTML。
 
 ### 包大小和 Tree-shaking (Bundle Size and Tree-shaking) {#bundle-size-and-tree-shaking}
@@ -71,8 +67,8 @@ function loadLazy() {
 懒加载最好用于初始页面加载后不需要立即使用的功能。在 Rue 应用中，这可以与 Rue 的 [异步组件](/guide/components/async) 功能结合使用，为组件树创建分割块：
 
 ```tsx
-import { lazy } from 'rues'
-import type { FC } from 'rues'
+import { lazy } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 // 为 Foo.tsx 及其依赖项创建一个单独的块。
 // 它只在异步组件在页面上渲染时按需获取。
@@ -106,9 +102,7 @@ list.map(item => <ListItem key={item.id} id={item.id} activeId={activeId} />)
 
 ```tsx
 // 更好的方式
-list.map(item => (
-  <ListItem key={item.id} id={item.id} active={item.id === activeId} />
-))
+list.map(item => <ListItem key={item.id} id={item.id} active={item.id === activeId} />)
 ```
 
 现在，对于大多数组件，当 `activeId` 变化时，`active` prop 将保持不变，因此它们不再需要更新。一般来说，想法是保持传递给子组件的 props 尽可能稳定。
@@ -118,8 +112,8 @@ list.map(item => (
 Rue 提供了 `memo` 工具来帮助优化组件重渲染。您可以使用它来记忆化组件或值：
 
 ```tsx
-import { memo, useMemo } from 'rues'
-import type { FC } from 'rues'
+import { memo, useMemo } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 // 记忆化组件
 const ExpensiveComponent: FC<{ data: Data }> = memo(({ data }) => {
@@ -141,8 +135,8 @@ const MyComponent: FC = () => {
 使用 `useMemo` 时，只有当计算值从前一个值发生变化时，Rue 才会触发更新。例如，以下 `isEven` 计算只在返回值从 `true` 变为 `false` 或反之亦然时触发效果：
 
 ```tsx
-import { useMemo, useState, useEffect } from 'rues'
-import type { FC } from 'rues'
+import { useMemo, useState, useEffect } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const MyComponent: FC = () => {
   const [count, setCount] = useState(0)
@@ -213,8 +207,8 @@ Rue 的响应式系统默认是深度的。虽然这使得状态管理直观，�
 Rue 确实提供了一个逃生口，通过使用浅层状态选择退出深度响应式。浅层 API 创建仅在根级别具有响应式的状态，并暴露所有未更改的嵌套对象。这使嵌套属性访问保持快速，代价是我们现在必须将所有嵌套对象视为不可变的，并且更新只能通过替换根状态来触发：
 
 ```tsx
-import { useState } from 'rues'
-import type { FC } from 'rues'
+import { useState } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const MyComponent: FC = () => {
   const [shallowArray, setShallowArray] = useState(() => [
@@ -260,8 +254,8 @@ items.map((item, index) => <div key={index}>{item.name}</div>)
 对于不需要立即显示的组件，使用 `lazy` 进行延迟加载：
 
 ```tsx
-import { lazy, Suspense } from 'rues'
-import type { FC } from 'rues'
+import { lazy, Suspense } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const HeavyComponent = lazy(() => import('./HeavyComponent'))
 
@@ -279,8 +273,8 @@ const App: FC = () => {
 使用 `useCallback` 来记忆化事件处理程序，避免不必要的子组件重渲染：
 
 ```tsx
-import { useCallback, useState } from 'rues'
-import type { FC } from 'rues'
+import { useCallback, useState } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const Parent: FC = () => {
   const [count, setCount] = useState(0)

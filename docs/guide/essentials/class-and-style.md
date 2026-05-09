@@ -24,10 +24,7 @@ const hasError = ref(false)
 和以下 JSX：
 
 ```tsx
-<div
-  className="static"
-  className={{ active: isActive.value, 'text-danger': hasError.value }}
-/>
+<div className="static" className={{ active: isActive.value, 'text-danger': hasError.value }} />
 ```
 
 这将渲染：

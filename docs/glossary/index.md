@@ -2,30 +2,15 @@
 
 本术语表旨在为谈论 Rue 时常用的技术术语的含义提供一些指导。它的目的是**描述性**地说明术语通常如何使用，而不是**规定性**地说明它们必须如何使用。根据周围的上下文，某些术语可能具有略微不同的含义或细微差别。
 
-[[TOC]]
-
 ## 异步组件 {#async-component}
 
 *异步组件*是另一个组件的包装器，允许被包装的组件延迟加载。这通常用作减小构建后的 `.js` 文件大小的一种方式，允许将它们分割成仅在需要时加载的较小块。
 
-Rue Router 具有类似的功能用于[路由组件的延迟加载](https://router.vuejs.org/guide/advanced/lazy-loading.html)，尽管这并不使用 Rue 的异步组件功能。
+Rue Router [路由组件的延迟加载](#/page/routing) 也使用 Rue 的异步组件功能。
 
 更多详情请参见：
 
-- [指南 - 异步组件](/guide/components/async.html)
-
-## 编译器宏 {#compiler-macro}
-
-*编译器宏*是由编译器处理的特殊代码，并转换为其他内容。它们实际上是一种巧妙的字符串替换形式。
-
-Rue 的 [SFC](#single-file-component) 编译器支持各种宏，例如 `defineProps()`、`defineEmits()` 和 `defineExpose()`。这些宏被故意设计成看起来像普通的 JavaScript 函数，以便它们可以利用 JavaScript / TypeScript 周围的相同解析器和类型推断工具。然而，它们并不是在浏览器中运行的实际函数。这些是编译器检测并替换为将实际运行的真实 JavaScript 代码的特殊字符串。
-
-宏在使用上有一些不适用于普通 JavaScript 代码的限制。例如，你可能认为 `const dp = defineProps` 会让你为 `defineProps` 创建一个别名，但它实际上会导致错误。对于可以传递给 `defineProps()` 的值也有一些限制，因为"参数"必须由编译器处理，而不是在运行时。
-
-更多详情请参见：
-
-- [`<script setup>` - `defineProps()` & `defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits)
-- [`<script setup>` - `defineExpose()`](/api/sfc-script-setup.html#defineexpose)
+- [指南 - 异步组件](#/guide/guide/components/async)
 
 ## 组件 {#component}
 
@@ -43,12 +28,6 @@ const HelloWorldComponent = {
 }
 ```
 
-在实践中，大多数 Rue 应用程序使用[单文件组件](#single-file-component) (`.vue` 文件)编写。虽然这些组件乍一看可能不像是对象，但 SFC 编译器会将它们转换成一个对象，用作文件的默认导出。从外部角度来看，`.vue` 文件只是一个导出组件对象的 ES 模块。
-
-组件对象的属性通常被称为*选项*。这就是[选项式 API](#options-api)得名的原因。
-
-组件的选项定义了应该如何创建该组件的实例。组件在概念上类似于类，尽管 Rue 不使用实际的 JavaScript 类来定义它们。
-
 组件这个术语也可以更宽松地用于指代组件实例。
 
 更多详情请参见：
@@ -57,10 +36,9 @@ const HelloWorldComponent = {
 
 "组件"这个词还出现在其他几个术语中：
 
-- [异步组件](#async-component)
+- [异步组件](#/guide/guide/components/async)
 - [动态组件](#dynamic-component)
-- [函数式组件](#functional-component)
-- [Web 组件](#web-component)
+- [Web 组件](#/guide/guide/extras/web-components)
 
 ## 组合式函数 {#composable}
 
@@ -69,18 +47,16 @@ const HelloWorldComponent = {
 - 组合式函数是一个函数。
 - 组合式函数用于封装和重用有状态的逻辑。
 - 函数名通常以 `use` 开头，以便其他开发人员知道它是一个组合式函数。
-- 该函数通常预期在组件的 `setup()` 函数的同步执行期间被调用（或者，等效地，在 `<script setup>` 块的执行期间）。这将组合式函数的调用与当前组件上下文联系起来，例如通过调用 `provide()`、`inject()` 或 `onMounted()`。
+- 该函数通常预期在组件函数或组件初始化入口的同步执行期间被调用。这将组合式函数的调用与当前组件上下文联系起来，例如通过调用 `provide()`、`inject()` 或 `onMounted()`。
 - 组合式函数通常返回一个普通对象，而不是响应式对象。这个对象通常包含 refs 和函数，并且期望在调用代码中被解构。
 
-与许多模式一样，对于特定代码是否符合该标签可能存在一些分歧。并非所有 JavaScript 实用函数都是组合式函数。如果函数不使用组合式 API，那么它可能不是组合式函数。如果它不期望在 `setup()` 的同步执行期间被调用，那么它可能不是组合式函数。组合式函数专门用于封装有状态的逻辑，它们不仅仅是函数的命名约定。
+与许多模式一样，对于特定代码是否符合该标签可能存在一些分歧。并非所有 JavaScript 实用函数都是组合式函数。如果函数不使用组合式 API，那么它可能不是组合式函数。如果它不期望在组件初始化阶段的同步执行期间被调用，那么它可能不是组合式函数。组合式函数专门用于封装有状态的逻辑，它们不仅仅是函数的命名约定。
 
 有关编写组合式函数的更多详情，请参见[指南 - 组合式函数](/guide/reusability/composables.html)。
 
 ## 组合式 API {#composition-api}
 
 *组合式 API*是一组用于在 Rue 中编写组件和组合式函数的函数。
-
-该术语也用于描述编写组件的两种主要风格之一，另一种是[选项式 API](#options-api)。使用组合式 API 编写的组件使用 `<script setup>` 或显式的 `setup()` 函数。
 
 更多详情请参见[组合式 API FAQ](/guide/extras/composition-api-faq)。
 
@@ -98,11 +74,9 @@ Rue 内置支持渲染自定义元素，并允许它们直接在 Rue 组件模�
 
 ## 指令 {#directive}
 
-*指令*这个术语指的是以 `v-` 前缀开头的模板属性，或其等效的简写形式。
+*指令*这个术语指的是以 `v-` 或者 `r-` 前缀开头的模板属性，或其等效的简写形式。
 
-内置指令包括 `v-if`、`v-for`、`v-bind`、`v-on` 和 `v-slot`。
-
-Rue 还支持创建自定义指令，尽管它们通常仅用作直接操作 DOM 节点的"逃生舱"。自定义指令通常不能用于重现内置指令的功能。
+内置指令包括 `v-if`、`v-for`、`v-on` 和 `v-slot` 等，同样支持 `r-if`、`r-for`、`r-on` 和 `r-slot` 等。
 
 更多详情请参见：
 
@@ -111,7 +85,7 @@ Rue 还支持创建自定义指令，尽管它们通常仅用作直接操作 DOM
 
 ## 动态组件 {#dynamic-component}
 
-*动态组件*这个术语用于描述需要动态决定渲染哪个子组件的情况。通常，这是使用 `<component :is="type">` 实现的。
+*动态组件*这个术语用于描述需要动态决定渲染哪个子组件的情况。通常，这是使用 `<Component :is="type">` 实现的。
 
 动态组件不是一种特殊类型的组件。任何组件都可以用作动态组件。动态的是组件的选择，而不是组件本身。
 
@@ -125,7 +99,7 @@ Rue 还支持创建自定义指令，尽管它们通常仅用作直接操作 DOM
 
 ## 事件 {#event}
 
-使用事件在程序的不同部分之间进行通信在许多不同的编程领域都很常见。在 Rue 中，该术语通常应用于原生 HTML 元素事件和 Rue 组件事件。`v-on` 指令用于模板中监听这两种类型的事件。
+使用事件在程序的不同部分之间进行通信在许多不同的编程领域都很常见。在 Rue 中，该术语通常应用于原生 HTML 元素事件和 Rue 组件事件。`v-on` 或者 `r-on` 指令用于模板中监听这两种类型的事件。
 
 更多详情请参见：
 
@@ -134,19 +108,19 @@ Rue 还支持创建自定义指令，尽管它们通常仅用作直接操作 DOM
 
 ## 片段 {#fragment}
 
-*片段*这个术语指的是一种特殊的[VNode](#vnode)类型，用作其他 VNode 的父节点，但本身不渲染任何元素。
+*片段*这个术语指的是一种逻辑分组边界，用于把多个兄弟节点作为一个整体传递或编排，但本身不渲染任何元素。
 
 这个名字来自原生 DOM API 中类似的[`DocumentFragment`](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment)概念。
 
-片段用于支持具有多个根节点的组件。虽然这样的组件可能看起来有多个根，但在幕后它们使用片段节点作为单个根，作为"根"节点的父节点。
+片段用于支持具有多个根节点的组件。虽然这样的组件可能看起来有多个根，但在公开 API 或兼容边界上，它们仍然可以被作为一个整体来表示。
 
-片段也被模板编译器用作包装多个动态节点的一种方式，例如通过 `v-for` 或 `v-if` 创建的节点。这允许向[VDOM](#virtual-dom)补丁算法传递额外的提示。其中大部分是内部处理的，但你可能会直接遇到的一个地方是在带有 `v-for` 的 `<template>` 标签上使用 `key`。在这种情况下，`key` 作为[prop](#prop)添加到片段 VNode。
+片段也被模板编译器用作包装多个动态节点的一种方式，例如通过 `v-for` 或 `v-if` 创建的节点。这允许编译产物把额外的结构信息传给运行时更新边界。其中大部分是内部处理的，但你可能会直接遇到的一个地方是在带有 `v-for` 的 `<Template>` 标签上使用 `key`。在这种情况下，`key` 会被关联到这组片段内容的公开边界上。
 
 片段节点目前被渲染为 DOM 中的空文本节点，尽管这是一个实现细节。如果你使用 `$el` 或尝试使用内置浏览器 API 遍历 DOM，你可能会遇到这些文本节点。
 
 ## 函数式组件 {#functional-component}
 
-组件定义通常是一个包含选项的对象。如果你使用的是 `<script setup>`，它可能看起来不是这样，但从 `.vue` 文件导出的组件仍然是一个对象。
+组件定义既可以是一个包含选项的对象，也可以直接是一个函数。对象形式通常用于显式声明组件选项；函数形式则直接充当组件的渲染入口。
 
 *函数式组件*是使用函数声明的组件的替代形式。该函数充当组件的[渲染函数](#render-function)。
 
@@ -168,7 +142,7 @@ JavaScript 对某些结构使用提升，例如 `var`、`import` 和函数声明
 
 *缓存*这个术语用于描述临时存储经常访问的数据以提高性能。
 
-Rue 模板编译器识别那些静态 VNode，在初始渲染期间缓存它们，并在每次后续重新渲染时重用相同的 VNode。
+Rue 模板编译器识别那些静态渲染片段，在初始渲染期间缓存它们，并在后续更新时尽量直接复用。
 
 更多详情请参见：
 
@@ -204,10 +178,6 @@ Rue 组件实例经历一个生命周期。例如，它被创建、挂载、更�
 
 - [指南 - 生命周期钩子](/guide/essentials/lifecycle.html)
 
-## 宏 {#macro}
-
-参见[编译器宏](#compiler-macro)。
-
 ## 具名插槽 {#named-slot}
 
 一个组件可以有多个插槽，通过名称区分。默认插槽以外的插槽被称为*具名插槽*。
@@ -215,18 +185,6 @@ Rue 组件实例经历一个生命周期。例如，它被创建、挂载、更�
 更多详情请参见：
 
 - [指南 - 插槽 - 具名插槽](/guide/components/slots.html#named-slots)
-
-## 选项式 API {#options-api}
-
-Rue 组件使用对象定义。这些组件对象的属性被称为*选项*。
-
-组件可以用两种风格编写。一种风格结合使用[组合式 API](#composition-api)和 `setup`（通过 `setup()` 选项或 `<script setup>`）。另一种风格很少直接使用组合式 API，而是使用各种组件选项来实现类似的结果。以这种方式使用的组件选项被称为*选项式 API*。
-
-选项式 API 包括 `data()`、`computed`、`methods` 和 `created()` 等选项。
-
-某些选项，例如 `props`、`emits` 和 `inheritAttrs`，可以在使用任一 API 编写组件时使用。由于它们是组件选项，它们可以被认为是选项式 API 的一部分。然而，由于这些选项也与 `setup()` 一起使用，通常更有用地将它们视为两种组件风格共享的选项。
-
-`setup()` 函数本身是一个组件选项，因此它*可以*被描述为选项式 API 的一部分。然而，这并不是"选项式 API"这个术语通常的使用方式。相反，`setup()` 函数被认为是组合式 API 的一部分。
 
 ## 插件 {#plugin}
 
@@ -243,12 +201,12 @@ Rue 组件使用对象定义。这些组件对象的属性被称为*选项*。
 在 Rue 中，_prop_ 这个术语有三种常见用法：
 
 - 组件 props
-- VNode props
+- 渲染输出 props
 - 插槽 props
 
-*组件 props*是大多数人想到的 props。这些由组件使用 `defineProps()` 或 `props` 选项显式定义。
+*组件 props*是大多数人想到的 props。这些通常由组件的 `props` 选项，或等价的编译期声明方式显式定义。
 
-*VNode props*这个术语指的是作为第二个参数传递给 `h()` 的对象的属性。这些可以包括组件 props，但它们也可以包括组件事件、DOM 事件、DOM 属性和 DOM 属性。如果你使用渲染函数直接操作 VNode，你通常只会遇到 VNode props。
+*渲染输出 props*这个术语指的是作为第二个参数传递给 `h()` 的对象属性。这些可以包括组件 props，但它们也可以包括组件事件、DOM 事件、DOM 属性和 DOM attribute。只要你在手写渲染函数边界里直接调用 `h()`，通常就会接触到这一层 props。
 
 *插槽 props*是传递给作用域插槽的属性。
 
@@ -334,7 +292,7 @@ Rue 只能在响应式副作用内跟踪响应式依赖项。如果在响应式�
 
 ## 渲染函数 {#render-function}
 
-*渲染函数*是组件中生成渲染期间使用的 VNode 的部分。模板被编译为渲染函数。
+*渲染函数*是组件中生成渲染输出的部分。模板或 JSX 可以被编译成更接近 Block / Vapor / Renderable 的产物，而手写渲染函数则通过 `h()` 等 API 显式描述输出边界。
 
 更多详情请参见：
 
@@ -364,10 +322,6 @@ Rue 只能在响应式副作用内跟踪响应式依赖项。如果在响应式�
 
 - [指南 - 插槽 - 作用域插槽](/guide/components/slots.html#scoped-slots)
 
-## SFC {#sfc}
-
-参见[单文件组件](#single-file-component)。
-
 ## 副作用 {#side-effect}
 
 *副作用*这个术语并不是 Rue 特有的。它用于描述在其局部作用域之外执行某些操作的函数或操作。
@@ -377,15 +331,6 @@ Rue 只能在响应式副作用内跟踪响应式依赖项。如果在响应式�
 当函数被描述为具有副作用时，这意味着该函数执行某种在函数外部可观察的操作，而不仅仅是返回一个值。这可能意味着它更新了状态中的值，或触发了网络请求。
 
 该术语通常在描述渲染或计算属性时使用。渲染没有副作用被认为是最佳实践。同样，计算属性的 getter 函数也不应该有副作用。
-
-## 单文件组件 {#single-file-component}
-
-*单文件组件*或 SFC 这个术语指的是通常用于 Rue 组件的 `.vue` 文件格式。
-
-另请参见：
-
-- [指南 - 单文件组件](/guide/scaling-up/sfc.html)
-- [SFC 语法规范](/api/sfc-spec.html)
 
 ## 插槽 {#slot}
 
@@ -401,48 +346,25 @@ Rue 只能在响应式副作用内跟踪响应式依赖项。如果在响应式�
 
 如果你使用的是选项式 API，则 refs 通过 `$refs` 对象的属性公开。
 
-使用组合式 API 时，模板 ref 用同名的响应式[ref](#ref)填充。
+在当前的 Composition API / JSX 路径中，模板 ref 通常通过 `useRef()` 返回的 `{ current }` 容器或函数 ref 来持有。
 
-模板 ref 不应与 Rue 响应式系统中的响应式 ref 混淆。
+模板 ref 不应与 Rue 响应式系统中的响应式 ref 混淆：前者通常用于命令式持有 DOM 或组件实例，后者是带 `.value` 的响应式状态单元。
 
 更多详情请参见：
 
 - [指南 - 模板 Refs](/guide/essentials/template-refs.html)
 
-## VDOM {#vdom}
+## 公开渲染输出 {#vnode}
 
-参见[虚拟 DOM](#virtual-dom)。
+这个锚点同样保留给历史跳转使用。对 Rue 当前主路径来说，更准确的理解是：`h()` 产出的是公开渲染输出对象，它属于显式手写渲染边界，而不是默认内部渲染货币。
 
-## 虚拟 DOM {#virtual-dom}
-
-_虚拟 DOM_ (VDOM) 这个术语并不是 Rue 独有的。它是几个 Web 框架用于管理 UI 更新的常见方法。
-
-浏览器使用节点树来表示页面的当前状态。该树以及用于与之交互的 JavaScript API 被称为*文档对象模型*或*DOM*。
-
-操作 DOM 是一个主要的性能瓶颈。虚拟 DOM 提供了一种管理该问题的策略。
-
-Rue 组件不是直接创建 DOM 节点，而是生成它们想要的 DOM 节点的描述。这些描述符是纯 JavaScript 对象，被称为 VNode（虚拟 DOM 节点）。创建 VNode 相对便宜。
-
-每次组件重新渲染时，新的 VNode 树会与之前的 VNode 树进行比较，然后将任何差异应用于真实的 DOM。如果没有变化，则不需要接触 DOM。
-
-Rue 使用我们称之为[编译器优化的虚拟 DOM](/guide/extras/rendering-mechanism.html#compiler-informed-virtual-dom)的混合方法。Rue 的模板编译器能够根据模板的静态分析应用性能优化。Vue 不必在运行时对组件的旧 VNode 树和新 VNode 树进行完整比较，而是可以使用编译器提取的信息将比较减少到仅树中实际可能更改的部分。
-
-更多详情请参见：
-
-- [指南 - 渲染机制](/guide/extras/rendering-mechanism.html)
-- [指南 - 渲染函数 & JSX](/guide/extras/render-function.html)
-
-## VNode {#vnode}
-
-*VNode*是一个*虚拟 DOM 节点*。它们可以使用 [`h()`](/api/render-function.html#h) 函数创建。
-
-更多信息请参见[虚拟 DOM](#virtual-dom)。
+更多信息请参见[旧的整树 diff 渲染模型](#virtual-dom)。
 
 ## Web 组件 {#web-component}
 
 *Web 组件*标准是现代 Web 浏览器中实现的一组功能。
 
-Rue 组件不是 Web 组件，但 `defineCustomElement()` 可用于从 Rue 组件创建[自定义元素](#custom-element)。Rue 还支持在 Rue 组件内部使用自定义元素。
+Rue 组件不是 Web 组件，但 `useCustomElement()` 可用于从 Rue 组件创建[自定义元素](#custom-element)。Rue 还支持在 Rue 组件内部使用自定义元素。
 
 更多详情请参见：
 

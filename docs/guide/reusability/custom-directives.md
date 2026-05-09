@@ -28,7 +28,7 @@ const vHighlight = {
 自定义指令被定义为一个包含类似于组件生命周期钩子的对象。这些钩子接收指令绑定的元素。以下是一个示例，展示了一个在元素被 Rue 插入 DOM 时为其添加类的指令：
 
 ```tsx
-import { type FC, ref } from 'rues'
+import { type FC, ref } from '@rue-js/rue'
 
 // 启用模板中的 v-highlight
 const vHighlight = {
@@ -51,7 +51,7 @@ export const MyComponent: FC = () => {
 也可以在应用级别全局注册自定义指令：
 
 ```ts
-import { createApp } from 'rues'
+import { createApp } from '@rue-js/rue'
 
 const app = createApp({})
 
@@ -63,7 +63,7 @@ app.directive('highlight', {
 })
 ```
 
-可以通过扩展 `rues` 中的 `ComponentCustomProperties` 接口来为全局自定义指令添加类型支持。
+可以通过扩展 `@rue-js/rue` 中的 `ComponentCustomProperties` 接口来为全局自定义指令添加类型支持。
 
 更多详情：[类型化全局自定义指令](/guide/typescript/composition-api#typing-global-custom-directives) <sup class="vt-badge ts" />
 
@@ -74,7 +74,7 @@ app.directive('highlight', {
 一个常见的例子是 `v-focus` 自定义指令，它将元素带入聚焦状态。
 
 ```tsx
-import { type FC } from 'rues'
+import { type FC } from '@rue-js/rue'
 
 const vFocus = {
   mounted: (el: HTMLElement) => el.focus(),
@@ -87,8 +87,6 @@ export const MyComponent: FC = () => {
 
 这个指令比 `autofocus` 属性更有用，因为它不仅在页面加载时有效——当元素被 Rue 动态插入时也同样有效！
 
-只要可能，建议优先使用声明式模板和内置指令（如 `v-bind`），因为它们更高效且对服务端渲染友好。
-
 ## 指令钩子 {#directive-hooks}
 
 指令定义对象可以提供几个钩子函数（都是可选的）：
@@ -96,21 +94,21 @@ export const MyComponent: FC = () => {
 ```ts
 const myDirective = {
   // 在绑定元素的属性或事件监听器应用之前调用
-  created(el, binding, vnode) {
+  created(el, binding, renderInfo) {
     // 参见下文了解参数详情
   },
   // 在元素插入 DOM 之前调用
-  beforeMount(el, binding, vnode) {},
+  beforeMount(el, binding, renderInfo) {},
   // 在绑定元素的父组件及其所有子组件挂载后调用
-  mounted(el, binding, vnode) {},
+  mounted(el, binding, renderInfo) {},
   // 在父组件更新之前调用
-  beforeUpdate(el, binding, vnode, prevVnode) {},
+  beforeUpdate(el, binding, renderInfo, previousInfo) {},
   // 在父组件及其所有子组件更新后调用
-  updated(el, binding, vnode, prevVnode) {},
+  updated(el, binding, renderInfo, previousInfo) {},
   // 在父组件卸载之前调用
-  beforeUnmount(el, binding, vnode) {},
+  beforeUnmount(el, binding, renderInfo) {},
   // 在父组件卸载时调用
-  unmounted(el, binding, vnode) {},
+  unmounted(el, binding, renderInfo) {},
 }
 ```
 
@@ -128,8 +126,8 @@ const myDirective = {
   - `instance`：使用指令的组件实例。
   - `dir`：指令定义对象。
 
-- `vnode`：表示绑定元素的底层 VNode。
-- `prevVnode`：表示上一个渲染中绑定元素的 VNode。仅在 `beforeUpdate` 和 `updated` 钩子中可用。
+- `renderInfo`：表示绑定元素当前对应的渲染元信息。应用代码通常只把它当作只读上下文，而不应依赖其内部结构。
+- `previousInfo`：表示上一个渲染周期的对应元信息。仅在 `beforeUpdate` 和 `updated` 钩子中可用。
 
 例如，考虑以下指令用法：
 

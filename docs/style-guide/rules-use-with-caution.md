@@ -85,9 +85,7 @@ app.component('TodoItem', {
 
   methods: {
     removeTodo() {
-      this.$parent.todos = this.$parent.todos.filter(
-        todo => todo.id !== this.todo.id,
-      )
+      this.$parent.todos = this.$parent.todos.filter(todo => todo.id !== this.todo.id)
     },
   },
 
@@ -175,7 +173,7 @@ defineProps({
 
 ```jsx
 <script>
-import { getCurrentInstance } from 'rues'
+import { getCurrentInstance } from '@rue-js/rue'
 
 const props = defineProps({
   todo: {

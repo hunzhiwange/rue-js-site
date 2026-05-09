@@ -7,7 +7,7 @@
 ### 实现自定义输入组件
 
 ```tsx [Child.tsx]
-import { ref } from 'rues'
+import { ref } from '@rue-js/rue'
 
 interface ChildProps {
   modelValue?: number
@@ -31,17 +31,12 @@ function Child({ modelValue = 0, onUpdateModelValue }: ChildProps) {
 父组件可以通过 props 和回调绑定一个值：
 
 ```tsx [Parent.tsx]
-import { ref } from 'rues'
+import { ref } from '@rue-js/rue'
 
 function Parent() {
   const countModel = ref(0)
 
-  return (
-    <Child
-      modelValue={countModel.value}
-      onUpdateModelValue={v => (countModel.value = v)}
-    />
-  )
+  return <Child modelValue={countModel.value} onUpdateModelValue={v => (countModel.value = v)} />
 }
 ```
 
@@ -53,16 +48,8 @@ interface CustomInputProps {
   onUpdateModelValue?: (value: string) => void
 }
 
-function CustomInput({
-  modelValue = '',
-  onUpdateModelValue,
-}: CustomInputProps) {
-  return (
-    <input
-      value={modelValue}
-      onInput={e => onUpdateModelValue?.(e.currentTarget.value)}
-    />
-  )
+function CustomInput({ modelValue = '', onUpdateModelValue }: CustomInputProps) {
+  return <input value={modelValue} onInput={e => onUpdateModelValue?.(e.currentTarget.value)} />
 }
 ```
 
@@ -71,7 +58,7 @@ function CustomInput({
 Rue 提供了 `useVModel` 组合式函数来简化 v-model 的实现：
 
 ```tsx
-import { useVModel } from 'rues'
+import { useVModel } from '@rue-js/rue'
 
 interface CustomInputProps {
   modelValue?: string
@@ -81,12 +68,7 @@ interface CustomInputProps {
 function CustomInput(props: CustomInputProps) {
   const model = useVModel(props, 'modelValue')
 
-  return (
-    <input
-      value={model.value}
-      onInput={e => (model.value = e.currentTarget.value)}
-    />
-  )
+  return <input value={model.value} onInput={e => (model.value = e.currentTarget.value)} />
 }
 ```
 
@@ -98,12 +80,7 @@ function CustomInput(props: CustomInputProps) {
 function Parent() {
   const bookTitle = ref('')
 
-  return (
-    <MyComponent
-      title={bookTitle.value}
-      onUpdateTitle={v => (bookTitle.value = v)}
-    />
-  )
+  return <MyComponent title={bookTitle.value} onUpdateTitle={v => (bookTitle.value = v)} />
 }
 ```
 
@@ -116,13 +93,7 @@ interface MyComponentProps {
 }
 
 function MyComponent({ title = '', onUpdateTitle }: MyComponentProps) {
-  return (
-    <input
-      type="text"
-      value={title}
-      onInput={e => onUpdateTitle?.(e.currentTarget.value)}
-    />
-  )
+  return <input type="text" value={title} onInput={e => onUpdateTitle?.(e.currentTarget.value)} />
 }
 ```
 
@@ -135,13 +106,7 @@ interface MyComponentProps {
 }
 
 function MyComponent({ title, onUpdateTitle }: MyComponentProps) {
-  return (
-    <input
-      type="text"
-      value={title}
-      onInput={e => onUpdateTitle(e.currentTarget.value)}
-    />
-  )
+  return <input type="text" value={title} onInput={e => onUpdateTitle(e.currentTarget.value)} />
 }
 ```
 
@@ -223,13 +188,7 @@ function MyComponent({
     onUpdateModelValue?.(value)
   }
 
-  return (
-    <input
-      type="text"
-      value={modelValue}
-      onInput={e => emitValue(e.currentTarget.value)}
-    />
-  )
+  return <input type="text" value={modelValue} onInput={e => emitValue(e.currentTarget.value)} />
 }
 ```
 
@@ -276,11 +235,7 @@ interface MyComponentProps {
   onUpdateTitle?: (value: string) => void
 }
 
-function MyComponent({
-  title = '',
-  titleModifiers = {},
-  onUpdateTitle,
-}: MyComponentProps) {
+function MyComponent({ title = '', titleModifiers = {}, onUpdateTitle }: MyComponentProps) {
   console.log(titleModifiers) // { capitalize: true }
 
   function emitValue(value: string) {
@@ -290,13 +245,7 @@ function MyComponent({
     onUpdateTitle?.(value)
   }
 
-  return (
-    <input
-      type="text"
-      value={title}
-      onInput={e => emitValue(e.currentTarget.value)}
-    />
-  )
+  return <input type="text" value={title} onInput={e => emitValue(e.currentTarget.value)} />
 }
 ```
 

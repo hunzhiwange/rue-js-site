@@ -1,7 +1,9 @@
-# 实用类型 {#utility-types}
+# 实用类型 {#utility-types} @todo
+
+> **@todo**: 以下实用类型大部分为 Options API 相关，尚未在 Rue 中实现。
 
 :::info
-此页面仅列出一些可能需要解释其用法的常用实用类型。有关导出类型的完整列表，请参阅[源代码](https://github.com/rues/core/blob/main/packages/runtime-core/src/index.ts#L131)。
+此页面仅列出一些可能需要解释其用法的常用实用类型。有关导出类型的完整列表，请参阅[源代码](https://github.com/hunzhiwange/ruejs/blob/main/packages/runtime-core/src/index.ts#L131)。
 :::
 
 ## PropType\<T> {#proptype-t}
@@ -11,7 +13,7 @@
 - **示例**
 
   ```ts
-  import type { PropType } from 'rues'
+  import type { PropType } from '@rue-js/rue'
 
   interface Book {
     title: string
@@ -115,7 +117,7 @@
   ```ts
   import axios from 'axios'
 
-  declare module 'rues' {
+  declare module '@rue-js/rue' {
     interface ComponentCustomProperties {
       $http: typeof axios
       $translate: (key: string) => string
@@ -136,9 +138,9 @@
 - **示例**
 
   ```ts
-  import { Route } from '@rue/router'
+  import { Route } from '@rue-js/router'
 
-  declare module 'rues' {
+  declare module '@rue-js/rue' {
     interface ComponentCustomOptions {
       beforeRouteEnter?(to: any, from: any, next: () => void): void
     }
@@ -158,7 +160,7 @@
 - **示例**
 
   ```ts
-  declare module 'rues' {
+  declare module '@rue-js/rue' {
     interface ComponentCustomProps {
       hello?: string
     }
@@ -185,7 +187,7 @@
   允许任何自定义 CSS 属性
 
   ```ts
-  declare module 'rues' {
+  declare module '@rue-js/rue' {
     interface CSSProperties {
       [key: `--${string}`]: string
     }

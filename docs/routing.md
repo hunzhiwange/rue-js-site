@@ -1,6 +1,6 @@
 # 路由
 
-Rue 提供 `@rue/router` 作为官方路由方案，默认使用 Hash 模式，支持命名参数与正则匹配。
+Rue 提供 `@rue-js/router` 作为官方路由方案，默认使用 Hash 模式，支持命名参数与正则匹配。
 
 - 创建并安装 Router
 - 定义路由与参数匹配
@@ -8,13 +8,8 @@ Rue 提供 `@rue/router` 作为官方路由方案，默认使用 Hash 模式，�
 - 使用运行时 API 获取当前路由
 
 ```tsx
-import { type FC, useApp } from 'rues'
-import {
-  createRouter,
-  createWebHashHistory,
-  RouterView,
-  RouterLink,
-} from '@rue/router'
+import { type FC, useApp } from '@rue-js/rue'
+import { createRouter, createWebHashHistory, RouterView, RouterLink } from '@rue-js/router'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -56,9 +51,7 @@ const routes = [
   { path: '/docs/:slug', component: DocDetail },
 ]
 
-const UserDetail: FC<{ params: { id: string } }> = ({ params }) => (
-  <div>用户编号：{params.id}</div>
-)
+const UserDetail: FC<{ params: { id: string } }> = ({ params }) => <div>用户编号：{params.id}</div>
 ```
 
 ## 视图渲染：RouterView
@@ -98,7 +91,7 @@ const App: FC = () => (
 示例：
 
 ```tsx
-import { useRoute } from '@rue/router'
+import { useRoute } from '@rue-js/router'
 
 const Current: FC = () => {
   const route = useRoute()
@@ -113,8 +106,8 @@ const Current: FC = () => {
 示例应用入口：
 
 ```tsx
-import { type FC, useApp } from 'rues'
-import { RouterView } from '@rue/router'
+import { type FC, useApp } from '@rue-js/rue'
+import { RouterView } from '@rue-js/router'
 import router from './router'
 import SiteLayout from './pages/site/components/Layout'
 

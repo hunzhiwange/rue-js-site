@@ -198,9 +198,7 @@
 - **类型**
 
   ```ts
-  function readonly<T extends object>(
-    target: T,
-  ): DeepReadonly<UnwrapNestedRefs<T>>
+  function readonly<T extends object>(target: T): DeepReadonly<UnwrapNestedRefs<T>>
   ```
 
 - **详情**
@@ -317,7 +315,7 @@
   副作用清理（版本）：
 
   ```js
-  import { onWatcherCleanup } from 'rues'
+  import { onWatcherCleanup } from '@rue-js/rue'
 
   watchEffect(async () => {
     const { response, cancel } = doAsyncWork(newId)
@@ -346,11 +344,11 @@
   - [指南 - 侦听器](/guide/essentials/watchers#watcheffect)
   - [指南 - 侦听器调试](/guide/extras/reactivity-in-depth#watcher-debugging)
 
-## watchPostEffect() {#watchposteffect}
+## watchPostEffect() {#watchposteffect} @todo
 
 带有 `flush: 'post'` 选项的 [`watchEffect()`](#watcheffect) 别名。
 
-## watchSyncEffect() {#watchsynceffect}
+## watchSyncEffect() {#watchsynceffect} @todo
 
 带有 `flush: 'sync'` 选项的 [`watchEffect()`](#watcheffect) 别名。
 
@@ -537,7 +535,7 @@
   副作用清理：
 
   ```js
-  import { onWatcherCleanup } from 'rues'
+  import { onWatcherCleanup } from '@rue-js/rue'
 
   watch(id, async newId => {
     const { response, cancel } = doAsyncWork(newId)
@@ -550,7 +548,7 @@
   - [指南 - 侦听器](/guide/essentials/watchers)
   - [指南 - 侦听器调试](/guide/extras/reactivity-in-depth#watcher-debugging)
 
-## onWatcherCleanup() {#onwatchercleanup}
+## onWatcherCleanup() {#onwatchercleanup} @todo
 
 注册一个清理函数，在当前侦听器即将重新运行时执行。只能在 `watchEffect` effect 函数或 `watch` 回调函数的同步执行期间调用（即不能在异步函数中的 `await` 语句之后调用。）
 
@@ -563,7 +561,7 @@
 - **示例**
 
   ```ts
-  import { watch, onWatcherCleanup } from 'rues'
+  import { watch, onWatcherCleanup } from '@rue-js/rue'
 
   watch(id, newId => {
     const { response, cancel } = doAsyncWork(newId)

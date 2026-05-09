@@ -1,4 +1,6 @@
-# 组件实例 {#component-instance}
+# 组件实例 {#component-instance} @todo
+
+> **@todo**: Options API 的组件实例属性和方法（`$data`、`$props`、`$el` 等）尚未实现。Rue 使用 Composition API / FC 模式，组件实例模型与 Options API 不同。
 
 :::info
 本页面记录组件公共实例上暴露的内置属性和方法，即 `this`。
@@ -51,7 +53,6 @@
   `$el` 在组件[挂载](./options-lifecycle#mounted)之前将是 `undefined`。
   - 对于具有单个根元素的组件，`$el` 将指向该元素。
   - 对于具有文本根的组件，`$el` 将指向文本节点。
-  - 对于具有多个根节点的组件，`$el` 将是 Vue 用于跟踪组件在 DOM 中位置的占位 DOM 节点（文本节点，或在 SSR 水合模式下的注释节点）。
 
   :::tip
   为了一致性，建议使用[模板 ref](/guide/essentials/template-refs)直接访问元素，而不是依赖 `$el`。
@@ -124,30 +125,24 @@
     $slots: { [name: string]: Slot }
   }
 
-  type Slot = (...args: any[]) => VNode[]
+  type Slot = (...args: any[]) => RenderOutput
+
+  type RenderOutput = RenderableOutput
   ```
 
 - **详情**
 
   通常在手写[渲染函数](/guide/extras/render-function)时使用，但也可用于检测插槽是否存在。
 
-  每个插槽作为函数暴露在 `this.$slots` 上，返回该插槽名称对应的 vnode 数组。默认插槽作为 `this.$slots.default` 暴露。
+  每个插槽作为函数暴露在 `this.$slots` 上，返回该插槽名称对应的渲染输出。默认插槽作为 `this.$slots.default` 暴露。
 
   如果插槽是[作用域插槽](/guide/components/slots#scoped-slots)，传递给插槽函数的参数将可作为其插槽 props 在插槽中使用。
 
 - **另请参阅** [渲染函数 - 渲染插槽](/guide/extras/render-function#rendering-slots)
 
-## $refs {#refs}
+## $refs {#refs} @todo
 
-通过[模板 refs](/guide/essentials/template-refs)注册的 DOM 元素和组件实例的对象。
-
-- **类型**
-
-  ```ts
-  interface ComponentPublicInstance {
-    $refs: { [name: string]: Element | ComponentPublicInstance | null }
-  }
-  ```
+Rue 当前的 Composition API / FC / JSX 路径不提供 Vue 风格的 `$refs` 实例对象收集。获取模板引用时，请直接使用 `useRef()` 或函数 ref。
 
 - **另请参阅**
   - [模板 refs](/guide/essentials/template-refs)

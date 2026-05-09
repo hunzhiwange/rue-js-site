@@ -104,17 +104,12 @@ components/
 - 由于这些组件使用如此频繁，你可能希望简单地将它们设为全局而不是到处导入。前缀使这可以通过 Webpack 实现：
 
   ```js
-  const requireComponent = require.context(
-    './src',
-    true,
-    /Base[A-Z]\w+\.(jsx|js)$/,
-  )
+  const requireComponent = require.context('./src', true, /Base[A-Z]\w+\.(jsx|js)$/)
   requireComponent.keys().forEach(function (fileName) {
     let baseComponentConfig = requireComponent(fileName)
     baseComponentConfig = baseComponentConfig.default || baseComponentConfig
     const baseComponentName =
-      baseComponentConfig.name ||
-      fileName.replace(/^.+\//, '').replace(/\.\w+$/, '')
+      baseComponentConfig.name || fileName.replace(/^.+\//, '').replace(/\.\w+$/, '')
     app.component(baseComponentName, baseComponentConfig)
   })
   ```
@@ -717,9 +712,7 @@ computed: {
 <div class="composition-api">
 
 ```js
-const basePrice = computed(
-  () => manufactureCost.value / (1 - profitMargin.value),
-)
+const basePrice = computed(() => manufactureCost.value / (1 - profitMargin.value))
 
 const discount = computed(() => basePrice.value * (discountPercent.value || 0))
 

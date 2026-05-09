@@ -1,6 +1,6 @@
 # 组合式 API：<br>依赖注入 {#composition-api-dependency-injection}
 
-## provide() {#provide}
+## provide() {#provide} @todo
 
 提供一个值，可由后代组件注入。
 
@@ -16,19 +16,19 @@
 
   使用 TypeScript 时，键可以是类型为 `InjectionKey` 的符号 - 这是 Rue 提供的实用类型，扩展了 `Symbol`，可用于在 `provide()` 和 `inject()` 之间同步值类型。
 
-  与生命周期钩子注册 API 类似，`provide()` 必须在组件的 `setup()` 阶段同步调用。
+  与生命周期钩子注册 API 类似，`provide()` 必须在组件初始化阶段同步调用。
 
 - **示例**
 
   ```tsx
-  import { useSignal, provide } from 'rues'
+  import { ref, provide } from '@rue-js/rue'
   import { countSymbol } from './injectionSymbols'
 
   // 提供静态值
   provide('path', '/project/')
 
   // 提供响应式值
-  const [count, setCount] = useSignal(0)
+  const count = ref(0)
   provide('count', count)
 
   // 使用 Symbol 键提供
@@ -39,7 +39,7 @@
   - [指南 - Provide / Inject](/guide/components/provide-inject)
   - [指南 - 为 Provide / Inject 添加类型](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
 
-## inject() {#inject}
+## inject() {#inject} @todo
 
 注入由祖先组件或应用程序（通过 `app.provide()`）提供的值。
 
@@ -68,7 +68,7 @@
 
   第二个参数也可以是返回昂贵创建值的工厂函数。在这种情况下，必须将 `true` 作为第三个参数传递，以指示该函数应被用作工厂而不是值本身。
 
-  与生命周期钩子注册 API 类似，`inject()` 必须在组件的 `setup()` 阶段同步调用。
+  与生命周期钩子注册 API 类似，`inject()` 必须在组件初始化阶段同步调用。
 
   使用 TypeScript 时，键可以是 `InjectionKey` 类型 - 这是 Rue 提供的实用类型，扩展了 `Symbol`，可用于在 `provide()` 和 `inject()` 之间同步值类型。
 
@@ -77,7 +77,7 @@
   假设父组件已按照前面 `provide()` 示例中显示的方式提供了值：
 
   ```tsx
-  import { inject } from 'rues'
+  import { inject } from '@rue-js/rue'
   import { countSymbol } from './injectionSymbols'
 
   // 注入没有默认值的静态值
@@ -103,7 +103,7 @@
   - [指南 - Provide / Inject](/guide/components/provide-inject)
   - [指南 - 为 Provide / Inject 添加类型](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
 
-## hasInjectionContext() {#has-injection-context}
+## hasInjectionContext() {#has-injection-context} @todo
 
 - 仅在 3.3+ 中支持
 

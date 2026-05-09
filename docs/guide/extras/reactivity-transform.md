@@ -1,7 +1,7 @@
 # 响应式转换 {#reactivity-transform}
 
 :::danger 已移除的实验性功能
-响应式转换是一个实验性功能，已在最新的 3.4 版本中移除。请阅读[这里的原因](https://github.com/ruesjs/rfcs/discussions/369#discussioncomment-5059028)。
+响应式转换是一个实验性功能，已在最新的 3.4 版本中移除。请阅读[这里的原因](https://github.com/@rue-js/ruejs/rfcs/discussions/369#discussioncomment-5059028)。
 
 如果你仍然打算使用它，它现在可以通过 [Rue Macros](https://rue-macros.sxzz.moe/features/reactivity-transform.html) 插件获得。
 :::
@@ -14,7 +14,7 @@
 
 自从引入 Composition API 以来，一个主要未解决的问题是 refs 与响应式对象的使用。在解构响应式对象时很容易丢失响应式，而在使用 refs 时到处使用 `.value` 可能会很麻烦。此外，如果不使用类型系统，`.value` 很容易被遗漏。
 
-[Rue 响应式转换](https://github.com/ruesjs/core/tree/main/packages/reactivity-transform)是一个编译时转换，允许我们编写这样的代码：
+[Rue 响应式转换](https://github.com/@rue-js/ruejs/core/tree/main/packages/reactivity-transform)是一个编译时转换，允许我们编写这样的代码：
 
 ```vue
 <script setup lang="ts">
@@ -37,7 +37,7 @@ function increment() {
 响应式变量可以像普通变量一样被访问和重新赋值，但这些操作被编译成带有 `.value` 的 refs。例如，上述组件的 `<script>` 部分被编译成：
 
 ```js{5,8}
-import { ref } from 'rues'
+import { ref } from '@rue-js/rue'
 
 let count = ref(0)
 
@@ -56,10 +56,10 @@ function increment() {
 - [`customRef`](/api/reactivity-advanced#customref) -> `$customRef`
 - [`toRef`](/api/reactivity-utilities#toref) -> `$toRef`
 
-这些宏是全局可用的，在启用响应式转换时不需要导入，但如果你想更明确，可以从 `rues/macros` 选择性地导入它们：
+这些宏是全局可用的，在启用响应式转换时不需要导入，但如果你想更明确，可以从 `@rue-js/rue/macros` 选择性地导入它们：
 
 ```js
-import { $ref } from 'rues/macros'
+import { $ref } from '@rue-js/rue/macros'
 
 let count = $ref(0)
 ```
@@ -79,7 +79,7 @@ console.log(x, y)
 编译输出：
 
 ```js
-import { toRef } from 'rues'
+import { toRef } from '@rue-js/rue'
 import { useMouse } from '@rueuse/core'
 
 const __temp = useMouse(),
@@ -193,7 +193,7 @@ let count = $ref(0)
 上述代码编译为：
 
 ```js
-import { ref } from 'rues'
+import { ref } from '@rue-js/rue'
 
 let count = ref(0)
 trackChange(count)
@@ -276,10 +276,10 @@ Rue 为这些宏提供类型定义（全局可用），所有类型都将按预�
 由于宏是全局可用的，它们的类型需要显式引用（例如在 `env.d.ts` 文件中）：
 
 ```ts
-/// <reference types="rues/macros-global" />
+/// <reference types="@rue-js/rue/macros-global" />
 ```
 
-当从 `rues/macros` 显式导入宏时，类型将无需声明全局变量即可工作。
+当从 `@rue-js/rue/macros` 显式导入宏时，类型将无需声明全局变量即可工作。
 
 ## 显式选择加入 {#explicit-opt-in}
 

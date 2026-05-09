@@ -1,9 +1,19 @@
 # 可复用性 - Composables {#composables}
 
-<script setup>
+```tsx
+import { type FC } from '@rue-js/rue'
 import { useMouse } from './mouse'
-const { x, y } = useMouse()
-</script>
+
+const MouseTracker: FC = () => {
+  const { x, y } = useMouse()
+
+  return (
+    <div>
+      鼠标位置在：{x.value}, {y.value}
+    </div>
+  )
+}
+```
 
 :::tip
 本章节假设你已经具备 Composition API 的基础知识。如果你只学习过 Options API，可以将 API 偏好设置为 Composition API（使用左侧边栏顶部的切换按钮），然后重新阅读[响应式基础](/guide/essentials/reactivity-fundamentals)和[生命周期钩子](/guide/essentials/lifecycle)章节。
@@ -22,7 +32,7 @@ const { x, y } = useMouse()
 如果我们直接在组件内使用 Composition API 实现鼠标跟踪功能，代码看起来会是这样：
 
 ```tsx [MouseComponent.tsx]
-import { ref, onMounted, onUnmounted, type FC } from 'rues'
+import { ref, onMounted, onUnmounted, type FC } from '@rue-js/rue'
 
 export const MouseComponent: FC = () => {
   const x = ref(0)
@@ -47,7 +57,7 @@ export const MouseComponent: FC = () => {
 但是，如果我们想在多个组件中复用相同的逻辑呢？我们可以将逻辑提取到一个外部文件中，作为一个 composable 函数：
 
 ```ts [mouse.ts]
-import { ref, onMounted, onUnmounted } from 'rues'
+import { ref, onMounted, onUnmounted } from '@rue-js/rue'
 
 // 按照约定，composable 函数名以 "use" 开头
 export function useMouse() {
@@ -74,7 +84,7 @@ export function useMouse() {
 以下是它在组件中的使用方式：
 
 ```tsx [MouseComponent.tsx]
-import { type FC } from 'rues'
+import { type FC } from '@rue-js/rue'
 import { useMouse } from './mouse'
 
 export const MouseComponent: FC = () => {
@@ -99,13 +109,9 @@ composables 更酷的一点是，你还可以嵌套它们：一个 composable �
 例如，我们可以将添加和移除 DOM 事件监听器的逻辑提取到它自己的 composable 中：
 
 ```ts [event.ts]
-import { onMounted, onUnmounted } from 'rues'
+import { onMounted, onUnmounted } from '@rue-js/rue'
 
-export function useEventListener(
-  target: EventTarget,
-  event: string,
-  callback: EventListener,
-) {
+export function useEventListener(target: EventTarget, event: string, callback: EventListener) {
   // 如果你愿意，也可以让它支持选择器字符串作为 target
   onMounted(() => target.addEventListener(event, callback))
   onUnmounted(() => target.removeEventListener(event, callback))
@@ -115,7 +121,7 @@ export function useEventListener(
 现在我们的 `useMouse()` composable 可以简化为：
 
 ```ts{2,8-11} [mouse.ts]
-import { ref } from 'rues'
+import { ref } from '@rue-js/rue'
 import { useEventListener } from './event'
 
 export function useMouse() {
@@ -140,7 +146,7 @@ export function useMouse() {
 `useMouse()` composable 不接受任何参数，所以让我们来看另一个使用参数的例子。在进行异步数据获取时，我们经常需要处理不同的状态：加载中、成功和错误：
 
 ```tsx
-import { ref, type FC } from 'rues'
+import { ref, type FC } from '@rue-js/rue'
 
 export const DataComponent: FC = () => {
   const data = ref(null)
@@ -171,7 +177,7 @@ export const DataComponent: FC = () => {
 在每个需要获取数据的组件中重复这种模式会很繁琐。让我们将其提取到一个 composable 中：
 
 ```ts [fetch.ts]
-import { ref } from 'rues'
+import { ref } from '@rue-js/rue'
 
 export function useFetch(url: string) {
   const data = ref(null)
@@ -189,7 +195,7 @@ export function useFetch(url: string) {
 现在在我们的组件中，我们只需要这样做：
 
 ```tsx
-import { type FC } from 'rues'
+import { type FC } from '@rue-js/rue'
 import { useFetch } from './fetch'
 
 export const DataComponent: FC = () => {
@@ -223,7 +229,7 @@ const { data, error } = useFetch(() => `/posts/${props.id}`)
 我们可以使用 [`watchEffect()`](/api/reactivity-core.html#watcheffect) 和 [`toValue()`](/api/reactivity-utilities.html#tovalue) API 重构我们现有的实现：
 
 ```ts{7,12} [fetch.ts]
-import { ref, watchEffect, toValue } from 'rues'
+import { ref, watchEffect, toValue } from '@rue-js/rue'
 
 export function useFetch(url: string | Ref<string> | (() => string)) {
   const data = ref(null)
@@ -265,7 +271,7 @@ export function useFetch(url: string | Ref<string> | (() => string)) {
 即使 composable 不依赖它们来实现响应式，它也可以接受 ref 或 getter 参数。如果你正在编写一个可能被其他开发者使用的 composable，最好处理输入参数是 refs 或 getters 而不是原始值的情况。[`toValue()`](/api/reactivity-utilities#tovalue) 实用函数会对此很有帮助：
 
 ```ts
-import { toValue } from 'rues'
+import { toValue } from '@rue-js/rue'
 
 function useFeature(maybeRefOrGetter: any) {
   // 如果 maybeRefOrGetter 是 ref 或 getter，
@@ -308,13 +314,11 @@ console.log(mouse.x)
 
 在 composables 中执行副作用（例如添加 DOM 事件监听器或获取数据）是可以的，但请注意以下规则：
 
-- 如果你正在开发使用[服务端渲染](/guide/scaling-up/ssr)（SSR）的应用，请确保在挂载后的生命周期钩子（例如 `onMounted()`）中执行 DOM 特定的副作用。这些钩子只在浏览器中调用，因此你可以确信其中的代码可以访问 DOM。
-
 - 记得在 `onUnmounted()` 中清理副作用。例如，如果 composable 设置了 DOM 事件监听器，它应该在 `onUnmounted()` 中移除该监听器，正如我们在 `useMouse()` 示例中看到的那样。使用一个自动为你执行此操作的 composable 是个好主意，就像 `useEventListener()` 示例那样。
 
 ### 使用限制 {#usage-restrictions}
 
-Composables 应该只在 `<script setup>` 或 `setup()` 钩子中调用。它们还应该在这些上下文中**同步**调用。在某些情况下，你也可以在 `onMounted()` 等生命周期钩子中调用它们。
+Composables 应该只在组件函数或组件初始化入口中调用。它们还应该在这些上下文中**同步**调用。在某些情况下，你也可以在 `onMounted()` 等生命周期钩子中调用它们。
 
 这些限制很重要，因为这些是 Rue 能够确定当前活动组件实例的上下文。访问活动组件实例是必要的，以便：
 
@@ -323,7 +327,7 @@ Composables 应该只在 `<script setup>` 或 `setup()` 钩子中调用。它们
 2. 计算属性和监视器可以链接到它，以便在实例卸载时被销毁，防止内存泄漏。
 
 :::tip
-`<script setup>` 是唯一一个你可以在使用 `await` 之后调用 composables 的地方。编译器会自动在异步操作后为你恢复活动实例上下文。
+一旦跨过 `await`，当前活动组件实例上下文就可能已经丢失。因此，依赖生命周期钩子、provide / inject 或自动清理能力的 composable，最稳妥的做法是在第一次 `await` 之前完成调用。
 :::
 
 ## 提取 Composables 以组织代码 {#extracting-composables-for-code-organization}

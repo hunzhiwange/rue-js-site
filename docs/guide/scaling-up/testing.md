@@ -160,7 +160,7 @@ describe('Stepper', () => {
 
 ### 推荐 {#recommendation-1}
 
-- [Vitest](https://vitest.dev/) 用于无头渲染的组件或 composables（例如 VueUse 中的 [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) 函数）。组件和 DOM 可以使用 [`@rue/test-utils`](https://github.com/ruejs/test-utils) 进行测试。
+- [Vitest](https://vitest.dev/) 用于无头渲染的组件或 composables（例如 VueUse 中的 [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) 函数）。组件和 DOM 可以使用 [`rue-test-utils`](https://github.com/ruejs/test-utils) 进行测试。
 
 - [Cypress Component Testing](https://on.cypress.io/component) 用于预期行为依赖于正确渲染样式或触发原生 DOM 事件的组件。它可以通过 [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro) 与 Testing Library 一起使用。
 
@@ -170,11 +170,11 @@ Vitest 和基于浏览器的运行器之间的主要区别是速度和执行上�
 
 组件测试通常涉及在隔离中挂载被测试的组件、触发模拟的用户输入事件，并对渲染的 DOM 输出进行断言。有一些专门的实用库可以简化这些任务。
 
-- [`@rue/test-utils`](https://github.com/ruejs/test-utils) 是官方的低级组件测试库，旨在为用户提供访问 Rue 特定 API 的能力。它也是 `@testing-library/rue` 构建的基础库。
+- [`rue-test-utils`](https://github.com/ruejs/test-utils) 是官方的低级组件测试库，旨在为用户提供访问 Rue 特定 API 的能力。它也是 `@testing-library/rue` 构建的基础库。
 
 - [`@testing-library/rue`](https://github.com/testing-library/rue-testing-library) 是一个专注于不依赖实现细节测试组件的 Rue 测试库。其指导原则是，测试越像软件的使用方式，它们就越能提供信心。
 
-我们建议对应用中的组件测试使用 `@rue/test-utils`。`@testing-library/rue` 在测试具有 Suspense 的异步组件时存在问题，因此应谨慎使用。
+我们建议对应用中的组件测试使用 `rue-test-utils`。`@testing-library/rue` 在测试具有 Suspense 的异步组件时存在问题，因此应谨慎使用。
 
 ### 其他选项 {#other-options-1}
 
@@ -244,7 +244,7 @@ npm install -D vitest happy-dom @testing-library/rue
 
 ```ts{5-11} [vite.config.ts]
 import { defineConfig } from 'vite'
-import rue from '@rue/vite-plugin-rue'
+import rue from '@rue-js/vite-plugin-rue'
 
 export default defineConfig({
   plugins: [rue()],
@@ -313,7 +313,7 @@ npm test
 如果 composable 只使用响应式 API，那么可以通过直接调用它并断言其返回的状态/方法来测试它：
 
 ```ts [counter.ts]
-import { ref } from 'rues'
+import { ref } from '@rue-js/rue'
 
 export function useCounter() {
   const count = ref(0)
@@ -344,16 +344,14 @@ describe('useCounter', () => {
 依赖于生命周期钩子或 Provide / Inject 的 composable 需要包装在宿主组件中才能进行测试。我们可以创建一个如下所示的辅助函数：
 
 ```ts [test-utils.ts]
-import { createApp, h, type VNode } from 'rues'
+import { createApp, h, type RenderOutput } from '@rue-js/rue'
 
-export function withSetup<T>(
-  composable: () => T,
-): [T, ReturnType<typeof createApp>] {
+export function withSetup<T>(composable: () => T): [T, ReturnType<typeof createApp>] {
   let result!: T
   const app = createApp({
     setup() {
       result = composable()
-      return () => h('div')
+      return (): RenderOutput => h('div')
     },
   })
   app.mount(document.createElement('div'))

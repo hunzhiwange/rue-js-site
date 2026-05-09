@@ -20,9 +20,9 @@ Rue 提供了两个内置组件来帮助处理响应状态变化的过渡和动�
 这是最基本的用法示例：
 
 ```tsx
-import { useState } from 'rues'
-import { Transition } from 'rues'
-import type { FC } from 'rues'
+import { useState } from '@rue-js/rue'
+import { Transition } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const App: FC = () => {
   const [show, setShow] = useState(false)
@@ -271,8 +271,8 @@ Rue 需要附加事件监听器以知道过渡何时结束。它可以是 `trans
 您可以通过监听 `<Transition>` 组件上的事件来用 JavaScript 钩入过渡过程：
 
 ```tsx
-import { Transition } from 'rues'
-import type { FC } from 'rues'
+import { Transition } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const App: FC = () => {
   const onBeforeEnter = (el: HTMLElement) => {
@@ -352,8 +352,8 @@ const App: FC = () => {
 
 ```tsx
 // MyTransition.tsx
-import { Transition } from 'rues'
-import type { FC, ReactNode } from 'rues'
+import { Transition } from '@rue-js/rue'
+import type { FC, ReactNode } from '@rue-js/rue'
 
 interface MyTransitionProps {
   children: ReactNode
@@ -414,30 +414,24 @@ const App: FC = () => {
 
 在前面的示例中，进入和离开元素同时动画化，我们必须使它们 `position: absolute` 以避免当两个元素都存在于 DOM 中时产生布局问题。
 
-然而，在某些情况下这不是一个选项，或者根本不是期望的行为。我们可能希望离开元素先动画化出去，然后进入元素 **在** 离开动画完成后才插入。手动编排这样的动画将非常复杂 - 幸运的是，我们可以通过向 `<Transition>` 传递 `mode` prop 来启用此行为：
+然而，在某些情况下这不是一个选项，或者根本不是期望的行为。我们可能希望离开元素先动画化出去，然后进入元素 **在** 离开动画完成后才插入。
 
-```tsx
-<Transition mode="out-in">...</Transition>
-```
-
-这是使用 `mode="out-in"` 的前面的演示：
-
-`<Transition>` 还支持 `mode="in-out"`，尽管它的使用频率要低得多。
+Rue 当前的 `<Transition>` 实现还没有提供 `mode` 来自动编排这类顺序，因此如果你需要这样的时序，需要在上层状态切换逻辑中自行处理，而不是依赖 `<Transition mode="out-in">` 这样的 API。
 
 ## 组件之间的过渡 (Transition Between Components) {#transition-between-components}
 
 `<Transition>` 也可以用于 [动态组件](/guide/essentials/component-basics#dynamic-components) 周围：
 
 ```tsx
-import { useState } from 'rues'
-import { Transition, Dynamic } from 'rues'
-import type { FC } from 'rues'
+import { useState } from '@rue-js/rue'
+import { Transition, Dynamic } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const App: FC = () => {
   const [activeComponent, setActiveComponent] = useState('ComponentA')
 
   return (
-    <Transition name="fade" mode="out-in">
+    <Transition name="fade">
       <Dynamic component={activeComponent} />
     </Transition>
   )
@@ -463,9 +457,9 @@ const App: FC = () => {
 以这个计数器组件为例：
 
 ```tsx
-import { useState, useEffect } from 'rues'
-import { Transition } from 'rues'
-import type { FC } from 'rues'
+import { useState, useEffect } from '@rue-js/rue'
+import { Transition } from '@rue-js/rue'
+import type { FC } from '@rue-js/rue'
 
 const Counter: FC = () => {
   const [count, setCount] = useState(0)
