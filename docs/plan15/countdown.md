@@ -8,17 +8,17 @@
 
 ### ant-design 对应组件
 
-- [ant-design-master/components/statistic](/Users/dyhb/code/ant-design-master/components/statistic)
+- [ant-design-master/components/statistic](/Users/Shared/work/dir/data/codes/ant-design-master/components/statistic)
 
 ### Swap 改造示范
 
-- [packages/rue-design/src/components/swap/index.tsx](/Users/dyhb/code/rue/packages/rue-design/src/components/swap/index.tsx)
-- [app/pages/design/Swap.tsx](/Users/dyhb/code/rue/app/pages/design/Swap.tsx)
+- [packages/rue-design/src/components/swap/index.tsx](/Users/Shared/work/dir/data/codes/rue/packages/rue-design/src/components/swap/index.tsx)
+- [app/pages/design/Swap.tsx](/Users/Shared/work/dir/data/codes/rue/app/pages/design/Swap.tsx)
 
 ### Rue 组件路径
 
-- 组件实现：[packages/rue-design/src/components/countdown/index.tsx](/Users/dyhb/code/rue/packages/rue-design/src/components/countdown/index.tsx)
-- 设计页：[app/pages/design/Countdown.tsx](/Users/dyhb/code/rue/app/pages/design/Countdown.tsx)
+- 组件实现：[packages/rue-design/src/components/countdown/index.tsx](/Users/Shared/work/dir/data/codes/rue/packages/rue-design/src/components/countdown/index.tsx)
+- 设计页：[app/pages/design/Countdown.tsx](/Users/Shared/work/dir/data/codes/rue/app/pages/design/Countdown.tsx)
 
 ## 边界提示
 

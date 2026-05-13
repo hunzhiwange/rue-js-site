@@ -8,17 +8,17 @@
 
 ### ant-design 对应组件
 
-- [ant-design-master/components/switch](/Users/dyhb/code/ant-design-master/components/switch)
+- [ant-design-master/components/switch](/Users/Shared/work/dir/data/codes/ant-design-master/components/switch)
 
 ### Swap 改造示范
 
-- [packages/rue-design/src/components/swap/index.tsx](/Users/dyhb/code/rue/packages/rue-design/src/components/swap/index.tsx)
-- [app/pages/design/Swap.tsx](/Users/dyhb/code/rue/app/pages/design/Swap.tsx)
+- [packages/rue-design/src/components/swap/index.tsx](/Users/Shared/work/dir/data/codes/rue/packages/rue-design/src/components/swap/index.tsx)
+- [app/pages/design/Swap.tsx](/Users/Shared/work/dir/data/codes/rue/app/pages/design/Swap.tsx)
 
 ### Rue 组件路径
 
-- 组件实现：[packages/rue-design/src/components/toggle/index.tsx](/Users/dyhb/code/rue/packages/rue-design/src/components/toggle/index.tsx)
-- 设计页：[app/pages/design/Toggle.tsx](/Users/dyhb/code/rue/app/pages/design/Toggle.tsx)
+- 组件实现：[packages/rue-design/src/components/toggle/index.tsx](/Users/Shared/work/dir/data/codes/rue/packages/rue-design/src/components/toggle/index.tsx)
+- 设计页：[app/pages/design/Toggle.tsx](/Users/Shared/work/dir/data/codes/rue/app/pages/design/Toggle.tsx)
 
 ## 边界提示
 

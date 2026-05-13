@@ -8,17 +8,17 @@
 
 ### ant-design 对应组件
 
-- [ant-design-master/components/menu](/Users/dyhb/code/ant-design-master/components/menu)
+- [ant-design-master/components/menu](/Users/Shared/work/dir/data/codes/ant-design-master/components/menu)
 
 ### Swap 改造示范
 
-- [packages/rue-design/src/components/swap/index.tsx](/Users/dyhb/code/rue/packages/rue-design/src/components/swap/index.tsx)
-- [app/pages/design/Swap.tsx](/Users/dyhb/code/rue/app/pages/design/Swap.tsx)
+- [packages/rue-design/src/components/swap/index.tsx](/Users/Shared/work/dir/data/codes/rue/packages/rue-design/src/components/swap/index.tsx)
+- [app/pages/design/Swap.tsx](/Users/Shared/work/dir/data/codes/rue/app/pages/design/Swap.tsx)
 
 ### Rue 组件路径
 
-- 组件实现：[packages/rue-design/src/components/menu/index.tsx](/Users/dyhb/code/rue/packages/rue-design/src/components/menu/index.tsx)
-- 设计页：[app/pages/design/Menu.tsx](/Users/dyhb/code/rue/app/pages/design/Menu.tsx)
+- 组件实现：[packages/rue-design/src/components/menu/index.tsx](/Users/Shared/work/dir/data/codes/rue/packages/rue-design/src/components/menu/index.tsx)
+- 设计页：[app/pages/design/Menu.tsx](/Users/Shared/work/dir/data/codes/rue/app/pages/design/Menu.tsx)
 
 ## 边界提示
 

@@ -12,13 +12,13 @@
 
 ### Swap 改造示范
 
-- [packages/rue-design/src/components/swap/index.tsx](/Users/dyhb/code/rue/packages/rue-design/src/components/swap/index.tsx)
-- [app/pages/design/Swap.tsx](/Users/dyhb/code/rue/app/pages/design/Swap.tsx)
+- [packages/rue-design/src/components/swap/index.tsx](/Users/Shared/work/dir/data/codes/rue/packages/rue-design/src/components/swap/index.tsx)
+- [app/pages/design/Swap.tsx](/Users/Shared/work/dir/data/codes/rue/app/pages/design/Swap.tsx)
 
 ### Rue 组件路径
 
-- 组件实现：[packages/rue-design/src/components/textarea/index.tsx](/Users/dyhb/code/rue/packages/rue-design/src/components/textarea/index.tsx)
-- 设计页：[app/pages/design/Textarea.tsx](/Users/dyhb/code/rue/app/pages/design/Textarea.tsx)
+- 组件实现：[packages/rue-design/src/components/textarea/index.tsx](/Users/Shared/work/dir/data/codes/rue/packages/rue-design/src/components/textarea/index.tsx)
+- 设计页：[app/pages/design/Textarea.tsx](/Users/Shared/work/dir/data/codes/rue/app/pages/design/Textarea.tsx)
 
 ## 边界提示
 

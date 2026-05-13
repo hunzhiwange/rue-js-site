@@ -1,0 +1,1 @@
+import{I as e,L as t,M as n,u as r}from"./vapor-runtime-D3a-68js.js";var i=i=>r(()=>{let r=e(`div`);return n(r,t(`关于`)),r});export{i as default};

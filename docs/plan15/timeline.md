@@ -8,17 +8,17 @@
 
 ### ant-design 对应组件
 
-- [ant-design-master/components/timeline](/Users/dyhb/code/ant-design-master/components/timeline)
+- [ant-design-master/components/timeline](/Users/Shared/work/dir/data/codes/ant-design-master/components/timeline)
 
 ### Swap 改造示范
 
-- [packages/rue-design/src/components/swap/index.tsx](/Users/dyhb/code/rue/packages/rue-design/src/components/swap/index.tsx)
-- [app/pages/design/Swap.tsx](/Users/dyhb/code/rue/app/pages/design/Swap.tsx)
+- [packages/rue-design/src/components/swap/index.tsx](/Users/Shared/work/dir/data/codes/rue/packages/rue-design/src/components/swap/index.tsx)
+- [app/pages/design/Swap.tsx](/Users/Shared/work/dir/data/codes/rue/app/pages/design/Swap.tsx)
 
 ### Rue 组件路径
 
-- 组件实现：[packages/rue-design/src/components/timeline/index.tsx](/Users/dyhb/code/rue/packages/rue-design/src/components/timeline/index.tsx)
-- 设计页：[app/pages/design/Timeline.tsx](/Users/dyhb/code/rue/app/pages/design/Timeline.tsx)
+- 组件实现：[packages/rue-design/src/components/timeline/index.tsx](/Users/Shared/work/dir/data/codes/rue/packages/rue-design/src/components/timeline/index.tsx)
+- 设计页：[app/pages/design/Timeline.tsx](/Users/Shared/work/dir/data/codes/rue/app/pages/design/Timeline.tsx)
 
 ## 边界提示
 

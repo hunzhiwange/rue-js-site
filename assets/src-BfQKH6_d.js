@@ -1,0 +1,1 @@
+import{_ as e}from"./vapor-runtime-D3a-68js.js";function t(t,n,r){let i=r===void 0?n||null:(()=>{let e={};if(n)for(let t in n)e[t]=n[t];return e.key=r,e})(),a=n?n.children:void 0;return Array.isArray(a)?e(t,i,...a):a===void 0?e(t,i):e(t,i,a)}var n=t;export{n,t};
