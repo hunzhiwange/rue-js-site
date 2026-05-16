@@ -1,0 +1,144 @@
+import{F as e,I as t,K as n,L as r,N as i,R as a,W as o,_t as s,d as c,l,mt as u,ot as d,t as f,ut as p}from"./vapor-runtime-B3ypJaOM.js";import{a as m,n as h}from"./vapor-helpers-vapor-CER7Yupw.js";import{n as g,t as _}from"./src-BhCwGZbQ.js";import{n as v}from"./SidebarPlaygroundDesign-DJJx0NbZ.js";import{t as y}from"./Code-DOCCgQFa.js";import{t as b}from"./tabs-Cu0uJJtf.js";var x=(e,t)=>t?`${e} ${t}`:e,S=e=>Array.isArray(e)?e.some(e=>S(e)):e!=null&&e!==!1,C=e=>{if(e)return e===`start`?`1`:e===`end`?`2`:e},w=e=>{switch(e){case`xs`:return`size-12`;case`sm`:case`small`:return`size-16`;case`md`:case`middle`:case`medium`:return`size-24`;case`lg`:case`large`:return`size-32`;case`xl`:return`size-40`;case`2xl`:return`size-52`;case`3xl`:return`size-64`;default:return}},T=e=>{switch(e){case`top`:return`object-top`;case`bottom`:return`object-bottom`;case`left`:return`object-left`;case`right`:return`object-right`;case`top-left`:return`object-left-top`;case`top-right`:return`object-right-top`;case`bottom-left`:return`object-left-bottom`;case`bottom-right`:return`object-right-bottom`;default:return e?`object-center`:void 0}},E=e=>{switch(e){case`contain`:return`object-contain`;case`fill`:return`object-fill`;case`none`:return`object-none`;case`scale-down`:return`object-scale-down`;default:return e?`object-cover`:void 0}},D=e=>{switch(e){case`neutral`:return`bg-neutral text-neutral-content`;case`primary`:return`bg-primary text-primary-content`;case`secondary`:return`bg-secondary text-secondary-content`;case`accent`:return`bg-accent text-accent-content`;case`info`:return`bg-info text-info-content`;case`success`:return`bg-success text-success-content`;case`warning`:return`bg-warning text-warning-content`;case`error`:return`bg-error text-error-content`;case`base`:return`bg-base-200 text-base-content`;default:return}},O=e=>{switch(e){case`neutral`:return`ring-neutral/35`;case`primary`:return`ring-primary/35`;case`secondary`:return`ring-secondary/35`;case`accent`:return`ring-accent/35`;case`info`:return`ring-info/35`;case`success`:return`ring-success/35`;case`warning`:return`ring-warning/35`;case`error`:return`ring-error/35`;default:return`ring-base-300`}},k=({shape:e,half:t,size:n,fit:r,position:i,tone:a,bordered:o,ring:s,shadow:c,interactive:l})=>{let u=`mask mask-${e??`squircle`}`,d=C(t),f=w(n),p=E(r),m=T(i),h=D(a);return d&&(u+=` mask-half-${d}`),f&&(u+=` ${f}`),p&&(u+=` ${p}`),m&&(u+=` ${m}`),h&&(u+=` ${h}`),o&&(u+=` ring-1 ring-inset ring-base-300/80`),s&&(u+=` ring-2 ring-offset-2 ring-offset-base-100 ${O(a)}`),c&&(u+=` shadow-xl shadow-base-content/10`),l&&(u+=` transition duration-200 ease-out hover:-translate-y-1 hover:shadow-2xl`),u},A=({as:e=`img`,shape:t=`squircle`,half:n,size:r,fit:i=`cover`,position:a,tone:o,bordered:s,ring:c,shadow:l,interactive:u,src:d,alt:f,imageProps:p,wrapperClassName:m,imageClassName:h,content:v,contentClassName:y,caption:b,captionClassName:C,className:w,children:T,...E})=>{let D=k({shape:t,half:n,size:r,fit:i,position:a,tone:o,bordered:s,ring:c,shadow:l,interactive:u}),O=v??T;if(d&&(S(O)||b!=null||m!=null||h!=null||y!=null||C!=null||e===`figure`)){let t=e===`img`?`figure`:e,n=t===`figure`?`figcaption`:`div`;return g(t,{...E,className:x(`relative inline-flex flex-col items-center gap-3`,m),children:[g(`div`,{className:`relative inline-flex`,children:[_(`img`,{...p,src:d,alt:f,className:x(x(D,w),h)}),S(O)?_(`div`,{className:x(`absolute inset-0 grid place-items-center p-4 text-center`,y),children:O}):null]}),b==null?null:_(n,{className:x(`text-center text-sm opacity-70`,C),children:b})]})}return _(e,{...E,src:d,alt:f,className:x(D,w),children:T})},j=`https://picsum.photos/320/320?grayscale`,M=`https://picsum.photos/420/240?grayscale`,N=`https://picsum.photos/240/420?grayscale`,P=[`squircle`,`heart`,`hexagon`,`hexagon-2`,`decagon`,`pentagon`,`diamond`,`square`,`circle`],F=[`star`,`star-2`],I=[`triangle`,`triangle-2`,`triangle-3`,`triangle-4`],L=[`xs`,`sm`,`md`,`lg`,`xl`,`2xl`],R=[{label:`cover`,fit:`cover`,src:M},{label:`contain`,fit:`contain`,src:N},{label:`fill`,fit:`fill`,src:M}],z=[{label:`Base`,tone:`base`},{label:`Primary`,tone:`primary`},{label:`Secondary`,tone:`secondary`},{label:`Accent`,tone:`accent`},{label:`Success`,tone:`success`},{label:`Warning`,tone:`warning`}],B=[{prop:`as`,description:`指定渲染标签，默认输出 img，也可渲染 div、figure 等任意宿主元素`,type:`string`,defaultValue:`'img'`},{prop:`shape`,description:`遮罩形状，覆盖当前支持的全部 mask-* 造型`,type:`'squircle' | 'heart' | 'hexagon' | 'hexagon-2' | 'decagon' | 'pentagon' | 'diamond' | 'square' | 'circle' | 'star' | 'star-2' | 'triangle' | 'triangle-2' | 'triangle-3' | 'triangle-4'`,defaultValue:`'squircle'`},{prop:`half`,description:`半边遮罩；支持数字写法，也支持 start / end 语义别名`,type:`'1' | '2' | 'start' | 'end'`,defaultValue:`-`},{prop:`size`,description:`语义尺寸，映射到一组常用正方形尺寸 class`,type:`'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'`,defaultValue:`-`},{prop:`fit`,description:`媒体内容适配模式，输出 object-* 类名`,type:`'cover' | 'contain' | 'fill' | 'none' | 'scale-down'`,defaultValue:`'cover'`},{prop:`tone`,description:`给非图片宿主补齐背景与前景色，方便做头像牌、数字徽记和内容卡片`,type:`'base' | 'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'`,defaultValue:`-`},{prop:`bordered`,description:`追加轻量内描边，适合浅背景图片或卡片`,type:`boolean`,defaultValue:`false`},{prop:`ring`,description:`追加 ring 与 offset，tone 存在时会自动继承对应的环颜色`,type:`boolean`,defaultValue:`false`},{prop:`shadow`,description:`追加投影，适合头像、封面和内容模块`,type:`boolean`,defaultValue:`false`},{prop:`interactive`,description:`追加轻量 hover 动效，方便做可点击素材墙或精选卡片`,type:`boolean`,defaultValue:`false`},{prop:`className`,description:`透传自定义样式类，可与组件生成的 mask 类叠加`,type:`string`,defaultValue:`-`}],V=o=>c(u=>{let d=r(`div`,u);n(d,`component-preview not-prose text-base-content my-6 lg:my-12`);let m=r(`div`,d);i(d,m),n(m,`flex flex-wrap items-start justify-between gap-3`);let h=r(`div`,m);i(m,h);let g=r(`h2`,h);i(h,g),n(g,`component-preview-title mt-2 mb-1 text-lg font-semibold`),i(g,a(`# `));let _=e(`rue:slot:anchor`);i(g,_),s(()=>{let e=o.title;p(()=>l(e,g,_))});let v=e(`rue:slot:anchor`);i(h,v),s(()=>{let a=o.summary?c(()=>{let a=t(),c=r(`p`,a);i(a,c),n(c,`m-0 text-sm opacity-70`);let u=e(`rue:slot:anchor`);return i(c,u),s(()=>{let e=o.summary;p(()=>l(e,c,u))}),a}):``;p(()=>l(a,h,v))});let x=e(`rue:component:anchor`);i(d,x),s(()=>{let e=f(b,{style:`box`,items:[{key:`preview`,label:`预览`},{key:`code`,label:`JSX代码`}],activeKey:o.tab.value,onChange:e=>o.tab.value=e,className:`mb-3 mt-4`});p(()=>l(e,d,x))});let S=e(`rue:slot:anchor`);return i(d,S),s(()=>{let n=o.tab.value===`preview`?o.preview():c(()=>{let n=t(),r=e(`rue:component:anchor`);return i(n,r),s(()=>{let e=f(y,{className:`mt-2`,lang:`tsx`,code:o.code});p(()=>l(e,n,r))}),n});p(()=>l(n,d,S))}),d}),H=u=>c(d=>{let f=r(`div`,d);n(f,`not-prose overflow-x-auto rounded-box border border-base-300 bg-base-100`);let m=r(`table`,f);i(f,m),n(m,`table table-zebra`);let g=r(`thead`,m);i(m,g);let _=r(`tr`,g);i(g,_);let v=r(`th`,_);i(_,v),i(v,a(`属性`));let y=r(`th`,_);i(_,y),i(y,a(`说明`));let b=r(`th`,_);i(_,b),i(b,a(`类型`));let x=r(`th`,_);i(_,x),i(x,a(`默认值`));let S=r(`tbody`,m);i(m,S);let C=e(`rue:list:start`),w=e(`rue:list:end`);i(S,C),i(S,w);let T=new Map;return s(()=>{T=h({items:u.rows||[],getKey:(e,t)=>e.prop,elements:T,parent:S,before:w,singleRoot:!0,trackIndex:!1,start:C,renderItem:(n,a,u,d,f)=>{l(c(()=>{let a=t(),c=r(`tr`,a);i(a,c),s(()=>{o(c,`key`,String(n.prop))});let u=r(`td`,c);i(c,u);let d=r(`code`,u);i(u,d);let f=e(`rue:slot:anchor`);i(d,f),s(()=>{let e=n.prop;p(()=>l(e,d,f))});let m=r(`td`,c);i(c,m);let h=e(`rue:slot:anchor`);i(m,h),s(()=>{let e=n.description;p(()=>l(e,m,h))});let g=r(`td`,c);i(c,g);let _=r(`code`,g);i(g,_);let v=e(`rue:slot:anchor`);i(_,v),s(()=>{let e=n.type;p(()=>l(e,_,v))});let y=r(`td`,c);i(c,y);let b=r(`code`,y);i(y,b);let x=e(`rue:slot:anchor`);return i(b,x),s(()=>{let e=n.defaultValue;p(()=>l(e,b,x))}),a}),a,u)}})}),f}),U=()=>{let{tabShapes:h,tabStars:y,tabTriangles:b,tabHalf:x,tabSize:S,tabFit:C,tabTone:w}=m(`useSetup:0:0`,()=>u(()=>({tabShapes:m(`ref:1:0`,()=>d(`preview`)),tabStars:m(`ref:1:1`,()=>d(`preview`)),tabTriangles:m(`ref:1:2`,()=>d(`preview`)),tabHalf:m(`ref:1:3`,()=>d(`preview`)),tabSize:m(`ref:1:4`,()=>d(`preview`)),tabFit:m(`ref:1:5`,()=>d(`preview`)),tabTone:m(`ref:1:6`,()=>d(`preview`))})));return c(u=>{let d=t(),m=e(`rue:component:anchor`);return i(d,m),l(f(v,{children:c(()=>{let c=t(),u=r(`div`,c);i(c,u),n(u,`max-w-none prose prose-sm md:prose-base`);let d=r(`h1`,u);i(u,d),i(d,a(`Mask 形状裁切`));let m=r(`p`,u);i(u,m),n(m,`text-sm mt-3 mb-3`),i(m,a(`Mask 现在不只是原始 class 的薄封装。它保留 Rue 的轻量视觉路线，同时补上尺寸、fit、tone、ring 与交互态这些更适合实际页面搭建的语义化能力。`));let v=r(`div`,u);i(u,v),n(v,`text-sm`);let T=r(`a`,v);i(v,T),o(T,`href`,`https://daisyui.com/components/mask/`),o(T,`target`,`_blank`),o(T,`rel`,`noreferrer`),i(T,a(`查看 Mask 静态样式来源`));let E=e(`rue:component:anchor`);i(u,E),s(()=>{let e=f(V,{title:`Core shapes`,summary:`保留原有基础形状示例，并统一到更整洁的卡片布局里。`,tab:h,preview:()=>_(`div`,{className:`card bg-base-100 shadow-sm`,children:_(`div`,{className:`card-body flex flex-wrap gap-4`,"data-testid":`mask-shapes-demo`,children:P.map(e=>_(A,{shape:e,src:j,alt:e,size:`md`,bordered:!0},e))})}),code:`<Mask shape="squircle" src="${j}" alt="squircle" size="md" bordered />
+<Mask shape="heart" src="${j}" alt="heart" size="md" bordered />
+<Mask shape="hexagon" src="${j}" alt="hexagon" size="md" bordered />
+<Mask shape="hexagon-2" src="${j}" alt="hexagon-2" size="md" bordered />
+<Mask shape="decagon" src="${j}" alt="decagon" size="md" bordered />
+<Mask shape="pentagon" src="${j}" alt="pentagon" size="md" bordered />
+<Mask shape="diamond" src="${j}" alt="diamond" size="md" bordered />
+<Mask shape="square" src="${j}" alt="square" size="md" bordered />
+<Mask shape="circle" src="${j}" alt="circle" size="md" bordered />`});p(()=>l(e,u,E))});let D=e(`rue:component:anchor`);i(u,D),s(()=>{let e=f(V,{title:`Star variants`,summary:`保留星形与粗星形示例，增加 ring 和 hover，适合头像墙或精选内容。`,tab:y,preview:()=>_(`div`,{className:`card bg-base-100 shadow-sm`,children:_(`div`,{className:`card-body flex flex-wrap gap-5`,children:F.map(e=>_(A,{shape:e,src:j,alt:e,size:`lg`,ring:!0,shadow:!0,interactive:!0},e))})}),code:`<Mask shape="star" src="${j}" alt="star" size="lg" ring shadow interactive />
+<Mask shape="star-2" src="${j}" alt="star-2" size="lg" ring shadow interactive />`});p(()=>l(e,u,D))});let O=e(`rue:component:anchor`);i(u,O),s(()=>{let e=f(V,{title:`Triangle variants`,summary:`保留四向三角形示例，并通过统一尺寸让方向差异更好观察。`,tab:b,preview:()=>_(`div`,{className:`card bg-base-100 shadow-sm`,children:_(`div`,{className:`card-body flex flex-wrap gap-5`,children:I.map(e=>_(A,{shape:e,src:j,alt:e,size:`lg`,bordered:!0,shadow:!0},e))})}),code:`<Mask shape="triangle" src="${j}" alt="triangle" size="lg" bordered shadow />
+<Mask shape="triangle-2" src="${j}" alt="triangle-2" size="lg" bordered shadow />
+<Mask shape="triangle-3" src="${j}" alt="triangle-3" size="lg" bordered shadow />
+<Mask shape="triangle-4" src="${j}" alt="triangle-4" size="lg" bordered shadow />`});p(()=>l(e,u,O))});let k=e(`rue:component:anchor`);i(u,k),s(()=>{let e=f(V,{title:`Half modifiers and arbitrary host`,summary:`保留 half modifier 与任意宿主演示，并补上 start / end 语义别名。`,tab:x,preview:()=>_(`div`,{className:`card bg-base-100 shadow-sm`,children:g(`div`,{className:`card-body flex flex-wrap items-center gap-6`,children:[_(A,{shape:`star`,half:`1`,src:j,alt:`star half 1`,size:`lg`,ring:!0}),_(A,{shape:`star`,half:`2`,src:j,alt:`star half 2`,size:`lg`,ring:!0}),_(A,{shape:`diamond`,half:`start`,src:j,alt:`diamond start`,size:`lg`,bordered:!0}),_(A,{as:`div`,shape:`diamond`,tone:`primary`,size:`lg`,ring:!0,shadow:!0,className:`grid place-content-center text-sm font-semibold uppercase tracking-[0.2em]`,"data-testid":`mask-host-demo`,children:`Host`})]})}),code:`<Mask shape="star" half="1" src="${j}" alt="star half 1" size="lg" ring />
+<Mask shape="star" half="2" src="${j}" alt="star half 2" size="lg" ring />
+<Mask shape="diamond" half="start" src="${j}" alt="diamond start" size="lg" bordered />
+<Mask
+  as="div"
+  shape="diamond"
+  tone="primary"
+  size="lg"
+  ring
+  shadow
+  className="grid place-content-center text-sm font-semibold uppercase tracking-[0.2em]"
+>
+  Host
+</Mask>`});p(()=>l(e,u,k))});let U=e(`rue:component:anchor`);i(u,U),s(()=>{let e=f(V,{title:`Semantic sizes`,summary:`新增尺寸别名，常见头像和封面尺寸不再需要每次都手写宽高 class。`,tab:S,preview:()=>_(`div`,{className:`card bg-base-100 shadow-sm`,children:_(`div`,{className:`card-body flex flex-wrap items-end gap-5`,children:L.map(e=>g(`div`,{className:`flex flex-col items-center gap-3 text-xs uppercase tracking-[0.18em] opacity-80`,children:[_(A,{shape:`circle`,src:j,alt:e,size:e,ring:!0}),_(`span`,{children:e})]},e))})}),code:`<Mask shape="circle" src="${j}" alt="xs" size="xs" ring />
+<Mask shape="circle" src="${j}" alt="sm" size="sm" ring />
+<Mask shape="circle" src="${j}" alt="md" size="md" ring />
+<Mask shape="circle" src="${j}" alt="lg" size="lg" ring />
+<Mask shape="circle" src="${j}" alt="xl" size="xl" ring />
+<Mask shape="circle" src="${j}" alt="2xl" size="2xl" ring />`});p(()=>l(e,u,U))});let W=e(`rue:component:anchor`);i(u,W),s(()=>{let e=f(V,{title:`Fit modes`,summary:`新增 fit 语义，宽图、竖图和封面图都能直接得到明确的裁切策略。`,tab:C,preview:()=>_(`div`,{className:`card bg-base-100 shadow-sm`,children:_(`div`,{className:`card-body grid gap-6 md:grid-cols-3`,children:R.map(e=>g(`div`,{className:`space-y-3`,children:[_(`div`,{className:`text-xs font-semibold uppercase tracking-[0.18em] opacity-70`,children:e.label}),_(`div`,{className:`rounded-box bg-base-200 p-4`,children:_(A,{shape:`hexagon-2`,src:e.src,alt:e.label,size:`xl`,fit:e.fit,bordered:!0,className:`mx-auto`})})]},e.label))})}),code:`<Mask shape="hexagon-2" src="${M}" alt="cover" size="xl" fit="cover" bordered className="mx-auto" />
+<Mask shape="hexagon-2" src="${N}" alt="contain" size="xl" fit="contain" bordered className="mx-auto" />
+<Mask shape="hexagon-2" src="${M}" alt="fill" size="xl" fit="fill" bordered className="mx-auto" />`});p(()=>l(e,u,W))});let G=e(`rue:component:anchor`);i(u,G),s(()=>{let e=f(V,{title:`Tone surfaces`,summary:`新增 tone、ring、shadow 组合后，Mask 也能承担数字徽记、内容牌和亮点卡片的职责。`,tab:w,preview:()=>_(`div`,{className:`card bg-base-100 shadow-sm`,children:g(`div`,{className:`card-body gap-6`,children:[_(`div`,{className:`flex flex-wrap gap-4`,children:z.map(e=>_(A,{as:`div`,shape:`squircle`,tone:e.tone,size:`md`,ring:!0,className:`grid place-content-center text-center text-xs font-semibold uppercase tracking-[0.18em]`,children:e.label},e.label))}),g(`div`,{className:`grid gap-4 md:grid-cols-3`,children:[_(A,{as:`div`,shape:`hexagon`,tone:`secondary`,size:`xl`,ring:!0,shadow:!0,interactive:!0,className:`mx-auto grid place-content-center p-6 text-center`,children:g(`div`,{className:`space-y-1`,children:[_(`div`,{className:`text-3xl font-black`,children:`24`}),_(`div`,{className:`text-xs uppercase tracking-[0.22em] opacity-80`,children:`Launches`})]})}),_(A,{as:`div`,shape:`diamond`,tone:`accent`,size:`xl`,ring:!0,shadow:!0,className:`mx-auto grid place-content-center p-6 text-center`,children:g(`div`,{className:`space-y-1`,children:[_(`div`,{className:`text-sm font-semibold uppercase tracking-[0.18em]`,children:`Featured`}),_(`div`,{className:`text-xs opacity-80`,children:`Rue Studio`})]})}),_(A,{as:`div`,shape:`circle`,tone:`success`,size:`xl`,ring:!0,shadow:!0,className:`mx-auto grid place-content-center p-6 text-center`,children:g(`div`,{className:`space-y-1`,children:[_(`div`,{className:`text-2xl font-black`,children:`98%`}),_(`div`,{className:`text-xs uppercase tracking-[0.18em] opacity-80`,children:`Approval`})]})})]})]})}),code:`<div className="flex flex-wrap gap-4">
+  <Mask
+    as="div"
+    shape="squircle"
+    tone="base"
+    size="md"
+    ring
+    className="grid place-content-center text-center text-xs font-semibold uppercase tracking-[0.18em]"
+  >
+    Base
+  </Mask>
+  <Mask
+    as="div"
+    shape="squircle"
+    tone="primary"
+    size="md"
+    ring
+    className="grid place-content-center text-center text-xs font-semibold uppercase tracking-[0.18em]"
+  >
+    Primary
+  </Mask>
+  <Mask
+    as="div"
+    shape="squircle"
+    tone="secondary"
+    size="md"
+    ring
+    className="grid place-content-center text-center text-xs font-semibold uppercase tracking-[0.18em]"
+  >
+    Secondary
+  </Mask>
+  <Mask
+    as="div"
+    shape="squircle"
+    tone="accent"
+    size="md"
+    ring
+    className="grid place-content-center text-center text-xs font-semibold uppercase tracking-[0.18em]"
+  >
+    Accent
+  </Mask>
+  <Mask
+    as="div"
+    shape="squircle"
+    tone="success"
+    size="md"
+    ring
+    className="grid place-content-center text-center text-xs font-semibold uppercase tracking-[0.18em]"
+  >
+    Success
+  </Mask>
+  <Mask
+    as="div"
+    shape="squircle"
+    tone="warning"
+    size="md"
+    ring
+    className="grid place-content-center text-center text-xs font-semibold uppercase tracking-[0.18em]"
+  >
+    Warning
+  </Mask>
+</div>
+
+<div className="grid gap-4 md:grid-cols-3">
+  <Mask
+    as="div"
+    shape="hexagon"
+    tone="secondary"
+    size="xl"
+    ring
+    shadow
+    interactive
+    className="mx-auto grid place-content-center p-6 text-center"
+  >
+    <div className="space-y-1">
+      <div className="text-3xl font-black">24</div>
+      <div className="text-xs uppercase tracking-[0.22em] opacity-80">Launches</div>
+    </div>
+  </Mask>
+
+  <Mask
+    as="div"
+    shape="diamond"
+    tone="accent"
+    size="xl"
+    ring
+    shadow
+    className="mx-auto grid place-content-center p-6 text-center"
+  >
+    <div className="space-y-1">
+      <div className="text-sm font-semibold uppercase tracking-[0.18em]">
+        Featured
+      </div>
+      <div className="text-xs opacity-80">Rue Studio</div>
+    </div>
+  </Mask>
+
+  <Mask
+    as="div"
+    shape="circle"
+    tone="success"
+    size="xl"
+    ring
+    shadow
+    className="mx-auto grid place-content-center p-6 text-center"
+  >
+    <div className="space-y-1">
+      <div className="text-2xl font-black">98%</div>
+      <div className="text-xs uppercase tracking-[0.18em] opacity-80">Approval</div>
+    </div>
+  </Mask>
+</div>`});p(()=>l(e,u,G))});let K=r(`div`,u);i(u,K),n(K,`my-8`);let q=r(`h2`,K);i(K,q),n(q,`mt-0`),i(q,a(`API`));let J=e(`rue:component:anchor`);return i(K,J),s(()=>{let e=f(H,{rows:B});p(()=>l(e,K,J))}),c})}),d,m),d})};export{U as default};
