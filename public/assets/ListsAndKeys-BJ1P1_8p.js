@@ -1,0 +1,11 @@
+import{F as e,I as t,K as n,L as r,M as i,N as a,Q as o,R as s,W as c,d as l,dt as u,ht as d,l as f,st as p,t as m,vt as h,z as g}from"./vapor-runtime-BuwLbCGk.js";import{a as _,n as v}from"./vapor-helpers-vapor-Bly5xJie.js";import{t as y}from"./Code-DQxnq0in.js";import{t as b}from"./SidebarPlaygroundExample-BwOo72z2.js";var x=[`Apple`,`Banana`,`Cherry`],S=()=>{let{activeTab:S}=_(`useSetup:0:0`,()=>d(()=>({activeTab:_(`ref:1:0`,()=>p(`code`))})));return l(d=>{let p=t(),_=e(`rue:component:anchor`);return a(p,_),f(m(b,{children:l(()=>{let d=t(),p=r(`h1`,d);a(d,p),n(p,`text-5xl font-semibold mb-4 md:mb-4`),a(p,s(`列表渲染与 key`));let _=r(`div`,d);a(d,_),c(_,`role`,`tablist`),n(_,`tabs tabs-box`);let b=r(`button`,_);a(_,b),c(b,`role`,`tab`),h(()=>{n(b,String(`tab ${S.value===`preview`?`tab-active`:``}`))}),i(b,`click`,()=>{S.value=`preview`}),a(b,s(`效果`));let C=r(`button`,_);a(_,C),c(C,`role`,`tab`),h(()=>{n(C,String(`tab ${S.value===`code`?`tab-active`:``}`))}),i(C,`click`,()=>{S.value=`code`}),a(C,s(`代码`));let w=r(`div`,d);a(d,w),n(w,`mt-4 grid md:grid-cols-1 gap-6 items-start`);let T=e(`rue:slot:anchor`);a(w,T),h(()=>{let i=S.value===`code`?l(()=>{let i=t(),o=r(`div`,i);a(i,o),n(o,`card bg-base-100 shadow overflow-auto`);let s=r(`div`,o);a(o,s),n(s,`card-body p-0`);let c=e(`rue:component:anchor`);return a(s,c),h(()=>{let e=m(y,{className:`h-full`,lang:`tsx`,code:`import { type FC } from '@rue-js/rue';
+
+const list = ['Apple', 'Banana', 'Cherry'];
+
+const ListsAndKeys: FC = () => (
+  <ul className="list-disc pl-6">
+    {list.map((item, idx) => <li key={item}>{idx + 1}. {item}</li>)}
+  </ul>
+);
+
+export default ListsAndKeys;`});u(()=>f(e,s,c))}),i}):``;u(()=>f(i,w,T))}),a(w,s(` `));let E=e(`rue:slot:anchor`);return a(w,E),h(()=>{let i=S.value===`preview`?l(()=>{let i=t(),u=r(`div`,i);a(i,u),n(u,`card bg-base-100 shadow`);let d=r(`div`,u);a(u,d),n(d,`card-body`);let p=r(`ul`,d);a(d,p),n(p,`list-disc pl-6`);let m=e(`rue:list:start`),_=e(`rue:list:end`);a(p,m),a(p,_);let y=new Map;return h(()=>{y=v({items:x||[],getKey:(e,t)=>e,elements:y,parent:p,before:_,singleRoot:!0,start:m,renderItem:(e,n,i,u,d)=>{f(l(()=>{let n=t(),i=r(`li`,n);a(n,i),h(()=>{c(i,`key`,String(e))});let l=g(i);a(i,l),h(()=>{o(l,d+1)}),a(i,s(`. `));let u=g(i);return a(i,u),h(()=>{o(u,e)}),n}),n,i)}})}),i}):``;u(()=>f(i,w,E))}),d})}),p,_),p})};export{S as default};
