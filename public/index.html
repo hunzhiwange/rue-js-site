@@ -7,7 +7,43 @@
     <script>
       ;(function () {
         try {
-          var theme = localStorage.getItem('rue.theme') || 'light'
+          var defaultTheme = 'luxury'
+          var themes = [
+            'light',
+            'dark',
+            'cupcake',
+            'bumblebee',
+            'emerald',
+            'corporate',
+            'synthwave',
+            'retro',
+            'cyberpunk',
+            'valentine',
+            'halloween',
+            'garden',
+            'forest',
+            'aqua',
+            'lofi',
+            'pastel',
+            'fantasy',
+            'wireframe',
+            'black',
+            'luxury',
+            'dracula',
+            'cmyk',
+            'autumn',
+            'business',
+            'acid',
+            'lemonade',
+            'night',
+            'coffee',
+            'winter',
+            'dim',
+            'nord',
+            'sunset',
+          ]
+          var storedTheme = localStorage.getItem('rue.theme')
+          var theme = themes.includes(storedTheme) ? storedTheme : defaultTheme
           document.documentElement.setAttribute('data-theme', theme)
         } catch (e) {}
       })()
@@ -26,16 +62,16 @@
         margin-bottom: 20px;
       }
     </style>
-    <script type="module" crossorigin src="/assets/main-BJCwaI_n.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/preload-helper-qlgyTAkD.js">
+    <script type="module" crossorigin src="/assets/main-BG6V8U7j.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/preload-helper-BEFjQwLd.js">
     <link rel="modulepreload" crossorigin href="/assets/chunk-62oNxeRG.js">
-    <link rel="modulepreload" crossorigin href="/assets/vapor-runtime-BuwLbCGk.js">
-    <link rel="modulepreload" crossorigin href="/assets/general-BmFRDxl1.js">
-    <link rel="modulepreload" crossorigin href="/assets/src-CkrzrUT7.js">
-    <link rel="modulepreload" crossorigin href="/assets/useComponent-xTfiWoRp.js">
-    <link rel="modulepreload" crossorigin href="/assets/useApp-CW-ygs8x.js">
-    <link rel="modulepreload" crossorigin href="/assets/vapor-helpers-vapor-Bly5xJie.js">
-    <link rel="stylesheet" crossorigin href="/assets/main-R-GtYYx4.css">
+    <link rel="modulepreload" crossorigin href="/assets/vapor-runtime-BAZOdMd8.js">
+    <link rel="modulepreload" crossorigin href="/assets/general-CfCyZjVL.js">
+    <link rel="modulepreload" crossorigin href="/assets/src-BZrq3-qJ.js">
+    <link rel="modulepreload" crossorigin href="/assets/useApp-QQnSpfJs.js">
+    <link rel="modulepreload" crossorigin href="/assets/useComponent-CAHeuG9c.js">
+    <link rel="modulepreload" crossorigin href="/assets/vapor-helpers-vapor-BvUp1QnH.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-BLNI9YkZ.css">
   </head>
 
   <body>
