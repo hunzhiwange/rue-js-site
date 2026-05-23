@@ -53,7 +53,6 @@
 
   ```tsx
   import { Component } from '@rue-js/rue'
-
   ;<Component is={href ? 'a' : 'span'} />
   ```
 
@@ -61,7 +60,6 @@
 
   ```tsx
   import { Component, Transition, TransitionGroup } from '@rue-js/rue'
-
   ;<Component is={isGroup ? TransitionGroup : Transition}>...</Component>
   ```
 
@@ -127,7 +125,6 @@
 
   ```tsx
   import { Slot } from '@rue-js/rue'
-
   ;<Slot>
     <p>fallback content</p>
   </Slot>
@@ -137,7 +134,6 @@
 
   ```tsx
   import { Slot } from '@rue-js/rue'
-
   ;<Slot name="header" />
   ```
 
@@ -145,7 +141,6 @@
 
   ```tsx
   import { Slot } from '@rue-js/rue'
-
   ;<Slot name="item" props={{ item: post, index }} />
   ```
 
@@ -187,7 +182,6 @@
 
   ```tsx
   import { Template } from '@rue-js/rue'
-
   ;<Template>
     <h1>Title</h1>
     <p>Content</p>
