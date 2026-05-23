@@ -197,7 +197,7 @@ register()
   <my-foo ...>
     <my-bar ...></my-bar>
   </my-foo>
-</template>
+</Template>
 ```
 
 或在任何其他框架中，如使用 JSX 的框架，并使用自定义名称：
@@ -387,7 +387,7 @@ onMounted(() => {
       }
     "
   ></some-element>
-</template>
+</Template>
 ```
 
 如果元素没有类型定义，属性和事件的类型可以以更手动的方式定义：
@@ -419,7 +419,7 @@ declare module '@rue-js/rue' {
 
 <Template>
   <!-- ... 与之前相同，在模板中使用元素 ... -->
-</template>
+</Template>
 ```
 
 自定义元素作者不应自动从其库中导出框架特定的自定义元素类型定义，例如不应从也导出库其余部分的 `index.ts` 文件中导出它们，否则用户将遇到意外的模块扩充错误。用户应导入他们需要的框架特定的类型定义文件。

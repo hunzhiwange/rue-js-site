@@ -44,10 +44,7 @@
   count.value = 1
   console.log(count.value) // 1
 
-  const state = ref(
-    { count: 1 },
-    { equals: (prev, next) => prev.count === next.count },
-  )
+  const state = ref({ count: 1 }, { equals: (prev, next) => prev.count === next.count })
 
   state.value = { count: 1 } // 相等，不触发更新
   ```
@@ -197,10 +194,7 @@
   自定义比较：
 
   ```js
-  const state = reactive(
-    { count: 1 },
-    { equals: (prev, next) => prev.count === next.count },
-  )
+  const state = reactive({ count: 1 }, { equals: (prev, next) => prev.count === next.count })
 
   state.count = 1 // 相等，不触发更新
   ```

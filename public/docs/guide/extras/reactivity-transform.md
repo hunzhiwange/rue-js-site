@@ -29,7 +29,7 @@ function increment() {
 
 <Template>
   <button @click="increment">{{ count }}</button>
-</template>
+</Template>
 ```
 
 这里的 `$ref()` 方法是一个**编译时宏**：它不是一个会在运行时实际调用的方法。相反，Rue 编译器使用它作为提示，将生成的 `count` 变量视为**响应式变量**。

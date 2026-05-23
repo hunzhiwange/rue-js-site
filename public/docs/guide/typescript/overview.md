@@ -127,7 +127,7 @@ const App: FC = defineComponent({
 <Template>
   <!-- 启用类型检查和自动完成 -->
   {{ count.toFixed(2) }}
-</template>
+</Template>
 ```
 
 如果你的项目主要使用 TSX，那么更常见的写法是直接在组件函数中声明响应式状态：
@@ -156,7 +156,7 @@ let x: string | number = 1
 <Template>
   <!-- 错误，因为 x 可能是字符串 -->
   {{ x.toFixed(2) }}
-</template>
+</Template>
 ```
 
 这可以通过内联类型转换来解决：

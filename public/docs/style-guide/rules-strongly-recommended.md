@@ -558,20 +558,11 @@ const props = defineProps({
 <h3>Good</h3>
 
 ```jsx
-<button
-  type="button"
-  className="icon-button"
-  aria-label="Close"
-  disabled
-/>
+<button type="button" className="icon-button" aria-label="Close" disabled />
 ```
 
 ```jsx
-<MyComponent
-  foo="a"
-  bar="b"
-  baz="c"
-/>
+<MyComponent foo="a" bar="b" baz="c" />
 ```
 
 </div>

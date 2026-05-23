@@ -54,7 +54,7 @@
   ```tsx
   import { Component } from '@rue-js/rue'
 
-  <Component is={href ? 'a' : 'span'} />
+  ;<Component is={href ? 'a' : 'span'} />
   ```
 
   [内置组件](/api/api/built-in-components)都可以传递给 `is`，但如果您想通过名称传递，则必须注册它们。例如：
@@ -62,7 +62,7 @@
   ```tsx
   import { Component, Transition, TransitionGroup } from '@rue-js/rue'
 
-  <Component is={isGroup ? TransitionGroup : Transition}>...</Component>
+  ;<Component is={isGroup ? TransitionGroup : Transition}>...</Component>
   ```
 
   如果通过字符串名称传递内置组件或用户组件，则它们需要先在当前运行时中注册；如果直接把组件对象传给 `is`，则不需要注册。
@@ -128,7 +128,7 @@
   ```tsx
   import { Slot } from '@rue-js/rue'
 
-  <Slot>
+  ;<Slot>
     <p>fallback content</p>
   </Slot>
   ```
@@ -138,7 +138,7 @@
   ```tsx
   import { Slot } from '@rue-js/rue'
 
-  <Slot name="header" />
+  ;<Slot name="header" />
   ```
 
   作用域插槽：
@@ -146,7 +146,7 @@
   ```tsx
   import { Slot } from '@rue-js/rue'
 
-  <Slot name="item" props={{ item: post, index }} />
+  ;<Slot name="item" props={{ item: post, index }} />
   ```
 
 - **另请参阅** [组件 - 插槽](/guide/guide/components/slots)
@@ -188,7 +188,7 @@
   ```tsx
   import { Template } from '@rue-js/rue'
 
-  <Template>
+  ;<Template>
     <h1>Title</h1>
     <p>Content</p>
   </Template>
