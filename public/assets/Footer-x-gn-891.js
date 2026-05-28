@@ -1,0 +1,193 @@
+import{$ as e,Kt as t,Lt as n,Q as r,Vt as i,Y as a,Yt as o,Z as s,ct as c,d as l,et as u,l as d,mt as f,ot as p,t as m,tt as h,y as g}from"./vapor-runtime-BR_2rwNk.js";import{a as _,n as v}from"./vapor-helpers-vapor-DkadWylb.js";import{i as y,r as b}from"./persistentSidebarPlayground-BLfmxcKI.js";import{t as x}from"./tabs-DMHgT-aV.js";import{n as S}from"./SidebarPlaygroundDesign-BScNtO2r.js";import{t as C}from"./Code-B_4lzH85.js";var w=(...e)=>e.filter(Boolean).join(` `),T=e=>e==null?!1:Array.isArray(e)?e.some(e=>T(e)):!0,E=({as:e=`h6`,className:t,children:n,content:r,...i})=>b(e,{...i,className:w(`footer-title`,t),children:r??n}),D=({as:e,className:t,children:n,content:r,href:i,target:a,rel:o,hover:s=!0,...c})=>{let l=e??(i?`a`:`button`),u=a===`_blank`&&!o?`noreferrer`:o;return l===`a`?b(`a`,{...c,href:i,target:a,rel:u,className:w(`link`,s&&`link-hover`,t),children:r??n}):l===`button`?b(`button`,{...c,type:c.type??`button`,className:w(`link`,s&&`link-hover`,t),children:r??n}):b(l,{...c,className:w(`link`,s&&`link-hover`,t),children:r??n})},ee=e=>!e||typeof e!=`object`||Array.isArray(e)?!1:`label`in e||`content`in e||`children`in e||`href`in e||`target`in e||`rel`in e||`as`in e||`className`in e||`hover`in e,te=(e,t)=>{if(!T(e))return null;if(ee(e)){let{key:n,label:r,content:i,children:a,...o}=e;return b(D,{...o,children:i??a??r},n??`item-${t}`)}return b(D,{children:e},`item-${t}`)},O=({as:e=`aside`,className:t,children:n,content:r,...i})=>b(e,{...i,className:t,children:r??n}),k=({as:e=`nav`,className:t,children:n,title:r,titleClassName:i,content:a,items:o,inline:s,contentClassName:c,...l})=>{let u=e,d=(o??[]).map((e,t)=>te(e,t)).filter(Boolean),f=T(a)||T(n)?a??n:s?b(`div`,{className:w(`grid grid-flow-col auto-cols-max gap-4`,c),children:d}):d;return y(u,{...l,className:t,children:[T(r)?b(E,{className:i,children:r}):null,f]})},A=Object.assign(({as:e=`footer`,direction:t,center:n,className:r,children:i,brand:a,sections:o,wrap:s,bordered:c,...l})=>{let u=e,d=T(i),f=T(a)||(o?.length??0)>0;return b(u,{...l,className:w(`footer`,t&&`footer-${t}`,n&&`footer-center`,s&&`gap-y-6`,c&&`border-t border-base-300`,r),children:d||!f?i:y(g,{children:[T(a)?b(O,{children:a}):null,(o??[]).map((e,t)=>{let{key:n,...r}=e;return b(k,{...r},n??`section-${t}`)})]})})},{Brand:O,Section:k,Title:E,Link:D}),j=t=>l(n=>{let f=e(`div`,n);c(f,`component-preview not-prose text-base-content my-6 lg:my-12`);let p=e(`div`,f);a(f,p),c(p,`flex flex-wrap items-start justify-between gap-3`);let h=e(`div`,p);a(p,h);let g=e(`h2`,h);a(h,g),c(g,`component-preview-title mt-2 mb-1 text-lg font-semibold`),a(g,u(`# `));let _=s(`rue:slot:anchor`);a(g,_),o(()=>{let e=t.title;i(()=>d(e,g,_))});let v=s(`rue:slot:anchor`);a(h,v),o(()=>{let n=t.summary?l(()=>{let n=r(),l=e(`p`,n);a(n,l),c(l,`m-0 text-sm opacity-70`);let u=s(`rue:slot:anchor`);return a(l,u),o(()=>{let e=t.summary;i(()=>d(e,l,u))}),n}):``;i(()=>d(n,h,v))});let y=s(`rue:component:anchor`);a(f,y),o(()=>{let e=m(x,{style:`box`,items:[{key:`preview`,label:`预览`},{key:`code`,label:`JSX代码`}],activeKey:t.tab.value,onChange:e=>t.tab.value=e,className:`mb-3 mt-4`});i(()=>d(e,f,y))});let b=s(`rue:slot:anchor`);return a(f,b),o(()=>{let e=t.tab.value===`preview`?t.preview():l(()=>{let e=r(),n=s(`rue:component:anchor`);return a(e,n),o(()=>{let r=m(C,{className:`mt-2`,lang:`tsx`,code:t.code});i(()=>d(r,e,n))}),e});i(()=>d(e,f,b))}),f}),ne=t=>l(n=>{let f=e(`div`,n);c(f,`not-prose overflow-x-auto rounded-box border border-base-300 bg-base-100`);let m=e(`table`,f);a(f,m),c(m,`table table-zebra`);let h=e(`thead`,m);a(m,h);let g=e(`tr`,h);a(h,g);let _=e(`th`,g);a(g,_),a(_,u(`属性`));let y=e(`th`,g);a(g,y),a(y,u(`说明`));let b=e(`th`,g);a(g,b),a(b,u(`类型`));let x=e(`th`,g);a(g,x),a(x,u(`默认值`));let S=e(`tbody`,m);a(m,S);let C=s(`rue:list:start`),w=s(`rue:list:end`);a(S,C),a(S,w);let T=new Map;return o(()=>{T=v({items:t.rows||[],getKey:(e,t)=>e.prop,elements:T,parent:S,before:w,singleRoot:!0,trackIndex:!1,start:C,renderItem:(t,n,c,u,f)=>{d(l(()=>{let n=r(),c=e(`tr`,n);a(n,c),o(()=>{p(c,`key`,String(t.prop))});let l=e(`td`,c);a(c,l);let u=e(`code`,l);a(l,u);let f=s(`rue:slot:anchor`);a(u,f),o(()=>{let e=t.prop;i(()=>d(e,u,f))});let m=e(`td`,c);a(c,m);let h=s(`rue:slot:anchor`);a(m,h),o(()=>{let e=t.description;i(()=>d(e,m,h))});let g=e(`td`,c);a(c,g);let _=e(`code`,g);a(g,_);let v=s(`rue:slot:anchor`);a(_,v),o(()=>{let e=t.type;i(()=>d(e,_,v))});let y=e(`td`,c);a(c,y);let b=e(`code`,y);a(y,b);let x=s(`rue:slot:anchor`);return a(b,x),o(()=>{let e=t.defaultValue;i(()=>d(e,b,x))}),n}),n,c)}})}),f}),M=t=>l(n=>{let r=e(`svg`,n);o(()=>{p(r,`width`,String(t.size===void 0?40:t.size))}),o(()=>{p(r,`height`,String(t.size===void 0?40:t.size))}),p(r,`viewBox`,`0 0 24 24`),o(()=>{c(r,String(t.className??`fill-current`))});let i=e(`path`,r);return a(r,i),p(i,`d`,`M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z`),r}),N=[{key:`x`,Icon:()=>l(t=>{let n=e(`svg`,t);p(n,`xmlns`,`http://www.w3.org/2000/svg`),p(n,`width`,`24`),p(n,`height`,`24`),p(n,`viewBox`,`0 0 24 24`),c(n,`fill-current`);let r=e(`path`,n);return a(n,r),p(r,`d`,`M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z`),n})},{key:`video`,Icon:()=>l(t=>{let n=e(`svg`,t);p(n,`xmlns`,`http://www.w3.org/2000/svg`),p(n,`width`,`24`),p(n,`height`,`24`),p(n,`viewBox`,`0 0 24 24`),c(n,`fill-current`);let r=e(`path`,n);return a(n,r),p(r,`d`,`M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z`),n})},{key:`community`,Icon:()=>l(t=>{let n=e(`svg`,t);p(n,`xmlns`,`http://www.w3.org/2000/svg`),p(n,`width`,`24`),p(n,`height`,`24`),p(n,`viewBox`,`0 0 24 24`),c(n,`fill-current`);let r=e(`path`,n);return a(n,r),p(r,`d`,`M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z`),n})}],P=[{label:`Branding`},{label:`Design`},{label:`Marketing`},{label:`Advertisement`}],F=[{label:`About us`},{label:`Contact`},{label:`Jobs`},{label:`Press kit`}],I=[{label:`Terms of use`},{label:`Privacy policy`},{label:`Cookie policy`}],L=[{label:`Twitter`},{label:`Instagram`},{label:`Facebook`},{label:`GitHub`}],R=[{label:`Features`},{label:`Enterprise`},{label:`Security`},{label:`Pricing`}],z=[{label:`Mac`},{label:`Windows`},{label:`Linux`},{label:`Android`}],B=[{key:`services`,title:`Services`,items:P},{key:`company`,title:`Company`,items:F},{key:`legal`,title:`Legal`,items:I}],re=[...B,{key:`social`,title:`Social`,items:L},{key:`explore`,title:`Explore`,items:R},{key:`apps`,title:`Apps`,items:z}],ie=[{prop:`as`,description:`指定根节点标签，默认输出 footer`,type:`any`,defaultValue:`'footer'`},{prop:`brand`,description:`结构化品牌区内容，不传 children 时会渲染为 Footer.Brand`,type:`any`,defaultValue:`-`},{prop:`bordered`,description:`追加顶部边线，适合双层页脚的下半部分`,type:`boolean`,defaultValue:`false`},{prop:`center`,description:`追加 footer-center 居中类`,type:`boolean`,defaultValue:`false`},{prop:`direction`,description:`控制 footer-horizontal / footer-vertical`,type:`'horizontal' | 'vertical'`,defaultValue:`-`},{prop:`sections`,description:`结构化列数据，可混合文本链接、自定义内容和表单区`,type:`FooterSection[]`,defaultValue:`[]`},{prop:`wrap`,description:`为多行布局补充垂直间距`,type:`boolean`,defaultValue:`false`},{prop:`children`,description:`传入后沿用原始自定义结构，保持对旧写法的兼容`,type:`any`,defaultValue:`-`}],ae=[{prop:`as`,description:`列容器标签，默认 nav，也可改成 form / div / aside`,type:`any`,defaultValue:`'nav'`},{prop:`title`,description:`列标题，内部复用 Footer.Title 的 footer-title 样式`,type:`any`,defaultValue:`-`},{prop:`items`,description:`快速渲染一组 Footer.Link 文本链接`,type:`Array<FooterItem>`,defaultValue:`[]`},{prop:`content`,description:`自定义列内容，适合表单、图标区等复杂结构`,type:`any`,defaultValue:`-`},{prop:`inline`,description:`把 items 包装成横向图标或标签流`,type:`boolean`,defaultValue:`false`},{prop:`titleClassName`,description:`自定义标题类名`,type:`string`,defaultValue:`-`},{prop:`contentClassName`,description:`inline 模式下自定义内容容器类名`,type:`string`,defaultValue:`-`}],V=()=>{let{tabRecommended:g,tabCompound:v,tabBasic:x,tabLogo:C,tabForm:w,tabSocial:T,tabLinks:E,tabLinks2:D,tabCenteredBrand:ee,tabCentered:te,tabTwo:O}=_(`useSetup:0:0`,()=>t(()=>({tabRecommended:_(`ref:1:0`,()=>n(`preview`)),tabCompound:_(`ref:1:1`,()=>n(`preview`)),tabBasic:_(`ref:1:2`,()=>n(`preview`)),tabLogo:_(`ref:1:3`,()=>n(`preview`)),tabForm:_(`ref:1:4`,()=>n(`preview`)),tabSocial:_(`ref:1:5`,()=>n(`preview`)),tabLinks:_(`ref:1:6`,()=>n(`preview`)),tabLinks2:_(`ref:1:7`,()=>n(`preview`)),tabCenteredBrand:_(`ref:1:8`,()=>n(`preview`)),tabCentered:_(`ref:1:9`,()=>n(`preview`)),tabTwo:_(`ref:1:10`,()=>n(`preview`))})));return l(t=>{let n=r(),_=s(`rue:component:anchor`);return a(n,_),d(m(S,{children:l(()=>{let t=r(),n=e(`div`,t);a(t,n),c(n,`max-w-none prose prose-sm md:prose-base`);let l=e(`h1`,n);a(n,l),a(l,u(`Footer 页脚`));let _=e(`p`,n);a(n,_),c(_,`text-sm mt-3 mb-3`),a(_,u(`Footer 现在同时支持两种组织方式：可以继续像以前一样直接写`));let S=e(`code`,_);a(_,S),a(S,u(`nav`)),a(_,u(`、`));let k=e(`code`,_);a(_,k),a(k,u(`aside`)),a(_,u(`和 自定义 class，也可以改用`));let P=e(`code`,_);a(_,P),a(P,u(`brand`)),a(_,u(`、`));let F=e(`code`,_);a(_,F),a(F,u(`sections`));let I=h(_);a(_,I),f(I,` `),a(_,u(`与`));let L=e(`code`,_);a(_,L),a(L,u(`Footer.Section`)),a(_,u(`这组结构化 API，把品牌区、链接列和表单区拆开表达。`));let R=e(`h2`,n);a(n,R),a(R,u(`何时使用`));let z=e(`ul`,n);a(n,z);let V=e(`li`,z);a(z,V),a(V,u(`需要组织品牌信息、导航链接、社交入口或版权声明。`));let oe=e(`li`,z);a(z,oe),a(oe,u(`希望保留 Rue 当前的 footer 视觉风格，同时减少重复的页脚模板代码。`));let se=s(`rue:component:anchor`);a(n,se),o(()=>{let e=m(j,{title:`推荐：结构化列布局`,summary:`把最常见的三列 footer 改成 sections 数据驱动，仍然保留原来的视觉类名和响应式方向。`,tab:g,preview:()=>b(A,{className:`p-10 bg-neutral text-neutral-content rounded sm:footer-horizontal`,sections:B}),code:`const sections = [
+  {
+    key: 'services',
+    title: 'Services',
+    items: [
+      { label: 'Branding' },
+      { label: 'Design' },
+      { label: 'Marketing' },
+      { label: 'Advertisement' },
+    ],
+  },
+  {
+    key: 'company',
+    title: 'Company',
+    items: [
+      { label: 'About us' },
+      { label: 'Contact' },
+      { label: 'Jobs' },
+      { label: 'Press kit' },
+    ],
+  },
+  {
+    key: 'legal',
+    title: 'Legal',
+    items: [{ label: 'Terms of use' }, { label: 'Privacy policy' }, { label: 'Cookie policy' }],
+  },
+]
+
+<Footer className="p-10 bg-neutral text-neutral-content rounded sm:footer-horizontal" sections={sections} />`});i(()=>d(e,n,se))});let ce=s(`rue:component:anchor`);a(n,ce),o(()=>{let e=m(j,{title:`推荐：复合子组件写法`,summary:`当某一列需要自己控制内容结构时，可以直接组合 Footer.Brand、Footer.Section、Footer.Link。`,tab:v,preview:()=>y(A,{className:`p-10 bg-base-100 border border-base-300 rounded sm:footer-horizontal`,children:[y(A.Brand,{children:[b(M,{}),y(`p`,{className:`text-sm mt-3 mb-3`,children:[`Rue Design System`,b(`br`,{}),`Ship consistent experiences.`]})]}),y(A.Section,{title:`Product`,children:[b(A.Link,{children:`Overview`}),b(A.Link,{children:`Pricing`}),b(A.Link,{children:`Changelog`})]}),b(A.Section,{title:`Community`,content:b(`div`,{className:`grid grid-flow-col gap-4`,children:N.map(({key:e,Icon:t})=>b(`button`,{type:`button`,"aria-label":e,children:b(t,{})},e))})})]}),code:`<Footer className="p-10 bg-base-100 border border-base-300 rounded sm:footer-horizontal">
+  <Footer.Brand>
+    <BrandGlyph />
+    <p className="text-sm mt-3 mb-3">
+      Rue Design System
+      <br />
+      Ship consistent experiences.
+    </p>
+  </Footer.Brand>
+
+  <Footer.Section title="Product">
+    <Footer.Link>Overview</Footer.Link>
+    <Footer.Link>Pricing</Footer.Link>
+    <Footer.Link>Changelog</Footer.Link>
+  </Footer.Section>
+
+  <Footer.Section
+    title="Community"
+    content={
+      <div className="grid grid-flow-col gap-4">
+        <button type="button"><XIcon /></button>
+        <button type="button"><VideoIcon /></button>
+        <button type="button"><CommunityIcon /></button>
+      </div>
+    }
+  />
+</Footer>`});i(()=>d(e,n,ce))});let le=s(`rue:component:anchor`);a(n,le),o(()=>{let e=m(j,{title:`Footer（默认纵向，sm 起横向）`,summary:`原始基础 demo 继续保留，这里改用 sections 表达同一个场景。`,tab:x,preview:()=>b(A,{className:`p-10 bg-neutral text-neutral-content rounded sm:footer-horizontal`,sections:B}),code:`<Footer className="p-10 bg-neutral text-neutral-content rounded sm:footer-horizontal" sections={sections} />`});i(()=>d(e,n,le))});let ue=s(`rue:component:anchor`);a(n,ue),o(()=>{let e=m(j,{title:`Footer with a logo section`,summary:`保留品牌区场景；推荐用 brand + sections，把品牌说明和导航列拆开。`,tab:C,preview:()=>b(A,{className:`p-10 bg-base-200 text-base-content rounded sm:footer-horizontal`,brand:y(`div`,{children:[b(M,{}),y(`p`,{className:`text-sm mt-3 mb-3`,children:[`ACME Industries Ltd.`,b(`br`,{}),`Providing reliable tech since 1992`]})]}),sections:B}),code:`<Footer
+  className="p-10 bg-base-200 text-base-content rounded sm:footer-horizontal"
+  brand={
+    <div>
+      <BrandGlyph />
+      <p className="text-sm mt-3 mb-3">
+        ACME Industries Ltd.
+        <br />
+        Providing reliable tech since 1992
+      </p>
+    </div>
+  }
+  sections={sections}
+/>`});i(()=>d(e,n,ue))});let de=s(`rue:component:anchor`);a(n,de),o(()=>{let e=m(j,{title:`Footer with a form`,summary:`保留订阅表单场景；自定义 section 可直接切换成 form 根节点。`,tab:w,preview:()=>b(A,{className:`p-10 bg-base-200 text-base-content rounded sm:footer-horizontal`,sections:[...B,{key:`newsletter`,title:`Newsletter`,as:`form`,content:y(`fieldset`,{className:`w-80`,children:[b(`label`,{children:`Enter your email address`}),y(`div`,{className:`join`,children:[b(`input`,{type:`text`,placeholder:`username@site.com`,className:`input input-bordered join-item`}),b(`button`,{type:`button`,className:`join-item btn btn-primary`,children:`Subscribe`})]})]})}]}),code:`<Footer
+  className="p-10 bg-base-200 text-base-content rounded sm:footer-horizontal"
+  sections={[
+    ...sections,
+    {
+      key: 'newsletter',
+      title: 'Newsletter',
+      as: 'form',
+      content: (
+        <fieldset className="w-80">
+          <label>Enter your email address</label>
+          <div className="join">
+            <input type="text" placeholder="username@site.com" className="input input-bordered join-item" />
+            <button type="button" className="join-item btn btn-primary">Subscribe</button>
+          </div>
+        </fieldset>
+      ),
+    },
+  ]}
+/>`});i(()=>d(e,n,de))});let fe=s(`rue:component:anchor`);a(n,fe),o(()=>{let e=m(j,{title:`Footer with logo and social icons`,summary:`保留品牌加社交图标场景；图标区适合通过 content 自定义。`,tab:T,preview:()=>b(A,{className:`p-10 bg-neutral text-neutral-content rounded sm:footer-horizontal`,brand:y(`div`,{children:[b(M,{}),y(`p`,{className:`text-sm mt-3 mb-3`,children:[`ACME Industries Ltd.`,b(`br`,{}),`Providing reliable tech since 1992`]})]}),sections:[{key:`social`,title:`Social`,content:b(`div`,{className:`grid grid-flow-col gap-4`,children:N.map(({key:e,Icon:t})=>b(`button`,{type:`button`,"aria-label":e,children:b(t,{})},e))})}]}),code:`<Footer
+  className="p-10 bg-neutral text-neutral-content rounded sm:footer-horizontal"
+  brand={
+    <div>
+      <BrandGlyph />
+      <p className="text-sm mt-3 mb-3">ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+    </div>
+  }
+  sections={[
+    {
+      key: 'social',
+      title: 'Social',
+      content: (
+        <div className="grid grid-flow-col gap-4">
+          <button type="button"><XIcon /></button>
+          <button type="button"><VideoIcon /></button>
+          <button type="button"><CommunityIcon /></button>
+        </div>
+      ),
+    },
+  ]}
+/>`});i(()=>d(e,n,fe))});let pe=s(`rue:component:anchor`);a(n,pe),o(()=>{let e=m(j,{title:`Footer with links and social icons`,summary:`保留原来的混合场景；这里继续用 children 自由拼装，展示兼容分支。`,tab:E,preview:()=>y(A,{className:`p-10 bg-base-300 text-base-content rounded sm:footer-horizontal`,children:[y(`nav`,{children:[b(`h6`,{className:`footer-title`,children:`Services`}),b(`button`,{className:`link link-hover`,children:`Branding`}),b(`button`,{className:`link link-hover`,children:`Design`}),b(`button`,{className:`link link-hover`,children:`Marketing`}),b(`button`,{className:`link link-hover`,children:`Advertisement`})]}),y(`nav`,{children:[b(`h6`,{className:`footer-title`,children:`Company`}),b(`button`,{className:`link link-hover`,children:`About us`}),b(`button`,{className:`link link-hover`,children:`Contact`}),b(`button`,{className:`link link-hover`,children:`Jobs`}),b(`button`,{className:`link link-hover`,children:`Press kit`})]}),y(`nav`,{children:[b(`h6`,{className:`footer-title`,children:`Social`}),b(`div`,{className:`grid grid-flow-col gap-4`,children:N.map(({key:e,Icon:t})=>b(`button`,{type:`button`,"aria-label":e,children:b(t,{})},e))})]})]}),code:`<Footer className="p-10 bg-base-300 text-base-content rounded sm:footer-horizontal">
+  <nav>
+    <h6 className="footer-title">Services</h6>
+    <button className="link link-hover">Branding</button>
+    <button className="link link-hover">Design</button>
+    <button className="link link-hover">Marketing</button>
+    <button className="link link-hover">Advertisement</button>
+  </nav>
+  <nav>
+    <h6 className="footer-title">Company</h6>
+    <button className="link link-hover">About us</button>
+    <button className="link link-hover">Contact</button>
+    <button className="link link-hover">Jobs</button>
+    <button className="link link-hover">Press kit</button>
+  </nav>
+  <nav>
+    <h6 className="footer-title">Social</h6>
+    <div className="grid grid-flow-col gap-4">
+      <button type="button"><XIcon /></button>
+      <button type="button"><VideoIcon /></button>
+      <button type="button"><CommunityIcon /></button>
+    </div>
+  </nav>
+</Footer>`});i(()=>d(e,n,pe))});let me=s(`rue:component:anchor`);a(n,me),o(()=>{let e=m(j,{title:`Links and social icons (two rows)`,summary:`保留两行链接矩阵；用 sections 组合数据，继续交给 className 控制布局。`,tab:D,preview:()=>b(A,{className:`p-10 bg-neutral text-neutral-content rounded sm:grid-rows-2 sm:footer-horizontal`,sections:re}),code:`<Footer
+  className="p-10 bg-neutral text-neutral-content rounded sm:grid-rows-2 sm:footer-horizontal"
+  sections={[
+    ...sections,
+    { key: 'social', title: 'Social', items: [{ label: 'Twitter' }, { label: 'Instagram' }, { label: 'Facebook' }, { label: 'GitHub' }] },
+    { key: 'explore', title: 'Explore', items: [{ label: 'Features' }, { label: 'Enterprise' }, { label: 'Security' }, { label: 'Pricing' }] },
+    { key: 'apps', title: 'Apps', items: [{ label: 'Mac' }, { label: 'Windows' }, { label: 'Linux' }, { label: 'Android' }] },
+  ]}
+/>`});i(()=>d(e,n,me))});let he=s(`rue:component:anchor`);a(n,he),o(()=>{let e=m(j,{title:`Centered footer with logo and social icons`,summary:`保留居中品牌场景；这里演示 center + 复合内容的组合。`,tab:ee,preview:()=>y(A,{className:`bg-primary text-primary-content p-10 rounded footer-horizontal`,center:!0,children:[y(`aside`,{children:[b(M,{size:50,className:`inline-block fill-current`}),y(`p`,{className:`font-bold`,children:[`ACME Industries Ltd.`,b(`br`,{}),`Providing reliable tech since 1992`]}),y(`p`,{className:`text-sm mt-3 mb-3`,children:[`Copyright © `,new Date().getFullYear(),` - All right reserved`]})]}),b(`nav`,{children:b(`div`,{className:`grid grid-flow-col gap-4`,children:N.map(({key:e,Icon:t})=>b(`a`,{"aria-label":e,children:b(t,{})},e))})})]}),code:`<Footer className="bg-primary text-primary-content p-10 rounded footer-horizontal" center>
+  <aside>
+    <BrandGlyph size={50} className="inline-block fill-current" />
+    <p className="font-bold">
+      ACME Industries Ltd.
+      <br />
+      Providing reliable tech since 1992
+    </p>
+    <p className="text-sm mt-3 mb-3">Copyright © {new Date().getFullYear()} - All right reserved</p>
+  </aside>
+  <nav>
+    <div className="grid grid-flow-col gap-4">
+      <a><XIcon /></a>
+      <a><VideoIcon /></a>
+      <a><CommunityIcon /></a>
+    </div>
+  </nav>
+</Footer>`});i(()=>d(e,n,he))});let ge=s(`rue:component:anchor`);a(n,ge),o(()=>{let e=m(j,{title:`Centered footer with social icons`,summary:`保留居中导航与版权场景；继续展示旧的 children 兼容写法。`,tab:te,preview:()=>y(A,{className:`p-10 bg-base-200 text-base-content rounded footer-horizontal`,center:!0,children:[y(`nav`,{className:`grid grid-flow-col gap-4`,children:[b(`button`,{className:`link link-hover`,children:`About us`}),b(`button`,{className:`link link-hover`,children:`Contact`}),b(`button`,{className:`link link-hover`,children:`Jobs`}),b(`button`,{className:`link link-hover`,children:`Press kit`})]}),b(`nav`,{children:b(`div`,{className:`grid grid-flow-col gap-4`,children:N.map(({key:e,Icon:t})=>b(`button`,{type:`button`,"aria-label":e,children:b(t,{})},e))})}),b(`aside`,{children:y(`p`,{className:`text-sm mt-3 mb-3`,children:[`Copyright © `,new Date().getFullYear(),` - All right reserved by ACME Industries Ltd`]})})]}),code:`<Footer className="p-10 bg-base-200 text-base-content rounded footer-horizontal" center>
+  <nav className="grid grid-flow-col gap-4">
+    <button className="link link-hover">About us</button>
+    <button className="link link-hover">Contact</button>
+    <button className="link link-hover">Jobs</button>
+    <button className="link link-hover">Press kit</button>
+  </nav>
+  <nav>
+    <div className="grid grid-flow-col gap-4">
+      <button type="button"><XIcon /></button>
+      <button type="button"><VideoIcon /></button>
+      <button type="button"><CommunityIcon /></button>
+    </div>
+  </nav>
+  <aside>
+    <p className="text-sm mt-3 mb-3">Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+  </aside>
+</Footer>`});i(()=>d(e,n,ge))});let _e=s(`rue:component:anchor`);a(n,_e),o(()=>{let e=m(j,{title:`Two footer`,summary:`双层 footer 场景继续保留；下半部分可配合 bordered 或直接沿用原类名。`,tab:O,preview:()=>y(`div`,{className:`w-full`,children:[b(A,{className:`bg-base-200 text-base-content p-10 sm:footer-horizontal`,sections:B}),y(A,{className:`bg-base-200 text-base-content px-10 py-4 border-t border-base-300`,children:[y(`aside`,{className:`grid-flow-col items-center`,children:[b(M,{size:24}),y(`p`,{className:`text-sm mt-3 mb-3`,children:[`ACME Industries Ltd.`,b(`br`,{}),`Providing reliable tech since 1992`]})]}),b(`nav`,{className:`md:place-self-center md:justify-self-end`,children:b(`div`,{className:`grid grid-flow-col gap-4`,children:N.map(({key:e,Icon:t})=>b(`a`,{"aria-label":e,children:b(t,{})},e))})})]})]}),code:`<div className="w-full">
+  <Footer className="bg-base-200 text-base-content p-10 sm:footer-horizontal" sections={sections} />
+
+  <Footer className="bg-base-200 text-base-content px-10 py-4 border-t border-base-300">
+    <aside className="grid-flow-col items-center">
+      <BrandGlyph size={24} />
+      <p className="text-sm mt-3 mb-3">
+        ACME Industries Ltd.
+        <br />
+        Providing reliable tech since 1992
+      </p>
+    </aside>
+    <nav className="md:place-self-center md:justify-self-end">
+      <div className="grid grid-flow-col gap-4">
+        <a><XIcon /></a>
+        <a><VideoIcon /></a>
+        <a><CommunityIcon /></a>
+      </div>
+    </nav>
+  </Footer>
+</div>`});i(()=>d(e,n,_e))});let H=e(`h2`,n);a(n,H),p(H,`id`,`footer-api`),a(H,u(`API`));let ve=e(`p`,n);a(n,ve),a(ve,u(`当前页展示的是增强后的 Footer API，旧的 children 写法仍然可用。`));let ye=e(`h3`,n);a(n,ye),a(ye,u(`Footer`));let be=s(`rue:component:anchor`);a(n,be),o(()=>{let e=m(ne,{rows:ie});i(()=>d(e,n,be))});let U=e(`h3`,n);a(n,U),c(U,`mt-8`),a(U,u(`Footer.Section`));let xe=s(`rue:component:anchor`);a(n,xe),o(()=>{let e=m(ne,{rows:ae});i(()=>d(e,n,xe))});let W=e(`div`,n);a(n,W),c(W,`not-prose mt-6 rounded-box border border-base-300 bg-base-100 p-4`);let G=e(`h3`,W);a(W,G),c(G,`mt-0 mb-3 text-base font-semibold`),a(G,u(`复合子组件`));let K=e(`div`,W);a(W,K),c(K,`grid gap-2 text-sm md:grid-cols-2`);let q=e(`div`,K);a(K,q);let Se=e(`code`,q);a(q,Se),a(Se,u(`Footer.Brand`)),a(q,u(`：品牌或版权信息容器，默认渲染`));let Ce=e(`code`,q);a(q,Ce),a(Ce,u(`aside`));let J=e(`div`,K);a(K,J);let we=e(`code`,J);a(J,we),a(we,u(`Footer.Title`)),a(J,u(`：带`));let Te=e(`code`,J);a(J,Te),a(Te,u(`footer-title`)),a(J,u(`类名的标题节点`));let Y=e(`div`,K);a(K,Y);let Ee=e(`code`,Y);a(Y,Ee),a(Ee,u(`Footer.Link`)),a(Y,u(`：默认输出带`));let De=e(`code`,Y);a(Y,De),a(De,u(`link link-hover`)),a(Y,u(`的文本链接`));let X=e(`div`,K);a(K,X);let Oe=e(`code`,X);a(X,Oe),a(Oe,u(`Footer.Section`)),a(X,u(`：单列容器，支持`));let ke=e(`code`,X);a(X,ke),a(ke,u(`title`)),a(X,u(`、`));let Ae=e(`code`,X);a(X,Ae),a(Ae,u(`items`)),a(X,u(`、`));let je=e(`code`,X);a(X,je),a(je,u(`content`));let Me=e(`h2`,n);a(n,Me),a(Me,u(`FAQ`));let Ne=e(`h3`,n);a(n,Ne),a(Ne,u(`什么时候用 sections，什么时候继续写 children？`));let Z=e(`p`,n);a(n,Z),a(Z,u(`列结构比较规则时，优先用`));let Pe=e(`code`,Z);a(Z,Pe),a(Pe,u(`sections`)),a(Z,u(`，维护成本更低；如果某一列需要完全自定义布局，或者你已经有现成的`));let Fe=e(`code`,Z);a(Z,Fe),a(Fe,u(`nav`)),a(Z,u(`/`));let Ie=e(`code`,Z);a(Z,Ie),a(Ie,u(`aside`)),a(Z,u(`模板，也可以继续直接写`));let Le=e(`code`,Z);a(Z,Le),a(Le,u(`children`)),a(Z,u(`。`));let Re=e(`h3`,n);a(n,Re),a(Re,u(`社交图标和订阅表单怎么放进去？`));let Q=e(`p`,n);a(n,Q),a(Q,u(`这类内容更适合放到`));let ze=e(`code`,Q);a(Q,ze),a(ze,u(`Footer.Section`)),a(Q,u(`的`));let Be=e(`code`,Q);a(Q,Be),a(Be,u(`content`));let Ve=h(Q);a(Q,Ve),f(Ve,` `),a(Q,u(`里；如果只是普通文本链接，再用`));let He=e(`code`,Q);a(Q,He),a(He,u(`items`)),a(Q,u(`会更省代码。`));let Ue=e(`h3`,n);a(n,Ue),a(Ue,u(`direction 和 center 还需要保留吗？`));let $=e(`p`,n);a(n,$),a($,u(`需要。它们仍然是最轻量的布局开关，适合和现有的`));let We=e(`code`,$);a($,We),a(We,u(`sm:footer-horizontal`)),a($,u(`、`));let Ge=e(`code`,$);return a($,Ge),a(Ge,u(`footer-center`)),a($,u(`类名习惯一起工作，不会破坏旧页面的视觉结果。`)),t})}),n,_),n})};export{V as default};
