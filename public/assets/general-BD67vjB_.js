@@ -1,1 +1,0 @@
-function e(...e){let t=Object.create(null);for(let n=0;n<e.length;n++){let r=e[n];if(r)for(let e in r)t[e]=r[e]}return t}export{e as t};
