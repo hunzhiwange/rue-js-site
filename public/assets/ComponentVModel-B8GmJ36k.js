@@ -1,0 +1,71 @@
+import{$ as e,J as t,Kt as n,Lt as r,Vt as i,Y as a,Yt as o,Z as s,ct as c,et as l,l as u,mt as d,ot as f,pt as p,s as m,st as h,t as g,tt as _}from"./vapor-runtime-DHPuOjqh.js";import{a as v}from"./vapor-helpers-vapor-CJFAWine.js";import{t as y}from"./createHomeSplitExamplePage-BB_cTfze.js";var b=n=>u(r=>{let i=e(`input`,r);return c(i,`block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-400 focus:ring focus:ring-blue-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500 px-3 py-2`),o(()=>{p(i,n.modelValue??``)}),t(i,`input`,e=>n[`onUpdate:modelValue`]?.(e.target.value)),i}),x=n=>u(r=>{let i=e(`label`,r);c(i,`flex items-center space-x-2`);let s=e(`input`,i);a(i,s),f(s,`type`,`checkbox`),c(s,`h-4 w-4 rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 focus:ring-offset-0 disabled:cursor-not-allowed disabled:text-gray-400`),o(()=>{h(s,!!n.modelValue)}),t(s,`change`,e=>n[`onUpdate:modelValue`]?.(e.target.checked));let u=e(`span`,i);return a(i,u),c(u,`text-sm font-medium text-gray-700`),a(u,l(`同意协议`)),i}),S=v(`ref:1:0`,()=>r(`小明`)),C=v(`ref:1:1`,()=>r(!1)),w=y({title:`组件级 vModel`,source:`import { type FC, ref } from '@rue-js/rue'
+
+const ControlledInput: FC<{
+  modelValue?: string
+  ['onUpdate:modelValue']?: (value: string) => void
+  vModel?: { value: string }
+}> = props => {
+  return (
+    <input
+      className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-400 focus:ring focus:ring-blue-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500 px-3 py-2"
+      value={props.modelValue ?? ''}
+      onInput={(event: any) =>
+        props['onUpdate:modelValue']?.((event.target as HTMLInputElement).value)
+      }
+    />
+  )
+}
+
+const ControlledCheckbox: FC<{
+  modelValue?: boolean
+  ['onUpdate:modelValue']?: (value: boolean) => void
+  vModel?: { value: boolean }
+}> = props => {
+  return (
+    <label className="flex items-center space-x-2">
+      <input
+        type="checkbox"
+        className="h-4 w-4 rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 focus:ring-offset-0 disabled:cursor-not-allowed disabled:text-gray-400"
+        checked={!!props.modelValue}
+        onChange={(event: any) =>
+          props['onUpdate:modelValue']?.((event.target as HTMLInputElement).checked)
+        }
+      />
+      <span className="text-sm font-medium text-gray-700">同意协议</span>
+    </label>
+  )
+}
+
+const modelName = ref('小明')
+const agree = ref(false)
+
+const ComponentVModelDemo: FC = () => {
+  const inputBindings = {
+    modelValue: modelName.value,
+    'onUpdate:modelValue': (value: string) => {
+      modelName.value = value
+    },
+  }
+
+  const checkboxBindings = {
+    modelValue: agree.value,
+    'onUpdate:modelValue': (value: boolean) => {
+      agree.value = value
+    },
+  }
+
+  return (
+    <div className="card bg-base-100 shadow">
+      <div className="card-body">
+        <h2 className="text-2xl font-semibold text-emerald-600 mb-3">组件级 vModel</h2>
+        <ControlledInput {...inputBindings} />
+        <p className="text-gray-700">姓名：{modelName.value}</p>
+        <ControlledCheckbox {...checkboxBindings} />
+        <p className="text-gray-700">同意状态：{agree.value ? '是' : '否'}</p>
+      </div>
+    </div>
+  )
+}
+
+export default ComponentVModelDemo
+`,Demo:()=>{let{inputBindings:t,checkboxBindings:r}=v(`useSetup:0:0`,()=>n(()=>({inputBindings:{modelValue:S.value,"onUpdate:modelValue":e=>{S.value=e}},checkboxBindings:{modelValue:C.value,"onUpdate:modelValue":e=>{C.value=e}}})));return u(n=>{let u=e(`div`,n);c(u,`card bg-base-100 shadow`);let f=e(`div`,u);a(u,f),c(f,`card-body`);let p=e(`h2`,f);a(f,p),c(p,`text-2xl font-semibold text-emerald-600 mb-3`),a(p,l(`组件级 vModel`));let h=s(`rue:component:anchor`);a(f,h),o(()=>{let e=g(b,{...t});i(()=>m(e,f,h))});let v=e(`p`,f);a(f,v),c(v,`text-gray-700`),a(v,l(`姓名：`));let y=_(v);a(v,y),o(()=>{d(y,S.value)});let w=s(`rue:component:anchor`);a(f,w),o(()=>{let e=g(x,{...r});i(()=>m(e,f,w))});let T=e(`p`,f);a(f,T),c(T,`text-gray-700`),a(T,l(`同意状态：`));let E=_(T);return a(T,E),o(()=>{d(E,C.value?`是`:`否`)}),u})}});export{w as default};

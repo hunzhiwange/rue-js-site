@@ -1,1 +1,0 @@
-import{B as e,G as t,W as n,l as r}from"./vapor-runtime-C1rlwc61.js";var i=i=>r(r=>{let i=n(`div`,r);return e(i,t(`关于`)),i});export{i as default};
