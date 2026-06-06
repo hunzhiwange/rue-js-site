@@ -17,6 +17,7 @@ onMounted(() => {
 
 - [`app.config.errorHandler`](/api/api/application#app-config-errorhandler)
 - [`onErrorCaptured`](/api/api/composition-api-lifecycle#onerrorcaptured) (组合式 API)
+- [`errorCaptured`](@todo) (选项式 API)
 
 下表将代码映射到其原始完整信息字符串。
 

@@ -1,0 +1,1 @@
+import{H as e,K as t,d as n,q as r}from"./vapor-runtime-ACs_OvwU.js";var i=i=>n(n=>{let i=t(`div`,n);return e(i,r(`关于`)),i});export{i as default};
