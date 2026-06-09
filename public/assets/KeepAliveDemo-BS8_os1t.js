@@ -1,0 +1,37 @@
+import{$ as e,G as t,Ht as n,J as r,Jt as i,Q as a,Rt as o,Xt as s,Y as c,Z as l,ct as u,et as d,l as f,mt as p,ot as m,pt as h,qt as g,s as _,t as v,tt as y}from"./vapor-runtime-aZAg0Qkw.js";import{a as b,n as x}from"./vapor-helpers-vapor-gtGwiIv0.js";import{i as S}from"./persistentSidebarPlayground-IkfbXpbu.js";import{t as C}from"./KeepAlive-grJvTCPK.js";import{t as ee}from"./Code-5DOEyGxf.js";import{r as w}from"./SidebarPlaygroundExample-cASgDpH3.js";var te={CounterPanel:`计数器`,DraftPanel:`草稿`,FeedPanel:`动态`},T={CounterPanel:()=>{let{count:t,setCount:n}=b(`useSetup:0:0`,()=>g(()=>{let[e,t]=b(`useState:1:0`,()=>i(0));return{count:e,setCount:t}}));return f(i=>{let a=e(`article`,i);u(a,`rounded-box border border-primary/25 bg-primary/10 p-4 shadow-sm`);let o=e(`div`,a);c(a,o),u(o,`text-xs uppercase tracking-[0.22em] opacity-60`),c(o,d(`CounterPanel`));let l=e(`div`,a);c(a,l),u(l,`mt-2 text-3xl font-semibold`);let f=y(l);c(l,f),s(()=>{p(f,t.value)});let m=e(`button`,a);return c(a,m),u(m,`btn btn-primary btn-sm mt-4`),r(m,`click`,()=>{n(e=>{e.value+=1})}),c(m,d(`增加`)),a})},DraftPanel:()=>{let{title:t,setTitle:n}=b(`useSetup:0:0:dup1`,()=>g(()=>{let[e,t]=b(`useState:1:1`,()=>i(`未提交草稿`));return{title:e,setTitle:t}}));return f(i=>{let a=e(`article`,i);u(a,`rounded-box border border-secondary/25 bg-secondary/10 p-4 shadow-sm`);let o=e(`div`,a);c(a,o),u(o,`text-xs uppercase tracking-[0.22em] opacity-60`),c(o,d(`DraftPanel`));let l=e(`label`,a);c(a,l),u(l,`form-control mt-3`);let f=e(`span`,l);c(l,f),u(f,`label-text`),c(f,d(`标题`));let m=e(`input`,l);c(l,m),u(m,`input input-bordered mt-1`),s(()=>{h(m,t.value)}),r(m,`input`,e=>{n(e.target.value)});let g=e(`div`,a);c(a,g),u(g,`mt-3 text-sm opacity-75`),c(g,d(`当前草稿：`));let _=y(g);return c(g,_),s(()=>{p(_,t.value)}),a})},FeedPanel:()=>{let{items:t,setItems:n}=b(`useSetup:0:0:dup2`,()=>g(()=>{let[e,t]=b(`useState:1:2`,()=>i([`初始化记录`]));return{items:e,setItems:t}}));return f(i=>{let o=e(`article`,i);u(o,`rounded-box border border-accent/25 bg-accent/10 p-4 shadow-sm`);let h=e(`div`,o);c(o,h),u(h,`text-xs uppercase tracking-[0.22em] opacity-60`),c(h,d(`FeedPanel`));let g=e(`button`,o);c(o,g),u(g,`btn btn-accent btn-sm mt-3`),r(g,`click`,()=>{n(e=>[`记录 ${e.length+1}`,...e])}),c(g,d(`添加记录`));let v=e(`ul`,o);c(o,v),u(v,`mt-4 space-y-2 text-sm`);let b=l(`rue:list:start`),S=l(`rue:list:end`);c(v,b),c(v,S);let C=new Map;return s(()=>{C=x({items:t||[],getKey:(e,t)=>e,elements:C,parent:v,before:S,singleRoot:!0,trackIndex:!1,start:b,renderItem:(t,n,r,i,o)=>{_(f(()=>{let n=a(),r=e(`li`,n);c(n,r),u(r,`rounded-box bg-base-100/80 px-3 py-2`),s(()=>{m(r,`key`,String(t))});let i=y(r);return c(r,i),s(()=>{p(i,t)}),n}),n,r)}})}),o})}},ne=`import { Component, KeepAlive, ref, useState, type FC } from '@rue-js/rue';
+
+type ViewName = 'CounterPanel' | 'DraftPanel' | 'FeedPanel';
+
+const CounterPanel: FC = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <button onClick={() => setCount(value => { value.value += 1 })}>
+      CounterPanel: {count.value}
+    </button>
+  );
+};
+
+const DraftPanel: FC = () => {
+  const [title, setTitle] = useState('未提交草稿');
+  return (
+    <input
+      value={title.value}
+      onInput={(event: Event) => setTitle((event.target as HTMLInputElement).value)}
+    />
+  );
+};
+
+const views = { CounterPanel, DraftPanel, FeedPanel };
+
+const Demo: FC = () => {
+  const activeView = ref<ViewName>('CounterPanel');
+
+  return (
+    <KeepAlive max={2}>
+      <Component
+        is={views[activeView.value]}
+        key={activeView.value}
+      />
+    </KeepAlive>
+  );
+};`,E=e=>e===`excludeDraft`?{exclude:`DraftPanel`}:e===`maxTwo`?{max:2}:{},re=e=>f(()=>{let n=document.createDocumentFragment(),r=document.createComment(`keep-alive-demo-anchor`);return n.appendChild(r),b(`watchEffect:1:3`,()=>s(()=>{_(S(C,{...E(e.cacheMode.value),children:S(t,{is:T[e.activeView.value]},e.activeView.value)}),n,r)})),n}),D=()=>{let{activeTab:t,activeView:i,cacheMode:h}=b(`useSetup:0:0:dup3`,()=>g(()=>({activeTab:b(`ref:1:4`,()=>o(`preview`)),activeView:b(`ref:1:5`,()=>o(`CounterPanel`)),cacheMode:b(`ref:1:6`,()=>o(`all`))})));return f(o=>{let g=a(),b=l(`rue:component:anchor`);return c(g,b),_(v(w,{children:f(()=>{let o=a(),g=e(`h1`,o);c(o,g),u(g,`text-5xl font-semibold mb-4 md:mb-4`),c(g,d(`KeepAlive 缓存组件`));let b=e(`div`,o);c(o,b),m(b,`role`,`tablist`),u(b,`tabs tabs-box`);let S=e(`button`,b);c(b,S),m(S,`role`,`tab`),s(()=>{u(S,String(`tab ${t.value===`preview`?`tab-active`:``}`))}),r(S,`click`,()=>{t.value=`preview`}),c(S,d(`效果`));let C=e(`button`,b);c(b,C),m(C,`role`,`tab`),s(()=>{u(C,String(`tab ${t.value===`code`?`tab-active`:``}`))}),r(C,`click`,()=>{t.value=`code`}),c(C,d(`代码`));let w=e(`div`,o);c(o,w),s(()=>{u(w,String(`mt-4 grid gap-6 ${t.value===`preview`?``:`hidden`}`))});let E=e(`div`,w);c(w,E),u(E,`card bg-base-100 shadow`);let D=e(`div`,E);c(E,D),u(D,`card-body gap-6`);let O=e(`section`,D);c(D,O),u(O,`flex flex-wrap items-center justify-between gap-3`);let k=e(`div`,O);c(O,k);let A=e(`h2`,k);c(k,A),u(A,`text-xl font-semibold`),c(A,d(`Component + KeepAlive`));let j=e(`p`,k);c(k,j),u(j,`text-sm opacity-75`),c(j,d(`这里用 Component 的 is 动态切换视图，并用 key 作为 KeepAlive 的缓存身份。`));let M=e(`div`,O);c(O,M),u(M,`flex flex-wrap gap-3`);let N=e(`div`,M);c(M,N),u(N,`join`);let P=l(`rue:list:start`),F=l(`rue:list:end`);c(N,P),c(N,F);let I=new Map;s(()=>{I=x({items:Object.keys(T)||[],getKey:(e,t)=>e,elements:I,parent:N,before:F,singleRoot:!0,trackIndex:!1,start:P,renderItem:(t,o,d,p,h)=>{_(f(()=>{let o=a(),d=e(`button`,o);c(o,d),s(()=>{u(d,String(`btn btn-sm join-item ${i.value===t?`btn-primary`:``}`))}),r(d,`click`,()=>{i.value=t}),s(()=>{m(d,`key`,String(t))});let f=l(`rue:slot:anchor`);return c(d,f),s(()=>{let e=te[t];n(()=>_(e,d,f))}),o}),o,d)}})});let L=e(`div`,M);c(M,L),u(L,`join`);let R=e(`button`,L);c(L,R),s(()=>{u(R,String(`btn btn-sm join-item ${h.value===`all`?`btn-secondary`:``}`))}),r(R,`click`,()=>{h.value=`all`}),c(R,d(`全部缓存`));let z=e(`button`,L);c(L,z),s(()=>{u(z,String(`btn btn-sm join-item ${h.value===`excludeDraft`?`btn-secondary`:``}`))}),r(z,`click`,()=>{h.value=`excludeDraft`}),c(z,d(`排除草稿`));let B=e(`button`,L);c(L,B),s(()=>{u(B,String(`btn btn-sm join-item ${h.value===`maxTwo`?`btn-secondary`:``}`))}),r(B,`click`,()=>{h.value=`maxTwo`}),c(B,d(`max=2`));let V=e(`div`,D);c(D,V),u(V,`grid gap-4 xl:grid-cols-[minmax(0,1fr)_18rem]`);let H=e(`div`,V);c(V,H),u(H,`rounded-box border border-dashed border-base-300 p-4 min-h-64`);let U=l(`rue:component:anchor`);c(H,U),s(()=>{let e=v(re,{activeView:i,cacheMode:h});n(()=>_(e,H,U))});let W=e(`aside`,V);c(V,W),u(W,`rounded-box border border-base-300 bg-base-200 p-4 text-sm space-y-2`);let G=e(`div`,W);c(W,G);let K=e(`strong`,G);c(G,K),c(K,d(`当前视图`)),c(G,d(`：`));let q=y(G);c(G,q),s(()=>{p(q,i.value)});let J=e(`div`,W);c(W,J);let Y=e(`strong`,J);c(J,Y),c(Y,d(`缓存模式`)),c(J,d(`： `));let X=y(J);c(J,X),s(()=>{p(X,h.value===`all`?`全部缓存`:h.value===`excludeDraft`?`DraftPanel 不缓存`:`最多缓存 2 个`)});let ie=e(`div`,W);c(W,ie),c(ie,d(`先修改任意面板状态，再切走切回，可以观察缓存命中与淘汰。`));let Z=e(`div`,o);c(o,Z),s(()=>{u(Z,String(`mt-4 grid gap-6 ${t.value===`code`?``:`hidden`}`))});let Q=e(`div`,Z);c(Z,Q),u(Q,`card bg-base-100 shadow overflow-auto`);let $=e(`div`,Q);c(Q,$),u($,`card-body p-0`);let ae=l(`rue:component:anchor`);return c($,ae),s(()=>{let e=v(ee,{className:`h-full`,lang:`tsx`,code:ne});n(()=>_(e,$,ae))}),o})}),g,b),g})};export{D as default};
