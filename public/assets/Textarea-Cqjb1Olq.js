@@ -1,0 +1,85 @@
+import{$ as e,Ht as t,J as n,Lt as r,Q as i,X as a,Xt as o,Z as s,at as c,et as l,l as u,pt as d,qt as f,s as p,st as m,t as h}from"./vapor-runtime-iQZthBPQ.js";import{a as g,n as _}from"./vapor-helpers-vapor-BjKHCvOa.js";import{a as v,i as y}from"./persistentSidebarPlayground-BfF7yM0K.js";import{t as b}from"./Code-CZqShVUj.js";import{t as x}from"./tabs-BBuGEPV7.js";import{t as S}from"./textarea-BAoAzO-H.js";import{r as C}from"./SidebarPlaygroundDesign-BcHYLGe4.js";var w=[{label:`Primary`,color:`primary`},{label:`Secondary`,color:`secondary`},{label:`Accent`,color:`accent`},{label:`Neutral`,color:`neutral`},{label:`Info`,color:`info`},{label:`Success`,color:`success`},{label:`Warning`,color:`warning`},{label:`Error`,color:`error`}],T=[{prop:`allowClear`,description:`显示清空按钮，支持对象写法自定义图标`,type:`boolean | { clearIcon?: any }`,defaultValue:`false`},{prop:`autoSize`,description:`自动根据内容撑高，可限制最小和最大行数`,type:`boolean | { minRows?: number; maxRows?: number }`,defaultValue:`false`},{prop:`color`,description:`主题色；default 表示不追加色彩类`,type:`'default' | 'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error'`,defaultValue:`'default'`},{prop:`countClassName`,description:`字数统计区域自定义类名`,type:`string`,defaultValue:`-`},{prop:`ghost`,description:`兼容旧用法，等价于 variant="ghost"`,type:`boolean`,defaultValue:`false`},{prop:`onClear`,description:`点击清空按钮后触发`,type:`(event: MouseEvent) => void`,defaultValue:`-`},{prop:`resize`,description:`控制拖拽缩放方向`,type:`'none' | 'vertical' | 'horizontal' | 'both'`,defaultValue:`-`},{prop:`rootClassName`,description:`外层包装节点类名`,type:`string`,defaultValue:`-`},{prop:`showCount`,description:`显示字数统计，支持 formatter 自定义展示`,type:`boolean | { formatter?: (info: { count: number; maxLength?: number }) => any }`,defaultValue:`false`},{prop:`size`,description:`尺寸，支持 xs 到 xl，以及 small / middle / large 别名`,type:`'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'small' | 'middle' | 'medium' | 'large'`,defaultValue:`-`},{prop:`status`,description:`语义状态，未传 color 时会映射到 warning / error 视觉`,type:`'warning' | 'error'`,defaultValue:`-`},{prop:`variant`,description:`视觉变体，保持 Rue 当前 textarea 基底`,type:`'outlined' | 'filled' | 'ghost'`,defaultValue:`'outlined'`}],E=r=>u(c=>{let l=i(`div`,c);m(l,`component-preview not-prose text-base-content my-6 lg:my-12`);let d=i(`div`,l);n(l,d),m(d,`flex flex-wrap items-start justify-between gap-3`);let f=i(`div`,d);n(d,f);let g=i(`h2`,f);n(f,g),m(g,`component-preview-title mt-2 mb-1 text-lg font-semibold`),n(g,e(`# `));let _=a(`rue:slot:anchor`);n(g,_),o(()=>{let e=r.title;t(()=>p(e,g,_))});let v=a(`rue:slot:anchor`);n(f,v),o(()=>{let e=r.summary?u(()=>{let e=s(),c=i(`p`,e);n(e,c),m(c,`m-0 text-sm opacity-70`);let l=a(`rue:slot:anchor`);return n(c,l),o(()=>{let e=r.summary;t(()=>p(e,c,l))}),e}):``;t(()=>p(e,f,v))});let y=a(`rue:component:anchor`);n(l,y),o(()=>{let e=h(x,{style:`box`,items:[{key:`preview`,label:`预览`},{key:`code`,label:`JSX代码`}],activeKey:r.tab.value,onChange:e=>r.tab.value=e,className:`mb-3 mt-4`});t(()=>p(e,l,y))});let S=a(`rue:slot:anchor`);return n(l,S),o(()=>{let e=r.tab.value===`preview`?r.preview():u(()=>{let e=s(),i=a(`rue:component:anchor`);return n(e,i),o(()=>{let n=h(b,{className:`mt-2`,lang:`tsx`,code:r.code});t(()=>p(n,e,i))}),e});t(()=>p(e,l,S))}),l}),ee=r=>u(l=>{let d=i(`div`,l);m(d,`not-prose overflow-x-auto rounded-box border border-base-300 bg-base-100`);let f=i(`table`,d);n(d,f),m(f,`table table-zebra`);let h=i(`thead`,f);n(f,h);let g=i(`tr`,h);n(h,g);let v=i(`th`,g);n(g,v),n(v,e(`属性`));let y=i(`th`,g);n(g,y),n(y,e(`说明`));let b=i(`th`,g);n(g,b),n(b,e(`类型`));let x=i(`th`,g);n(g,x),n(x,e(`默认值`));let S=i(`tbody`,f);n(f,S);let C=a(`rue:list:start`),w=a(`rue:list:end`);n(S,C),n(S,w);let T=new Map;return o(()=>{T=_({items:r.rows||[],getKey:(e,t)=>e.prop,elements:T,parent:S,before:w,singleRoot:!0,trackIndex:!1,start:C,renderItem:(e,r,l,d,f)=>{p(u(()=>{let r=s(),l=i(`tr`,r);n(r,l),o(()=>{c(l,`key`,String(e.prop))});let u=i(`td`,l);n(l,u);let d=i(`code`,u);n(u,d);let f=a(`rue:slot:anchor`);n(d,f),o(()=>{let n=e.prop;t(()=>p(n,d,f))});let m=i(`td`,l);n(l,m);let h=a(`rue:slot:anchor`);n(m,h),o(()=>{let n=e.description;t(()=>p(n,m,h))});let g=i(`td`,l);n(l,g);let _=i(`code`,g);n(g,_);let v=a(`rue:slot:anchor`);n(_,v),o(()=>{let n=e.type;t(()=>p(n,_,v))});let y=i(`td`,l);n(l,y);let b=i(`code`,y);n(y,b);let x=a(`rue:slot:anchor`);return n(b,x),o(()=>{let n=e.defaultValue;t(()=>p(n,b,x))}),r}),r,l)}})}),d}),te=()=>{let{basicValue:s}=g(`useSetup:0:0`,()=>f(()=>({basicValue:g(`ref:1:0`,()=>r(`Rue Design
+Multiline input`))})));return u(r=>{let c=i(`div`,r);m(c,`grid w-full max-w-xl gap-3`);let u=a(`rue:component:anchor`);n(c,u),o(()=>{let e=h(S,{"data-testid":`textarea-basic`,rows:5,placeholder:`Bio`,value:s.value,onInput:e=>{s.value=e.target?.value??``}});t(()=>p(e,c,u))});let f=i(`p`,c);n(c,f),m(f,`m-0 text-sm text-base-content/70`),n(f,e(`当前内容：`));let g=l(f);return n(f,g),o(()=>{d(g,s.value||`空`)}),c})},ne=()=>{let{summary:s,note:c}=g(`useSetup:0:0:dup1`,()=>f(()=>({summary:g(`ref:1:1`,()=>r(`这是一段会显示字数统计的说明文案。`)),note:g(`ref:1:2`,()=>r(`支持清空、字数限制和自定义计数提示。`))})));return u(r=>{let l=i(`div`,r);m(l,`grid w-full max-w-2xl gap-4 lg:grid-cols-2`);let u=i(`div`,l);n(l,u),m(u,`rounded-box border border-base-300 bg-base-100 p-4`);let d=i(`div`,u);n(u,d),m(d,`mb-2 text-xs font-medium uppercase tracking-[0.2em] opacity-60`),n(d,e(`Count`));let f=a(`rue:component:anchor`);n(u,f),o(()=>{let e=h(S,{value:s.value,maxLength:120,showCount:!0,rows:5,placeholder:`更新说明`,onInput:e=>{s.value=e.target?.value??``}});t(()=>p(e,u,f))});let g=i(`div`,l);n(l,g),m(g,`rounded-box border border-base-300 bg-base-100 p-4`);let _=i(`div`,g);n(g,_),m(_,`mb-2 text-xs font-medium uppercase tracking-[0.2em] opacity-60`),n(_,e(`Clear + formatter`));let v=a(`rue:component:anchor`);return n(g,v),o(()=>{let e=h(S,{value:c.value,maxLength:60,allowClear:!0,showCount:{formatter:e=>`剩余 ${Math.max((e.maxLength??0)-e.count,0)} 字`},status:c.value.length>48?`warning`:void 0,rows:5,placeholder:`写点摘要`,onInput:e=>{c.value=e.target?.value??``}});t(()=>p(e,g,v))}),l})},re=()=>{let{composer:s}=g(`useSetup:0:0:dup2`,()=>f(()=>({composer:g(`ref:1:3`,()=>r(`大家好，
+这块演示会随着内容增高。`))})));return u(r=>{let c=i(`div`,r);m(c,`grid w-full max-w-2xl gap-4 lg:grid-cols-2`);let l=i(`div`,c);n(c,l),m(l,`rounded-box border border-base-300 bg-base-100 p-4`);let u=i(`div`,l);n(l,u),m(u,`mb-2 text-xs font-medium uppercase tracking-[0.2em] opacity-60`),n(u,e(`Auto size`));let d=a(`rue:component:anchor`);n(l,d),o(()=>{let e=h(S,{value:s.value,autoSize:{minRows:3,maxRows:8},showCount:!0,allowClear:!0,placeholder:`输入一段较长的评论`,onInput:e=>{s.value=e.target?.value??``}});t(()=>p(e,l,d))});let f=i(`div`,c);n(c,f),m(f,`rounded-box border border-base-300 bg-base-100 p-4`);let g=i(`div`,f);n(f,g),m(g,`mb-2 text-xs font-medium uppercase tracking-[0.2em] opacity-60`),n(g,e(`Resize directions`));let _=i(`div`,f);n(f,_),m(_,`grid gap-3`);let v=a(`rue:component:anchor`);n(_,v),p(h(S,{resize:`none`,rows:4,placeholder:`禁止拖拽缩放`}),_,v);let y=a(`rue:component:anchor`);n(_,y),p(h(S,{resize:`horizontal`,rows:4,placeholder:`只允许横向拖拽`}),_,y);let b=a(`rue:component:anchor`);return n(_,b),p(h(S,{resize:`vertical`,rows:4,placeholder:`只允许纵向拖拽`}),_,b),c})},ie=()=>{let{review:s}=g(`useSetup:0:0:dup3`,()=>f(()=>({review:g(`ref:1:4`,()=>r(`先说结论：这版交互更顺了。
+
+1. 清空和字数提示都更直观。
+2. 自动高度适合写中短文。`))})));return u(r=>{let c=i(`div`,r);m(c,`rounded-box border border-base-300 bg-base-100 p-4`);let l=i(`div`,c);n(c,l),m(l,`grid gap-4 md:grid-cols-[1.3fr_0.7fr]`);let u=i(`div`,l);n(l,u),m(u,`space-y-3`);let d=i(`div`,u);n(u,d);let f=i(`div`,d);n(d,f),m(f,`text-sm font-medium`),n(f,e(`发布备注`));let g=i(`div`,d);n(d,g),m(g,`text-xs opacity-60`),n(g,e("组合 `filled + allowClear + autoSize + showCount`。"));let _=a(`rue:component:anchor`);n(u,_),o(()=>{let e=h(S,{value:s.value,variant:`filled`,color:`primary`,autoSize:{minRows:4,maxRows:10},allowClear:!0,showCount:!0,maxLength:240,placeholder:`写一段更新说明`,onInput:e=>{s.value=e.target?.value??``}});t(()=>p(e,u,_))});let v=i(`div`,l);n(l,v),m(v,`rounded-box bg-base-200/60 p-4 text-sm`);let y=i(`div`,v);n(v,y),m(y,`mb-2 font-medium`),n(y,e(`使用建议`));let b=i(`ul`,v);n(v,b),m(b,`m-0 space-y-2 pl-5`);let x=i(`li`,b);n(b,x),n(x,e("反馈输入优先开 `autoSize`，避免内容被遮住。"));let C=i(`li`,b);n(b,C),n(C,e("短文本编辑可配 `allowClear`，减少回删成本。"));let w=i(`li`,b);return n(b,w),n(w,e("有字数约束时，直接叠加 `showCount + maxLength`。")),c})},ae=()=>{let{tabBasic:_,tabSemantic:b,tabCount:x,tabAutoSize:ae,tabColors:oe,tabSizes:se,tabDisabled:ce,tabRecipe:le}=g(`useSetup:0:0:dup4`,()=>f(()=>({tabBasic:g(`ref:1:5`,()=>r(`preview`)),tabSemantic:g(`ref:1:6`,()=>r(`preview`)),tabCount:g(`ref:1:7`,()=>r(`preview`)),tabAutoSize:g(`ref:1:8`,()=>r(`preview`)),tabColors:g(`ref:1:9`,()=>r(`preview`)),tabSizes:g(`ref:1:10`,()=>r(`preview`)),tabDisabled:g(`ref:1:11`,()=>r(`preview`)),tabRecipe:g(`ref:1:12`,()=>r(`preview`))})));return u(r=>{let f=s(),g=a(`rue:component:anchor`);return n(f,g),p(h(C,{children:u(()=>{let r=s(),u=i(`div`,r);n(r,u),m(u,`max-w-none prose prose-sm md:prose-base`);let f=i(`h1`,u);n(u,f),n(f,e(`Textarea 文本域`));let g=i(`p`,u);n(u,g),m(g,`text-sm mt-3 mb-3`),n(g,e(`Textarea 不再只是原生`));let C=i(`code`,g);n(g,C),n(C,e(`textarea`)),n(g,e(`的样式壳。当前版本保留 Rue 的视觉基底， 同时补齐了更适合真实输入场景的语义 API，比如`));let ue=i(`code`,g);n(g,ue),n(ue,e(`status`)),n(g,e(`、`));let de=i(`code`,g);n(g,de),n(de,e(`allowClear`)),n(g,e(`、`));let fe=i(`code`,g);n(g,fe),n(fe,e(`showCount`)),n(g,e(`、`));let pe=i(`code`,g);n(g,pe),n(pe,e(`autoSize`)),n(g,e(`和`));let D=i(`code`,g);n(g,D),n(D,e(`resize`)),n(g,e(`。`));let O=i(`h2`,u);n(u,O),n(O,e(`何时使用`));let k=i(`ul`,u);n(u,k);let A=i(`li`,k);n(k,A),n(A,e(`需要输入评论、备注、描述等多行文本，并希望保留 Rue 的基础视觉风格。`));let j=i(`li`,k);n(k,j),n(j,e(`需要把状态提示、字数统计、清空操作和自动高度作为统一组件能力复用。`));let M=i(`li`,k);n(k,M),n(M,e(`需要在轻量样式包装之外，再获得更顺手的交互语义和 demo 参考。`));let N=a(`rue:component:anchor`);n(u,N),o(()=>{let e=h(E,{title:`基础用法`,summary:`保留原有受控输入示例，并把当前输入内容直接展示出来。`,tab:_,preview:()=>y(te,{}),code:`const value = ref('Rue Design\\nMultiline input')
+
+<Textarea
+  rows={5}
+  placeholder="Bio"
+  value={value.value}
+  onInput={(event: Event) => {
+    value.value = (event.target as HTMLTextAreaElement | null)?.value ?? ''
+  }}
+/>`});t(()=>p(e,u,N))});let P=a(`rue:component:anchor`);n(u,P),o(()=>{let e=h(E,{title:`语义状态与风格`,summary:`用 status 处理输入风险提示，用 variant 调整层级，不必只靠自定义 className。`,tab:b,preview:()=>v(`div`,{className:`grid w-full max-w-2xl gap-4 lg:grid-cols-2`,children:[y(S,{status:`warning`,rows:4,placeholder:`Warning state`,defaultValue:`这段草稿接近字数上限，建议再收敛一点。`}),y(S,{status:`error`,rows:4,placeholder:`Error state`,defaultValue:`缺少必要信息，请补充发布时间和变更影响范围。`}),y(S,{variant:`filled`,color:`primary`,rows:4,placeholder:`Filled`,defaultValue:`Filled 适合放在更轻的表单背景里。`}),y(S,{variant:`ghost`,rows:4,placeholder:`Ghost`,defaultValue:`Ghost 更适合信息面板或低强调输入区。`})]}),code:`<Textarea status="warning" rows={4} defaultValue="这段草稿接近字数上限，建议再收敛一点。" />
+<Textarea status="error" rows={4} defaultValue="缺少必要信息，请补充发布时间和变更影响范围。" />
+<Textarea variant="filled" color="primary" rows={4} defaultValue="Filled 适合放在更轻的表单背景里。" />
+<Textarea variant="ghost" rows={4} defaultValue="Ghost 更适合信息面板或低强调输入区。" />`});t(()=>p(e,u,P))});let F=a(`rue:component:anchor`);n(u,F),o(()=>{let e=h(E,{title:`字数统计与清空`,summary:`showCount 负责反馈输入进度，allowClear 用于快速回到空态。`,tab:x,preview:()=>y(ne,{}),code:`const summary = ref('这是一段会显示字数统计的说明文案。')
+
+<Textarea
+  value={summary.value}
+  maxLength={120}
+  showCount={true}
+  rows={5}
+  onInput={(event: Event) => {
+    summary.value = (event.target as HTMLTextAreaElement | null)?.value ?? ''
+  }}
+/>
+
+<Textarea
+  allowClear={true}
+  maxLength={60}
+  showCount={{
+    formatter: info => \`剩余 \${Math.max((info.maxLength ?? 0) - info.count, 0)} 字\`,
+  }}
+/>`});t(()=>p(e,u,F))});let I=a(`rue:component:anchor`);n(u,I),o(()=>{let e=h(E,{title:`自动高度与缩放`,summary:`autoSize 更适合评论、描述、发布说明；resize 则覆盖拖拽策略。`,tab:ae,preview:()=>y(re,{}),code:`const composer = ref('大家好，\\n这块演示会随着内容增高。')
+
+<Textarea
+  value={composer.value}
+  autoSize={{ minRows: 3, maxRows: 8 }}
+  showCount={true}
+  allowClear={true}
+  onInput={(event: Event) => {
+    composer.value = (event.target as HTMLTextAreaElement | null)?.value ?? ''
+  }}
+/>
+
+<Textarea resize="none" rows={4} placeholder="禁止拖拽缩放" />
+<Textarea resize="horizontal" rows={4} placeholder="只允许横向拖拽" />
+<Textarea resize="vertical" rows={4} placeholder="只允许纵向拖拽" />`});t(()=>p(e,u,I))});let L=a(`rue:component:anchor`);n(u,L),o(()=>{let e=h(E,{title:`颜色色板`,summary:`保留原有颜色示例，继续沿用 Rue 的主题色体系。`,tab:oe,preview:()=>y(`div`,{className:`grid w-full max-w-md gap-4`,children:w.map(e=>y(S,{color:e.color,placeholder:e.label},e.label))}),code:`<Textarea color="primary" placeholder="Primary" />
+<Textarea color="secondary" placeholder="Secondary" />
+<Textarea color="accent" placeholder="Accent" />
+<Textarea color="neutral" placeholder="Neutral" />
+<Textarea color="info" placeholder="Info" />
+<Textarea color="success" placeholder="Success" />
+<Textarea color="warning" placeholder="Warning" />
+<Textarea color="error" placeholder="Error" />`});t(()=>p(e,u,L))});let R=a(`rue:component:anchor`);n(u,R),o(()=>{let e=h(E,{title:`尺寸体系`,summary:`保留原有 xs 到 xl 示例，并补充 small / middle / large 别名。`,tab:se,preview:()=>v(`div`,{className:`grid w-full max-w-md gap-4`,children:[y(S,{"data-testid":`textarea-size-xs`,size:`xs`,placeholder:`Xsmall`}),y(S,{size:`sm`,placeholder:`Small`}),y(S,{size:`md`,placeholder:`Medium`}),y(S,{size:`lg`,placeholder:`Large`}),y(S,{size:`xl`,placeholder:`Xlarge`}),y(S,{size:`small`,placeholder:`Small alias`}),y(S,{size:`middle`,placeholder:`Middle alias`}),y(S,{size:`large`,placeholder:`Large alias`})]}),code:`<Textarea size="xs" placeholder="Xsmall" />
+<Textarea size="sm" placeholder="Small" />
+<Textarea size="md" placeholder="Medium" />
+<Textarea size="lg" placeholder="Large" />
+<Textarea size="xl" placeholder="Xlarge" />
+
+<Textarea size="small" placeholder="Small alias" />
+<Textarea size="middle" placeholder="Middle alias" />
+<Textarea size="large" placeholder="Large alias" />`});t(()=>p(e,u,R))});let z=a(`rue:component:anchor`);n(u,z),o(()=>{let e=h(E,{title:`禁用与只读`,summary:`保留原有 disabled 示例，并补一组只读场景。`,tab:ce,preview:()=>v(`div`,{className:`grid w-full max-w-xl gap-4`,children:[y(S,{"data-testid":`textarea-disabled`,placeholder:`Bio`,disabled:!0}),y(S,{readOnly:!0,variant:`filled`,rows:4,defaultValue:`只读文本域适合展示已经生成但允许复制的说明文案。`})]}),code:`<Textarea placeholder="Bio" disabled={true} />
+
+<Textarea
+  readOnly={true}
+  variant="filled"
+  rows={4}
+  defaultValue="只读文本域适合展示已经生成但允许复制的说明文案。"
+/>`});t(()=>p(e,u,z))});let B=a(`rue:component:anchor`);n(u,B),o(()=>{let e=h(E,{title:`场景组合`,summary:`把 Filled、自动高度、清空和字数统计组合起来，就能快速搭出真实输入区。`,tab:le,preview:()=>y(ie,{}),code:`const review = ref('先说结论：这版交互更顺了。')
+
+<Textarea
+  value={review.value}
+  variant="filled"
+  color="primary"
+  autoSize={{ minRows: 4, maxRows: 10 }}
+  allowClear={true}
+  showCount={true}
+  maxLength={240}
+  onInput={(event: Event) => {
+    review.value = (event.target as HTMLTextAreaElement | null)?.value ?? ''
+  }}
+/>`});t(()=>p(e,u,B))});let V=i(`h2`,u);n(u,V),c(V,`id`,`textarea-api`),n(V,e(`API`));let H=i(`p`,u);n(u,H),n(H,e(`下面列出当前页面新增或重点推荐使用的 Textarea API。`));let me=a(`rue:component:anchor`);n(u,me),o(()=>{let e=h(ee,{rows:T});t(()=>p(e,u,me))});let U=i(`div`,u);n(u,U),m(U,`not-prose mt-6 rounded-box border border-base-300 bg-base-100 p-4`);let W=i(`h3`,U);n(U,W),m(W,`mt-0 mb-3 text-base font-semibold`),n(W,e(`组合建议`));let G=i(`div`,U);n(U,G),m(G,`grid gap-2 text-sm md:grid-cols-2`);let K=i(`div`,G);n(G,K);let he=i(`code`,K);n(K,he),n(he,e(`showCount + maxLength`)),n(K,e(`：适合摘要、简介、备注等有限长输入。`));let q=i(`div`,G);n(G,q);let ge=i(`code`,q);n(q,ge),n(ge,e(`allowClear + autoSize`)),n(q,e(`：适合评论、回复、发布说明。`));let J=i(`div`,G);n(G,J);let _e=i(`code`,J);n(J,_e),n(_e,e(`status="warning"`)),n(J,e(`：适合接近限制但仍可提交的状态。`));let Y=i(`div`,G);n(G,Y);let ve=i(`code`,Y);n(Y,ve),n(ve,e(`status="error"`)),n(Y,e(`：适合校验失败或缺少关键信息。`));let ye=i(`h2`,u);n(u,ye),n(ye,e(`FAQ`));let be=i(`h3`,u);n(u,be),n(be,e(`什么时候用 color，什么时候用 status？`));let X=i(`p`,u);n(u,X);let xe=i(`code`,X);n(X,xe),n(xe,e(`color`)),n(X,e(`更偏主题色表达，适合整体视觉语气；`));let Se=i(`code`,X);n(X,Se),n(Se,e(`status`));let Ce=l(X);n(X,Ce),d(Ce,` `),n(X,e(`更偏输入反馈语义， 适合警告和错误提示。常见表单场景里，优先用`));let we=i(`code`,X);n(X,we),n(we,e(`status`));let Te=l(X);n(X,Te),d(Te,` `),n(X,e(`表达风险更直观。`));let Ee=i(`h3`,u);n(u,Ee),n(Ee,e(`autoSize 和原生 rows 是什么关系？`));let Z=i(`p`,u);n(u,Z),n(Z,e(`如果同时传了`));let De=i(`code`,Z);n(Z,De),n(De,e(`rows`)),n(Z,e(`，它会作为自动高度的初始下限；如果只传`));let Oe=i(`code`,Z);n(Z,Oe),n(Oe,e(`autoSize`));let Q=l(Z);n(Z,Q),d(Q,` `),n(Z,e(`对象， 则优先使用其中的`));let ke=i(`code`,Z);n(Z,ke),n(ke,e(`minRows`)),n(Z,e(`。`));let Ae=i(`h3`,u);n(u,Ae),n(Ae,e(`showCount 会不会限制输入？`));let $=i(`p`,u);n(u,$),n($,e(`不会。真正的限制仍由原生`));let je=i(`code`,$);n($,je),n(je,e(`maxLength`)),n($,e(`控制；`));let Me=i(`code`,$);n($,Me),n(Me,e(`showCount`));let Ne=l($);return n($,Ne),d(Ne,` `),n($,e(`负责把当前输入进度展示出来。`)),r})}),f,g),f})};export{ae as default};
