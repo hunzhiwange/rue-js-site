@@ -1,0 +1,54 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/AsyncRevenuePanel-BWC-d3Yb.js","assets/vapor-runtime-CKrmRMZX.js","assets/chunk-62oNxeRG.js","assets/AsyncActivityPanel-BcpfwQVI.js"])))=>i.map(i=>d[i]);
+import{$ as e,$t as t,Bt as n,C as r,G as i,Gt as a,H as o,Ht as s,L as c,N as l,P as u,R as d,V as f,W as p,X as m,Xt as h,Z as g,ct as _,et as v,l as y,nt as b,o as x,t as S,tt as C,ut as w}from"./vapor-runtime-CKrmRMZX.js";import{a as T}from"./vapor-helpers-vapor-s6lMjTDZ.js";import{i as E}from"./persistentSidebarPlayground-CKHFGglU.js";import{t as D}from"./useComponent-CmmoBZoA.js";import{t as O}from"./preload-helper-CsoeaaUJ.js";import{t as k}from"./Code-D5UqTwV6.js";import{r as A}from"./SidebarPlaygroundExample-D2vGHFCu.js";var j=`__rue_is_server_rendering__`,M=`__rue_suspense_staging`,N=()=>{let e=globalThis[j];return typeof e==`number`&&e>0},P=e=>Array.isArray(e)?e.map(P):e,F=e=>({...e,children:P(e.children),fallback:P(e.fallback)}),I=e=>Array.isArray(e)?e.filter(e=>e!=null):e??[],L=e=>{if(e==null)return 0;let t=Number(e);return Number.isFinite(t)&&t>0?t:0},R=e=>{typeof e==`function`&&e()},z=n=>{let a=h(()=>{let t=C(`div`);t&&t.style&&typeof t.style==`object`&&(t.style.display=`contents`);let r=C(`div`);r&&r.style&&typeof r.style==`object`&&(r.style.display=`none`),r[M]=!0;let i=typeof r.attachShadow==`function`?r.attachShadow({mode:`open`})??r:r,a={id:Symbol(`rue-suspense-boundary`),register:()=>{}};t[f]=a;let o=e(`rue-suspense-start`),c=e(`rue-suspense-end`);g(t,r),g(t,o),g(t,c);let l=C(`div`);l&&l.style&&typeof l.style==`object`&&(l.style.display=`contents`),l[f]=a;let u=e(`rue-suspense-content-start`),d=e(`rue-suspense-content-end`);g(l,u),g(l,d),g(i,l);let p=C(`div`);p&&p.style&&typeof p.style==`object`&&(p.style.display=`contents`);let m=e(`rue-suspense-fallback-start`),h=e(`rue-suspense-fallback-end`);return g(p,m),g(p,h),g(i,p),{boundary:a,container:t,stagingHost:r,startEl:o,endEl:c,contentContainer:l,contentStartEl:u,contentEndEl:d,fallbackContainer:p,fallbackStartEl:m,fallbackEndEl:h,propsSig:s(F(n),{},!0),lastProps:n,lastFallback:void 0,fallbackReady:!1,contentMounted:!1,contentVisible:!1,retrySig:s(0,{},!0),status:`initial`,pendingId:0,showId:0,hadPending:!1,hasResolvedContent:!1,showingFallback:!1,pendingThenables:new Set,fallbackTimer:null,effect:null}}),o=()=>{a.fallbackTimer&&=(clearTimeout(a.fallbackTimer),null)},d=()=>{a.retrySig.set(a.retrySig.get()+1)},m=e=>a.pendingThenables.has(e)?!1:(a.pendingThenables.add(e),Promise.resolve(e).then(()=>{a.pendingThenables.delete(e),d()},t=>{a.pendingThenables.delete(e),u.handleError?.(t,null),d()}),!0),_=(e,t,n)=>{let r=[],i=e.nextSibling;for(;i&&i!==t;){let e=i.nextSibling;n&&typeof i.cloneNode==`function`?r.push(i.cloneNode(!0)):r.push(i),i=e}return r},v=()=>_(a.fallbackStartEl,a.fallbackEndEl,!0),y=()=>_(a.contentStartEl,a.contentEndEl,!1),b=e=>{a.lastFallback!==e.fallback&&(a.lastFallback=e.fallback,a.fallbackReady=!1,l(I(e.fallback),a.fallbackContainer,a.fallbackStartEl,a.fallbackEndEl),queueMicrotask(()=>{a.fallbackReady=!0,a.status===`pending`&&x(a.propsSig.get(),a.pendingId)}))},x=(e,t)=>{if(a.status!==`pending`||a.pendingId!==t)return;a.showingFallback||(a.showingFallback=!0,R(e.onFallback));let n=a.fallbackReady?v():[];if(n.length>0){a.contentVisible=!1,l(n,a.container,a.startEl,a.endEl);return}if(!a.fallbackReady){queueMicrotask(()=>x(a.propsSig.get(),t));return}a.contentVisible=!1,l(I(e.fallback),a.container,a.startEl,a.endEl)},S=e=>{if(a.contentVisible||a.pendingThenables.size>0)return;o();let t=a.status===`pending`||a.hadPending;l(y(),a.container,a.startEl,a.endEl),a.status=`resolved`,a.hasResolvedContent=!0,a.showingFallback=!1,a.contentVisible=!0,a.hadPending=!1,t&&R(e.onResolve)},w=e=>{let t=++a.showId;queueMicrotask(()=>{queueMicrotask(()=>{a.showId===t&&S(e)})})},T=(e,t)=>{o();let n=L(e.timeout);if(a.hasResolvedContent&&n>0){a.fallbackTimer=setTimeout(()=>{a.fallbackTimer=null,x(a.propsSig.get(),t)},n);return}x(e,t)};return a.boundary.register=e=>{if(!m(e)&&a.status===`pending`)return;let t=a.propsSig.get();a.status!==`pending`&&(a.status=`pending`,R(t.onPending)),a.hadPending=!0,a.showId+=1,a.pendingId+=1,T(t,a.pendingId)},a.effect||=t(()=>{a.retrySig.get();let e=a.propsSig.get();b(e);try{a.contentMounted||=(i(a.boundary,()=>{l(I(e.children),a.contentContainer,a.contentStartEl,a.contentEndEl)}),!0),w(e)}catch(t){if(!p(t))throw u.handleError?.(t,null),t;m(t),a.status!==`pending`&&(a.status=`pending`,R(e.onPending)),a.pendingId+=1,T(e,a.pendingId)}}),r(()=>{o(),delete a.container[f],delete a.contentContainer[f],a.effect?.dispose?.(),a.effect=null,a.pendingThenables.clear(),l([],a.container,a.startEl,a.endEl),l([],a.contentContainer,a.contentStartEl,a.contentEndEl),l([],a.fallbackContainer,a.fallbackStartEl,a.fallbackEndEl)}),N()?a.container:c(()=>(a.lastProps!==n&&(a.lastProps=n,a.contentMounted=!1,a.contentVisible=!1,a.showId+=1,a.propsSig.set(F(n))),a.container))};Object.defineProperty(z,o,{configurable:!1,enumerable:!1,value:!0}),d(z,`Suspense`);var B=e=>new Promise(t=>setTimeout(t,e)),V=(e,t)=>B(t).then(e),H=D(()=>V(()=>O(()=>import(`./AsyncRevenuePanel-BWC-d3Yb.js`),__vite__mapDeps([0,1,2])),900)),U=D(()=>V(()=>O(()=>import(`./AsyncActivityPanel-BcpfwQVI.js`),__vite__mapDeps([3,1,2])),1400)),W=D(()=>V(()=>O(()=>import(`./AsyncActivityPanel-BcpfwQVI.js`),__vite__mapDeps([3,1,2])),1800),{loading:()=>y(e=>{let t=C(`div`,e);w(t,`rounded-box border border-dashed border-info/40 bg-info/10 p-4 text-sm`);let n=C(`span`,t);return g(t,n),w(n,`loading loading-spinner loading-sm mr-2`),g(t,b(`本地 loading：这个异步组件设置了 suspensible: false`)),t}),suspensible:!1}),G=n=>y(r=>{let i=C(`div`,r);w(i,`rounded-box border border-dashed border-base-300 bg-base-200 p-4`);let o=C(`div`,i);g(i,o),w(o,`flex items-center gap-3`);let s=C(`span`,o);g(o,s),w(s,`loading loading-spinner loading-md text-primary`);let c=C(`div`,o);g(o,c);let l=C(`div`,c);g(c,l),w(l,`font-semibold`);let u=e(`rue:slot:anchor`);g(l,u),t(()=>{let e=n.title;a(()=>x(e,l,u))});let d=C(`div`,c);g(c,d),w(d,`text-sm opacity-70`);let f=e(`rue:slot:anchor`);g(d,f),t(()=>{let e=n.detail;a(()=>x(e,d,f))});let p=C(`div`,i);g(i,p),w(p,`mt-4 grid gap-3 md:grid-cols-2`);let m=C(`div`,p);g(p,m),w(m,`skeleton h-24 rounded-box`);let h=C(`div`,p);return g(p,h),w(h,`skeleton h-24 rounded-box`),i}),K=`import { Suspense, type FC, useComponent } from '@rue-js/rue';
+
+const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+const resolveAfter = <P,>(component: FC<P>, ms: number) =>
+  wait(ms).then(() => ({ default: component }));
+
+const RevenuePanel: FC<{ period?: string }> = props => (
+  <article className="rounded-box border border-primary/25 bg-primary/10 p-4">
+    <div className="text-xs uppercase tracking-[0.22em] opacity-60">Revenue</div>
+    <div className="mt-2 text-3xl font-semibold">¥ 342,800</div>
+    <div className="mt-1 text-sm opacity-75">
+      {props.period ?? '本周'} 转化收入，环比 +12.6%
+    </div>
+  </article>
+);
+
+const ActivityPanel: FC<{ title?: string }> = props => (
+  <section className="rounded-box border border-accent/25 bg-accent/10 p-4">
+    <div className="text-xs uppercase tracking-[0.22em] opacity-60">Activity</div>
+    <h3 className="mt-2 text-xl font-semibold">{props.title ?? '异步活动流'}</h3>
+    <ol className="mt-4 space-y-2 text-sm">
+      <li>收入组件和活动流组件共享同一个 Suspense fallback。</li>
+      <li>加载完成后，边界重新渲染 children 内容。</li>
+    </ol>
+  </section>
+);
+
+const AsyncRevenuePanel = useComponent(() =>
+  resolveAfter(RevenuePanel, 900),
+);
+
+const AsyncActivityPanel = useComponent(() =>
+  resolveAfter(ActivityPanel, 1400),
+);
+
+const AsyncLocalActivityPanel = useComponent(
+  () => resolveAfter(ActivityPanel, 1800),
+  {
+    loading: () => <div>本地 loading</div>,
+    suspensible: false,
+  },
+);
+
+export default function Demo() {
+  return (
+    <Suspense fallback={<div>统一 fallback 正在加载</div>}>
+      <AsyncRevenuePanel period="Q2" />
+      <AsyncActivityPanel title="统一边界内的活动流" />
+      <AsyncLocalActivityPanel title="本地 loading 控制的活动流" />
+    </Suspense>
+  );
+}`,q=()=>{let{activeTab:r}=T(`useSetup:0:0`,()=>h(()=>({activeTab:T(`ref:1:0`,()=>n(`preview`))})));return y(n=>{let i=v(),o=e(`rue:component:anchor`);return g(i,o),x(S(A,{children:y(()=>{let n=v(),i=C(`h1`,n);g(n,i),w(i,`mb-4 text-5xl font-semibold md:mb-4`),g(i,b(`Suspense 异步边界`));let o=C(`div`,n);g(n,o),_(o,`role`,`tablist`),w(o,`tabs tabs-box`);let s=C(`button`,o);g(o,s),_(s,`role`,`tab`),t(()=>{w(s,`tab ${r.value===`preview`?`tab-active`:``}`)}),m(s,`click`,()=>{r.value=`preview`}),g(s,b(`效果`));let c=C(`button`,o);g(o,c),_(c,`role`,`tab`),t(()=>{w(c,`tab ${r.value===`code`?`tab-active`:``}`)}),m(c,`click`,()=>{r.value=`code`}),g(c,b(`代码`));let l=C(`div`,n);g(n,l),t(()=>{w(l,`mt-4 grid gap-6 ${r.value===`preview`?``:`hidden`}`)});let u=C(`div`,l);g(l,u),w(u,`card bg-base-100 shadow`);let d=C(`div`,u);g(u,d),w(d,`card-body gap-6`);let f=C(`section`,d);g(d,f),w(f,`space-y-3`);let p=C(`div`,f);g(f,p);let h=C(`h2`,p);g(p,h),w(h,`text-xl font-semibold`),g(h,b(`1. 一个边界等待多个异步组件`));let T=C(`p`,p);g(p,T),w(T,`text-sm opacity-75`),g(T,b(`两个子组件都通过 useComponent 动态导入；任意一个未完成时，Suspense 显示同一个 fallback。`));let D=C(`div`,f);g(f,D),w(D,`rounded-box border border-dashed border-base-300 p-4`);let O=e(`rue:component:anchor`);g(D,O);let A=y(()=>{let t=v(),n=C(`div`,t);g(t,n),w(n,`grid gap-4 xl:grid-cols-[minmax(0,1fr)_24rem]`);let r=e(`rue:component:anchor`);g(n,r),x(S(H,{period:`Q2`}),n,r);let i=e(`rue:component:anchor`);return g(n,i),x(S(U,{title:`统一边界内的活动流`}),n,i),t});t(()=>{let e=S(z,{fallback:E(G,{title:`正在加载销售看板`,detail:`收入组件和活动流组件会一起由这个边界等待`}),children:A});a(()=>x(e,D,O))});let j=C(`section`,d);g(d,j),w(j,`space-y-3`);let M=C(`div`,j);g(j,M);let N=C(`h2`,M);g(M,N),w(N,`text-xl font-semibold`),g(N,b(`2. 退出 Suspense 控制`));let P=C(`p`,M);g(M,P),w(P,`text-sm opacity-75`),g(P,b(`useComponent 设置 suspensible: false 后，即使外层有 Suspense，也会使用组件自己的 loading。`));let F=C(`div`,j);g(j,F),w(F,`rounded-box border border-dashed border-base-300 p-4`);let I=e(`rue:component:anchor`);g(F,I);let L=S(W,{title:`本地 loading 控制的活动流`});t(()=>{let e=S(z,{fallback:E(G,{title:`这个 fallback 不会接管下面的组件`,detail:`子组件显式设置了 suspensible: false`}),children:L});a(()=>x(e,F,I))});let R=C(`div`,d);g(d,R),_(R,`role`,`alert`),w(R,`alert alert-info alert-soft`);let B=C(`span`,R);g(R,B),g(B,b(`提示：useComponent 的 loader 会按函数引用缓存。刷新页面能重新看到首屏 fallback；同一页面内再次渲染已加载组件会直接命中缓存。`));let V=C(`div`,n);g(n,V),t(()=>{w(V,`mt-4 grid gap-6 ${r.value===`code`?``:`hidden`}`)});let q=C(`div`,V);g(V,q),w(q,`card bg-base-100 shadow`);let J=C(`div`,q);g(q,J),w(J,`card-body p-0`);let Y=e(`rue:component:anchor`);return g(J,Y),t(()=>{let e=S(k,{className:`h-full`,lang:`tsx`,code:K});a(()=>x(e,J,Y))}),n})}),i,o),i})};export{q as default};
