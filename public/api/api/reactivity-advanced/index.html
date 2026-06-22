@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="luxury">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后悔药 Rue.js - The Wasm Framework For Native DOM</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
+    />
+    <style>
+      /* 取消 body 的宽度与背景限制，交由应用布局控制 */
+      body {
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+    </style>
+    <link rel="stylesheet" crossorigin href="/assets/main-zrVSZa30.css">
+  </head>
+
+  <body>
+    <div id="app"><div class="min-h-screen bg-base-100 text-base-content"><header class="site-header fixed top-0 left-0 right-0 z-50 w-full"><div class="navbar bg-transparent max-w-[1400px] mx-auto w-full px-6 items-center"><div class="navbar-start gap-4"><a href="/" class="flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 shadow-lg ring-1 ring-white/30"><span class="text-white font-extrabold text-[32px] md:text-[50px]">R</span></span><span class="text-lg md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">后悔药 Rue.js</span></a></div><nav class="navbar-center hidden md:flex" aria-label="主导航"><ul class="menu menu-horizontal px-1 text-sm"><li><a href="/" class="btn btn-ghost btn-sm">首页</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">文档</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/guide/guide/introduction">深度指南</a></li><li><a href="/examples/hello-world">实战例子</a></li><li><a href="/guide/guide/quick-start">快速上手</a></li><li><a href="/page/routing">路由指南</a></li><li><a href="/page/glossary/index">术语表</a></li><li><a href="/page/error-reference/index">错误代码参考</a></li></ul></li><li><a href="/api/api/index" class="btn btn-ghost btn-sm">API</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">生态</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/partners/index">合作伙伴</a></li><li><a href="/plugins">插件</a></li><li><a href="/design/button">组件库</a></li><li><a href="/page/guide/scaling-up/tooling">工具链</a></li><li><a href="/textjs">Text.js</a></li><li><a href="/page/ecosystem/newsletters">新闻简报</a></li></ul></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">关于</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/about/faq">常见问题</a></li><li><a href="/page/about/team">团队</a></li><li><a href="/page/about/releases">版本发布</a></li><li><a href="/page/about/community-guide">社区指南</a></li><li><a href="/page/about/coc">行为规范</a></li><li><a href="/page/about/privacy">隐私政策</a></li></ul></li><li><a href="/page/sponsor/index" class="btn btn-ghost btn-sm">赞助</a></li><li><a href="/page/partners/index" class="btn btn-ghost btn-sm">合作伙伴</a></li></ul></nav><div class="navbar-end gap-2 items-center"><a href="/settings" class="btn btn-ghost btn-sm">设置</a></div></div></header><main class="min-h-[60vh] pt-24"><div class="max-w-[1400px] mx-auto px-6 py-10"><div class="sidebar-playground md:flex md:items-start md:gap-6 xl:grid xl:grid-cols-[11.25rem_minmax(0,1fr)_15rem]"><div class="md:w-45 shrink-0"><aside class="w-full"><div class="sticky top-20"><nav class="space-y-3 w-full"><div class="rounded-box border border-base-300/60 bg-base-100 px-4 py-3 shadow-sm"><div class="text-xs uppercase tracking-[0.18em] text-base-content/45">目录统计</div><div class="mt-2 flex items-center justify-between gap-3"><span class="text-sm text-base-content/70">总条目</span><span class="badge badge-neutral badge-lg"></span></div><label class="mt-3 block"><span class="sr-only">搜索目录条目</span><input class="input input-sm input-bordered w-full" value="" placeholder="搜索条目 / Search"></label></div> <div key="docs-api" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>API</span><span class="badge badge-ghost badge-sm shrink-0">16</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="api/application"><a href="/api/api/application" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/application">应用实例</a></li><li key="api/built-in-components"><a href="/api/api/built-in-components" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/built-in-components">内置组件</a></li><li key="api/built-in-directives"><a href="/api/api/built-in-directives" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/built-in-directives">内置指令</a></li><li key="api/built-in-special-attributes"><a href="/api/api/built-in-special-attributes" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/built-in-special-attributes">特殊属性</a></li><li key="api/built-in-special-elements"><a href="/api/api/built-in-special-elements" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/built-in-special-elements">特殊元素</a></li><li key="api/component-instance"><a href="/api/api/component-instance" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/component-instance">组件实例</a></li><li key="api/composition-api-dependency-injection"><a href="/api/api/composition-api-dependency-injection" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/composition-api-dependency-injection">依赖注入</a></li><li key="api/composition-api-helpers"><a href="/api/api/composition-api-helpers" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/composition-api-helpers">组合式 API 帮助函数</a></li><li key="api/composition-api-lifecycle"><a href="/api/api/composition-api-lifecycle" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/composition-api-lifecycle">生命周期</a></li><li key="api/custom-elements"><a href="/api/api/custom-elements" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/custom-elements">自定义元素</a></li><li key="api/custom-renderer"><a href="/api/api/custom-renderer" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/custom-renderer">自定义渲染器</a></li><li key="api/general"><a href="/api/api/general" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/general">通用</a></li><li key="api/reactivity-advanced"><a href="/api/api/reactivity-advanced" aria-current="page" class="active w-full" data-rue-sidebar-href="/api/api/reactivity-advanced">响应式进阶</a></li><li key="api/reactivity-core"><a href="/api/api/reactivity-core" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/reactivity-core">响应式核心</a></li><li key="api/reactivity-utilities"><a href="/api/api/reactivity-utilities" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/reactivity-utilities">响应式工具</a></li><li key="api/render-function"><a href="/api/api/render-function" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/api/api/render-function">渲染函数</a></li></ul></div></div></nav></div></aside></div><article class="component-preview min-w-0"><div><div class="max-w-none prose prose-sm md:prose-base" id="doc-body"><h1 id="reactivity-api-advanced" tabindex="-1">响应式 API：进阶</h1>
+<h2 id="shallowref" tabindex="-1">shallowRef()</h2>
+<p><a href="/api/api/reactivity-core#ref"><code>ref()</code></a> 的浅层版本。</p>
+<ul>
+<li>
+<p><strong>类型</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">function</span><span style="color:#7AA2F7"> shallowRef</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF"> =</span><span style="color:#0DB9D7"> any</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5">(</span></span>
+<span class="line"><span style="color:#E0AF68">  initial</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#E0AF68">  options</span><span style="color:#89DDFF">?:</span><span style="color:#9ABDF5"> {</span><span style="color:#7AA2F7"> equals</span><span style="color:#89DDFF">?:</span><span style="color:#9ABDF5"> (</span><span style="color:#E0AF68">prev</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> next</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> =></span><span style="color:#0DB9D7"> boolean</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF"> |</span><span style="color:#0DB9D7"> null</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#E0AF68">  forceGlobal</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> boolean</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> ShallowRef</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">interface</span><span style="color:#C0CAF5"> ShallowRef</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#73DACA">  value</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+<li>
+<p><strong>详情</strong></p>
+<p>与 <code>ref()</code> 不同，浅层 ref 的内部值按原样存储和暴露，不会被设为深层响应式。只有 <code>.value</code> 访问是响应式的。</p>
+<p><code>shallowRef()</code> 与 Rue 的 <code>ref()</code> 使用同一组选项：你可以通过 <code>options.equals</code> 控制整体替换 <code>.value</code> 时的比较方式；<code>forceGlobal</code> 仍然是面向底层封装和 Hook 边界控制的高级参数。</p>
+<p><code>shallowRef()</code> 通常用于大型数据结构的性能优化，或与外部状态管理系统集成。</p>
+</li>
+<li>
+<p><strong>示例</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> state</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> shallowRef</span><span style="color:#9ABDF5">({</span><span style="color:#73DACA"> count</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 1</span><span style="color:#9ABDF5"> })</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 不会触发更改</span></span>
+<span class="line"><span style="color:#C0CAF5">state</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">value</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">count</span><span style="color:#89DDFF"> =</span><span style="color:#FF9E64"> 2</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 会触发更改</span></span>
+<span class="line"><span style="color:#C0CAF5">state</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span><span style="color:#73DACA"> count</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 2</span><span style="color:#9ABDF5"> }</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+<li>
+<p><strong>另请参阅</strong></p>
+<ul>
+<li><a href="/guide/guide/best-practices/performance#reduce-reactivity-overhead-for-large-immutable-structures">指南 - 减少大型不可变结构的响应式开销</a></li>
+<li><a href="/guide/guide/extras/reactivity-in-depth#integration-with-external-state-systems">指南 - 与外部状态系统集成</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="triggerref" tabindex="-1">triggerRef()</h2>
+<p>强制触发依赖于<a href="#shallowref">浅层 ref</a>的副作用。这通常在对浅层 ref 的内部值进行深度变更后使用。</p>
+<ul>
+<li>
+<p><strong>类型</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">function</span><span style="color:#7AA2F7"> triggerRef</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">ref</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> ShallowRef</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> void</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+<li>
+<p><strong>示例</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> shallow</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> shallowRef</span><span style="color:#9ABDF5">({</span></span>
+<span class="line"><span style="color:#73DACA">  greet</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">Hello, world</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 在首次运行时记录一次 "Hello, world"</span></span>
+<span class="line"><span style="color:#7AA2F7">watchEffect</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  console</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">log</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">shallow</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">value</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">greet</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 这不会触发 effect，因为 ref 是浅层的</span></span>
+<span class="line"><span style="color:#C0CAF5">shallow</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">value</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">greet</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">Hello, universe</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 记录 "Hello, universe"</span></span>
+<span class="line"><span style="color:#7AA2F7">triggerRef</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">shallow</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+</ul>
+<h2 id="customref" tabindex="-1">customRef()</h2>
+<p>创建一个显式控制依赖追踪和更新触发时机的自定义 ref。</p>
+<ul>
+<li>
+<p><strong>类型</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">function</span><span style="color:#7AA2F7"> customRef</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">factory</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> CustomRefFactory</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span><span style="color:#73DACA"> value</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span><span style="color:#9ABDF5"> }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> CustomRefFactory</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF">></span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#7AA2F7">  track</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#0DB9D7"> void</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#7AA2F7">  trigger</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#0DB9D7"> void</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#7AA2F7">  get</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> T</span></span>
+<span class="line"><span style="color:#7AA2F7">  set</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> (</span><span style="color:#E0AF68">value</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> =></span><span style="color:#0DB9D7"> void</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+<li>
+<p><strong>详情</strong></p>
+<p><code>customRef()</code> 接收一个工厂函数。工厂函数会拿到 <code>track</code> 和 <code>trigger</code>，并返回 <code>.value</code> 的 <code>get</code> / <code>set</code> 实现。</p>
+<p>通常应在 <code>get()</code> 中调用 <code>track()</code> 来收集依赖，在合适的更新时机调用 <code>trigger()</code> 来通知订阅者。<code>set()</code> 不会自动触发更新，这让你可以实现防抖、节流、外部状态同步等更精细的行为。</p>
+</li>
+<li>
+<p><strong>示例</strong></p>
+<p>创建一个防抖 ref，仅在最新 set 调用后的一定超时后才触发依赖更新：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">customRef</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#BB9AF7"> function</span><span style="color:#7AA2F7"> useDebouncedRef</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">value</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> delay</span><span style="color:#89DDFF"> =</span><span style="color:#FF9E64"> 200</span><span style="color:#9ABDF5">)</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">  let</span><span style="color:#BB9AF7"> timeout</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">  return</span><span style="color:#7AA2F7"> customRef</span><span style="color:#9ABDF5">((</span><span style="color:#E0AF68">track</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> trigger</span><span style="color:#9ABDF5">) </span><span style="color:#BB9AF7">=></span><span style="color:#9ABDF5"> ({</span></span>
+<span class="line"><span style="color:#7AA2F7">    get</span><span style="color:#9ABDF5">() {</span></span>
+<span class="line"><span style="color:#7AA2F7">      track</span><span style="color:#9ABDF5">()</span></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">      return</span><span style="color:#C0CAF5"> value</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#7AA2F7">    set</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">nextValue</span><span style="color:#9ABDF5">) {</span></span>
+<span class="line"><span style="color:#7AA2F7">      clearTimeout</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">timeout</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#C0CAF5">      timeout</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> setTimeout</span><span style="color:#9ABDF5">(() </span><span style="color:#BB9AF7">=></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">        value</span><span style="color:#89DDFF"> =</span><span style="color:#C0CAF5"> nextValue</span></span>
+<span class="line"><span style="color:#7AA2F7">        trigger</span><span style="color:#9ABDF5">()</span></span>
+<span class="line"><span style="color:#9ABDF5">      }</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> delay</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  }))</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>在组件中使用：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">useDebouncedRef</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./debouncedRef</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> text</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> useDebouncedRef</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">hello</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+</ul>
+<h2 id="shallowreactive" tabindex="-1">shallowReactive()</h2>
+<p><a href="/api/api/reactivity-core#reactive"><code>reactive()</code></a> 的浅层版本。</p>
+<ul>
+<li>
+<p><strong>类型</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">function</span><span style="color:#7AA2F7"> shallowReactive</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#9D7CD8;font-style:italic"> extends</span><span style="color:#0DB9D7"> object</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">target</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+<li>
+<p><strong>详情</strong></p>
+<p>与 <code>reactive()</code> 不同，没有深度转换：对于浅层响应式对象，只有根级别的属性是响应式的。属性值按原样存储和暴露——这也意味着具有 ref 值的属性不会被自动解包。</p>
+<div class="warning">
+<p>浅层数据结构只应在组件的根级别状态中使用。避免将其嵌套在深层响应式对象中，因为它会创建一个具有不一致响应式行为的树，这可能难以理解和调试。</p>
+</div>
+</li>
+<li>
+<p><strong>示例</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> state</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> shallowReactive</span><span style="color:#9ABDF5">({</span></span>
+<span class="line"><span style="color:#73DACA">  foo</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 1</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">  nested</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#73DACA">    bar</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 2</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 修改 state 自身的属性是响应式的</span></span>
+<span class="line"><span style="color:#C0CAF5">state</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">foo</span><span style="color:#89DDFF">++</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// ...但不会转换嵌套对象</span></span>
+<span class="line"><span style="color:#7AA2F7">isReactive</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">state</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">nested</span><span style="color:#9ABDF5">)</span><span style="color:#51597D;font-style:italic"> // false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 不是响应式的</span></span>
+<span class="line"><span style="color:#C0CAF5">state</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">nested</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">bar</span><span style="color:#89DDFF">++</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+</ul>
+<h2 id="shallowreadonly" tabindex="-1">shallowReadonly()</h2>
+<p><a href="/api/api/reactivity-core#readonly"><code>readonly()</code></a> 的浅层版本。</p>
+<ul>
+<li>
+<p><strong>类型</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">function</span><span style="color:#7AA2F7"> shallowReadonly</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#9D7CD8;font-style:italic"> extends</span><span style="color:#0DB9D7"> object</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">target</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> Readonly</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF">></span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+<li>
+<p><strong>详情</strong></p>
+<p>与 <code>readonly()</code> 不同，没有深度转换：只有根级别的属性被设为只读。属性值按原样存储和暴露——这也意味着具有 ref 值的属性不会被自动解包。</p>
+<div class="warning">
+<p>浅层数据结构只应在组件的根级别状态中使用。避免将其嵌套在深层响应式对象中，因为它会创建一个具有不一致响应式行为的树，这可能难以理解和调试。</p>
+</div>
+</li>
+<li>
+<p><strong>示例</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> state</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> shallowReadonly</span><span style="color:#9ABDF5">({</span></span>
+<span class="line"><span style="color:#73DACA">  foo</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 1</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">  nested</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#73DACA">    bar</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 2</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 修改 state 自身的属性将失败</span></span>
+<span class="line"><span style="color:#C0CAF5">state</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">foo</span><span style="color:#89DDFF">++</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// ...但在嵌套对象上有效</span></span>
+<span class="line"><span style="color:#7AA2F7">isReadonly</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">state</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">nested</span><span style="color:#9ABDF5">)</span><span style="color:#51597D;font-style:italic"> // false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 有效</span></span>
+<span class="line"><span style="color:#C0CAF5">state</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">nested</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">bar</span><span style="color:#89DDFF">++</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+</ul>
+<h2 id="toraw" tabindex="-1">toRaw()</h2>
+<p>返回 Rue 创建的代理的原始对象。</p>
+<ul>
+<li>
+<p><strong>类型</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">function</span><span style="color:#7AA2F7"> toRaw</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">proxy</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+<li>
+<p><strong>详情</strong></p>
+<p><code>toRaw()</code> 可以从由 <a href="/api/api/reactivity-core#reactive"><code>reactive()</code></a>、<a href="/api/api/reactivity-core#readonly"><code>readonly()</code></a>、<a href="#shallowreactive"><code>shallowReactive()</code></a> 或 <a href="#shallowreadonly"><code>shallowReadonly()</code></a> 创建的代理返回原始对象。</p>
+<p>这是一个逃生口，可用于临时读取而不会产生代理访问/追踪开销，或写入而不触发更改。<strong>不推荐</strong>持有对原始对象的持久引用。谨慎使用。</p>
+</li>
+<li>
+<p><strong>示例</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> foo</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {}</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> reactiveFoo</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> reactive</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">foo</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C0CAF5">console</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">log</span><span style="color:#9ABDF5">(</span><span style="color:#7AA2F7">toRaw</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">reactiveFoo</span><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> ===</span><span style="color:#C0CAF5"> foo</span><span style="color:#9ABDF5">)</span><span style="color:#51597D;font-style:italic"> // true</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+</ul>
+<h2 id="effectscope" tabindex="-1">effectScope()</h2>
+<p>创建一个 effect 作用域对象，可以捕获在其中创建的响应式 effect（即 computed 和 watchers），以便这些 effect 可以一起被处置。</p>
+<ul>
+<li>
+<p><strong>类型</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">function</span><span style="color:#7AA2F7"> effectScope</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">detached</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> boolean</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> EffectScope</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">interface</span><span style="color:#C0CAF5"> EffectScope</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">  readonly</span><span style="color:#73DACA"> active</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> boolean</span></span>
+<span class="line"><span style="color:#7AA2F7">  run</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5">(</span><span style="color:#7AA2F7">fn</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> T</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span><span style="color:#89DDFF"> |</span><span style="color:#0DB9D7"> undefined</span><span style="color:#51597D;font-style:italic"> // 如果作用域不活动则为 undefined</span></span>
+<span class="line"><span style="color:#7AA2F7">  stop</span><span style="color:#9ABDF5">()</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> void</span></span>
+<span class="line"><span style="color:#7AA2F7">  dispose</span><span style="color:#9ABDF5">()</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> void</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>默认创建的 scope 会关联到当前活动 scope，父 scope 停止时会一并停止子 scope。传入 <code>true</code> 会创建 detached scope，使其不随当前父 scope 自动停止。</p>
+</li>
+<li>
+<p><strong>示例</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> scope</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> effectScope</span><span style="color:#9ABDF5">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C0CAF5">scope</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">run</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">  const</span><span style="color:#BB9AF7"> doubled</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> computed</span><span style="color:#9ABDF5">(() </span><span style="color:#BB9AF7">=></span><span style="color:#C0CAF5"> counter</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#89DDFF"> *</span><span style="color:#FF9E64"> 2</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7AA2F7">  watch</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">doubled</span><span style="color:#89DDFF">,</span><span style="color:#9ABDF5"> () </span><span style="color:#BB9AF7">=></span><span style="color:#C0CAF5"> console</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">log</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">doubled</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#9ABDF5">))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7AA2F7">  watchEffect</span><span style="color:#9ABDF5">(() </span><span style="color:#BB9AF7">=></span><span style="color:#C0CAF5"> console</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">log</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">Count: </span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> doubled</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#9ABDF5">))</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 处置作用域中的所有 effect</span></span>
+<span class="line"><span style="color:#C0CAF5">scope</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">stop</span><span style="color:#9ABDF5">()</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+</ul>
+<h2 id="getcurrentscope" tabindex="-1">getCurrentScope()</h2>
+<p>如果存在，返回当前活动的 <a href="#effectscope">effect 作用域</a>。</p>
+<ul>
+<li>
+<p><strong>类型</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">function</span><span style="color:#7AA2F7"> getCurrentScope</span><span style="color:#9ABDF5">()</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> EffectScope</span><span style="color:#89DDFF"> |</span><span style="color:#0DB9D7"> undefined</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+</ul>
+<h2 id="onscopedispose" tabindex="-1">onScopeDispose()</h2>
+<p>在当前活动的 <a href="#effectscope">effect 作用域</a>上注册一个处置回调。当关联的 effect 作用域停止时，将调用回调。</p>
+<p>此方法可用作 <code>onUnmounted</code> 的可重用组合式函数的非组件耦合替代，因为每个 Rue 组件的初始化逻辑也在 effect 作用域中调用。</p>
+<p>如果此函数在没有活动 effect 作用域的情况下被调用，将输出警告。可以通过将 <code>true</code> 作为第二个参数传递来抑制此警告。</p>
+<ul>
+<li>
+<p><strong>类型</strong></p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">function</span><span style="color:#7AA2F7"> onScopeDispose</span><span style="color:#9ABDF5">(</span><span style="color:#7AA2F7">fn</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#0DB9D7"> void</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> failSilently</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> boolean</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> void</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+</ul>
+</div></div></article><aside class="hidden xl:block w-60 shrink-0" aria-hidden="true" style="visibility: hidden"><div class="fixed top-24 w-60 max-h-[calc(100vh-7rem)] overflow-auto" style="right: max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem))"><div class="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.18em] text-base-content/45">页内导航</div><div></div></div></aside></div></div></main><footer class="w-full bg-base-200 overflow-hidden"><div class="max-w-[1100px] mx-auto w-full px-6 py-12 grid gap-8 grid-cols-1 md:grid-cols-3"><div><div class="text-base-content font-semibold mb-2">文档</div><ul class="space-y-2 text-sm"><li><a href="/jsx/basic-elements" class="hover:underline">深度指南</a></li><li><a href="/examples/hello-world" class="hover:underline">实战例子</a></li><li><a href="/guide/guide/quick-start" class="hover:underline">快速上手</a></li><li><a href="/page/glossary/index" class="hover:underline">术语表</a></li><li><a href="/page/error-reference/index" class="hover:underline">错误码参照表</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">关于</div><ul class="space-y-2 text-sm"><li><a href="/page/about/faq" class="hover:underline">常见问题</a></li><li><a href="/page/about/team" class="hover:underline">团队</a></li><li><a href="/page/about/releases" class="hover:underline">版本发布</a></li><li><a href="/page/about/community-guide" class="hover:underline">社区指南</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">生态</div><ul class="space-y-2 text-sm"><li><a href="/plugins" class="hover:underline">插件</a></li><li><a href="/design/button" class="hover:underline">组件库</a></li><li><a href="/page/routing" class="hover:underline">路由指南</a></li><li><a href="/textjs" class="hover:underline">Text.js</a></li></ul></div></div><div class="max-w-[1100px] mx-auto px-6"><div class="text-center text-xs text-base-content/60 pb-8">© 2024-2026 Xiangmin Liu</div></div><div class="mx-auto w-full px-6 pb-4 text-center"><div class="flex select-none items-end justify-center gap-6 whitespace-nowrap text-[clamp(12rem,28vw,26rem)] font-black leading-none bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent md:gap-10"><span>Rue</span><span class="pl-1">.JS</span></div></div></footer></div></div>
+  </body>
+</html>

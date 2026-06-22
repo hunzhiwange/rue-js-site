@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后悔药 Rue.js - The Wasm Framework For Native DOM</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
+    />
+    <script>
+      ;(function () {
+        try {
+          var defaultTheme = 'luxury'
+          var themes = [
+            'light',
+            'dark',
+            'cupcake',
+            'bumblebee',
+            'emerald',
+            'corporate',
+            'synthwave',
+            'retro',
+            'cyberpunk',
+            'valentine',
+            'halloween',
+            'garden',
+            'forest',
+            'aqua',
+            'lofi',
+            'pastel',
+            'fantasy',
+            'wireframe',
+            'black',
+            'luxury',
+            'dracula',
+            'cmyk',
+            'autumn',
+            'business',
+            'acid',
+            'lemonade',
+            'night',
+            'coffee',
+            'winter',
+            'dim',
+            'nord',
+            'sunset',
+          ]
+          var storedTheme = localStorage.getItem('rue.theme')
+          var theme = themes.includes(storedTheme) ? storedTheme : defaultTheme
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch (e) {}
+      })()
+    </script>
+    <style>
+      /* 取消 body 的宽度与背景限制，交由应用布局控制 */
+      body {
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/main-B1m9ZMrI.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/preload-helper-Bf_JiD2A.js">
+    <link rel="modulepreload" crossorigin href="/assets/chunk-62oNxeRG.js">
+    <link rel="modulepreload" crossorigin href="/assets/vapor-runtime-x7F5M-49.js">
+    <link rel="modulepreload" crossorigin href="/assets/state-iCxTcXl5.js">
+    <link rel="modulepreload" crossorigin href="/assets/src-CHb2ltYS.js">
+    <link rel="modulepreload" crossorigin href="/assets/src-BEG41jq3.js">
+    <link rel="modulepreload" crossorigin href="/assets/useApp-l3GbGuGa.js">
+    <link rel="modulepreload" crossorigin href="/assets/useComponent-BNhmDv_B.js">
+    <link rel="modulepreload" crossorigin href="/assets/vapor-helpers-vapor-D1LP4JjK.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-zrVSZa30.css">
+  </head>
+
+  <body>
+    <div id="app"><div class="min-h-screen bg-base-100 text-base-content"><header class="site-header fixed top-0 left-0 right-0 z-50 w-full"><div class="navbar bg-transparent max-w-[1400px] mx-auto w-full px-6 items-center"><div class="navbar-start gap-4"><a href="/" class="flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 shadow-lg ring-1 ring-white/30"><span class="text-white font-extrabold text-[32px] md:text-[50px]">R</span></span><span class="text-lg md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">后悔药 Rue.js</span></a></div><nav class="navbar-center hidden md:flex" aria-label="主导航"><ul class="menu menu-horizontal px-1 text-sm"><li><a href="/" class="btn btn-ghost btn-sm">首页</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">文档</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/guide/guide/introduction">深度指南</a></li><li><a href="/examples/hello-world">实战例子</a></li><li><a href="/guide/guide/quick-start">快速上手</a></li><li><a href="/page/routing">路由指南</a></li><li><a href="/page/glossary/index">术语表</a></li><li><a href="/page/error-reference/index">错误代码参考</a></li></ul></li><li><a href="/api/api/index" class="btn btn-ghost btn-sm">API</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">生态</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/partners/index">合作伙伴</a></li><li><a href="/plugins">插件</a></li><li><a href="/design/button">组件库</a></li><li><a href="/page/guide/scaling-up/tooling">工具链</a></li><li><a href="/textjs">Text.js</a></li><li><a href="/page/ecosystem/newsletters">新闻简报</a></li></ul></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">关于</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/about/faq">常见问题</a></li><li><a href="/page/about/team">团队</a></li><li><a href="/page/about/releases">版本发布</a></li><li><a href="/page/about/community-guide">社区指南</a></li><li><a href="/page/about/coc">行为规范</a></li><li><a href="/page/about/privacy">隐私政策</a></li></ul></li><li><a href="/page/sponsor/index" class="btn btn-ghost btn-sm">赞助</a></li><li><a href="/page/partners/index" class="btn btn-ghost btn-sm">合作伙伴</a></li></ul></nav><div class="navbar-end gap-2 items-center"><a href="/settings" class="btn btn-ghost btn-sm">设置</a></div></div></header><main class="min-h-[60vh] pt-24"><div class="max-w-[1400px] mx-auto px-6 py-10"><div class="mx-auto max-w-[1180px]"><section class="grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_460px] lg:items-center"><div><div class="inline-flex items-center gap-2 rounded-lg border border-sky-500/25 bg-sky-500/10 px-3 py-2 text-sm font-medium text-sky-600">Rue ecosystem framework</div><h1 class="mt-6 text-5xl font-black leading-tight text-base-content md:text-7xl">Text.js</h1><p class="mt-5 max-w-3xl text-lg leading-8 text-base-content/72 md:text-xl">Text.js 是 Rue 生态中的全栈应用框架。它基于 Vite、Rue、RSC 与文件系统路由，把 App Router、Pages Router、SSR、API 路由和 Workers 部署整合成一条轻量开发路径。 设计上参考 Vercel 的 Next.js，并基于 Cloudflare 的 vinext 与 Workers 运行时继续演进。</p><div class="mt-8 flex flex-wrap gap-3"><a href="https://www.npmjs.com/package/@rue-js/text" target="_blank" rel="noreferrer" class="btn btn-primary">安装 @rue-js/text</a><a href="https://github.com/hunzhiwange/ruejs/tree/main/packages/text" target="_blank" rel="noreferrer" class="btn btn-outline">查看源码</a><a href="/guide/guide/scaling-up/tooling" class="btn btn-ghost">工具链文档</a></div></div><div class="overflow-hidden rounded-lg border border-base-300 bg-slate-950 shadow-xl"><div class="flex items-center justify-between border-b border-white/10 px-4 py-3"><div class="flex gap-2"><span class="h-3 w-3 rounded-full bg-rose-400"></span><span class="h-3 w-3 rounded-full bg-amber-400"></span><span class="h-3 w-3 rounded-full bg-emerald-400"></span></div><span class="text-xs text-white/45">text app</span></div><div class="code-block h-[390px]"><div class="relative group"><button class="absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="复制代码">复制</button><div><pre><code>// app/page.tsx
+export default function Page() {
+  return &lt;main&gt;Hello Text.js&lt;/main&gt;
+}
+
+// package.json
+{
+  "scripts": {
+    "dev": "ruetext dev",
+    "build": "ruetext build",
+    "start": "ruetext start",
+    "deploy": "ruetext deploy"
+  }
+}</code></pre></div></div></div></div></section><section class="grid gap-4 md:grid-cols-3"><div key="文件系统路由" class="rounded-lg border border-base-300 bg-base-100 p-5"><div class="text-2xl font-black text-base-content">App + Pages</div><div class="mt-2 text-sm font-semibold text-primary">文件系统路由</div><p class="mt-3 text-sm leading-6 text-base-content/68">同时覆盖 App Router 与 Pages Router，适合渐进迁移。</p></div><div key="默认构建基础" class="rounded-lg border border-base-300 bg-base-100 p-5"><div class="text-2xl font-black text-base-content">Vite + Rue</div><div class="mt-2 text-sm font-semibold text-primary">默认构建基础</div><p class="mt-3 text-sm leading-6 text-base-content/68">自动接入 Rue JSX / TSX、Vite 插件与开发服务器。</p></div><div key="边缘部署" class="rounded-lg border border-base-300 bg-base-100 p-5"><div class="text-2xl font-black text-base-content">Workers</div><div class="mt-2 text-sm font-semibold text-primary">边缘部署</div><p class="mt-3 text-sm leading-6 text-base-content/68">通过 ruetext deploy 输出 Cloudflare Workers 应用。</p></div></section><section class="mt-14"><div class="max-w-3xl"><div class="text-sm font-semibold text-primary">Based on Vercel and Cloudflare</div><h2 class="mt-3 text-3xl font-bold text-base-content">熟悉的应用模型，面向边缘运行时</h2><p class="mt-4 text-base leading-7 text-base-content/70">Text.js 不是从零发明一套全栈约定，而是把 Vercel Next.js 的应用框架经验、Cloudflare vinext 的 Vite-first / Workers 部署路径，与 Rue 的 JSX / TSX 运行时组合到同一套工具链里。</p></div><div class="mt-6 grid gap-4 md:grid-cols-3"><a key="Vercel / Next.js" href="https://github.com/vercel/next.js" target="_blank" rel="noreferrer" class="rounded-lg border border-base-300 bg-base-100 p-5 transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg"><h3 class="text-lg font-semibold text-base-content">Vercel / Next.js</h3><p class="mt-3 text-sm leading-6 text-base-content/68">Text.js 的应用路由、layout、route handler、metadata、redirects 等能力参考 Vercel 的 Next.js 应用模型。</p></a><a key="Cloudflare / vinext" href="https://github.com/cloudflare/vinext" target="_blank" rel="noreferrer" class="rounded-lg border border-base-300 bg-base-100 p-5 transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg"><h3 class="text-lg font-semibold text-base-content">Cloudflare / vinext</h3><p class="mt-3 text-sm leading-6 text-base-content/68">Text.js 基于 Cloudflare 的 vinext 思路继续演进，将 Vite-first 构建和 Workers 部署收束到 Rue 生态。</p></a><a key="Rue runtime" href="https://github.com/hunzhiwange/ruejs" target="_blank" rel="noreferrer" class="rounded-lg border border-base-300 bg-base-100 p-5 transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg"><h3 class="text-lg font-semibold text-base-content">Rue runtime</h3><p class="mt-3 text-sm leading-6 text-base-content/68">Rue 提供 JSX / TSX、响应式能力和渲染运行时，Text.js 负责服务端渲染、路由、构建编排与部署适配。</p></a></div></section><section class="mt-14 grid gap-8 lg:grid-cols-[360px_minmax(0,1fr)]"><div><div class="text-sm font-semibold text-primary">Why Text.js</div><h2 class="mt-3 text-3xl font-bold text-base-content">同一个 Rue 应用，扩展到全栈</h2><p class="mt-4 text-base leading-7 text-base-content/70">参考 vinext 的 Vite-first 思路，Text.js 把熟悉的文件系统约定放到 Rue 运行时之上。保留简单组件开发体验，同时补齐服务端、路由和部署层。</p></div><div class="grid gap-4 md:grid-cols-2"><article key="熟悉的全栈应用模型" class="rounded-lg border border-base-300 bg-base-100 p-5"><h3 class="text-lg font-semibold text-base-content">熟悉的全栈应用模型</h3><p class="mt-3 text-sm leading-6 text-base-content/68">以 Vercel Next.js 应用模型为参照，提供 layout、page、route handler、middleware、redirects、rewrites 和 headers 等能力。</p></article><article key="Rue 原生的 JSX / TSX 工作流" class="rounded-lg border border-base-300 bg-base-100 p-5"><h3 class="text-lg font-semibold text-base-content">Rue 原生的 JSX / TSX 工作流</h3><p class="mt-3 text-sm leading-6 text-base-content/68">页面和组件继续使用 Rue 的响应式能力与 JSX 表达方式，Text.js 负责路由、渲染、构建编排和部署适配。</p></article><article key="面向 RSC 与服务端渲染" class="rounded-lg border border-base-300 bg-base-100 p-5"><h3 class="text-lg font-semibold text-base-content">面向 RSC 与服务端渲染</h3><p class="mt-3 text-sm leading-6 text-base-content/68">支持 React Server Components 风格的服务端组件工作流，并为 SSR、静态生成与客户端交互保留统一入口。</p></article><article key="兼容常见 text/* 入口" class="rounded-lg border border-base-300 bg-base-100 p-5"><h3 class="text-lg font-semibold text-base-content">兼容常见 text/* 入口</h3><p class="mt-3 text-sm leading-6 text-base-content/68">内置 text/navigation、text/link、text/image、text/headers、text/cache 等 shim，降低生态适配成本。</p></article></div></section><section class="mt-14 grid gap-6 lg:grid-cols-2"><div class="overflow-hidden rounded-lg border border-base-300 bg-base-100"><div class="border-b border-base-300 px-5 py-4"><h2 class="text-xl font-semibold text-base-content">路由与 API</h2><p class="mt-2 text-sm text-base-content/65">从页面到接口都沿用 app 目录约定，动态参数和 route handler 放在同一套图谱里。</p></div><div class="code-block h-[300px]"><div class="relative group"><button class="absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="复制代码">复制</button><div><pre><code>// app/blog/[slug]/page.tsx
+export default function BlogPage({ params }: { params: { slug: string } }) {
+  return &lt;article&gt;{params.slug}&lt;/article&gt;
+}
+
+// app/api/hello/route.ts
+export function GET() {
+  return Response.json({ message: 'Hello from Text.js' })
+}</code></pre></div></div></div></div><div class="overflow-hidden rounded-lg border border-base-300 bg-base-100"><div class="border-b border-base-300 px-5 py-4"><h2 class="text-xl font-semibold text-base-content">CLI 与部署</h2><p class="mt-2 text-sm text-base-content/65">ruetext 命令负责开发、构建、检查、类型生成和 Cloudflare Workers 部署。</p></div><div class="code-block h-[300px]"><div class="relative group"><button class="absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="复制代码">复制</button><div><pre><code>ruetext dev       # 启动开发服务器
+ruetext build     # 构建生产产物
+ruetext start     # 启动生产服务器
+ruetext preview   # ruetext start 的别名
+ruetext deploy    # 部署到 Cloudflare Workers
+ruetext typegen   # 生成 App Router 路由类型
+ruetext lint      # 调用项目中的 eslint / oxlint
+ruetext init      # 初始化部署相关配置
+ruetext check     # 检查 Text.js 兼容性</code></pre></div></div></div></div></section><section class="mt-14"><div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><div><div class="text-sm font-semibold text-primary">Demo source</div><h2 class="mt-3 text-3xl font-bold text-base-content">可直接查看的 Text.js 示例源码</h2><p class="mt-4 max-w-3xl text-base leading-7 text-base-content/70">仓库内提供了 SSR 博客和静态导出两个 demo，用同一套 App Router 约定覆盖服务端渲染、API 路由、客户端交互、动态路由预渲染和纯静态文件交付。</p></div><a href="https://github.com/hunzhiwange/ruejs/tree/main/examples" target="_blank" rel="noreferrer" class="btn btn-outline">查看全部 examples</a></div><div class="mt-6 grid gap-6 lg:grid-cols-2"><article key="examples/text-blog-ssr" class="overflow-hidden rounded-lg border border-base-300 bg-base-100"><div class="border-b border-base-300 px-5 py-4"><div class="text-xs font-semibold uppercase tracking-wide text-primary">examples/text-blog-ssr</div><h3 class="mt-2 text-xl font-semibold text-base-content">Blog SSR Demo</h3><p class="mt-2 text-sm leading-6 text-base-content/65">一个 App Router 博客示例，首页与文章页走服务端渲染，同时包含 /api/posts route handler、客户端主题筛选和本地点赞组件。</p><div class="mt-4 flex flex-wrap gap-3"><a href="https://github.com/hunzhiwange/ruejs/tree/main/examples/text-blog-ssr" target="_blank" rel="noreferrer" class="btn btn-sm btn-primary">查看源码</a></div></div><div class="border-b border-base-300 bg-base-200/60 px-5 py-4"><div class="text-xs font-semibold text-base-content/55">运行命令</div><pre class="mt-3 overflow-x-auto rounded-lg bg-slate-950 px-4 py-3 text-xs leading-6 text-slate-100"><code>pnpm --dir examples/text-blog-ssr dev
+pnpm --dir examples/text-blog-ssr build
+pnpm --dir examples/text-blog-ssr start</code></pre></div><div class="code-block [&amp;_pre]:pt-12 [&amp;_.shiki]:pt-12"><div class="relative group"><button class="absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="复制代码">复制</button><div><pre><code>// examples/text-blog-ssr/app/page.tsx
+import TopicFilter from '../components/TopicFilter'
+import { getTags, getTopics, posts } from '../lib/posts'
+
+export default function HomePage() {
+  const renderedAt = new Date().toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  })
+
+  return (
+    &lt;main&gt;
+      &lt;section className="intro"&gt;
+        &lt;p className="eyebrow"&gt;Server-rendered demo&lt;/p&gt;
+        &lt;h1&gt;A small blog running on Text.js&lt;/h1&gt;
+        &lt;a href="/blog/rendering-notes"&gt;Read the featured post&lt;/a&gt;
+        &lt;a href="/blog"&gt;Browse all posts&lt;/a&gt;
+        &lt;a href="/api/posts"&gt;View API response&lt;/a&gt;
+        &lt;span&gt;Rendered at {renderedAt}&lt;/span&gt;
+      &lt;/section&gt;
+
+      &lt;TopicFilter posts={posts} topics={getTopics()} tags={getTags()} /&gt;
+    &lt;/main&gt;
+  )
+}
+
+// examples/text-blog-ssr/app/api/posts/route.ts
+export function GET() {
+  return Response.json({ count: posts.length, posts })
+}</code></pre></div></div></div></article><article key="examples/text-static-export" class="overflow-hidden rounded-lg border border-base-300 bg-base-100"><div class="border-b border-base-300 px-5 py-4"><div class="text-xs font-semibold uppercase tracking-wide text-primary">examples/text-static-export</div><h3 class="mt-2 text-xl font-semibold text-base-content">Static Export Demo</h3><p class="mt-2 text-sm leading-6 text-base-content/65">一个知识库静态导出示例，通过 output: "export" 在 ruetext build 时预渲染全部路由，包括动态 guide 页面。</p><div class="mt-4 flex flex-wrap gap-3"><a href="https://github.com/hunzhiwange/ruejs/tree/main/examples/text-static-export" target="_blank" rel="noreferrer" class="btn btn-sm btn-primary">查看源码</a></div></div><div class="border-b border-base-300 bg-base-200/60 px-5 py-4"><div class="text-xs font-semibold text-base-content/55">运行命令</div><pre class="mt-3 overflow-x-auto rounded-lg bg-slate-950 px-4 py-3 text-xs leading-6 text-slate-100"><code>pnpm --dir examples/text-static-export dev
+pnpm --dir examples/text-static-export build
+pnpm --dir examples/text-static-export start</code></pre></div><div class="code-block [&amp;_pre]:pt-12 [&amp;_.shiki]:pt-12"><div class="relative group"><button class="absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="复制代码">复制</button><div><pre><code>// examples/text-static-export/text.config.mjs
+export default {
+  output: 'export',
+}
+
+// examples/text-static-export/app/guides/[slug]/page.tsx
+export function generateStaticParams() {
+  return guides.map(guide =&gt; ({ slug: guide.slug }))
+}
+
+export default async function GuidePage({ params }) {
+  const guide = getGuide((await params).slug)
+  if (!guide) notFound()
+
+  return (
+    &lt;main className="narrow"&gt;
+      &lt;Link href="/"&gt;Back home&lt;/Link&gt;
+      &lt;h1&gt;{guide.title}&lt;/h1&gt;
+      &lt;ol&gt;{guide.steps.map(step =&gt; &lt;li key={step}&gt;{step}&lt;/li&gt;)}&lt;/ol&gt;
+    &lt;/main&gt;
+  )
+}</code></pre></div></div></div></article></div></section><section class="mt-14 rounded-lg border border-cyan-500/25 bg-cyan-500/10 p-6 md:flex md:items-center md:justify-between"><div><h2 class="text-2xl font-bold text-base-content">从 Rue 组件到全栈应用</h2><p class="mt-3 max-w-2xl text-sm leading-6 text-base-content/70">安装 @rue-js/text 后，创建 app/page.tsx 即可启动。多数项目不需要手动维护 Vite 配置，Text.js 会自动组织 Rue 插件与应用路由。</p></div><a href="https://github.com/hunzhiwange/ruejs/tree/main/packages/text" target="_blank" rel="noreferrer" class="btn btn-primary mt-5 md:mt-0">开始了解 Text.js</a></section></div></div></main><footer class="w-full bg-base-200 overflow-hidden"><div class="max-w-[1100px] mx-auto w-full px-6 py-12 grid gap-8 grid-cols-1 md:grid-cols-3"><div><div class="text-base-content font-semibold mb-2">文档</div><ul class="space-y-2 text-sm"><li><a href="/jsx/basic-elements" class="hover:underline">深度指南</a></li><li><a href="/examples/hello-world" class="hover:underline">实战例子</a></li><li><a href="/guide/guide/quick-start" class="hover:underline">快速上手</a></li><li><a href="/page/glossary/index" class="hover:underline">术语表</a></li><li><a href="/page/error-reference/index" class="hover:underline">错误码参照表</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">关于</div><ul class="space-y-2 text-sm"><li><a href="/page/about/faq" class="hover:underline">常见问题</a></li><li><a href="/page/about/team" class="hover:underline">团队</a></li><li><a href="/page/about/releases" class="hover:underline">版本发布</a></li><li><a href="/page/about/community-guide" class="hover:underline">社区指南</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">生态</div><ul class="space-y-2 text-sm"><li><a href="/plugins" class="hover:underline">插件</a></li><li><a href="/design/button" class="hover:underline">组件库</a></li><li><a href="/page/routing" class="hover:underline">路由指南</a></li><li><a href="/textjs" class="hover:underline">Text.js</a></li></ul></div></div><div class="max-w-[1100px] mx-auto px-6"><div class="text-center text-xs text-base-content/60 pb-8">© 2024-2026 Xiangmin Liu</div></div><div class="mx-auto w-full px-6 pb-4 text-center"><div class="flex select-none items-end justify-center gap-6 whitespace-nowrap text-[clamp(12rem,28vw,26rem)] font-black leading-none bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent md:gap-10"><span>Rue</span><span class="pl-1">.JS</span></div></div></footer></div></div>
+  </body>
+</html>

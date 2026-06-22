@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="luxury">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后悔药 Rue.js - The Wasm Framework For Native DOM</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
+    />
+    <style>
+      /* 取消 body 的宽度与背景限制，交由应用布局控制 */
+      body {
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+    </style>
+    <link rel="stylesheet" crossorigin href="/assets/main-zrVSZa30.css">
+  </head>
+
+  <body>
+    <div id="app"><div class="min-h-screen bg-base-100 text-base-content"><header class="site-header fixed top-0 left-0 right-0 z-50 w-full"><div class="navbar bg-transparent max-w-[1400px] mx-auto w-full px-6 items-center"><div class="navbar-start gap-4"><a href="/" class="flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 shadow-lg ring-1 ring-white/30"><span class="text-white font-extrabold text-[32px] md:text-[50px]">R</span></span><span class="text-lg md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">后悔药 Rue.js</span></a></div><nav class="navbar-center hidden md:flex" aria-label="主导航"><ul class="menu menu-horizontal px-1 text-sm"><li><a href="/" class="btn btn-ghost btn-sm">首页</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">文档</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/guide/guide/introduction">深度指南</a></li><li><a href="/examples/hello-world">实战例子</a></li><li><a href="/guide/guide/quick-start">快速上手</a></li><li><a href="/page/routing">路由指南</a></li><li><a href="/page/glossary/index">术语表</a></li><li><a href="/page/error-reference/index">错误代码参考</a></li></ul></li><li><a href="/api/api/index" class="btn btn-ghost btn-sm">API</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">生态</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/partners/index">合作伙伴</a></li><li><a href="/plugins">插件</a></li><li><a href="/design/button">组件库</a></li><li><a href="/page/guide/scaling-up/tooling">工具链</a></li><li><a href="/textjs">Text.js</a></li><li><a href="/page/ecosystem/newsletters">新闻简报</a></li></ul></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">关于</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/about/faq">常见问题</a></li><li><a href="/page/about/team">团队</a></li><li><a href="/page/about/releases">版本发布</a></li><li><a href="/page/about/community-guide">社区指南</a></li><li><a href="/page/about/coc">行为规范</a></li><li><a href="/page/about/privacy">隐私政策</a></li></ul></li><li><a href="/page/sponsor/index" class="btn btn-ghost btn-sm">赞助</a></li><li><a href="/page/partners/index" class="btn btn-ghost btn-sm">合作伙伴</a></li></ul></nav><div class="navbar-end gap-2 items-center"><a href="/settings" class="btn btn-ghost btn-sm">设置</a></div></div></header><main class="min-h-[60vh] pt-24"><div class="max-w-[1400px] mx-auto px-6 py-10"><article><div><div class="max-w-none prose prose-sm md:prose-base" id="doc-body"><h1 id="priority-a-rules-essential" tabindex="-1">优先级 A 规则：必要</h1>
+<p>这些规则有助于防止错误，因此无论如何都要学习和遵守。例外可能存在，但应该非常罕见，并且只能由精通 JavaScript 和 Rue 的专家做出。</p>
+<h2 id="use-multi-word-component-names" tabindex="-1">使用多词组件名称</h2>
+<p>用户组件名称应始终是多词的，除了根 <code>App</code> 组件。这<a href="https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name">防止冲突</a>与现有和未来的 HTML 元素，因为所有 HTML 元素都是单个词的。</p>
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#DE5971">Item </span><span style="color:#BA3C97">/></span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+<div class="style-example style-example-good">
+<h3>Good</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#DE5971">TodoItem </span><span style="color:#BA3C97">/></span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+<h2 id="use-detailed-prop-definitions" tabindex="-1">使用详细的 prop 定义</h2>
+<p>在提交的代码中，prop 定义应始终尽可能详细，至少指定类型。</p>
+<p>::: details 详细解释
+详细的 <a href="/guide/guide/components/props#prop-validation">prop 定义</a>有两个优点：</p>
+<ul>
+<li>它们记录了组件的 API，因此很容易看到组件应该如何使用。</li>
+<li>在开发中，TypeScript 和编辑器可以帮助你捕获潜在的错误来源。
+:::</li>
+</ul>
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#51597D;font-style:italic">// 这仅在原型设计时可用</span></span>
+<span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> Props</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  status</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> string</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+<div class="style-example style-example-good">
+<h3>Good</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> SyncStatus</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">syncing</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">synced</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">version-conflict</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">error</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> Props</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  status</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> SyncStatus</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#51597D;font-style:italic">// 更好！</span></span>
+<span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> SyncStatus</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">syncing</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">synced</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">version-conflict</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">error</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> Props</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  status</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> SyncStatus</span></span>
+<span class="line"><span style="color:#C0CAF5">  retryCount</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> number</span></span>
+<span class="line"><span style="color:#7AA2F7">  onRetry</span><span style="color:#89DDFF">?:</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#0DB9D7"> void</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+<h2 id="use-keyed-v-for" tabindex="-1">使用带 key 的列表渲染</h2>
+<p>在组件上使用 <code>key</code> 与 <code>v-for</code> 始终是必需的，以便在整个子树中维护内部组件状态。即使对于元素，这也是保持可预测行为（如动画中的<a href="https://bost.ocks.org/mike/constancy/">对象恒定性</a>）的良好实践。</p>
+<p>::: details 详细解释
+假设你有一个待办事项列表：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> todos</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> ref</span><span style="color:#9ABDF5">([</span></span>
+<span class="line"><span style="color:#9ABDF5">  {</span></span>
+<span class="line"><span style="color:#73DACA">    id</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 1</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">    text</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">Learn to use v-for</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  {</span></span>
+<span class="line"><span style="color:#73DACA">    id</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 2</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">    text</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">Learn to use key</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">])</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>然后你按字母顺序对它们进行排序。更新 DOM 时，Rue 将优化渲染以执行尽可能便宜的 DOM 变更。这可能意味着删除第一个待办事项元素，然后将其重新添加到列表末尾。</p>
+<p>问题是，有些情况下不删除将保留在 DOM 中的元素很重要。例如，你可能想要使用 <code>&lt;TransitionGroup&gt;</code> 来动画化列表排序，或者在渲染元素是 <code>&lt;input&gt;</code> 时保持焦点。在这些情况下，为每个项目添加唯一的 key（例如 <code>key={todo.id}</code>）将告诉 Rue 如何更可预测地表现。</p>
+<p>根据我们的经验，最好 <em>始终</em> 添加唯一的 key，这样你和你的团队就根本不需要担心这些边缘情况。然后在罕见的、性能关键的场景中，不需要对象恒定性时，你可以有意识地做出例外。
+:::</p>
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#F7768E">li</span><span style="color:#BB9AF7"> v-for</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">todo in todos</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97">></span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">todo</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">text}</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">li</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+<div class="style-example style-example-good">
+<h3>Good</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#F7768E">li</span><span style="color:#BB9AF7"> v-for</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">todo in todos</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> key</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">todo</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">id}</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#7DCFFF">    {</span><span style="color:#C0CAF5">todo</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">text}</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#F7768E">li</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+<h2 id="avoid-v-if-with-v-for" tabindex="-1">避免在 v-for 中使用 v-if</h2>
+<p><strong>永远不要在同一元素上同时使用 <code>v-if</code> 和 <code>v-for</code>。</strong></p>
+<p>有两种常见情况可能诱使你这样做：</p>
+<ul>
+<li>
+<p>过滤列表中的项目（例如 <code>v-for=&quot;user in users&quot; v-if=&quot;user.isActive&quot;</code>）。在这些情况下，将 <code>users</code> 替换为返回过滤列表的新计算属性（例如 <code>activeUsers</code>）。</p>
+</li>
+<li>
+<p>如果应该隐藏列表，则避免渲染列表（例如 <code>v-for=&quot;user in users&quot; v-if=&quot;shouldShowUsers&quot;</code>）。在这些情况下，将 <code>v-if</code> 移动到容器元素（例如 <code>div</code>、<code>ul</code>）。</p>
+</li>
+</ul>
+<p>::: details 详细解释
+当 Rue 处理指令时，<code>v-if</code> 的优先级高于 <code>v-for</code>，因此以下模板：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#F7768E">li</span><span style="color:#BB9AF7"> v-for</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">user in users</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> v-if</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">user.isActive</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> key</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">user</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">id}</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#7DCFFF">    {</span><span style="color:#C0CAF5">user</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">name}</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#F7768E">li</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>将抛出错误，因为 <code>v-if</code> 指令将首先被评估，此时迭代变量 <code>user</code> 尚不存在。</p>
+<p>这可以通过改为遍历计算属性来修复，如下所示：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> activeUsers</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> computed</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">  return</span><span style="color:#C0CAF5"> users</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">filter</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">user</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> user</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">isActive</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span></code></pre>
+</div>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#F7768E">li</span><span style="color:#BB9AF7"> v-for</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">user in activeUsers.value</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> key</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">user</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">id}</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#7DCFFF">    {</span><span style="color:#C0CAF5">user</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">name}</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#F7768E">li</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>:::</p>
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#F7768E">li</span><span style="color:#BB9AF7"> v-for</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">user in users</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> v-if</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">user.isActive</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> key</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">user</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">id}</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#7DCFFF">    {</span><span style="color:#C0CAF5">user</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">name}</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#F7768E">li</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+<div class="style-example style-example-good">
+<h3>Good</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#F7768E">li</span><span style="color:#BB9AF7"> v-for</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">user in activeUsers.value</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> key</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">user</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">id}</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#7DCFFF">    {</span><span style="color:#C0CAF5">user</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">name}</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#F7768E">li</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+<h2 id="use-component-scoped-styling" tabindex="-1">使用组件作用域样式</h2>
+<p>对于应用程序，顶层 <code>App</code> 组件和布局组件中的样式可能是全局的，但所有其他组件应始终使用作用域样式。</p>
+<p>这与组件样式组织相关。作用域可以通过 <a href="https://github.com/css-modules/css-modules">CSS modules</a>、基于类的策略（如 <a href="http://getbem.com/">BEM</a>）或其他库/约定来实现。</p>
+<p><strong>组件库应该优先使用稳定、可覆盖的类名策略。</strong></p>
+<p>这使得覆盖内部样式更容易，使用不会具有太高特异性的人类可读类名，但仍不太可能产生冲突。</p>
+<p>::: details 详细解释
+如果你正在开发大型项目，与其他开发人员一起工作，或者有时包含第三方 HTML/CSS（例如来自 Auth0），一致的作用域将确保你的样式仅应用于它们适用的组件。</p>
+<p>使用唯一类名可以帮助确保第三方 CSS 不应用于你自己的 HTML。例如，许多项目使用 <code>button</code>、<code>btn</code> 或 <code>icon</code> 类名，因此即使不使用 BEM 等策略，添加特定于应用和/或组件的前缀（例如 <code>ButtonClose-icon</code>）也可以提供一些保护。
+:::</p>
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">button</span><span style="color:#BB9AF7"> class</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">btn btn-close</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">×</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">button</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">style</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9AA5CE">.btn-close </span><span style="color:#7DCFFF">{</span></span>
+<span class="line"><span style="color:#C0CAF5">  background</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">color</span><span style="color:#9AA5CE">: </span><span style="color:#C0CAF5">red</span><span style="color:#9AA5CE">;</span></span>
+<span class="line"><span style="color:#7DCFFF">}</span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">style</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+<div class="style-example style-example-good">
+<h3>Good</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">button</span><span style="color:#BB9AF7"> class</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">button button-close</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">×</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">button</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">style</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9AA5CE">.button </span><span style="color:#7DCFFF">{</span></span>
+<span class="line"><span style="color:#C0CAF5">  border</span><span style="color:#9AA5CE">: </span><span style="color:#C0CAF5">none</span><span style="color:#9AA5CE">;</span></span>
+<span class="line"><span style="color:#C0CAF5">  border</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">radius</span><span style="color:#9AA5CE">: 2</span><span style="color:#C0CAF5">px</span><span style="color:#9AA5CE">;</span></span>
+<span class="line"><span style="color:#7DCFFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9AA5CE">.button-close </span><span style="color:#7DCFFF">{</span></span>
+<span class="line"><span style="color:#C0CAF5">  background</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">color</span><span style="color:#9AA5CE">: </span><span style="color:#C0CAF5">red</span><span style="color:#9AA5CE">;</span></span>
+<span class="line"><span style="color:#7DCFFF">}</span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">style</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">button</span><span style="color:#BB9AF7"> className</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">styles</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">button</span><span style="color:#89DDFF"> +</span><span style="color:#89DDFF"> '</span><span style="color:#89DDFF"> '</span><span style="color:#89DDFF"> +</span><span style="color:#C0CAF5"> styles</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">buttonClose}</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">×</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">button</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9ABDF5">{</span><span style="color:#51597D;font-style:italic">/* 使用 CSS modules */</span><span style="color:#9ABDF5">}</span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">style</span><span style="color:#BB9AF7"> module</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9AA5CE">.button </span><span style="color:#7DCFFF">{</span></span>
+<span class="line"><span style="color:#C0CAF5">  border</span><span style="color:#9AA5CE">: </span><span style="color:#C0CAF5">none</span><span style="color:#9AA5CE">;</span></span>
+<span class="line"><span style="color:#C0CAF5">  border</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">radius</span><span style="color:#9AA5CE">: 2</span><span style="color:#C0CAF5">px</span><span style="color:#9AA5CE">;</span></span>
+<span class="line"><span style="color:#7DCFFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9AA5CE">.buttonClose </span><span style="color:#7DCFFF">{</span></span>
+<span class="line"><span style="color:#C0CAF5">  background</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">color</span><span style="color:#9AA5CE">: </span><span style="color:#C0CAF5">red</span><span style="color:#9AA5CE">;</span></span>
+<span class="line"><span style="color:#7DCFFF">}</span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">style</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">button</span><span style="color:#BB9AF7"> class</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">c-Button c-Button--close</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">×</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">button</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9ABDF5">{</span><span style="color:#51597D;font-style:italic">/* 使用 BEM 约定 */</span><span style="color:#9ABDF5">}</span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">style</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9AA5CE">.c-Button </span><span style="color:#7DCFFF">{</span></span>
+<span class="line"><span style="color:#C0CAF5">  border</span><span style="color:#9AA5CE">: </span><span style="color:#C0CAF5">none</span><span style="color:#9AA5CE">;</span></span>
+<span class="line"><span style="color:#C0CAF5">  border</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">radius</span><span style="color:#9AA5CE">: 2</span><span style="color:#C0CAF5">px</span><span style="color:#9AA5CE">;</span></span>
+<span class="line"><span style="color:#7DCFFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9AA5CE">.c-Button--close </span><span style="color:#7DCFFF">{</span></span>
+<span class="line"><span style="color:#C0CAF5">  background</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">color</span><span style="color:#9AA5CE">: </span><span style="color:#C0CAF5">red</span><span style="color:#9AA5CE">;</span></span>
+<span class="line"><span style="color:#7DCFFF">}</span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">style</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+</div></div></article></div></main><footer class="w-full bg-base-200 overflow-hidden"><div class="max-w-[1100px] mx-auto w-full px-6 py-12 grid gap-8 grid-cols-1 md:grid-cols-3"><div><div class="text-base-content font-semibold mb-2">文档</div><ul class="space-y-2 text-sm"><li><a href="/jsx/basic-elements" class="hover:underline">深度指南</a></li><li><a href="/examples/hello-world" class="hover:underline">实战例子</a></li><li><a href="/guide/guide/quick-start" class="hover:underline">快速上手</a></li><li><a href="/page/glossary/index" class="hover:underline">术语表</a></li><li><a href="/page/error-reference/index" class="hover:underline">错误码参照表</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">关于</div><ul class="space-y-2 text-sm"><li><a href="/page/about/faq" class="hover:underline">常见问题</a></li><li><a href="/page/about/team" class="hover:underline">团队</a></li><li><a href="/page/about/releases" class="hover:underline">版本发布</a></li><li><a href="/page/about/community-guide" class="hover:underline">社区指南</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">生态</div><ul class="space-y-2 text-sm"><li><a href="/plugins" class="hover:underline">插件</a></li><li><a href="/design/button" class="hover:underline">组件库</a></li><li><a href="/page/routing" class="hover:underline">路由指南</a></li><li><a href="/textjs" class="hover:underline">Text.js</a></li></ul></div></div><div class="max-w-[1100px] mx-auto px-6"><div class="text-center text-xs text-base-content/60 pb-8">© 2024-2026 Xiangmin Liu</div></div><div class="mx-auto w-full px-6 pb-4 text-center"><div class="flex select-none items-end justify-center gap-6 whitespace-nowrap text-[clamp(12rem,28vw,26rem)] font-black leading-none bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent md:gap-10"><span>Rue</span><span class="pl-1">.JS</span></div></div></footer></div></div>
+  </body>
+</html>

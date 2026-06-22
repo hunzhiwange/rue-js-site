@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="luxury">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后悔药 Rue.js - The Wasm Framework For Native DOM</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
+    />
+    <style>
+      /* 取消 body 的宽度与背景限制，交由应用布局控制 */
+      body {
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+    </style>
+    <link rel="stylesheet" crossorigin href="/assets/main-zrVSZa30.css">
+  </head>
+
+  <body>
+    <div id="app"><div class="min-h-screen bg-base-100 text-base-content"><header class="site-header fixed top-0 left-0 right-0 z-50 w-full"><div class="navbar bg-transparent max-w-[1400px] mx-auto w-full px-6 items-center"><div class="navbar-start gap-4"><a href="/" class="flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 shadow-lg ring-1 ring-white/30"><span class="text-white font-extrabold text-[32px] md:text-[50px]">R</span></span><span class="text-lg md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">后悔药 Rue.js</span></a></div><nav class="navbar-center hidden md:flex" aria-label="主导航"><ul class="menu menu-horizontal px-1 text-sm"><li><a href="/" class="btn btn-ghost btn-sm">首页</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">文档</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/guide/guide/introduction">深度指南</a></li><li><a href="/examples/hello-world">实战例子</a></li><li><a href="/guide/guide/quick-start">快速上手</a></li><li><a href="/page/routing">路由指南</a></li><li><a href="/page/glossary/index">术语表</a></li><li><a href="/page/error-reference/index">错误代码参考</a></li></ul></li><li><a href="/api/api/index" class="btn btn-ghost btn-sm">API</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">生态</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/partners/index">合作伙伴</a></li><li><a href="/plugins">插件</a></li><li><a href="/design/button">组件库</a></li><li><a href="/page/guide/scaling-up/tooling">工具链</a></li><li><a href="/textjs">Text.js</a></li><li><a href="/page/ecosystem/newsletters">新闻简报</a></li></ul></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">关于</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/about/faq">常见问题</a></li><li><a href="/page/about/team">团队</a></li><li><a href="/page/about/releases">版本发布</a></li><li><a href="/page/about/community-guide">社区指南</a></li><li><a href="/page/about/coc">行为规范</a></li><li><a href="/page/about/privacy">隐私政策</a></li></ul></li><li><a href="/page/sponsor/index" class="btn btn-ghost btn-sm">赞助</a></li><li><a href="/page/partners/index" class="btn btn-ghost btn-sm">合作伙伴</a></li></ul></nav><div class="navbar-end gap-2 items-center"><a href="/settings" class="btn btn-ghost btn-sm">设置</a></div></div></header><main class="min-h-[60vh] pt-24"><div class="max-w-[1400px] mx-auto px-6 py-10"><article><div><div class="max-w-none prose prose-sm md:prose-base" id="doc-body"><h1 id="%E8%B7%AF%E7%94%B1" tabindex="-1">路由</h1>
+<p>Rue 提供 <code>@rue-js/router</code> 作为官方路由方案，默认使用 Hash 模式，支持命名参数、子路由、命名路由、重定向与导航守卫。</p>
+<p>可交互示例：访问 <a href="/examples/router-demo/guide/router/overview">路由 Demo</a>，可以直接体验嵌套路由、命名路由、<code>replace</code> 和 <code>beforeEnter</code> 守卫。</p>
+<ul>
+<li>创建并安装 Router</li>
+<li>定义路由与参数匹配</li>
+<li>在视图中渲染与导航</li>
+<li>使用运行时 API 获取当前路由</li>
+</ul>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#BB9AF7">type</span><span style="color:#0DB9D7"> FC</span><span style="color:#89DDFF">,</span><span style="color:#0DB9D7"> useApp</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">createRouter</span><span style="color:#89DDFF">,</span><span style="color:#0DB9D7"> createWebHashHistory</span><span style="color:#89DDFF">,</span><span style="color:#0DB9D7"> RouterView</span><span style="color:#89DDFF">,</span><span style="color:#0DB9D7"> RouterLink</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/router</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> router</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> createRouter</span><span style="color:#9ABDF5">({</span></span>
+<span class="line"><span style="color:#73DACA">  history</span><span style="color:#89DDFF">:</span><span style="color:#7AA2F7"> createWebHashHistory</span><span style="color:#9ABDF5">()</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">  routes</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> [</span></span>
+<span class="line"><span style="color:#9ABDF5">    {</span><span style="color:#73DACA"> path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">/</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> Home</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">    {</span><span style="color:#73DACA"> path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">/docs/:id(</span><span style="color:#89DDFF">\\</span><span style="color:#9ECE6A">d+)</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> DocDetail</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">,</span><span style="color:#51597D;font-style:italic"> // 命名参数 + 正则</span></span>
+<span class="line"><span style="color:#9ABDF5">  ]</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#7AA2F7"> RootApp</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> FC</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#F7768E">div</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#F7768E">nav</span><span style="color:#BB9AF7"> className</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">space-x-2</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">      &#x3C;</span><span style="color:#DE5971">RouterLink </span><span style="color:#BB9AF7">to</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">/</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">首页</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#DE5971">RouterLink</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">      &#x3C;</span><span style="color:#DE5971">RouterLink </span><span style="color:#BB9AF7">to</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">/docs/123</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">文档 123</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#DE5971">RouterLink</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;/</span><span style="color:#F7768E">nav</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#DE5971">RouterView </span><span style="color:#BA3C97">/></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#F7768E">div</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7AA2F7">useApp</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">RootApp</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">use</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">router</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">mount</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">#app</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h2 id="%E5%8E%86%E5%8F%B2%E6%A8%A1%E5%BC%8F" tabindex="-1">历史模式</h2>
+<ul>
+<li><code>createWebHashHistory()</code>：基于 <code>location.hash</code> 的浏览器历史实现。无 <code>#</code> 时会自动跳转到 <code>#/</code>，并标准化位置字符串。</li>
+<li><code>push('/path')</code> 与 <code>replace('/path')</code> 会更新 <code>hash</code>，并主动触发 <code>hashchange</code> 事件，确保响应式状态立即同步。</li>
+<li><code>router.push()</code> 与 <code>router.replace()</code> 返回 Promise；成功时结果为 <code>undefined</code>，被取消、竞争掉或重复导航时会返回导航失败对象。</li>
+</ul>
+<h2 id="%E8%B7%AF%E7%94%B1%E8%AE%B0%E5%BD%95%E4%B8%8E%E5%8F%82%E6%95%B0%E5%8C%B9%E9%85%8D" tabindex="-1">路由记录与参数匹配</h2>
+<ul>
+<li>路由记录类型：<code>{ path, name?, component?, redirect?, children?, meta?, beforeEnter? }</code></li>
+<li>路径可包含命名参数与可选正则：<code>/users/:id(\\d+)</code>、<code>/docs/:slug</code></li>
+<li>匹配时会将捕获到的参数解码并传递给组件的 <code>props.params</code></li>
+</ul>
+<p>示例：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> routes</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> [</span></span>
+<span class="line"><span style="color:#9ABDF5">  {</span><span style="color:#73DACA"> path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">/users/:id(</span><span style="color:#89DDFF">\\</span><span style="color:#9ECE6A">d+)</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> UserDetail</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  {</span><span style="color:#73DACA"> path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">/docs/:slug</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> DocDetail</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#7AA2F7"> UserDetail</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> FC</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#9ABDF5">{</span><span style="color:#C0CAF5"> params</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span><span style="color:#C0CAF5"> id</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> string</span><span style="color:#9ABDF5"> }</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">></span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> (</span><span style="color:#89DDFF">{</span><span style="color:#E0AF68"> params</span><span style="color:#89DDFF"> }</span><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> =></span><span style="color:#BA3C97"> &#x3C;</span><span style="color:#F7768E">div</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">用户编号：</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">params</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">id}</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">div</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+<h2 id="%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91" tabindex="-1">命名路由与重定向</h2>
+<ul>
+<li>为路由记录声明 <code>name</code> 后，可通过 <code>router.push({ name, params })</code> 或 <code>RouterLink</code> 对象导航</li>
+<li><code>redirect</code> 适合做默认子路由跳转，支持字符串路径、<code>{ path }</code>、<code>{ name, params }</code> 或函数返回这些对象</li>
+<li>默认子路由常见写法是 <code>path: ''</code></li>
+</ul>
+<p>示例：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> routes</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> [</span></span>
+<span class="line"><span style="color:#9ABDF5">  {</span></span>
+<span class="line"><span style="color:#73DACA">    path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">/guide/:section</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">    component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> GuideLayout</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">    children</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> [</span></span>
+<span class="line"><span style="color:#9ABDF5">      {</span><span style="color:#73DACA"> path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> ''</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> redirect</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span><span style="color:#41A6B5"> name</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">guide-overview</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5"> }</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">      {</span><span style="color:#73DACA"> path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">overview</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> name</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">guide-overview</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> GuideOverview</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">      {</span><span style="color:#73DACA"> path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">:topic</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> name</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">guide-topic</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> GuideTopic</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">    ]</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">await</span><span style="color:#C0CAF5"> router</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">push</span><span style="color:#9ABDF5">({</span><span style="color:#73DACA"> name</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">guide-topic</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> params</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span><span style="color:#73DACA"> section</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">router</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> topic</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">guards</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5"> }</span><span style="color:#9ABDF5"> })</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h2 id="%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1" tabindex="-1">嵌套路由</h2>
+<ul>
+<li>子路由通过 <code>children</code> 定义，子路径默认相对父级路径拼接</li>
+<li>父组件中的 <code>RouterView</code> 会继续渲染下一层命中的子路由</li>
+<li>当前 <code>route.matched</code> 会包含从父到子的完整命中链</li>
+</ul>
+<p>示例：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#BB9AF7">type</span><span style="color:#0DB9D7"> FC</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">RouterView</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/router</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#7AA2F7"> GuideLayout</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> FC</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#9ABDF5">{</span><span style="color:#C0CAF5"> params</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span><span style="color:#C0CAF5"> section</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> string</span><span style="color:#9ABDF5"> }</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">></span><span style="color:#89DDFF"> =</span><span style="color:#E0AF68"> props</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#F7768E">section</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#F7768E">h1</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">栏目：</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">props</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">params</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">section}</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">h1</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#DE5971">RouterView </span><span style="color:#BA3C97">/></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#F7768E">section</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#7AA2F7"> GuideTopic</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> FC</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#9ABDF5">{</span><span style="color:#C0CAF5"> params</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span><span style="color:#C0CAF5"> section</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> string</span><span style="color:#89DDFF">;</span><span style="color:#C0CAF5"> topic</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> string</span><span style="color:#9ABDF5"> }</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">></span><span style="color:#89DDFF"> =</span><span style="color:#E0AF68"> props</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#F7768E">article</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9AA5CE">    主题：</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">props</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">params</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">section}</span><span style="color:#9AA5CE">/</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">props</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">params</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">topic}</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#F7768E">article</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> routes</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> [</span></span>
+<span class="line"><span style="color:#9ABDF5">  {</span></span>
+<span class="line"><span style="color:#73DACA">    path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">/guide/:section</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">    component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> GuideLayout</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">    children</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> [{</span><span style="color:#73DACA"> path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">:topic</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> GuideTopic</span><span style="color:#9ABDF5"> }]</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">]</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h2 id="%E8%A7%86%E5%9B%BE%E6%B8%B2%E6%9F%93%EF%BC%9Arouterview" tabindex="-1">视图渲染：RouterView</h2>
+<ul>
+<li><code>RouterView</code> 会在固定的锚点区间内渲染当前匹配层级的组件</li>
+<li>当无匹配时清空渲染区间；相同组件连续命中时避免重复渲染</li>
+<li>匹配到的组件会收到 <code>{ params }</code> 作为 props</li>
+</ul>
+<p>示例：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#7AA2F7"> App</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> FC</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#F7768E">main</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#DE5971">RouterView </span><span style="color:#BA3C97">/></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#F7768E">main</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h2 id="%E9%93%BE%E6%8E%A5%E5%AF%BC%E8%88%AA%EF%BC%9Arouterlink" tabindex="-1">链接导航：RouterLink</h2>
+<ul>
+<li><code>RouterLink</code> 渲染为 <code>&lt;a&gt;</code> 元素，默认拦截左键点击并执行导航</li>
+<li><code>to</code> 可传路径字符串，或 <code>{ path }</code>、<code>{ name, params }</code> 形式的对象；<code>replace</code> 为 <code>true</code> 时使用替换而非新增历史记录</li>
+<li>其他传入的属性会透传给渲染的 <code>&lt;a&gt;</code>（例如 <code>className</code>）</li>
+</ul>
+<p>示例：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#DE5971">RouterLink </span><span style="color:#BB9AF7">to</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">/posts/42</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> className</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">btn</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">查看文章</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#DE5971">RouterLink</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#DE5971">RouterLink </span><span style="color:#BB9AF7">to</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#9ABDF5">{</span><span style="color:#73DACA"> name</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">guide-topic</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> params</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span><span style="color:#73DACA"> section</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">router</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> topic</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">guards</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5"> }</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9AA5CE">  守卫章节</span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;/</span><span style="color:#DE5971">RouterLink</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#DE5971">RouterLink </span><span style="color:#BB9AF7">to</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">/settings</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> replace</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">返回设置</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#DE5971">RouterLink</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+<h2 id="%E8%BF%90%E8%A1%8C%E6%97%B6-api" tabindex="-1">运行时 API</h2>
+<ul>
+<li><code>useRouter()</code>：获取当前上下文的 Router（容器优先，其次为活动路由）</li>
+<li><code>useRoute()</code>：获取当前路由匹配结果的信号（<code>SignalHandle&lt;Route&gt;</code>）</li>
+</ul>
+<p>示例：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">useRoute</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/router</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#7AA2F7"> Current</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> FC</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">  const</span><span style="color:#BB9AF7"> route</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> useRoute</span><span style="color:#9ABDF5">()</span></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">  return</span><span style="color:#BA3C97"> &#x3C;</span><span style="color:#F7768E">div</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">当前路径：</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">route</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">get</span><span style="color:#9ABDF5">()</span><span style="color:#89DDFF">?.</span><span style="color:#7DCFFF">path}</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">div</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h2 id="%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB" tabindex="-1">导航守卫</h2>
+<ul>
+<li><code>router.beforeEach()</code>：注册全局前置守卫</li>
+<li><code>route.beforeEnter</code>：注册路由独享守卫</li>
+<li><code>router.afterEach()</code>：注册导航结束后的后置钩子，第三个参数会拿到失败结果或错误对象</li>
+<li>守卫可返回同步值或 Promise</li>
+<li>守卫返回 <code>false</code> 会取消导航；返回字符串或 location 对象会重定向到新地址</li>
+<li>可通过 <code>isNavigationFailure()</code> 与 <code>NavigationFailureType</code> 判断 <code>push/replace</code> 的失败结果</li>
+<li>守卫直接 <code>throw</code> 或返回 rejected Promise 时，<code>push/replace</code> 会 reject，同一次导航的 <code>afterEach</code> 会收到该错误对象</li>
+</ul>
+<p>示例：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#0DB9D7">  createRouter</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#0DB9D7">  createWebHashHistory</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#0DB9D7">  isNavigationFailure</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#0DB9D7">  NavigationFailureType</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/router</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> router</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> createRouter</span><span style="color:#9ABDF5">({</span></span>
+<span class="line"><span style="color:#73DACA">  history</span><span style="color:#89DDFF">:</span><span style="color:#7AA2F7"> createWebHashHistory</span><span style="color:#9ABDF5">()</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">  routes</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> [</span></span>
+<span class="line"><span style="color:#9ABDF5">    {</span><span style="color:#73DACA"> path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">/login</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> LoginPage</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">    {</span></span>
+<span class="line"><span style="color:#73DACA">      path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">/admin</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">      component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> AdminPage</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">      meta</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span><span style="color:#41A6B5"> requiresAuth</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> true</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#7AA2F7">      beforeEnter</span><span style="color:#89DDFF">:</span><span style="color:#E0AF68"> to</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">        if</span><span style="color:#9ABDF5"> (</span><span style="color:#C0CAF5">to</span><span style="color:#89DDFF">?.</span><span style="color:#C0CAF5">meta</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">requiresAuth</span><span style="color:#BB9AF7"> &#x26;&#x26;</span><span style="color:#BB9AF7"> !</span><span style="color:#7AA2F7">hasAdminRole</span><span style="color:#9ABDF5">()) {</span></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">          return</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">/login</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#9ABDF5">        }</span></span>
+<span class="line"><span style="color:#9ABDF5">      }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  ]</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C0CAF5">router</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">beforeEach</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">to</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">  if</span><span style="color:#9ABDF5"> (</span><span style="color:#C0CAF5">to</span><span style="color:#89DDFF">?.</span><span style="color:#C0CAF5">meta</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">requiresAuth</span><span style="color:#BB9AF7"> &#x26;&#x26;</span><span style="color:#BB9AF7"> !</span><span style="color:#7AA2F7">isAuthenticated</span><span style="color:#9ABDF5">()) {</span></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">    return</span><span style="color:#9ABDF5"> { </span><span style="color:#73DACA">name</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">login</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5"> }</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C0CAF5">router</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">afterEach</span><span style="color:#9ABDF5">((</span><span style="color:#E0AF68">to</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> from</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> failure</span><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  console</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">log</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">navigated:</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> from</span><span style="color:#89DDFF">?.</span><span style="color:#7DCFFF">path</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">-></span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> to</span><span style="color:#89DDFF">?.</span><span style="color:#7DCFFF">path</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> failure</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> result</span><span style="color:#89DDFF"> =</span><span style="color:#BB9AF7;font-style:italic"> await</span><span style="color:#C0CAF5"> router</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">push</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">/admin</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">if</span><span style="color:#9ABDF5"> (</span><span style="color:#7AA2F7">isNavigationFailure</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">result</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> NavigationFailureType</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">aborted</span><span style="color:#9ABDF5">))</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  console</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">log</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">navigation aborted</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h2 id="%E5%9C%A8%E5%BA%94%E7%94%A8%E4%B8%AD%E4%BD%BF%E7%94%A8" tabindex="-1">在应用中使用</h2>
+<ul>
+<li>在应用入口创建并挂载，安装路由作为插件</li>
+</ul>
+<p>示例应用入口：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#BB9AF7">type</span><span style="color:#0DB9D7"> FC</span><span style="color:#89DDFF">,</span><span style="color:#0DB9D7"> useApp</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">RouterView</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/router</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> router</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./router</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> SiteLayout</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./pages/site/components/Layout</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#7AA2F7"> RootApp</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> FC</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#DE5971">SiteLayout</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#DE5971">RouterView </span><span style="color:#BA3C97">/></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#DE5971">SiteLayout</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7AA2F7">useApp</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">RootApp</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">use</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">router</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">mount</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">#app</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h2 id="%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5" tabindex="-1">最佳实践</h2>
+<ul>
+<li>路由优先级按定义顺序匹配，通用规则放在靠后位置</li>
+<li>对需要约束格式的参数使用正则（如 <code>/orders/:id(\\d+)</code>）</li>
+<li>使用 <code>replace</code> 避免在设置类页面产生过多历史栈记录</li>
+<li>在组件中通过 <code>props.params</code> 读取参数，避免自行解析路径</li>
+</ul>
+</div></div></article></div></main><footer class="w-full bg-base-200 overflow-hidden"><div class="max-w-[1100px] mx-auto w-full px-6 py-12 grid gap-8 grid-cols-1 md:grid-cols-3"><div><div class="text-base-content font-semibold mb-2">文档</div><ul class="space-y-2 text-sm"><li><a href="/jsx/basic-elements" class="hover:underline">深度指南</a></li><li><a href="/examples/hello-world" class="hover:underline">实战例子</a></li><li><a href="/guide/guide/quick-start" class="hover:underline">快速上手</a></li><li><a href="/page/glossary/index" class="hover:underline">术语表</a></li><li><a href="/page/error-reference/index" class="hover:underline">错误码参照表</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">关于</div><ul class="space-y-2 text-sm"><li><a href="/page/about/faq" class="hover:underline">常见问题</a></li><li><a href="/page/about/team" class="hover:underline">团队</a></li><li><a href="/page/about/releases" class="hover:underline">版本发布</a></li><li><a href="/page/about/community-guide" class="hover:underline">社区指南</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">生态</div><ul class="space-y-2 text-sm"><li><a href="/plugins" class="hover:underline">插件</a></li><li><a href="/design/button" class="hover:underline">组件库</a></li><li><a href="/page/routing" class="hover:underline">路由指南</a></li><li><a href="/textjs" class="hover:underline">Text.js</a></li></ul></div></div><div class="max-w-[1100px] mx-auto px-6"><div class="text-center text-xs text-base-content/60 pb-8">© 2024-2026 Xiangmin Liu</div></div><div class="mx-auto w-full px-6 pb-4 text-center"><div class="flex select-none items-end justify-center gap-6 whitespace-nowrap text-[clamp(12rem,28vw,26rem)] font-black leading-none bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent md:gap-10"><span>Rue</span><span class="pl-1">.JS</span></div></div></footer></div></div>
+  </body>
+</html>

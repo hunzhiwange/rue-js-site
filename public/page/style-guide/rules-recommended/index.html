@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="luxury">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后悔药 Rue.js - The Wasm Framework For Native DOM</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
+    />
+    <style>
+      /* 取消 body 的宽度与背景限制，交由应用布局控制 */
+      body {
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+    </style>
+    <link rel="stylesheet" crossorigin href="/assets/main-zrVSZa30.css">
+  </head>
+
+  <body>
+    <div id="app"><div class="min-h-screen bg-base-100 text-base-content"><header class="site-header fixed top-0 left-0 right-0 z-50 w-full"><div class="navbar bg-transparent max-w-[1400px] mx-auto w-full px-6 items-center"><div class="navbar-start gap-4"><a href="/" class="flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 shadow-lg ring-1 ring-white/30"><span class="text-white font-extrabold text-[32px] md:text-[50px]">R</span></span><span class="text-lg md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">后悔药 Rue.js</span></a></div><nav class="navbar-center hidden md:flex" aria-label="主导航"><ul class="menu menu-horizontal px-1 text-sm"><li><a href="/" class="btn btn-ghost btn-sm">首页</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">文档</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/guide/guide/introduction">深度指南</a></li><li><a href="/examples/hello-world">实战例子</a></li><li><a href="/guide/guide/quick-start">快速上手</a></li><li><a href="/page/routing">路由指南</a></li><li><a href="/page/glossary/index">术语表</a></li><li><a href="/page/error-reference/index">错误代码参考</a></li></ul></li><li><a href="/api/api/index" class="btn btn-ghost btn-sm">API</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">生态</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/partners/index">合作伙伴</a></li><li><a href="/plugins">插件</a></li><li><a href="/design/button">组件库</a></li><li><a href="/page/guide/scaling-up/tooling">工具链</a></li><li><a href="/textjs">Text.js</a></li><li><a href="/page/ecosystem/newsletters">新闻简报</a></li></ul></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">关于</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/about/faq">常见问题</a></li><li><a href="/page/about/team">团队</a></li><li><a href="/page/about/releases">版本发布</a></li><li><a href="/page/about/community-guide">社区指南</a></li><li><a href="/page/about/coc">行为规范</a></li><li><a href="/page/about/privacy">隐私政策</a></li></ul></li><li><a href="/page/sponsor/index" class="btn btn-ghost btn-sm">赞助</a></li><li><a href="/page/partners/index" class="btn btn-ghost btn-sm">合作伙伴</a></li></ul></nav><div class="navbar-end gap-2 items-center"><a href="/settings" class="btn btn-ghost btn-sm">设置</a></div></div></header><main class="min-h-[60vh] pt-24"><div class="max-w-[1400px] mx-auto px-6 py-10"><article><div><div class="max-w-none prose prose-sm md:prose-base" id="doc-body"><h1 id="priority-c-rules-recommended" tabindex="-1">优先级 C 规则：推荐</h1>
+<p>当存在多个同样好的选项时，可以任意选择以确保一致性。在这些规则中，我们描述了每个可接受的选项并建议一个默认选择。这意味着你可以在自己的代码库中自由选择不同的选项，只要你保持一致并有充分的理由。请一定要有充分的理由！通过适应社区标准，你将：</p>
+<ol>
+<li>训练你的大脑更轻松地解析你遇到的大多数社区代码</li>
+<li>能够复制和粘贴大多数社区代码示例而无需修改</li>
+<li>经常发现新员工已经习惯了你喜欢的编码风格，至少在 Rue 方面</li>
+</ol>
+<h2 id="component-source-order" tabindex="-1">组件源码顺序</h2>
+<p><strong>组件内部的相关代码应保持稳定顺序。</strong></p>
+<p>这是我们推荐的函数组件源码顺序。它们分为类别，因此你将知道在哪里添加新的状态、派生值和事件处理逻辑。</p>
+<ol>
+<li>
+<p><strong>类型与常量</strong></p>
+<ul>
+<li>props 类型</li>
+<li>组件私有常量</li>
+</ul>
+</li>
+<li>
+<p><strong>响应式状态</strong></p>
+<ul>
+<li><code>ref</code></li>
+<li><code>reactive</code></li>
+<li><code>signal</code></li>
+</ul>
+</li>
+<li>
+<p><strong>派生状态</strong></p>
+<ul>
+<li><code>computed</code></li>
+<li>由响应式状态派生的普通变量</li>
+</ul>
+</li>
+<li>
+<p><strong>事件与副作用</strong></p>
+<ul>
+<li>事件处理函数</li>
+<li><code>watch</code> / <code>watchEffect</code></li>
+<li>生命周期钩子</li>
+</ul>
+</li>
+<li>
+<p><strong>渲染输出</strong></p>
+<ul>
+<li><code>return &lt;... /&gt;</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="element-attribute-order" tabindex="-1">元素属性顺序</h2>
+<p><strong>元素（包括组件）的属性应始终有序排列。</strong></p>
+<p>这是我们推荐的组件选项默认顺序。它们分为类别，因此你将知道在哪里添加自定义属性和指令。</p>
+<ol>
+<li>
+<p><strong>定义</strong>（提供组件选项）</p>
+<ul>
+<li><code>is</code></li>
+</ul>
+</li>
+<li>
+<p><strong>列表渲染</strong>（创建同一元素的多个变体）</p>
+<ul>
+<li><code>v-for</code></li>
+</ul>
+</li>
+<li>
+<p><strong>条件</strong>（元素是否渲染/显示）</p>
+<ul>
+<li><code>v-if</code></li>
+<li><code>v-else-if</code></li>
+<li><code>v-else</code></li>
+<li><code>v-show</code></li>
+<li><code>v-cloak</code></li>
+</ul>
+</li>
+<li>
+<p><strong>渲染修饰符</strong>（改变元素渲染方式）</p>
+<ul>
+<li><code>v-pre</code></li>
+<li><code>v-once</code></li>
+</ul>
+</li>
+<li>
+<p><strong>全局感知</strong>（需要组件之外的知识）</p>
+<ul>
+<li><code>id</code></li>
+</ul>
+</li>
+<li>
+<p><strong>唯一属性</strong>（需要唯一值的属性）</p>
+<ul>
+<li><code>ref</code></li>
+<li><code>key</code></li>
+</ul>
+</li>
+<li>
+<p><strong>双向绑定</strong>（结合绑定和事件）</p>
+<ul>
+<li><code>v-model</code></li>
+</ul>
+</li>
+<li>
+<p><strong>其他属性</strong>（所有未指定的绑定和未绑定属性）</p>
+</li>
+<li>
+<p><strong>事件</strong>（组件事件监听器）</p>
+<ul>
+<li><code>v-on</code></li>
+</ul>
+</li>
+<li>
+<p><strong>内容</strong>（覆盖元素的内容）</p>
+<ul>
+<li><code>v-html</code></li>
+<li><code>v-text</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="empty-lines-in-component-instance-options" tabindex="-1">组件/实例选项中的空行</h2>
+<p><strong>你可能希望在多行属性之间添加一个空行，特别是如果选项在屏幕上无法容纳而不需要滚动时。</strong></p>
+<p>当组件开始感觉拥挤或难以阅读时，在多行属性之间添加空格可以使它们更容易再次浏览。在某些编辑器中，如 Vim，这样的格式化选项还可以使它们更容易用键盘导航。</p>
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> Props</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  value</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> string</span></span>
+<span class="line"><span style="color:#C0CAF5">  focused</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> boolean</span></span>
+<span class="line"><span style="color:#C0CAF5">  label</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> string</span></span>
+<span class="line"><span style="color:#C0CAF5">  icon</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> string</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> formattedValue</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> computed</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">  // ...</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> inputClasses</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> computed</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">  // ...</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+<div class="style-example style-example-good">
+<h3>Good</h3>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> Props</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  value</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> string</span></span>
+<span class="line"><span style="color:#C0CAF5">  focused</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> boolean</span></span>
+<span class="line"><span style="color:#C0CAF5">  label</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> string</span></span>
+<span class="line"><span style="color:#C0CAF5">  icon</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> string</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> formattedValue</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> computed</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">  // ...</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> inputClasses</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> computed</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">  // ...</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span></code></pre>
+</div>
+</div>
+</div></div></article></div></main><footer class="w-full bg-base-200 overflow-hidden"><div class="max-w-[1100px] mx-auto w-full px-6 py-12 grid gap-8 grid-cols-1 md:grid-cols-3"><div><div class="text-base-content font-semibold mb-2">文档</div><ul class="space-y-2 text-sm"><li><a href="/jsx/basic-elements" class="hover:underline">深度指南</a></li><li><a href="/examples/hello-world" class="hover:underline">实战例子</a></li><li><a href="/guide/guide/quick-start" class="hover:underline">快速上手</a></li><li><a href="/page/glossary/index" class="hover:underline">术语表</a></li><li><a href="/page/error-reference/index" class="hover:underline">错误码参照表</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">关于</div><ul class="space-y-2 text-sm"><li><a href="/page/about/faq" class="hover:underline">常见问题</a></li><li><a href="/page/about/team" class="hover:underline">团队</a></li><li><a href="/page/about/releases" class="hover:underline">版本发布</a></li><li><a href="/page/about/community-guide" class="hover:underline">社区指南</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">生态</div><ul class="space-y-2 text-sm"><li><a href="/plugins" class="hover:underline">插件</a></li><li><a href="/design/button" class="hover:underline">组件库</a></li><li><a href="/page/routing" class="hover:underline">路由指南</a></li><li><a href="/textjs" class="hover:underline">Text.js</a></li></ul></div></div><div class="max-w-[1100px] mx-auto px-6"><div class="text-center text-xs text-base-content/60 pb-8">© 2024-2026 Xiangmin Liu</div></div><div class="mx-auto w-full px-6 pb-4 text-center"><div class="flex select-none items-end justify-center gap-6 whitespace-nowrap text-[clamp(12rem,28vw,26rem)] font-black leading-none bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent md:gap-10"><span>Rue</span><span class="pl-1">.JS</span></div></div></footer></div></div>
+  </body>
+</html>

@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="luxury">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后悔药 Rue.js - The Wasm Framework For Native DOM</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
+    />
+    <style>
+      /* 取消 body 的宽度与背景限制，交由应用布局控制 */
+      body {
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+    </style>
+    <link rel="stylesheet" crossorigin href="/assets/main-zrVSZa30.css">
+  </head>
+
+  <body>
+    <div id="app"><div class="min-h-screen bg-base-100 text-base-content"><header class="site-header fixed top-0 left-0 right-0 z-50 w-full"><div class="navbar bg-transparent max-w-[1400px] mx-auto w-full px-6 items-center"><div class="navbar-start gap-4"><a href="/" class="flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 shadow-lg ring-1 ring-white/30"><span class="text-white font-extrabold text-[32px] md:text-[50px]">R</span></span><span class="text-lg md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">后悔药 Rue.js</span></a></div><nav class="navbar-center hidden md:flex" aria-label="主导航"><ul class="menu menu-horizontal px-1 text-sm"><li><a href="/" class="btn btn-ghost btn-sm">首页</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">文档</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/guide/guide/introduction">深度指南</a></li><li><a href="/examples/hello-world">实战例子</a></li><li><a href="/guide/guide/quick-start">快速上手</a></li><li><a href="/page/routing">路由指南</a></li><li><a href="/page/glossary/index">术语表</a></li><li><a href="/page/error-reference/index">错误代码参考</a></li></ul></li><li><a href="/api/api/index" class="btn btn-ghost btn-sm">API</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">生态</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/partners/index">合作伙伴</a></li><li><a href="/plugins">插件</a></li><li><a href="/design/button">组件库</a></li><li><a href="/page/guide/scaling-up/tooling">工具链</a></li><li><a href="/textjs">Text.js</a></li><li><a href="/page/ecosystem/newsletters">新闻简报</a></li></ul></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">关于</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/about/faq">常见问题</a></li><li><a href="/page/about/team">团队</a></li><li><a href="/page/about/releases">版本发布</a></li><li><a href="/page/about/community-guide">社区指南</a></li><li><a href="/page/about/coc">行为规范</a></li><li><a href="/page/about/privacy">隐私政策</a></li></ul></li><li><a href="/page/sponsor/index" class="btn btn-ghost btn-sm">赞助</a></li><li><a href="/page/partners/index" class="btn btn-ghost btn-sm">合作伙伴</a></li></ul></nav><div class="navbar-end gap-2 items-center"><a href="/settings" class="btn btn-ghost btn-sm">设置</a></div></div></header><main class="min-h-[60vh] pt-24"><div class="max-w-[1400px] mx-auto px-6 py-10"><div class="sidebar-playground md:flex md:items-start md:gap-6 xl:grid xl:grid-cols-[11.25rem_minmax(0,1fr)_15rem]"><div class="md:w-45 shrink-0"><aside class="w-full"><div class="sticky top-20"><nav class="space-y-3 w-full"><div class="rounded-box border border-base-300/60 bg-base-100 px-4 py-3 shadow-sm"><div class="text-xs uppercase tracking-[0.18em] text-base-content/45">目录统计</div><div class="mt-2 flex items-center justify-between gap-3"><span class="text-sm text-base-content/70">总条目</span><span class="badge badge-neutral badge-lg"></span></div><label class="mt-3 block"><span class="sr-only">搜索目录条目</span><input class="input input-sm input-bordered w-full" value="" placeholder="搜索条目 / Search"></label></div> <div key="docs-guide1" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>指南</span><span class="badge badge-ghost badge-sm shrink-0">2</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/introduction"><a href="/guide/guide/introduction" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/introduction">介绍</a></li><li key="guide/quick-start"><a href="/guide/guide/quick-start" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/quick-start">快速上手</a></li></ul></div></div><div key="guide/essentials" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>基础</span><span class="badge badge-ghost badge-sm shrink-0">13</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/essentials/application"><a href="/guide/guide/essentials/application" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/application">应用</a></li><li key="guide/essentials/class-and-style"><a href="/guide/guide/essentials/class-and-style" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/class-and-style">类与样式</a></li><li key="guide/essentials/component-basics"><a href="/guide/guide/essentials/component-basics" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/component-basics">组件基础</a></li><li key="guide/essentials/computed"><a href="/guide/guide/essentials/computed" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/computed">计算属性</a></li><li key="guide/essentials/conditional"><a href="/guide/guide/essentials/conditional" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/conditional">条件渲染</a></li><li key="guide/essentials/event-handling"><a href="/guide/guide/essentials/event-handling" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/event-handling">事件处理</a></li><li key="guide/essentials/forms"><a href="/guide/guide/essentials/forms" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/forms">表单</a></li><li key="guide/essentials/lifecycle"><a href="/guide/guide/essentials/lifecycle" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/lifecycle">生命周期</a></li><li key="guide/essentials/list"><a href="/guide/guide/essentials/list" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/list">列表</a></li><li key="guide/essentials/reactivity-fundamentals"><a href="/guide/guide/essentials/reactivity-fundamentals" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/reactivity-fundamentals">响应式基础</a></li><li key="guide/essentials/template-refs"><a href="/guide/guide/essentials/template-refs" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/template-refs">模板引用</a></li><li key="guide/essentials/template-syntax"><a href="/guide/guide/essentials/template-syntax" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/template-syntax">模板语法</a></li><li key="guide/essentials/watchers"><a href="/guide/guide/essentials/watchers" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/watchers">侦听</a></li></ul></div></div><div key="guide/built-ins" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>内置功能</span><span class="badge badge-ghost badge-sm shrink-0">5</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/built-ins/keep-alive"><a href="/guide/guide/built-ins/keep-alive" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/built-ins/keep-alive">KeepAlive</a></li><li key="guide/built-ins/suspense"><a href="/guide/guide/built-ins/suspense" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/built-ins/suspense">Suspense</a></li><li key="guide/built-ins/teleport"><a href="/guide/guide/built-ins/teleport" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/built-ins/teleport">Teleport</a></li><li key="guide/built-ins/transition-group"><a href="/guide/guide/built-ins/transition-group" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/built-ins/transition-group">TransitionGroup</a></li><li key="guide/built-ins/transition"><a href="/guide/guide/built-ins/transition" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/built-ins/transition">Transition</a></li></ul></div></div><div key="guide/components" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>组件</span><span class="badge badge-ghost badge-sm shrink-0">8</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/components/async"><a href="/guide/guide/components/async" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/async">异步组件</a></li><li key="guide/components/attrs"><a href="/guide/guide/components/attrs" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/attrs">属性</a></li><li key="guide/components/events"><a href="/guide/guide/components/events" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/events">事件</a></li><li key="guide/components/props"><a href="/guide/guide/components/props" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/props">Props</a></li><li key="guide/components/create-context"><a href="/guide/guide/components/create-context" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/create-context">Create Context</a></li><li key="guide/components/registration"><a href="/guide/guide/components/registration" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/registration">注册</a></li><li key="guide/components/slots"><a href="/guide/guide/components/slots" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/slots">插槽</a></li><li key="guide/components/v-model"><a href="/guide/guide/components/v-model" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/v-model">v-model</a></li></ul></div></div><div key="guide/extras" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>进阶</span><span class="badge badge-ghost badge-sm shrink-0">9</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/extras/animation"><a href="/guide/guide/extras/animation" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/animation">动画</a></li><li key="guide/extras/composition-api-faq"><a href="/guide/guide/extras/composition-api-faq" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/composition-api-faq">组合式 API 常见问题</a></li><li key="guide/extras/reactivity-in-depth"><a href="/guide/guide/extras/reactivity-in-depth" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/reactivity-in-depth">响应式深入</a></li><li key="guide/extras/resources"><a href="/guide/guide/extras/resources" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/resources">资源</a></li><li key="guide/extras/reactivity-transform"><a href="/guide/guide/extras/reactivity-transform" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/reactivity-transform">响应式转换</a></li><li key="guide/extras/render-function"><a href="/guide/guide/extras/render-function" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/render-function">渲染函数</a></li><li key="guide/extras/rendering-mechanism"><a href="/guide/guide/extras/rendering-mechanism" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/rendering-mechanism">渲染机制</a></li><li key="guide/extras/ways-of-using-vue"><a href="/guide/guide/extras/ways-of-using-vue" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/ways-of-using-vue">使用方式</a></li><li key="guide/extras/web-components"><a href="/guide/guide/extras/web-components" aria-current="page" class="active w-full" data-rue-sidebar-href="/guide/guide/extras/web-components">Web 组件</a></li></ul></div></div><div key="guide/reusability" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>复用性</span><span class="badge badge-ghost badge-sm shrink-0">2</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/reusability/composables"><a href="/guide/guide/reusability/composables" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/reusability/composables">可组合函数</a></li><li key="guide/reusability/plugins"><a href="/guide/guide/reusability/plugins" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/reusability/plugins">插件</a></li></ul></div></div><div key="guide/scaling-up" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>扩展与进阶</span><span class="badge badge-ghost badge-sm shrink-0">4</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/scaling-up/routing"><a href="/guide/guide/scaling-up/routing" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/scaling-up/routing">路由</a></li><li key="guide/scaling-up/state-management"><a href="/guide/guide/scaling-up/state-management" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/scaling-up/state-management">状态管理</a></li><li key="guide/scaling-up/testing"><a href="/guide/guide/scaling-up/testing" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/scaling-up/testing">测试</a></li><li key="guide/scaling-up/tooling"><a href="/guide/guide/scaling-up/tooling" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/scaling-up/tooling">工具链</a></li></ul></div></div><div key="guide/best-practices" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>最佳实践</span><span class="badge badge-ghost badge-sm shrink-0">4</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/best-practices/accessibility"><a href="/guide/guide/best-practices/accessibility" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/best-practices/accessibility">无障碍</a></li><li key="guide/best-practices/performance"><a href="/guide/guide/best-practices/performance" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/best-practices/performance">性能</a></li><li key="guide/best-practices/production-deployment"><a href="/guide/guide/best-practices/production-deployment" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/best-practices/production-deployment">生产部署</a></li><li key="guide/best-practices/security"><a href="/guide/guide/best-practices/security" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/best-practices/security">安全</a></li></ul></div></div><div key="guide/typescript" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>TypeScript</span><span class="badge badge-ghost badge-sm shrink-0">2</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/typescript/overview"><a href="/guide/guide/typescript/overview" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/typescript/overview">概览</a></li><li key="guide/typescript/composition-api"><a href="/guide/guide/typescript/composition-api" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/typescript/composition-api">组合式 API</a></li></ul></div></div></nav></div></aside></div><article class="component-preview min-w-0"><div><div class="max-w-none prose prose-sm md:prose-base" id="doc-body"><h1 id="rue-and-web-components" tabindex="-1">Rue 与 Web 组件</h1>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">Web 组件</a>是一组 Web 原生 API 的总称，允许开发者创建可复用的自定义元素。</p>
+<p>我们认为 Rue 和 Web 组件主要是互补的技术。Rue 对消费和创建自定义元素都有出色的支持。无论你是将自定义元素集成到现有的 Rue 应用程序中，还是使用 Rue 构建和分发自定义元素，你都找对了地方。</p>
+<h2 id="using-custom-elements-in-rue" tabindex="-1">在 Rue 中使用自定义元素</h2>
+<p>Rue <a href="https://custom-elements-everywhere.com/libraries/rue/results/results.html">在 Custom Elements Everywhere 测试中获得了完美的 100% 分数</a>。在 Rue 应用程序中消费自定义元素在很大程度上与使用原生 HTML 元素相同，但有一些需要注意的地方：</p>
+<h3 id="skipping-component-resolution" tabindex="-1">跳过组件解析</h3>
+<p>默认情况下，Rue 会尝试将非原生 HTML 标签解析为已注册的 Rue 组件，然后再回退将其渲染为自定义元素。这会导致 Rue 在开发期间发出&quot;无法解析组件&quot;的警告。要让 Rue 知道某些元素应被视为自定义元素并跳过组件解析，我们可以指定 <a href="/api/api/application#app-config-compileroptions"><code>compilerOptions.isCustomElement</code> 选项</a>。</p>
+<p>如果你使用构建设置使用 Rue，该选项应通过构建配置传递，因为它是一个编译时选项。</p>
+<h4 id="example-in-browser-config" tabindex="-1">浏览器内配置示例</h4>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#51597D;font-style:italic">// 仅在使用浏览器内编译时有效。</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 如果使用构建工具，请参见下面的配置示例。</span></span>
+<span class="line"><span style="color:#C0CAF5">app</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">config</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">compilerOptions</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">isCustomElement</span><span style="color:#89DDFF"> =</span><span style="color:#E0AF68"> tag</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> tag</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">includes</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">-</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h4 id="example-vite-config" tabindex="-1">Vite 配置示例</h4>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> rue</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@vitejs/plugin-rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#7DCFFF"> default</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#73DACA">  plugins</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> [</span></span>
+<span class="line"><span style="color:#7AA2F7">    rue</span><span style="color:#9ABDF5">({</span></span>
+<span class="line"><span style="color:#73DACA">      template</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#41A6B5">        compilerOptions</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">          // 将所有带短横线的标签视为自定义元素</span></span>
+<span class="line"><span style="color:#7AA2F7">          isCustomElement</span><span style="color:#89DDFF">:</span><span style="color:#E0AF68"> tag</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> tag</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">includes</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">-</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">        }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">      }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">    })</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  ]</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h4 id="example-rue-cli-config" tabindex="-1">Rue CLI 配置示例</h4>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#0DB9D7">module</span><span style="color:#89DDFF">.</span><span style="color:#0DB9D7">exports</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#7AA2F7">  chainWebpack</span><span style="color:#89DDFF">:</span><span style="color:#E0AF68"> config</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">    config</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">module</span></span>
+<span class="line"><span style="color:#89DDFF">      .</span><span style="color:#7AA2F7">rule</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">rue</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#89DDFF">      .</span><span style="color:#7AA2F7">use</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">rue-loader</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#89DDFF">      .</span><span style="color:#7AA2F7">tap</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">options</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> ({</span></span>
+<span class="line"><span style="color:#F7768E;font-weight:bold">        ...</span><span style="color:#C0CAF5">options</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">        compilerOptions</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">          // 将所有以 ion- 开头的标签视为自定义元素</span></span>
+<span class="line"><span style="color:#7AA2F7">          isCustomElement</span><span style="color:#89DDFF">:</span><span style="color:#E0AF68"> tag</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> tag</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">startsWith</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">ion-</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">        }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">      }))</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h3 id="passing-dom-properties" tabindex="-1">传递 DOM 属性</h3>
+<p>由于 DOM 属性只能是字符串，我们需要将复杂数据作为 DOM 属性传递给自定义元素。在自定义元素上设置 props 时，Rue 3 会自动使用 <code>in</code> 运算符检查 DOM 属性是否存在，如果键存在，则会优先将值设置为 DOM 属性。这意味着，在大多数情况下，如果自定义元素遵循<a href="https://web.dev/custom-elements-best-practices/">推荐的最佳实践</a>，你不需要考虑这个问题。</p>
+<p>然而，可能存在数据必须作为 DOM 属性传递，但自定义元素未正确定义/反映属性的罕见情况（导致 <code>in</code> 检查失败）。在这种情况下，你可以在创建元素后直接设置对应 DOM 属性：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> el</span><span style="color:#89DDFF"> =</span><span style="color:#C0CAF5"> document</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">createElement</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">my-element</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#C0CAF5">el</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">user</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span><span style="color:#73DACA"> name</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">jack</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5"> }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C0CAF5">document</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">body</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">appendChild</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">el</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h2 id="building-custom-elements-with-rue" tabindex="-1">使用 Rue 构建自定义元素</h2>
+<p>自定义元素的主要好处是它们可以与任何框架一起使用，甚至可以完全不使用框架。这使它们成为分发组件的理想选择，因为最终消费者可能不使用相同的前端技术栈，或者当你想将最终应用程序与其实现细节隔离时。</p>
+<h3 id="definecustomelement" tabindex="-1">useCustomElement</h3>
+<p>Rue 当前提供一个最小但可用的 <code>useCustomElement()</code> 包装器，用于把 Rue 组件注册为原生 Custom Element。它返回一个扩展 <code>HTMLElement</code> 的构造函数：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#DE5971">my-rue-element</span><span style="color:#BA3C97">>&#x3C;/</span><span style="color:#DE5971">my-rue-element</span><span style="color:#BA3C97">></span></span>
+<span class="line"></span></code></pre>
+</div>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">useCustomElement</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> MyRueElement</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> useCustomElement</span><span style="color:#9ABDF5">(</span></span>
+<span class="line"><span style="color:#E0AF68">  props</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">    return</span><span style="color:#BA3C97"> &#x3C;</span><span style="color:#F7768E">p</span><span style="color:#BA3C97">></span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">props</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">label</span><span style="color:#BB9AF7"> ??</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">hello</span><span style="color:#89DDFF">'</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">p</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  {</span></span>
+<span class="line"><span style="color:#73DACA">    styles</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> [</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">:host { display: block; }</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">]</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">    shadowRoot</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> true</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 注册自定义元素。</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 注册后，页面上所有 &#x3C;my-rue-element> 标签都会被升级。</span></span>
+<span class="line"><span style="color:#C0CAF5">customElements</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">define</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">my-rue-element</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> MyRueElement</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> el</span><span style="color:#89DDFF"> =</span><span style="color:#C0CAF5"> document</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">createElement</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">my-rue-element</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#C0CAF5">el</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">setAttribute</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">label</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">from-attr</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#C0CAF5">el</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">props</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span><span style="color:#73DACA"> count</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 1</span><span style="color:#9ABDF5"> }</span></span>
+<span class="line"><span style="color:#C0CAF5">document</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">body</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">appendChild</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">el</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h4 id="lifecycle" tabindex="-1">当前行为</h4>
+<ul>
+<li>
+<p>当元素进入文档时，Rue 会在宿主元素或 shadow root 中挂载一个内部 Rue 应用实例。</p>
+</li>
+<li>
+<p>当元素离开文档时，当前实现会直接卸载内部 Rue 应用实例。</p>
+</li>
+</ul>
+<h4 id="props" tabindex="-1">Props</h4>
+<ul>
+<li>
+<p>宿主元素上的 HTML 属性会被读取并转换为 camelCase 字符串 props。</p>
+</li>
+<li>
+<p>对于非字符串值，可以直接写入宿主实例的 <code>props</code> 对象：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> el</span><span style="color:#89DDFF"> =</span><span style="color:#C0CAF5"> document</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">querySelector</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">my-rue-element</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#C0CAF5">el</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">props</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#73DACA">  count</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 1</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">  enabled</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> true</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+</li>
+<li>
+<p>当属性或 <code>props</code> 变化时，当前实现会把新值同步到同一个响应式 props 容器，由已有组件子树完成细粒度更新，不再整棵重挂载。</p>
+</li>
+</ul>
+<h4 id="hooks" tabindex="-1">Hooks</h4>
+<ul>
+<li><code>useHost()</code> 可返回当前自定义元素宿主节点。</li>
+<li><code>useShadowRoot()</code> 可返回当前自定义元素的 shadow root；若当前元素使用 light DOM，则返回 <code>null</code>。</li>
+</ul>
+<h4 id="events" tabindex="-1">事件</h4>
+<ul>
+<li>组件内部通过 <code>useEmit(props)</code> 发出的事件，会在宿主元素上桥接为同名 <code>CustomEvent</code>。</li>
+<li>事件参数会按原顺序放到 <code>event.detail</code> 数组里。</li>
+<li>桥接事件使用 <code>bubbles: true</code> 和 <code>composed: true</code>，因此可以用 <code>el.addEventListener(...)</code> 在宿主或外层节点上监听。</li>
+</ul>
+<h4 id="slots" tabindex="-1">插槽</h4>
+<ul>
+<li>在 <code>shadowRoot: true</code> 模式下，组件中的原生 <code>&lt;slot&gt;</code> 会直接使用浏览器的原生 slot 分发。</li>
+<li>命名插槽继续使用原生 <code>slot</code> 属性，例如 <code>&lt;div slot=&quot;named&quot;&gt;...&lt;/div&gt;</code>。</li>
+<li><code>shadowRoot: false</code> 时没有原生 shadow DOM slot 投影。</li>
+<li>如果自定义元素由 Rue 父组件渲染，可以使用 Rue 的 scoped slot 协议：函数 children 会进入默认 <code>__rue_slots.default</code>，<code>&lt;Template slot=&quot;name&quot;&gt;...&lt;/Template&gt;</code> 会进入对应命名 slot。自定义元素内部用 <code>&lt;Slot source={props} name=&quot;name&quot; props={...}&gt;</code> 读取即可。</li>
+<li>Rue 父树中的 <code>createContext()</code> Provider 会跨 Rue 自定义元素边界透传，元素内部组件可直接 <code>useContext()</code>。</li>
+</ul>
+<h4 id="app-level-config" tabindex="-1">支持的选项</h4>
+<ul>
+<li><code>styles</code>：把一组内联 CSS 字符串注入到挂载目标。</li>
+<li><code>shadowRoot</code>：默认 <code>true</code>。设置为 <code>false</code> 时改为 light DOM 渲染。</li>
+<li><code>nonce</code>：为注入的 <code>&lt;style&gt;</code> 标签设置 <code>nonce</code>。</li>
+<li><code>configureApp</code>：可拿到 <code>useApp()</code> 返回值以安装插件或追加应用级配置。</li>
+</ul>
+<h4 id="custom-element-build" tabindex="-1">Custom Element 构建</h4>
+<p><code>@rue-js/vite-plugin-rue</code> 提供 <code>customElement()</code> 配置生成器，用于构建自定义元素库入口：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">defineConfig</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">vite</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">customElement</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/vite-plugin-rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#7DCFFF"> default</span><span style="color:#7AA2F7"> defineConfig</span><span style="color:#9ABDF5">(</span></span>
+<span class="line"><span style="color:#7AA2F7">  customElement</span><span style="color:#9ABDF5">({</span></span>
+<span class="line"><span style="color:#73DACA">    entry</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">src/elements.ts</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">    name</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">MyRueElements</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#73DACA">    externalRue</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> true</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  })</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>它会启用 Rue TSX/Vapor 转换，并把 Vite build 配成 library mode。<code>externalRue: true</code> 适合宿主页面已经提供 Rue runtime 的库；如果要把 runtime 打进元素包里，可以省略该选项。</p>
+<p>样式仍通过 <code>useCustomElement(..., { styles })</code> 注入。常见做法是用 Vite 的 inline CSS 导入：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> styles</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./panel.css?inline</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">useCustomElement</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> Panel</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./Panel</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#9D7CD8;font-style:italic"> const</span><span style="color:#BB9AF7"> PanelElement</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> useCustomElement</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">Panel</span><span style="color:#89DDFF">,</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#73DACA">  styles</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> [</span><span style="color:#7DCFFF">styles</span><span style="color:#9ABDF5">]</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h3 id="tips-for-a-rue-custom-elements-library" tabindex="-1">Rue 自定义元素库技巧</h3>
+<p>使用 Rue 构建自定义元素时，元素将依赖 Rue 的运行时。根据使用的功能数量，有约 16kb 的基线大小成本。这意味着如果你要交付单个自定义元素，使用 Rue 并不理想——你可能希望使用纯 JavaScript、<a href="https://github.com/@rue-js/ruejs/petite-rue">petite-rue</a>，或专门优化小运行时大小的框架。然而，如果你要交付一组具有复杂逻辑的自定义元素，基线大小是合理的，因为 Rue 将允许每个组件用更少的代码编写。一起交付的元素越多，权衡就越好。</p>
+<p>如果自定义元素将在也使用 Rue 的应用程序中使用，你可以选择将 Rue 从构建包中外部化，以便元素将使用主机应用程序中的相同 Rue 副本。</p>
+<p>建议导出单个元素构造函数，以给用户按需导入并使用所需标签名注册的灵活性。你还可以导出一个便利函数来自动注册所有元素。以下是 Rue 自定义元素库的入口点示例：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">useCustomElement</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> Foo</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./MyFoo</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> Bar</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./MyBar</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> MyFoo</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> useCustomElement</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">Foo</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> MyBar</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> useCustomElement</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">Bar</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 导出单个元素</span></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">MyFoo</span><span style="color:#89DDFF">,</span><span style="color:#0DB9D7"> MyBar</span><span style="color:#9ABDF5"> }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#BB9AF7"> function</span><span style="color:#7AA2F7"> register</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  customElements</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">define</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">my-foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> MyFoo</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#C0CAF5">  customElements</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">define</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">my-bar</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> MyBar</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>消费者可以在 Rue 组件中使用这些元素：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#BB9AF7">type</span><span style="color:#0DB9D7"> FC</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">register</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">path/to/elements.js</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7AA2F7">register</span><span style="color:#9ABDF5">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#7AA2F7"> App</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> FC</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#DE5971">my-foo </span><span style="color:#BB9AF7">data-kind</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">demo</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#DE5971">my-bar </span><span style="color:#BB9AF7">data-kind</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">nested</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97"> /></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#DE5971">my-foo</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>或在任何其他框架中，如使用 JSX 的框架，并使用自定义名称：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">MyFoo</span><span style="color:#89DDFF">,</span><span style="color:#0DB9D7"> MyBar</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">path/to/elements.js</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C0CAF5">customElements</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">define</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">some-foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> MyFoo</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#C0CAF5">customElements</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">define</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">some-bar</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> MyBar</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#BB9AF7"> function</span><span style="color:#7AA2F7"> MyComponent</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">  return</span><span style="color:#BA3C97"> &#x3C;></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#DE5971">some-foo </span><span style="color:#FF5370">...</span><span style="color:#BA3C97"> ></span></span>
+<span class="line"><span style="color:#BA3C97">      &#x3C;</span><span style="color:#DE5971">some-bar </span><span style="color:#FF5370">...</span><span style="color:#BA3C97"> >&#x3C;/</span><span style="color:#DE5971">some-bar</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;/</span><span style="color:#DE5971">some-foo</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/></span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h3 id="web-components-and-typescript" tabindex="-1">基于 Rue 的 Web 组件与 TypeScript</h3>
+<p>在 Rue TSX 组件中使用自定义元素时，你可能希望<a href="/guide/guide/scaling-up/tooling#typescript">类型检查</a>这些元素的属性和事件。</p>
+<p>自定义元素使用浏览器内置 API 全局注册，默认情况下在 TSX 中使用它们时没有类型推断。要提供类型支持，可以扩充 <a href="https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements">JSX.IntrinsicElements</a>。</p>
+<p>以下是如何为使用 Rue 制作的自定义元素定义类型：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">useCustomElement</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#BB9AF7"> type</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">HTMLAttributes</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 导入 Rue 组件。</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> SomeComponent</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./src/components/SomeComponent</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 将 Rue 组件转换为自定义元素类。</span></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#9D7CD8;font-style:italic"> const</span><span style="color:#BB9AF7"> SomeElement</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> useCustomElement</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">SomeComponent</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 记住在浏览器中注册元素类。</span></span>
+<span class="line"><span style="color:#C0CAF5">customElements</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">define</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">some-element</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> SomeElement</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 将新元素类型添加到 JSX 标签类型。</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">declare</span><span style="color:#BB9AF7"> module</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">  namespace</span><span style="color:#C0CAF5"> JSX</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">    interface</span><span style="color:#C0CAF5"> IntrinsicElements</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#89DDFF">      '</span><span style="color:#9ECE6A">some-element</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> HTMLAttributes</span><span style="color:#89DDFF"> &#x26;</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#73DACA">        label</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> string</span></span>
+<span class="line"><span style="color:#9ABDF5">      }</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<h2 id="non-rue-web-components-and-typescript" tabindex="-1">非 Rue Web 组件与 TypeScript</h2>
+<p>以下是推荐的在不是用 Rue 构建的自定义元素上启用 TSX 类型检查的方法。</p>
+<div class="tip">
+<p>这是一种可能的实现方式，但根据用于创建自定义元素的框架，它可能会有所不同。</p>
+</div>
+<p>假设我们有一个定义了一些 JS 属性和事件的自定义元素，它在一个名为 <code>some-lib</code> 的库中提供：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#51597D;font-style:italic">// 定义具有类型化 JS 属性的类。</span></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#BB9AF7"> class</span><span style="color:#C0CAF5"> SomeElement</span><span style="color:#9D7CD8;font-style:italic"> extends</span><span style="color:#BB9AF7"> HTMLElement</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#73DACA">  foo</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> number</span><span style="color:#89DDFF"> =</span><span style="color:#FF9E64"> 123</span></span>
+<span class="line"><span style="color:#73DACA">  bar</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> string</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">blah</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#73DACA">  lorem</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> boolean</span><span style="color:#89DDFF"> =</span><span style="color:#FF9E64"> false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">  // 此方法不应暴露给 JSX 属性类型。</span></span>
+<span class="line"><span style="color:#7AA2F7">  someMethod</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">    /* ... */</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">  // ... 实现细节省略 ...</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">  // ... 假设元素调度名为 "apple-fell" 的事件 ...</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C0CAF5">customElements</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">define</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">some-element</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> SomeElement</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 这是 SomeElement 的属性列表，将被选中用于</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// TSX 类型检查。其他属性将不被暴露。</span></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#BB9AF7"> type</span><span style="color:#C0CAF5"> SomeElementAttributes</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">bar</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 定义 SomeElement 调度的事件类型。</span></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#BB9AF7"> type</span><span style="color:#C0CAF5"> SomeElementEvents</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#7AA2F7">  onAppleFell</span><span style="color:#89DDFF">?:</span><span style="color:#9ABDF5"> (</span><span style="color:#E0AF68">event</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> AppleFellEvent</span><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> =></span><span style="color:#0DB9D7"> void</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#BB9AF7"> class</span><span style="color:#C0CAF5"> AppleFellEvent</span><span style="color:#9D7CD8;font-style:italic"> extends</span><span style="color:#BB9AF7"> Event</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">  /* ... 细节省略 ... */</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>实现细节已被省略，但重要的是我们对两件事有类型定义：prop 类型和事件类型。</p>
+<p>让我们创建一个类型辅助工具，用于在 Rue 中轻松注册自定义元素类型定义：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#BB9AF7"> type</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">HTMLAttributes</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 我们可以为需要定义的每个元素重用此类型辅助工具。</span></span>
+<span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> DefineCustomElement</span><span style="color:#89DDFF">&#x3C;</span></span>
+<span class="line"><span style="color:#C0CAF5">  ElementType</span><span style="color:#9D7CD8;font-style:italic"> extends</span><span style="color:#C0CAF5"> HTMLElement</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#C0CAF5">  SelectedAttributes</span><span style="color:#9D7CD8;font-style:italic"> extends</span><span style="color:#89DDFF"> keyof</span><span style="color:#C0CAF5"> ElementType</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> keyof</span><span style="color:#C0CAF5"> ElementType</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#C0CAF5">  EventProps</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {}</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#89DDFF">></span><span style="color:#89DDFF"> =</span><span style="color:#C0CAF5"> HTMLAttributes</span><span style="color:#89DDFF"> &#x26;</span></span>
+<span class="line"><span style="color:#C0CAF5">  Partial</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">Pick</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">ElementType</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> SelectedAttributes</span><span style="color:#89DDFF">>></span><span style="color:#89DDFF"> &#x26;</span></span>
+<span class="line"><span style="color:#C0CAF5">  EventProps</span><span style="color:#89DDFF"> &#x26;</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#73DACA">    ref</span><span style="color:#89DDFF">?:</span><span style="color:#C0CAF5"> ElementType</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span></span>
+<span class="line"></span></code></pre>
+</div>
+<div class="tip">
+<p>事件 prop 名称需要与项目中的 JSX 事件命名约定保持一致。上面的示例把原生 <code>&quot;apple-fell&quot;</code> 事件映射为 <code>onAppleFell</code> prop。</p>
+</div>
+<p>使用类型辅助工具，我们现在可以选择应在 TSX 中暴露进行类型检查的 JS 属性：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">SomeElement</span><span style="color:#89DDFF">,</span><span style="color:#0DB9D7"> SomeElementAttributes</span><span style="color:#89DDFF">,</span><span style="color:#0DB9D7"> SomeElementEvents</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./SomeElement.js</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#BB9AF7"> type</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">DefineCustomElement</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./DefineCustomElement</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 将新元素类型添加到 JSX 标签类型。</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">declare</span><span style="color:#BB9AF7"> module</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">  namespace</span><span style="color:#C0CAF5"> JSX</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">    interface</span><span style="color:#C0CAF5"> IntrinsicElements</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#89DDFF">      '</span><span style="color:#9ECE6A">some-element</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> DefineCustomElement</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">SomeElement</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> SomeElementAttributes</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> SomeElementEvents</span><span style="color:#89DDFF">></span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>假设 <code>some-lib</code> 将其源 TypeScript 文件构建到 <code>dist/</code> 文件夹中。<code>some-lib</code> 的用户然后可以导入 <code>SomeElement</code> 并在 Rue TSX 组件中使用它，如下所示：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#51597D;font-style:italic">// 这将创建并向浏览器注册元素。</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">some-lib/dist/SomeElement.js</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 使用 TypeScript 和 Rue 的用户还应导入</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// Rue 特定的类型定义（其他框架的用户可能</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 导入其他框架特定的类型定义）。</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#BB9AF7"> type</span><span style="color:#9ABDF5"> {}</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">some-lib/dist/SomeElement.rue-jsx.js</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">onMount</span><span style="color:#89DDFF">,</span><span style="color:#0DB9D7"> useRef</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> el</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> useRef</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">SomeElement</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7AA2F7">onMount</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  console</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">log</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">el</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">current</span><span style="color:#BB9AF7">!</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">foo</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> el</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">current</span><span style="color:#BB9AF7">!</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">bar</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> el</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">current</span><span style="color:#BB9AF7">!</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">lorem</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> el</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">current</span><span style="color:#BB9AF7">!</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">someMethod</span><span style="color:#9ABDF5">())</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#BB9AF7"> function</span><span style="color:#7AA2F7"> SomeElementImpl</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">  return</span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#DE5971">some-element</span></span>
+<span class="line"><span style="color:#BB9AF7">      ref</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">el</span><span style="color:#7DCFFF">}</span></span>
+<span class="line"><span style="color:#BB9AF7">      foo</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#FF9E64">456</span><span style="color:#7DCFFF">}</span></span>
+<span class="line"><span style="color:#BB9AF7">      onAppleFell</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#E0AF68">event</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">        // `event` 的类型在此处被推断为 `AppleFellEvent`</span></span>
+<span class="line"><span style="color:#9ABDF5">      }</span><span style="color:#7DCFFF">}</span></span>
+<span class="line"><span style="color:#BA3C97">    /></span></span>
+<span class="line"><span style="color:#9ABDF5">  )</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>如果元素没有类型定义，属性和事件的类型可以以更手动的方式定义：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#51597D;font-style:italic">// 假设 `some-lib` 是没有类型定义的纯 JS，</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 且 TypeScript 无法推断类型：</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">SomeElement</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">some-lib</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 我们将使用与之前相同的类型辅助工具。</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">DefineCustomElement</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./DefineCustomElement</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> SomeElementInstance</span><span style="color:#89DDFF"> =</span><span style="color:#C0CAF5"> HTMLElement</span><span style="color:#89DDFF"> &#x26;</span><span style="color:#9ABDF5"> {</span><span style="color:#C0CAF5"> foo</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> number</span><span style="color:#89DDFF">;</span><span style="color:#C0CAF5"> bar</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> string</span><span style="color:#9ABDF5"> }</span></span>
+<span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> SomeElementAttributes</span><span style="color:#89DDFF"> =</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">foo</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> |</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">bar</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> SomeElementEvents</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span><span style="color:#7AA2F7"> onAppleFell</span><span style="color:#89DDFF">?:</span><span style="color:#9ABDF5"> (</span><span style="color:#E0AF68">event</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> AppleFellEvent</span><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> =></span><span style="color:#0DB9D7"> void</span><span style="color:#9ABDF5"> }</span></span>
+<span class="line"><span style="color:#BB9AF7">interface</span><span style="color:#C0CAF5"> AppleFellEvent</span><span style="color:#9D7CD8;font-style:italic"> extends</span><span style="color:#BB9AF7"> Event</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#51597D;font-style:italic">  /* ... */</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// 将新元素类型添加到 JSX 标签类型。</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">declare</span><span style="color:#BB9AF7"> module</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">  namespace</span><span style="color:#C0CAF5"> JSX</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">    interface</span><span style="color:#C0CAF5"> IntrinsicElements</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#89DDFF">      '</span><span style="color:#9ECE6A">some-element</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> DefineCustomElement</span><span style="color:#89DDFF">&#x3C;</span></span>
+<span class="line"><span style="color:#C0CAF5">        SomeElementInstance</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#C0CAF5">        SomeElementAttributes</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#C0CAF5">        SomeElementEvents</span></span>
+<span class="line"><span style="color:#89DDFF">      ></span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#51597D;font-style:italic">// ... 与之前相同，使用对元素的引用 ...</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>自定义元素作者不应自动从其库中导出框架特定的自定义元素类型定义，例如不应从也导出库其余部分的 <code>index.ts</code> 文件中导出它们，否则用户将遇到意外的模块扩充错误。用户应导入他们需要的框架特定的类型定义文件。</p>
+<h2 id="web-components-vs-rue-components" tabindex="-1">Web 组件与 Rue 组件</h2>
+<p>一些开发者认为应该避免框架专有的组件模型，并且专门使用自定义元素使应用程序&quot;面向未来&quot;。在这里，我们将尝试解释为什么我们认为这是对问题的过于简单的看法。</p>
+<p>自定义元素和 Rue 组件之间确实存在一定水平的功能重叠：它们都允许我们定义具有数据传递、事件发射和生命周期管理的可复用组件。然而，Web 组件 API 相对底层且基础。要构建实际的应用程序，我们需要平台未涵盖的相当多的额外功能：</p>
+<ul>
+<li>一个声明式和高效的模板系统；</li>
+<li>一个响应式状态管理系统，便于跨组件逻辑提取和复用；</li>
+</ul>
+<p>Rue 的组件模型将这些需求设计为一个连贯的系统。</p>
+<p>凭借有能力的工程团队，你可能能够构建与原生自定义元素等效的东西——但这也意味着你正在承担内部框架的长期维护负担，同时失去像 Rue 这样成熟框架的生态系统和社区好处。</p>
+<p>还有一些框架使用自定义元素作为其组件模型的基础，但它们都不可避免地必须引入其专有解决方案来解决上述问题。使用这些框架意味着接受它们解决这些问题的技术决策——尽管可能被宣传，但这并不能自动使你免受潜在未来变动的影响。</p>
+<p>我们还发现自定义元素在某些方面有限制：</p>
+<ul>
+<li>急切的插槽评估阻碍了组件组合。Rue 的<a href="/guide/guide/components/slots#scoped-slots">作用域插槽</a>是一种强大的组件组合机制，由于原生插槽的急切特性，无法被自定义元素支持。急切的插槽也意味着接收组件无法控制何时或是否渲染一段插槽内容。</li>
+</ul>
+<p>Rue 将始终与 Web 平台的最新标准保持同步，如果平台提供的任何东西能让我们的工作更轻松，我们将很乐意利用它。然而，我们的目标是提供今天运行良好且有效的解决方案。这意味着我们必须以批判的态度纳入新平台功能——这涉及在标准仍有不足时填补空白。</p>
+</div></div></article><aside class="hidden xl:block w-60 shrink-0" aria-hidden="true" style="visibility: hidden"><div class="fixed top-24 w-60 max-h-[calc(100vh-7rem)] overflow-auto" style="right: max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem))"><div class="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.18em] text-base-content/45">页内导航</div><div></div></div></aside></div></div></main><footer class="w-full bg-base-200 overflow-hidden"><div class="max-w-[1100px] mx-auto w-full px-6 py-12 grid gap-8 grid-cols-1 md:grid-cols-3"><div><div class="text-base-content font-semibold mb-2">文档</div><ul class="space-y-2 text-sm"><li><a href="/jsx/basic-elements" class="hover:underline">深度指南</a></li><li><a href="/examples/hello-world" class="hover:underline">实战例子</a></li><li><a href="/guide/guide/quick-start" class="hover:underline">快速上手</a></li><li><a href="/page/glossary/index" class="hover:underline">术语表</a></li><li><a href="/page/error-reference/index" class="hover:underline">错误码参照表</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">关于</div><ul class="space-y-2 text-sm"><li><a href="/page/about/faq" class="hover:underline">常见问题</a></li><li><a href="/page/about/team" class="hover:underline">团队</a></li><li><a href="/page/about/releases" class="hover:underline">版本发布</a></li><li><a href="/page/about/community-guide" class="hover:underline">社区指南</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">生态</div><ul class="space-y-2 text-sm"><li><a href="/plugins" class="hover:underline">插件</a></li><li><a href="/design/button" class="hover:underline">组件库</a></li><li><a href="/page/routing" class="hover:underline">路由指南</a></li><li><a href="/textjs" class="hover:underline">Text.js</a></li></ul></div></div><div class="max-w-[1100px] mx-auto px-6"><div class="text-center text-xs text-base-content/60 pb-8">© 2024-2026 Xiangmin Liu</div></div><div class="mx-auto w-full px-6 pb-4 text-center"><div class="flex select-none items-end justify-center gap-6 whitespace-nowrap text-[clamp(12rem,28vw,26rem)] font-black leading-none bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent md:gap-10"><span>Rue</span><span class="pl-1">.JS</span></div></div></footer></div></div>
+  </body>
+</html>

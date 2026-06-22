@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="luxury">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后悔药 Rue.js - The Wasm Framework For Native DOM</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
+    />
+    <style>
+      /* 取消 body 的宽度与背景限制，交由应用布局控制 */
+      body {
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+    </style>
+    <link rel="stylesheet" crossorigin href="/assets/main-zrVSZa30.css">
+  </head>
+
+  <body>
+    <div id="app"><div class="min-h-screen bg-base-100 text-base-content"><header class="site-header fixed top-0 left-0 right-0 z-50 w-full"><div class="navbar bg-transparent max-w-[1400px] mx-auto w-full px-6 items-center"><div class="navbar-start gap-4"><a href="/" class="flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 shadow-lg ring-1 ring-white/30"><span class="text-white font-extrabold text-[32px] md:text-[50px]">R</span></span><span class="text-lg md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">后悔药 Rue.js</span></a></div><nav class="navbar-center hidden md:flex" aria-label="主导航"><ul class="menu menu-horizontal px-1 text-sm"><li><a href="/" class="btn btn-ghost btn-sm">首页</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">文档</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/guide/guide/introduction">深度指南</a></li><li><a href="/examples/hello-world">实战例子</a></li><li><a href="/guide/guide/quick-start">快速上手</a></li><li><a href="/page/routing">路由指南</a></li><li><a href="/page/glossary/index">术语表</a></li><li><a href="/page/error-reference/index">错误代码参考</a></li></ul></li><li><a href="/api/api/index" class="btn btn-ghost btn-sm">API</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">生态</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/partners/index">合作伙伴</a></li><li><a href="/plugins">插件</a></li><li><a href="/design/button">组件库</a></li><li><a href="/page/guide/scaling-up/tooling">工具链</a></li><li><a href="/textjs">Text.js</a></li><li><a href="/page/ecosystem/newsletters">新闻简报</a></li></ul></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">关于</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/about/faq">常见问题</a></li><li><a href="/page/about/team">团队</a></li><li><a href="/page/about/releases">版本发布</a></li><li><a href="/page/about/community-guide">社区指南</a></li><li><a href="/page/about/coc">行为规范</a></li><li><a href="/page/about/privacy">隐私政策</a></li></ul></li><li><a href="/page/sponsor/index" class="btn btn-ghost btn-sm">赞助</a></li><li><a href="/page/partners/index" class="btn btn-ghost btn-sm">合作伙伴</a></li></ul></nav><div class="navbar-end gap-2 items-center"><a href="/settings" class="btn btn-ghost btn-sm">设置</a></div></div></header><main class="min-h-[60vh] pt-24"><div class="max-w-[1400px] mx-auto px-6 py-10"><article><div><div class="max-w-none prose prose-sm md:prose-base" id="doc-body"><h1 id="%E5%8F%91%E5%B8%83%E4%B8%8E%E7%89%88%E6%9C%AC" tabindex="-1">发布与版本</h1>
+<p>当前 Rue 最新稳定版本为 <strong>0.1.0</strong>。</p>
+<p>完整的历史发布记录可在项目的变更日志（CHANGELOG）中查看。发布说明会涵盖新特性、修复、潜在不兼容项以及迁移建议。</p>
+<h2 id="%E5%8F%91%E5%B8%83%E8%8A%82%E5%A5%8F" tabindex="-1">发布节奏</h2>
+<p>Rue 不采用固定周期发布，而是以实用为导向的节奏进行：</p>
+<ul>
+<li>修补版本（patch）：按需发布，集中解决缺陷与小型改进</li>
+<li>小版本（minor）：引入新特性并提升体验，通常间隔数月；在正式发布前会经历 beta 预发布阶段</li>
+<li>大版本（major）：提前预告并展开早期讨论，随后进入 alpha / beta 等预发布阶段，以充分收集反馈与完善迁移文档</li>
+</ul>
+<h2 id="%E8%AF%AD%E4%B9%89%E5%8C%96%E7%89%88%E6%9C%AC%E7%9A%84%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5" tabindex="-1">语义化版本的特殊情况</h2>
+<p>Rue 遵循 <a href="https://semver.org/">Semantic Versioning</a>，但在以下场景可能存在边界情况：</p>
+<h3 id="typescript-definitions" tabindex="-1">TypeScript 类型定义</h3>
+<p>在不同的 <strong>小版本</strong> 之间，TypeScript 类型可能出现不兼容调整。原因包括：</p>
+<ul>
+<li>TypeScript 自身在小版本中引入不兼容变更，需要我们同步适配</li>
+<li>某些能力依赖更高版本的 TypeScript，从而提升最低要求版本</li>
+</ul>
+<p>如果你的项目使用 TS，建议将 Rue 的依赖范围锁定到当前小版本，并在确认后再手动升级至新的小版本。</p>
+<h3 id="%E9%A2%84%E7%BC%96%E8%AF%91%E4%BA%A7%E7%89%A9%E4%B8%8E%E6%97%A7%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7" tabindex="-1">预编译产物与旧运行时的兼容性</h3>
+<p>较新的 Rue 编译器（小版本）可能生成对旧运行时（较早小版本）不完全兼容的代码。对于应用开发者，编译器与运行时版本通常一致，因此影响有限；但对库作者而言，如果你分发的是预编译的组件或指令代码，被更旧版本的运行时消费时可能出现行为差异。此时建议在包的 peer 依赖中明确最低要求的小版本。</p>
+<h3 id="%E9%BB%98%E8%AE%A4%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84%E4%B8%8E-compat-%E5%88%A0%E9%99%A4" tabindex="-1">默认渲染路径与 compat 删除</h3>
+<p>Rue 当前默认渲染路径已经切到 Block / Vapor / Renderable-first。与此同时，显式 compat 子路径也已经作为 breaking change 删除。也就是说：</p>
+<ul>
+<li>主入口默认描述的是当前渲染路径</li>
+<li><code>@rue-js/runtime/compat</code> 与 <code>@rue-js/rue/compat</code> 已不存在</li>
+<li><code>_\$vaporCreateVNode</code> 与 <code>renderCompat*</code> 系列 helper 已移除</li>
+<li>默认公开 helper 会继续围绕 MountInput / mounted snapshot 组织，而不是继续扩大历史桥接对象契约</li>
+</ul>
+<p>如果你维护的是旧的手写渲染 helper、历史 render-function 桥接或预编译产物，请直接改写到默认路径，而不是继续寻找 compat 替代导入。当前迁移指引见 <a href="/guide/guide/migration/renderable-default">默认 Block / Vapor 路径迁移</a>。</p>
+<h2 id="%E9%A2%84%E5%8F%91%E5%B8%83%E7%89%88%E6%9C%AC" tabindex="-1">预发布版本</h2>
+<p>小版本通常会经历若干次 beta 预发布；大版本则会经历 alpha 与 beta 阶段。Rue 也可能通过 npm 标签（如 <code>next</code> / <code>beta</code>）提供早期构建用于集成与稳定性测试。</p>
+<p>预发布版本仅用于验证与收集反馈，请勿在生产环境使用。预发布之间可能出现破坏性变更，若需要试用请固定到确切版本号并关注发布说明。</p>
+<h2 id="%E5%BC%83%E7%94%A8%E7%AD%96%E7%95%A5" tabindex="-1">弃用策略</h2>
+<p>Rue 会在小版本中逐步引入更好的替代方案，并将旧特性标记为“弃用”。被弃用的能力在当前主版本中仍可使用，但会在下一个主版本移除。我们会在发布说明中注明弃用条目与迁移路径。</p>
+<p>对涉及默认渲染路径、compat 子路径、预编译产物边界的调整，发布说明会明确包含以下信息：</p>
+<ul>
+<li>主入口是否发生默认语义变化</li>
+<li>已删除的 compat 命名或旧 helper 是否被重新引入</li>
+<li>旧 helper / 旧导入路径的替代写法</li>
+<li>库作者在 peer 依赖和预编译产物上的最低版本要求</li>
+</ul>
+<h2 id="rfc-%E6%B5%81%E7%A8%8B" tabindex="-1">RFC 流程</h2>
+<p>具有较大 API 面或重要架构变更的提案，会进入 <strong>RFC（征求意见）</strong> 流程。我们通过公开讨论确保演进路径清晰、风险可控，并邀请社区参与设计反馈。相关讨论通常在 Rue 的 GitHub 仓库提案与讨论区进行。</p>
+<h2 id="experimental-features" tabindex="-1">实验性特性</h2>
+<p>部分能力会在稳定版文档中出现，但标注为“实验性”。这类特性通常已经在纸面设计（或 RFC）上解决了主要问题，但仍缺少真实项目规模使用的反馈。实验性特性应在可控范围内试用，并预期在任意发布类型中可能发生变更。</p>
+<hr>
+<p>在本仓库中，你可以使用以下脚本管理版本与发布说明：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#C0CAF5">$</span><span style="color:#C0CAF5"> pnpm</span><span style="color:#C0CAF5"> changelog</span></span>
+<span class="line"></span></code></pre>
+</div>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#C0CAF5">$</span><span style="color:#C0CAF5"> pnpm</span><span style="color:#C0CAF5"> release</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>以上命令会依据约定式提交与版本策略生成发布说明，并推动版本号演进；具体细节以仓库脚本为准。</p>
+</div></div></article></div></main><footer class="w-full bg-base-200 overflow-hidden"><div class="max-w-[1100px] mx-auto w-full px-6 py-12 grid gap-8 grid-cols-1 md:grid-cols-3"><div><div class="text-base-content font-semibold mb-2">文档</div><ul class="space-y-2 text-sm"><li><a href="/jsx/basic-elements" class="hover:underline">深度指南</a></li><li><a href="/examples/hello-world" class="hover:underline">实战例子</a></li><li><a href="/guide/guide/quick-start" class="hover:underline">快速上手</a></li><li><a href="/page/glossary/index" class="hover:underline">术语表</a></li><li><a href="/page/error-reference/index" class="hover:underline">错误码参照表</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">关于</div><ul class="space-y-2 text-sm"><li><a href="/page/about/faq" class="hover:underline">常见问题</a></li><li><a href="/page/about/team" class="hover:underline">团队</a></li><li><a href="/page/about/releases" class="hover:underline">版本发布</a></li><li><a href="/page/about/community-guide" class="hover:underline">社区指南</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">生态</div><ul class="space-y-2 text-sm"><li><a href="/plugins" class="hover:underline">插件</a></li><li><a href="/design/button" class="hover:underline">组件库</a></li><li><a href="/page/routing" class="hover:underline">路由指南</a></li><li><a href="/textjs" class="hover:underline">Text.js</a></li></ul></div></div><div class="max-w-[1100px] mx-auto px-6"><div class="text-center text-xs text-base-content/60 pb-8">© 2024-2026 Xiangmin Liu</div></div><div class="mx-auto w-full px-6 pb-4 text-center"><div class="flex select-none items-end justify-center gap-6 whitespace-nowrap text-[clamp(12rem,28vw,26rem)] font-black leading-none bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent md:gap-10"><span>Rue</span><span class="pl-1">.JS</span></div></div></footer></div></div>
+  </body>
+</html>
