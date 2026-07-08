@@ -1,0 +1,1 @@
+import{f as e,u as t}from"./vapor-runtime-x7F5M-49.js";var n=`__RUE_STATIC_RENDER_ROUTE__`,r=t(null),i=()=>e(r),a=()=>{let e=globalThis[n];return typeof e==`string`?e:``},o=e=>{if(!e)return``;try{let t=new URL(e,`https://rue.local`);return(t.hash.startsWith(`#/`)?t.hash.slice(1):``)||t.pathname||`/`}catch{return e.split(/[?#]/,1)[0]||`/`}};export{o as n,i as r,a as t};
