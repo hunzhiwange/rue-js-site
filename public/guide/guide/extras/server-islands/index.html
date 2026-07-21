@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后悔药 Rue.js - The Wasm Framework For Native DOM</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
+    />
+    <script>
+      ;(function () {
+        try {
+          var defaultTheme = 'luxury'
+          var themes = [
+            'light',
+            'dark',
+            'cupcake',
+            'bumblebee',
+            'emerald',
+            'corporate',
+            'synthwave',
+            'retro',
+            'cyberpunk',
+            'valentine',
+            'halloween',
+            'garden',
+            'forest',
+            'aqua',
+            'lofi',
+            'pastel',
+            'fantasy',
+            'wireframe',
+            'black',
+            'luxury',
+            'dracula',
+            'cmyk',
+            'autumn',
+            'business',
+            'acid',
+            'lemonade',
+            'night',
+            'coffee',
+            'winter',
+            'dim',
+            'nord',
+            'sunset',
+          ]
+          var storedTheme = localStorage.getItem('rue.theme')
+          var theme = themes.includes(storedTheme) ? storedTheme : defaultTheme
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch (e) {}
+      })()
+    </script>
+    <style>
+      /* 取消 body 的宽度与背景限制，交由应用布局控制 */
+      body {
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+    </style>
+    <link rel="stylesheet" crossorigin href="/assets/main-DBuvkGkn.css">
+  </head>
+
+  <body>
+    <div id="app"><div class="min-h-screen bg-base-100 text-base-content"><header class="site-header fixed top-0 left-0 right-0 z-50 w-full"><div class="navbar bg-transparent max-w-[1400px] mx-auto w-full px-6 items-center"><div class="navbar-start gap-4"><a href="/" class="flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 shadow-lg ring-1 ring-white/30"><span class="text-white font-extrabold text-[32px] md:text-[50px]">R</span></span><span class="text-lg md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">后悔药 Rue.js</span></a></div><nav class="navbar-center hidden md:flex" aria-label="主导航"><ul class="menu menu-horizontal px-1 text-sm"><li><a href="/" class="btn btn-ghost btn-sm">首页</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">文档</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/guide/guide/introduction">深度指南</a></li><li><a href="/examples/hello-world">实战例子</a></li><li><a href="/guide/guide/quick-start">快速上手</a></li><li><a href="/page/routing">路由指南</a></li><li><a href="/page/glossary/index">术语表</a></li><li><a href="/page/error-reference/index">错误代码参考</a></li></ul></li><li><a href="/api/api/index" class="btn btn-ghost btn-sm">API</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">生态</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/partners/index">合作伙伴</a></li><li><a href="/plugins">插件</a></li><li><a href="/design/button">组件库</a></li><li><a href="/guide/guide/scaling-up/tooling">工具链</a></li><li><a href="/textjs">Text.js</a></li><li><a href="/page/ecosystem/newsletters">新闻简报</a></li></ul></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">关于</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/about/faq">常见问题</a></li><li><a href="/page/about/team">团队</a></li><li><a href="/page/about/releases">版本发布</a></li><li><a href="/page/about/community-guide">社区指南</a></li><li><a href="/page/about/coc">行为规范</a></li><li><a href="/page/about/privacy">隐私政策</a></li></ul></li><li><a href="/page/sponsor/index" class="btn btn-ghost btn-sm">赞助</a></li><li><a href="/page/partners/index" class="btn btn-ghost btn-sm">合作伙伴</a></li></ul></nav><div class="navbar-end gap-2 items-center"><a href="/settings" class="btn btn-ghost btn-sm">设置</a></div></div></header><main class="min-h-[60vh] pt-24"><div class="max-w-[1400px] mx-auto px-6 py-10"><div class="sidebar-playground md:flex md:items-start md:gap-6 xl:grid xl:grid-cols-[11.25rem_minmax(0,1fr)_15rem]"><div class="md:w-45 shrink-0"><aside class="w-full"><div class="sticky top-20"><nav class="space-y-3 w-full"><div class="rounded-box border border-base-300/60 bg-base-100 px-4 py-3 shadow-sm"><div class="text-xs uppercase tracking-[0.18em] text-base-content/45">目录统计</div><div class="mt-2 flex items-center justify-between gap-3"><span class="text-sm text-base-content/70">总条目</span><span class="badge badge-neutral badge-lg"></span></div><label class="mt-3 block"><span class="sr-only">搜索目录条目</span><input class="input input-sm input-bordered w-full" value="" placeholder="搜索条目 / Search"></label></div> <div key="docs-guide1" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>指南</span><span class="badge badge-ghost badge-sm shrink-0">2</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/introduction"><a href="/guide/guide/introduction" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/introduction">介绍</a></li><li key="guide/quick-start"><a href="/guide/guide/quick-start" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/quick-start">快速上手</a></li></ul></div></div><div key="guide/essentials" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>基础</span><span class="badge badge-ghost badge-sm shrink-0">13</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/essentials/application"><a href="/guide/guide/essentials/application" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/application">应用</a></li><li key="guide/essentials/class-and-style"><a href="/guide/guide/essentials/class-and-style" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/class-and-style">类与样式</a></li><li key="guide/essentials/component-basics"><a href="/guide/guide/essentials/component-basics" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/component-basics">组件基础</a></li><li key="guide/essentials/computed"><a href="/guide/guide/essentials/computed" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/computed">计算属性</a></li><li key="guide/essentials/conditional"><a href="/guide/guide/essentials/conditional" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/conditional">条件渲染</a></li><li key="guide/essentials/event-handling"><a href="/guide/guide/essentials/event-handling" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/event-handling">事件处理</a></li><li key="guide/essentials/forms"><a href="/guide/guide/essentials/forms" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/forms">表单</a></li><li key="guide/essentials/lifecycle"><a href="/guide/guide/essentials/lifecycle" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/lifecycle">生命周期</a></li><li key="guide/essentials/list"><a href="/guide/guide/essentials/list" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/list">列表</a></li><li key="guide/essentials/reactivity-fundamentals"><a href="/guide/guide/essentials/reactivity-fundamentals" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/reactivity-fundamentals">响应式基础</a></li><li key="guide/essentials/template-refs"><a href="/guide/guide/essentials/template-refs" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/template-refs">模板引用</a></li><li key="guide/essentials/template-syntax"><a href="/guide/guide/essentials/template-syntax" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/template-syntax">模板语法</a></li><li key="guide/essentials/watchers"><a href="/guide/guide/essentials/watchers" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/essentials/watchers">侦听</a></li></ul></div></div><div key="guide/built-ins" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>内置功能</span><span class="badge badge-ghost badge-sm shrink-0">5</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/built-ins/keep-alive"><a href="/guide/guide/built-ins/keep-alive" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/built-ins/keep-alive">KeepAlive</a></li><li key="guide/built-ins/suspense"><a href="/guide/guide/built-ins/suspense" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/built-ins/suspense">Suspense</a></li><li key="guide/built-ins/teleport"><a href="/guide/guide/built-ins/teleport" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/built-ins/teleport">Teleport</a></li><li key="guide/built-ins/transition-group"><a href="/guide/guide/built-ins/transition-group" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/built-ins/transition-group">TransitionGroup</a></li><li key="guide/built-ins/transition"><a href="/guide/guide/built-ins/transition" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/built-ins/transition">Transition</a></li></ul></div></div><div key="guide/components" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>组件</span><span class="badge badge-ghost badge-sm shrink-0">8</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/components/async"><a href="/guide/guide/components/async" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/async">异步组件</a></li><li key="guide/components/attrs"><a href="/guide/guide/components/attrs" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/attrs">属性</a></li><li key="guide/components/events"><a href="/guide/guide/components/events" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/events">事件</a></li><li key="guide/components/props"><a href="/guide/guide/components/props" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/props">Props</a></li><li key="guide/components/create-context"><a href="/guide/guide/components/create-context" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/create-context">Create Context</a></li><li key="guide/components/registration"><a href="/guide/guide/components/registration" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/registration">注册</a></li><li key="guide/components/slots"><a href="/guide/guide/components/slots" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/slots">插槽</a></li><li key="guide/components/v-model"><a href="/guide/guide/components/v-model" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/components/v-model">v-model</a></li></ul></div></div><div key="guide/extras" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>进阶</span><span class="badge badge-ghost badge-sm shrink-0">9</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/extras/animation"><a href="/guide/guide/extras/animation" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/animation">动画</a></li><li key="guide/extras/composition-api-faq"><a href="/guide/guide/extras/composition-api-faq" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/composition-api-faq">组合式 API 常见问题</a></li><li key="guide/extras/reactivity-in-depth"><a href="/guide/guide/extras/reactivity-in-depth" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/reactivity-in-depth">响应式深入</a></li><li key="guide/extras/resources"><a href="/guide/guide/extras/resources" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/resources">资源</a></li><li key="guide/extras/reactivity-transform"><a href="/guide/guide/extras/reactivity-transform" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/reactivity-transform">响应式转换</a></li><li key="guide/extras/render-function"><a href="/guide/guide/extras/render-function" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/render-function">渲染函数</a></li><li key="guide/extras/rendering-mechanism"><a href="/guide/guide/extras/rendering-mechanism" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/rendering-mechanism">渲染机制</a></li><li key="guide/extras/ways-of-using-vue"><a href="/guide/guide/extras/ways-of-using-vue" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/ways-of-using-vue">使用方式</a></li><li key="guide/extras/web-components"><a href="/guide/guide/extras/web-components" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/extras/web-components">Web 组件</a></li></ul></div></div><div key="guide/reusability" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>复用性</span><span class="badge badge-ghost badge-sm shrink-0">2</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/reusability/composables"><a href="/guide/guide/reusability/composables" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/reusability/composables">可组合函数</a></li><li key="guide/reusability/plugins"><a href="/guide/guide/reusability/plugins" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/reusability/plugins">插件</a></li></ul></div></div><div key="guide/scaling-up" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>扩展与进阶</span><span class="badge badge-ghost badge-sm shrink-0">4</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/scaling-up/routing"><a href="/guide/guide/scaling-up/routing" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/scaling-up/routing">路由</a></li><li key="guide/scaling-up/state-management"><a href="/guide/guide/scaling-up/state-management" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/scaling-up/state-management">状态管理</a></li><li key="guide/scaling-up/testing"><a href="/guide/guide/scaling-up/testing" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/scaling-up/testing">测试</a></li><li key="guide/scaling-up/tooling"><a href="/guide/guide/scaling-up/tooling" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/scaling-up/tooling">工具链</a></li></ul></div></div><div key="guide/best-practices" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>最佳实践</span><span class="badge badge-ghost badge-sm shrink-0">4</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/best-practices/accessibility"><a href="/guide/guide/best-practices/accessibility" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/best-practices/accessibility">无障碍</a></li><li key="guide/best-practices/performance"><a href="/guide/guide/best-practices/performance" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/best-practices/performance">性能</a></li><li key="guide/best-practices/production-deployment"><a href="/guide/guide/best-practices/production-deployment" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/best-practices/production-deployment">生产部署</a></li><li key="guide/best-practices/security"><a href="/guide/guide/best-practices/security" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/best-practices/security">安全</a></li></ul></div></div><div key="guide/typescript" class="collapse collapse-arrow bg-base-100 rounded-box shadow w-full collapse-open"><button class="collapse-title px-3 py-2 font-medium text-base-content w-full text-left"><span class="flex items-center justify-between gap-3 pr-6"><span>TypeScript</span><span class="badge badge-ghost badge-sm shrink-0">2</span></span></button><div class="collapse-content px-0"><ul class="menu menu-sm bg-transparent rounded-box w-full"><li key="guide/typescript/overview"><a href="/guide/guide/typescript/overview" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/typescript/overview">概览</a></li><li key="guide/typescript/composition-api"><a href="/guide/guide/typescript/composition-api" aria-current="undefined" class=" w-full" data-rue-sidebar-href="/guide/guide/typescript/composition-api">组合式 API</a></li></ul></div></div></nav></div></aside></div><article class="component-preview min-w-0"><div><div class="max-w-none prose prose-sm md:prose-base" id="doc-body"><h1 id="server-islands">服务端岛屿 (Server Islands)</h1>
+<p>服务端岛屿把动态或个性化组件从主页面 SSR 中拆出。主响应立即输出静态页面和 fallback；浏览器随后向独立端点请求该组件的 HTML。它适合用户头像、账户摘要、库存和推荐等不应阻塞或降低整页缓存能力的区域。</p>
+<p>Rue 的 <code>server:defer</code> 以 <a href="https://docs.astro.build/en/guides/server-islands/">Astro server islands</a> 为行为基线，但仍需要宿主平台显式接好 handler、密钥和请求上下文。</p>
+<h2 id="basic-usage">基本用法</h2>
+<p>延迟组件必须来自当前文件的直接默认或命名 import：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> UserPanel</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./UserPanel</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#9D7CD8;font-style:italic"> const</span><span style="color:#7AA2F7"> Page</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;</span><span style="color:#F7768E">main</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#F7768E">h1</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">可缓存的页面主体</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">h1</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#DE5971">UserPanel </span><span style="color:#BB9AF7">server</span><span style="color:#89DDFF">:</span><span style="color:#BB9AF7">defer</span><span style="color:#BB9AF7"> layout</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">compact</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> fallback</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">p</span><span style="color:#BB9AF7"> aria-busy</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">true</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">正在加载账户…</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">p</span><span style="color:#BA3C97">></span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97"> /></span></span>
+<span class="line"><span style="color:#BA3C97">  &#x3C;/</span><span style="color:#F7768E">main</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p><code>server:defer</code> 不能和任何 <code>client:*</code> 同时放在同一组件上。编译器会生成只包含 registry ID、props 和 fallback 的服务端描述符，并把组件放进仅 SSR graph 可导入的 <code>virtual:rue-server-island-registry</code>。如果组件 import 没有其他引用，浏览器 graph 会完全移除它。</p>
+<p>fallback 是 Rue 的 <code>fallback</code> prop；Astro 使用名为 <code>fallback</code> 的 slot。两者的用户可观察时序相同：主 HTML 只有 fallback，独立请求成功后才替换内容。</p>
+<h2 id="adapter-contract">接入组成</h2>
+<p>平台 adapter 需要完成三件事：</p>
+<ol>
+<li>主 SSR 给 <code>renderToString()</code> 配置 endpoint 和加密回调。</li>
+<li>endpoint 使用 <code>createServerIslandHandler()</code>，并通过编译器 registry 只解析允许的组件。</li>
+<li>浏览器入口显式调用 <code>startRueServerIslandLoader()</code>。</li>
+</ol>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">renderToString</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/server-renderer</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#0DB9D7">  createServerIslandHandler</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#0DB9D7">  encodeServerIslandPayload</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/server-renderer/server-island</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> html</span><span style="color:#89DDFF"> =</span><span style="color:#BB9AF7;font-style:italic"> await</span><span style="color:#7AA2F7"> renderToString</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">App</span><span style="color:#89DDFF">,</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#73DACA">  serverIslands</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#73DACA">    endpoint</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">/_rue/server-island</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#7AA2F7">    encode</span><span style="color:#89DDFF">:</span><span style="color:#E0AF68"> payload</span><span style="color:#BB9AF7"> =></span></span>
+<span class="line"><span style="color:#7AA2F7">      encodeServerIslandPayload</span><span style="color:#9ABDF5">({</span></span>
+<span class="line"><span style="color:#F7768E;font-weight:bold">        ...</span><span style="color:#C0CAF5">payload</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#41A6B5">        expiresAt</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> Date</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">now</span><span style="color:#9ABDF5">()</span><span style="color:#89DDFF"> +</span><span style="color:#FF9E64"> 5</span><span style="color:#89DDFF"> *</span><span style="color:#FF9E64"> 60_000</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#C0CAF5">        key</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">      })</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> handler</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> createServerIslandHandler</span><span style="color:#9ABDF5">({</span></span>
+<span class="line"><span style="color:#C0CAF5">  key</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#7AA2F7">  resolve</span><span style="color:#89DDFF">:</span><span style="color:#9D7CD8;font-style:italic"> async</span><span style="color:#E0AF68"> id</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> (</span><span style="color:#BB9AF7;font-style:italic">await</span><span style="color:#7AA2F7"> resolveRueServerIslandModule</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">id</span><span style="color:#9ABDF5">))</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">default</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#7AA2F7">  render</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> (</span><span style="color:#89DDFF">{</span><span style="color:#E0AF68"> component</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> props</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> request</span><span style="color:#89DDFF"> }</span><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">    const</span><span style="color:#BB9AF7"> session</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> authenticate</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">request</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">    return</span><span style="color:#7AA2F7"> renderToString</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">component</span><span style="color:#89DDFF">,</span><span style="color:#9ABDF5"> { </span><span style="color:#73DACA">props</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> { </span><span style="color:#F7768E;font-weight:bold">...</span><span style="color:#C0CAF5">props</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> session</span><span style="color:#9ABDF5"> } })</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span></code></pre>
+</div>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">startRueServerIslandLoader</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/runtime/server-island</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7AA2F7">startRueServerIslandLoader</span><span style="color:#9ABDF5">()</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>完整 Node + Vite bridge 见 <code>examples/server-islands/</code>，运行：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#C0CAF5">pnpm</span><span style="color:#C0CAF5"> run</span><span style="color:#C0CAF5"> example</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5">server</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">islands</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5">dev</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>示例中的 cookie 只是 adapter 职责演示，不是认证实现。</p>
+<h2 id="get-post-caching">GET、POST 与缓存</h2>
+<p>Rue 按完整 URL 的 UTF-8 字节数选择请求：不超过 <code>maxGetUrlLength</code>（默认 2048）时使用 GET，超过后改用 JSON POST。props 在两条路径中都先经过严格序列化，再封装为 AES-GCM-256 密文；HTML 不包含明文 props。</p>
+<table>
+<thead>
+<tr>
+<th>请求</th>
+<th>适用</th>
+<th>缓存建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>小型 props；完整 URL 不超过预算</td>
+<td>只有结果确实公开且 cache key 完整时才设 <code>public</code>；个性化输出通常用 <code>private, no-store</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>大型 props</td>
+<td>不依赖浏览器或共享缓存；尽量缩小 props，避免大对象和数组</td>
+</tr>
+</tbody>
+</table>
+<p>handler 返回个性化 HTML 时，adapter 应明确设置 <code>Cache-Control: private, no-store</code>。如果响应依赖 cookie，还应设置 <code>Vary: Cookie</code>，但不要把 <code>Vary</code> 当作认证或防泄漏机制。只有与用户无关的岛才适合共享缓存。</p>
+<p>AES-GCM 每次编码都会使用新 IV，因此即使 props 相同，加密 URL 也可能不同；这增强了 nonce 安全性，但会降低按 URL 命中缓存的概率。</p>
+<h2 id="key-management">密钥与多实例部署</h2>
+<ul>
+<li>密钥必须是恰好 32 字节的 AES-GCM-256 key，存放在 secret manager 或部署环境中，不能写入源码、HTML、日志或浏览器 bundle。</li>
+<li>页面生成实例和 server-island handler 必须使用同一把 key。滚动发布、多区域、多实例和 CDN 缓存场景尤其需要共享稳定 key。</li>
+<li>当前 v1 envelope 没有 key ID。轮换时应协调切换，并让旧 shell 的 CDN TTL 与 payload <code>expiresAt</code> 足够短；必要时先清除旧 HTML，再停用旧 key。</li>
+<li>解密失败、过期、未知 registry ID 和超限请求只返回稳定的 400/410/404/413，不回显密文、props 或模块路径。</li>
+</ul>
+<h2 id="request-security">请求上下文与安全边界</h2>
+<p>服务端岛运行在自己的 endpoint 请求中，<code>request.url</code> 指向 <code>/_rue/server-island</code>，不是原页面 URL。cookie 和请求 header 应从 handler 收到的标准 <code>Request</code> 读取；需要原页面信息时，显式传递最小 props，或在可信场景读取并校验 <code>Referer</code>。不要信任客户端自行补充的用户 ID、权限或模块名。</p>
+<p>编译器 registry 是 allowlist：handler 只接受构建时生成的 ID，并动态导入对应服务端组件。不要实现“把 URL 中模块路径直接 import”的 resolver。</p>
+<p>POST body 默认限制为 64 KiB；合法 payload 还会校验协议版本、ID、AES-GCM 附加数据、序列化白名单和过期时间。函数、Symbol、<code>undefined</code>、<code>NaN</code>、循环引用和任意 class 实例不会被编码。</p>
+<p>浏览器 loader 只接受 <code>response.ok</code> 且 <code>content-type</code> 为 <code>text/html</code> 的响应。请求期间保留 fallback；失败写入 <code>data-rue-status="error"</code> 而不插入服务端错误页。节点被移除或 loader cleanup 时会 abort，迟到响应不能写 DOM。</p>
+<h2 id="csp">CSP</h2>
+<p>loader 应作为外部 <code>type="module"</code> 入口交付，并由 <code>script-src</code> 允许该静态资源源。POST token 使用 <code>script[type="application/json"]</code> 保存数据，但它不执行代码，也不要求 <code>unsafe-inline</code>。如果部署平台或 CSP 审计器对所有 script 元素要求 nonce，请由 adapter 给协议数据节点和模块入口统一注入合适策略；不要为此放宽到 <code>unsafe-inline</code>。</p>
+<p>服务端返回的 HTML 仍属于可信渲染输出。组件中插入原始 HTML 时必须自行消毒；加密 props 只防止泄露和篡改，不会把不可信 HTML 变安全。</p>
+<h2 id="nested-client-islands">与客户端岛组合</h2>
+<p>服务端响应可以包含普通 <code>&lt;rue-island&gt;</code>。<code>startRueServerIslandLoader()</code> 原子替换 fallback 后，现有客户端岛 MutationObserver 会发现新节点并按 <code>client:*</code> 策略水合。两个 loader 相互独立：只需要服务端 HTML 的页面不必加载组件 hydration runtime。</p>
+</div> </div></article><aside class="hidden xl:block w-60 shrink-0" aria-hidden="true" style="visibility: hidden"><div class="fixed top-24 w-60 max-h-[calc(100vh-7rem)] overflow-auto" style="right: max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem))"><div class="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.18em] text-base-content/45">页内导航</div><div></div></div></aside></div></div></main><footer class="w-full bg-base-200 overflow-hidden"><div class="max-w-[1100px] mx-auto w-full px-6 py-12 grid gap-8 grid-cols-1 md:grid-cols-3"><div><div class="text-base-content font-semibold mb-2">文档</div><ul class="space-y-2 text-sm"><li><a href="/jsx/basic-elements" class="hover:underline">深度指南</a></li><li><a href="/examples/hello-world" class="hover:underline">实战例子</a></li><li><a href="/guide/guide/quick-start" class="hover:underline">快速上手</a></li><li><a href="/page/glossary/index" class="hover:underline">术语表</a></li><li><a href="/page/error-reference/index" class="hover:underline">错误码参照表</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">关于</div><ul class="space-y-2 text-sm"><li><a href="/page/about/faq" class="hover:underline">常见问题</a></li><li><a href="/page/about/team" class="hover:underline">团队</a></li><li><a href="/page/about/releases" class="hover:underline">版本发布</a></li><li><a href="/page/about/community-guide" class="hover:underline">社区指南</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">生态</div><ul class="space-y-2 text-sm"><li><a href="/plugins" class="hover:underline">插件</a></li><li><a href="/design/button" class="hover:underline">组件库</a></li><li><a href="/page/routing" class="hover:underline">路由指南</a></li><li><a href="/textjs" class="hover:underline">Text.js</a></li></ul></div></div><div class="max-w-[1100px] mx-auto px-6"><div class="text-center text-xs text-base-content/60 pb-8">© 2024-2026 Xiangmin Liu</div></div><div class="mx-auto w-full px-6 pb-4 text-center"><div class="flex select-none items-end justify-center gap-6 whitespace-nowrap text-[clamp(12rem,28vw,26rem)] font-black leading-none bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent md:gap-10"><span>Rue</span><span class="pl-1">.JS</span></div></div></footer></div></div>
+  </body>
+</html>

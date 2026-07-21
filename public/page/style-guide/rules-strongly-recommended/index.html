@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="luxury">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,50 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
     />
+    <script>
+      ;(function () {
+        try {
+          var defaultTheme = 'luxury'
+          var themes = [
+            'light',
+            'dark',
+            'cupcake',
+            'bumblebee',
+            'emerald',
+            'corporate',
+            'synthwave',
+            'retro',
+            'cyberpunk',
+            'valentine',
+            'halloween',
+            'garden',
+            'forest',
+            'aqua',
+            'lofi',
+            'pastel',
+            'fantasy',
+            'wireframe',
+            'black',
+            'luxury',
+            'dracula',
+            'cmyk',
+            'autumn',
+            'business',
+            'acid',
+            'lemonade',
+            'night',
+            'coffee',
+            'winter',
+            'dim',
+            'nord',
+            'sunset',
+          ]
+          var storedTheme = localStorage.getItem('rue.theme')
+          var theme = themes.includes(storedTheme) ? storedTheme : defaultTheme
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch (e) {}
+      })()
+    </script>
     <style>
       /* 取消 body 的宽度与背景限制，交由应用布局控制 */
       body {
@@ -22,561 +66,10 @@
         margin-bottom: 20px;
       }
     </style>
-    <link rel="stylesheet" crossorigin href="/assets/main-B2a_JFaa.css">
+    <link rel="stylesheet" crossorigin href="/assets/main-DBuvkGkn.css">
   </head>
 
   <body>
-    <div id="app"><div class="min-h-screen bg-base-100 text-base-content"><header class="site-header fixed top-0 left-0 right-0 z-50 w-full"><div class="navbar bg-transparent max-w-[1400px] mx-auto w-full px-6 items-center"><div class="navbar-start gap-4"><a href="/" class="flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 shadow-lg ring-1 ring-white/30"><span class="text-white font-extrabold text-[32px] md:text-[50px]">R</span></span><span class="text-lg md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">后悔药 Rue.js</span></a></div><nav class="navbar-center hidden md:flex" aria-label="主导航"><ul class="menu menu-horizontal px-1 text-sm"><li><a href="/" class="btn btn-ghost btn-sm">首页</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">文档</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/guide/guide/introduction">深度指南</a></li><li><a href="/examples/hello-world">实战例子</a></li><li><a href="/guide/guide/quick-start">快速上手</a></li><li><a href="/page/routing">路由指南</a></li><li><a href="/page/glossary/index">术语表</a></li><li><a href="/page/error-reference/index">错误代码参考</a></li></ul></li><li><a href="/api/api/index" class="btn btn-ghost btn-sm">API</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">生态</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/partners/index">合作伙伴</a></li><li><a href="/plugins">插件</a></li><li><a href="/design/button">组件库</a></li><li><a href="/guide/guide/scaling-up/tooling">工具链</a></li><li><a href="/textjs">Text.js</a></li><li><a href="/page/ecosystem/newsletters">新闻简报</a></li></ul></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">关于</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/about/faq">常见问题</a></li><li><a href="/page/about/team">团队</a></li><li><a href="/page/about/releases">版本发布</a></li><li><a href="/page/about/community-guide">社区指南</a></li><li><a href="/page/about/coc">行为规范</a></li><li><a href="/page/about/privacy">隐私政策</a></li></ul></li><li><a href="/page/sponsor/index" class="btn btn-ghost btn-sm">赞助</a></li><li><a href="/page/partners/index" class="btn btn-ghost btn-sm">合作伙伴</a></li></ul></nav><div class="navbar-end gap-2 items-center"><a href="/settings" class="btn btn-ghost btn-sm">设置</a></div></div></header><main class="min-h-[60vh] pt-24"><div class="max-w-[1400px] mx-auto px-6 py-10"><article><div><div class="max-w-none prose prose-sm md:prose-base" id="doc-body"><h1 id="priority-b-rules-strongly-recommended">优先级 B 规则：强烈推荐</h1>
-<p>这些规则已被发现在大多数项目中提高可读性和/或开发者体验。如果你违反它们，你的代码仍然可以运行，但违规应该很少且有充分的理由。</p>
-<h2 id="component-files">组件文件</h2>
-<p><strong>只要有构建系统可以连接文件，每个组件都应该在自己的文件中。</strong></p>
-<p>这可以帮助你在需要编辑或查看如何使用它时更快地找到组件。</p>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">export</span><span style="color:#BB9AF7"> function</span><span style="color:#7AA2F7"> TodoList</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  // ...</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#BB9AF7"> function</span><span style="color:#7AA2F7"> TodoItem</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  // ...</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<pre><code>components/
-|- TodoList.js
-|- TodoItem.js
-</code></pre>
-<pre><code>components/
-|- TodoList.jsx
-|- TodoItem.jsx
-</code></pre>
-</div>
-<h2 id="component-filename-casing">组件文件名大小写</h2>
-<p><strong>组件文件名应始终使用 PascalCase。</strong></p>
-<p>PascalCase 在代码编辑器中配合自动补全效果最好，因为它与我们在 JSX / TSX 中引用组件的方式一致。</p>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<pre><code>components/
-|- mycomponent.jsx
-</code></pre>
-<pre><code>components/
-|- myComponent.jsx
-</code></pre>
-<pre><code>components/
-|- my-component.jsx
-</code></pre>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<pre><code>components/
-|- MyComponent.jsx
-</code></pre>
-</div>
-<h2 id="base-component-names">基础组件名称</h2>
-<p><strong>应用特定样式和约定的基础组件（又称展示性组件、哑组件或纯组件）都应该以特定前缀开头，例如 <code>Base</code>、<code>App</code> 或 <code>V</code>。</strong></p>
-<p>::: details 详细解释
-这些组件为应用中的一致样式和行为奠定基础。它们<strong>只能</strong>包含：</p>
-<ul>
-<li>HTML 元素，</li>
-<li>其他基础组件，和</li>
-<li>第三方 UI 组件。</li>
-</ul>
-<p>但它们<strong>永远不会</strong>包含全局状态（例如来自状态管理库）。</p>
-<p>它们的名称通常包含它们包装的元素的名称（例如 <code>BaseButton</code>、<code>BaseTable</code>），除非没有元素存在于它们的特定目的（例如 <code>BaseIcon</code>）。如果你为更具体的上下文构建类似的组件，它们几乎总是会消费这些组件（例如 <code>BaseButton</code> 可能用于 <code>ButtonSubmit</code>）。</p>
-<p>这种约定的一些优点：</p>
-<ul>
-<li>
-<p>在编辑器中按字母顺序组织时，应用的基础组件都列在一起，使它们更容易识别。</p>
-</li>
-<li>
-<p>由于组件名称应始终是多词的，这种约定防止你不得不为简单组件包装器选择任意前缀（例如 <code>MyButton</code>、<code>RueButton</code>）。</p>
-</li>
-<li>
-<p>由于这些组件使用如此频繁，你可能希望从统一入口导出它们，或在确实需要字符串动态解析时通过 <code>useApp(...).component()</code> 注册到运行时名称表。统一前缀会让这类批量组织更容易保持清晰：</p>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">export</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">BaseButton</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./BaseButton</span><span style="color:#89DDFF">'</span></span>
-<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">BaseTable</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./BaseTable</span><span style="color:#89DDFF">'</span></span>
-<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">BaseIcon</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./BaseIcon</span><span style="color:#89DDFF">'</span></span>
-<span class="line"></span></code></pre>
-</div>
-<p>:::</p>
-</li>
-</ul>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<pre><code>components/
-|- MyButton.jsx
-|- DataTable.jsx
-|- Icon.jsx
-</code></pre>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<pre><code>components/
-|- BaseButton.jsx
-|- BaseTable.jsx
-|- BaseIcon.jsx
-</code></pre>
-<pre><code>components/
-|- AppButton.jsx
-|- AppTable.jsx
-|- AppIcon.jsx
-</code></pre>
-<pre><code>components/
-|- VButton.jsx
-|- VTable.jsx
-|- VIcon.jsx
-</code></pre>
-</div>
-<h2 id="tightly-coupled-component-names">紧密耦合的组件名称</h2>
-<p><strong>与其父组件紧密耦合的子组件应在其名称中包含父组件名称作为前缀。</strong></p>
-<p>如果一个组件只在单个父组件的上下文中才有意义，这种关系应该在其名称中显而易见。由于编辑器通常按字母顺序组织文件，这也使这些相关文件彼此相邻。</p>
-<p>::: details 详细解释
-你可能想通过将子组件嵌套在以父组件命名的目录中来解决这个问题。例如：</p>
-<pre><code>components/
-|- TodoList/
-   |- Item/
-      |- index.jsx
-      |- Button.jsx
-   |- index.jsx
-</code></pre>
-<p>或：</p>
-<pre><code>components/
-|- TodoList/
-   |- Item/
-      |- Button.jsx
-   |- Item.jsx
-|- TodoList.jsx
-</code></pre>
-<p>不推荐这样做，因为它会导致：</p>
-<ul>
-<li>许多名称相似的文件，使得在代码编辑器中快速切换文件更加困难。</li>
-<li>许多嵌套子目录，这增加了在编辑器侧边栏中浏览组件所需的时间。
-:::</li>
-</ul>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<pre><code>components/
-|- TodoList.jsx
-|- TodoItem.jsx
-|- TodoButton.jsx
-</code></pre>
-<pre><code>components/
-|- SearchSidebar.jsx
-|- NavigationForSearchSidebar.jsx
-</code></pre>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<pre><code>components/
-|- TodoList.jsx
-|- TodoListItem.jsx
-|- TodoListItemButton.jsx
-</code></pre>
-<pre><code>components/
-|- SearchSidebar.jsx
-|- SearchSidebarNavigation.jsx
-</code></pre>
-</div>
-<h2 id="order-of-words-in-component-names">组件名称中词语的顺序</h2>
-<p><strong>组件名称应以最高级别（通常是最通用的）词语开头，以描述性修饰词结尾。</strong></p>
-<p>::: details 详细解释
-你可能想知道：</p>
-<blockquote>
-<p>“为什么我们要强制组件名称使用不太自然的语言？”</p>
-</blockquote>
-<p>在自然英语中，形容词和其他描述符通常出现在名词之前，而例外需要连接词。例如：</p>
-<ul>
-<li>Coffee <em>with</em> milk</li>
-<li>Soup <em>of the</em> day</li>
-<li>Visitor <em>to the</em> museum</li>
-</ul>
-<p>如果你愿意，你肯定可以在组件名称中包含这些连接词，但顺序仍然很重要。</p>
-<p>还要注意，<strong>什么是“最高级别”将取决于你的应用</strong>。例如，想象一个带有搜索表单的应用。它可能包含这样的组件：</p>
-<pre><code>components/
-|- ClearSearchButton.jsx
-|- ExcludeFromSearchInput.jsx
-|- LaunchOnStartupCheckbox.jsx
-|- RunSearchButton.jsx
-|- SearchInput.jsx
-|- TermsCheckbox.jsx
-</code></pre>
-<p>正如你可能注意到的，很难看出哪些组件特定于搜索。现在让我们根据规则重命名组件：</p>
-<pre><code>components/
-|- SearchButtonClear.jsx
-|- SearchButtonRun.jsx
-|- SearchInputExcludeGlob.jsx
-|- SearchInputQuery.jsx
-|- SettingsCheckboxLaunchOnStartup.jsx
-|- SettingsCheckboxTerms.jsx
-</code></pre>
-<p>由于编辑器通常按字母顺序组织文件，组件之间的所有重要关系现在一目了然。</p>
-<p>你可能想通过不同的方式解决这个问题，将所有搜索组件嵌套在“search”目录下，然后将所有设置组件嵌套在“settings”目录下。我们仅在非常大的应用（例如 100+ 组件）中推荐考虑这种方法，原因如下：</p>
-<ul>
-<li>通常浏览嵌套子目录比在单个 <code>components</code> 目录中滚动需要更多时间。</li>
-<li>名称冲突（例如多个 <code>ButtonDelete.jsx</code> 组件）使得在代码编辑器中快速导航到特定组件更加困难。</li>
-<li>重构变得更加困难，因为查找和替换通常不足以更新对移动组件的相对引用。
-:::</li>
-</ul>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<pre><code>components/
-|- ClearSearchButton.jsx
-|- ExcludeFromSearchInput.jsx
-|- LaunchOnStartupCheckbox.jsx
-|- RunSearchButton.jsx
-|- SearchInput.jsx
-|- TermsCheckbox.jsx
-</code></pre>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<pre><code>components/
-|- SearchButtonClear.jsx
-|- SearchButtonRun.jsx
-|- SearchInputQuery.jsx
-|- SearchInputExcludeGlob.jsx
-|- SettingsCheckboxTerms.jsx
-|- SettingsCheckboxLaunchOnStartup.jsx
-</code></pre>
-</div>
-<h2 id="self-closing-components">自闭合组件</h2>
-<p><strong>没有内容的组件在 JSX 中应该是自闭合的。</strong></p>
-<p>自闭合的组件表明它们不仅没有内容，而且<strong>应该</strong>没有内容。这就像书上的空白页和标有“此页故意留白”的页面之间的区别。没有不必要的结束标签，你的代码也更干净。</p>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9ABDF5">{</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  /* 在 JSX 中 */</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"><span style="color:#89DDFF">;</span><span style="color:#BB9AF7">&#x3C;</span><span style="color:#C0CAF5">MyComponent</span><span style="color:#BB9AF7">>&#x3C;</span><span style="color:#89DDFF">/</span><span style="color:#C0CAF5">MyComponent</span><span style="color:#BB9AF7">></span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9ABDF5">{</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  /* 在 JSX 中 */</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"><span style="color:#89DDFF">;</span><span style="color:#BB9AF7">&#x3C;</span><span style="color:#C0CAF5">MyComponent</span><span style="color:#89DDFF"> /</span><span style="color:#BB9AF7">></span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<h2 id="component-name-casing-in-templates">JSX / TSX 中的组件名称大小写</h2>
-<p><strong>组件名称在 JSX / TSX 中应始终使用 PascalCase。</strong></p>
-<p>PascalCase 有一些优点：</p>
-<ul>
-<li>编辑器可以在 JSX / TSX 中自动补全组件名称，因为 PascalCase 也用于 JavaScript。</li>
-<li><code>&lt;MyComponent&gt;</code> 比 <code>&lt;my-component&gt;</code> 在视觉上与原生 HTML 元素或自定义元素的区别更明显。</li>
-<li>在 JSX / TSX 中，小写或短横线标签会按原生元素 / 自定义元素处理，而不是按导入的 Rue 组件处理。</li>
-</ul>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9ABDF5">{</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  /* 在 JSX 中 */</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"><span style="color:#89DDFF">;</span><span style="color:#BB9AF7">&#x3C;</span><span style="color:#C0CAF5">mycomponent</span><span style="color:#89DDFF"> /</span><span style="color:#BB9AF7">></span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9ABDF5">{</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  /* 在 JSX 中 */</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"><span style="color:#89DDFF">;</span><span style="color:#BB9AF7">&#x3C;</span><span style="color:#C0CAF5">myComponent</span><span style="color:#89DDFF"> /</span><span style="color:#BB9AF7">></span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9ABDF5">{</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  /* 在 JSX 中 */</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"><span style="color:#89DDFF">;</span><span style="color:#BB9AF7">&#x3C;</span><span style="color:#C0CAF5">my</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">component</span><span style="color:#89DDFF"> /</span><span style="color:#BB9AF7">></span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9ABDF5">{</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  /* 在 JSX 中 */</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"><span style="color:#89DDFF">;</span><span style="color:#BB9AF7">&#x3C;</span><span style="color:#C0CAF5">MyComponent</span><span style="color:#89DDFF"> /</span><span style="color:#BB9AF7">></span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<h2 id="component-name-casing-in-js-jsx">JS/JSX 中的组件名称大小写</h2>
-<p><strong>JS/JSX 中的组件名称应始终使用 PascalCase。</strong></p>
-<p>::: details 详细解释
-在 JavaScript 中，PascalCase 是类和原型构造函数的约定——本质上，任何可以有不同实例的东西。Rue 组件也有实例，因此使用 PascalCase 也是有意义的。作为额外的好处，在 JSX / TSX 中使用 PascalCase 允许代码读者更容易区分组件和 HTML 元素。
-:::</p>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#7AA2F7"> myComponent</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  // ...</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> myComponent</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./MyComponent.jsx</span><span style="color:#89DDFF">'</span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7AA2F7">useApp</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">App</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">component</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">myComponent</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> MyComponent</span><span style="color:#9ABDF5">)</span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#7AA2F7"> MyComponent</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> ()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  // ...</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> MyComponent</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">./MyComponent.jsx</span><span style="color:#89DDFF">'</span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7AA2F7">useApp</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">App</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">component</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#9ECE6A">MyComponent</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> MyComponent</span><span style="color:#9ABDF5">)</span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<h2 id="full-word-component-names">完整单词的组件名称</h2>
-<p><strong>组件名称应优先使用完整单词而不是缩写。</strong></p>
-<p>编辑器中的自动补全使编写较长名称的成本非常低，而它们提供的清晰度是无价的。特别是不常见的缩写应该始终避免。</p>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<pre><code>components/
-|- SdSettings.jsx
-|- UProfOpts.jsx
-</code></pre>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<pre><code>components/
-|- StudentDashboardSettings.jsx
-|- UserProfileOptions.jsx
-</code></pre>
-</div>
-<h2 id="prop-name-casing">Prop 名称大小写</h2>
-<p><strong>声明时 Prop 名称应始终使用 camelCase。</strong></p>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> Props</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#89DDFF">  '</span><span style="color:#9ECE6A">greeting-text</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> string</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> Props</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#C0CAF5">  greetingText</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> string</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<h2 id="multi-attribute-elements">多属性元素</h2>
-<p><strong>具有多个属性的元素应跨多行，每行一个属性。</strong></p>
-<p>在 JavaScript 中，将具有多个属性的对象跨多行拆分被广泛认为是一个良好的约定，因为它更容易阅读。我们的模板和 JSX 也应得到同样的考虑。</p>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">button</span><span style="color:#BB9AF7"> type</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">button</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> className</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">icon-button</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> aria-label</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">Close</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> disabled</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#DE5971">MyComponent </span><span style="color:#BB9AF7">foo</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">a</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> bar</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">b</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> baz</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">c</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">button</span><span style="color:#BB9AF7"> type</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">button</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> className</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">icon-button</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> aria-label</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">Close</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> disabled</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#DE5971">MyComponent </span><span style="color:#BB9AF7">foo</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">a</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> bar</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">b</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> baz</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">c</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<h2 id="simple-expressions-in-templates">模板中的简单表达式</h2>
-<p><strong>组件模板应只包含简单表达式，更复杂的表达式应重构为计算属性或方法。</strong></p>
-<p>模板中的复杂表达式使它们的声明性降低。我们应该努力描述 <em>应该</em> 出现什么，而不是 <em>如何</em> 计算该值。计算属性和方法还允许代码被重用。</p>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9ABDF5">{</span></span>
-<span class="line"><span style="color:#C0CAF5">  fullName</span></span>
-<span class="line"><span style="color:#89DDFF">    .</span><span style="color:#7AA2F7">split</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> '</span><span style="color:#9ABDF5">)</span></span>
-<span class="line"><span style="color:#89DDFF">    .</span><span style="color:#7AA2F7">map</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">word</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#BB9AF7;font-style:italic">      return</span><span style="color:#C0CAF5"> word</span><span style="color:#9ABDF5">[</span><span style="color:#FF9E64">0</span><span style="color:#9ABDF5">]</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">toUpperCase</span><span style="color:#9ABDF5">() </span><span style="color:#89DDFF">+</span><span style="color:#C0CAF5"> word</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">slice</span><span style="color:#9ABDF5">(</span><span style="color:#FF9E64">1</span><span style="color:#9ABDF5">)</span></span>
-<span class="line"><span style="color:#9ABDF5">    })</span></span>
-<span class="line"><span style="color:#89DDFF">    .</span><span style="color:#7AA2F7">join</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> '</span><span style="color:#9ABDF5">)</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9ABDF5">{</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  /* 在模板中 */</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"><span style="color:#9ABDF5">{</span></span>
-<span class="line"><span style="color:#C0CAF5">  normalizedFullName</span></span>
-<span class="line"><span style="color:#9ABDF5">}</span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#51597D;font-style:italic">// 复杂表达式已移至计算属性</span></span>
-<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> normalizedFullName</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> computed</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span></span>
-<span class="line"><span style="color:#C0CAF5">  fullName</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span></span>
-<span class="line"><span style="color:#89DDFF">    .</span><span style="color:#7AA2F7">split</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> '</span><span style="color:#9ABDF5">)</span></span>
-<span class="line"><span style="color:#89DDFF">    .</span><span style="color:#7AA2F7">map</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">word</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> word</span><span style="color:#9ABDF5">[</span><span style="color:#FF9E64">0</span><span style="color:#9ABDF5">]</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">toUpperCase</span><span style="color:#9ABDF5">()</span><span style="color:#89DDFF"> +</span><span style="color:#C0CAF5"> word</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">slice</span><span style="color:#9ABDF5">(</span><span style="color:#FF9E64">1</span><span style="color:#9ABDF5">))</span></span>
-<span class="line"><span style="color:#89DDFF">    .</span><span style="color:#7AA2F7">join</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF"> '</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF">,</span></span>
-<span class="line"><span style="color:#9ABDF5">)</span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<h2 id="simple-computed-properties">简单的计算属性</h2>
-<p><strong>复杂的计算属性应拆分为尽可能多的简单属性。</strong></p>
-<p>::: details 详细解释
-更简单、命名良好的计算属性是：</p>
-<ul>
-<li>
-<p><strong>更易于测试</strong></p>
-<p>当每个计算属性只包含一个非常简单的表达式，依赖非常少时，编写测试确认其正确工作要容易得多。</p>
-</li>
-<li>
-<p><strong>更易于阅读</strong></p>
-<p>简化计算属性迫使你为每个值提供一个描述性名称，即使它没有重用。这使得其他开发人员（和未来的你）更容易专注于他们关心的代码并弄清楚发生了什么。</p>
-</li>
-<li>
-<p><strong>更能适应变化的需求</strong></p>
-<p>任何可以命名的值可能对视图有用。例如，我们可能决定显示一条消息告诉用户他们节省了多少钱。我们还可能决定计算销售税，但也许单独显示它，而不是作为最终价格的一部分。</p>
-<p>小而集中的计算属性对信息如何使用做出的假设更少，因此随着需求变化需要更少的重构。
-:::</p>
-</li>
-</ul>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> price</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> computed</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#9D7CD8;font-style:italic">  const</span><span style="color:#BB9AF7"> basePrice</span><span style="color:#89DDFF"> =</span><span style="color:#C0CAF5"> manufactureCost</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#89DDFF"> /</span><span style="color:#9ABDF5"> (</span><span style="color:#FF9E64">1</span><span style="color:#89DDFF"> -</span><span style="color:#C0CAF5"> profitMargin</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#9ABDF5">)</span></span>
-<span class="line"><span style="color:#BB9AF7;font-style:italic">  return</span><span style="color:#C0CAF5"> basePrice</span><span style="color:#89DDFF"> -</span><span style="color:#C0CAF5"> basePrice</span><span style="color:#89DDFF"> *</span><span style="color:#9ABDF5"> (</span><span style="color:#C0CAF5">discountPercent</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#BB9AF7"> ||</span><span style="color:#FF9E64"> 0</span><span style="color:#9ABDF5">)</span></span>
-<span class="line"><span style="color:#9ABDF5">})</span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> basePrice</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> computed</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> manufactureCost</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#89DDFF"> /</span><span style="color:#9ABDF5"> (</span><span style="color:#FF9E64">1</span><span style="color:#89DDFF"> -</span><span style="color:#C0CAF5"> profitMargin</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#9ABDF5">))</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> discount</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> computed</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> basePrice</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#89DDFF"> *</span><span style="color:#9ABDF5"> (</span><span style="color:#C0CAF5">discountPercent</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#BB9AF7"> ||</span><span style="color:#FF9E64"> 0</span><span style="color:#9ABDF5">))</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> finalPrice</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> computed</span><span style="color:#9ABDF5">(()</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> basePrice</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#89DDFF"> -</span><span style="color:#C0CAF5"> discount</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#9ABDF5">)</span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<h2 id="quoted-attribute-values">带引号的属性值</h2>
-<p><strong>非空的 HTML 属性值应始终在引号内（单引号或双引号，以 JS 中未使用的为准）。</strong></p>
-<p>虽然 HTML 中没有空格的属性值不需要引号，但这种做法往往导致 <em>避免</em> 空格，使属性值可读性降低。</p>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">input</span><span style="color:#BB9AF7"> type</span><span style="color:#FF5370">=text</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#DE5971">AppSidebar </span><span style="color:#BB9AF7">style</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#9ABDF5">{</span><span style="color:#73DACA"> width</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> sidebarWidth</span><span style="color:#89DDFF"> +</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">px</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">input</span><span style="color:#BB9AF7"> type</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">text</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#DE5971">AppSidebar </span><span style="color:#BB9AF7">style</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#9ABDF5">{</span><span style="color:#73DACA"> width</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> sidebarWidth</span><span style="color:#89DDFF"> +</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">px</span><span style="color:#89DDFF">'</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<h2 id="directive-shorthands">指令写法一致性</h2>
-<p><strong>在同一个组件中，事件和动态属性应保持同一种写法。</strong></p>
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">input</span><span style="color:#BB9AF7"> value</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">newTodoText</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value}</span><span style="color:#BB9AF7"> placeholder</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">newTodoInstructions</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">input</span><span style="color:#BB9AF7"> r-on</span><span style="color:#89DDFF">:</span><span style="color:#BB9AF7">input</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">onInput($event)</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> onFocus</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">onFocus</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-<div class="style-example style-example-good">
-<h3>Good</h3>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">input</span><span style="color:#BB9AF7"> value</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">newTodoText</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value}</span><span style="color:#BB9AF7"> placeholder</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">newTodoInstructions</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value}</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">input</span><span style="color:#BB9AF7"> onInput</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">onInput</span><span style="color:#7DCFFF">}</span><span style="color:#BB9AF7"> onFocus</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">onFocus</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">input</span><span style="color:#BB9AF7"> r-on</span><span style="color:#89DDFF">:</span><span style="color:#BB9AF7">input</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">onInput($event)</span><span style="color:#89DDFF">"</span><span style="color:#BB9AF7"> r-on</span><span style="color:#89DDFF">:</span><span style="color:#BB9AF7">focus</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">onFocus($event)</span><span style="color:#89DDFF">"</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
-</div>
-</div></div></article></div></main><footer class="w-full bg-base-200 overflow-hidden"><div class="max-w-[1100px] mx-auto w-full px-6 py-12 grid gap-8 grid-cols-1 md:grid-cols-3"><div><div class="text-base-content font-semibold mb-2">文档</div><ul class="space-y-2 text-sm"><li><a href="/jsx/basic-elements" class="hover:underline">深度指南</a></li><li><a href="/examples/hello-world" class="hover:underline">实战例子</a></li><li><a href="/guide/guide/quick-start" class="hover:underline">快速上手</a></li><li><a href="/page/glossary/index" class="hover:underline">术语表</a></li><li><a href="/page/error-reference/index" class="hover:underline">错误码参照表</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">关于</div><ul class="space-y-2 text-sm"><li><a href="/page/about/faq" class="hover:underline">常见问题</a></li><li><a href="/page/about/team" class="hover:underline">团队</a></li><li><a href="/page/about/releases" class="hover:underline">版本发布</a></li><li><a href="/page/about/community-guide" class="hover:underline">社区指南</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">生态</div><ul class="space-y-2 text-sm"><li><a href="/plugins" class="hover:underline">插件</a></li><li><a href="/design/button" class="hover:underline">组件库</a></li><li><a href="/page/routing" class="hover:underline">路由指南</a></li><li><a href="/textjs" class="hover:underline">Text.js</a></li></ul></div></div><div class="max-w-[1100px] mx-auto px-6"><div class="text-center text-xs text-base-content/60 pb-8">© 2024-2026 Xiangmin Liu</div></div><div class="mx-auto w-full px-6 pb-4 text-center"><div class="flex select-none items-end justify-center gap-6 whitespace-nowrap text-[clamp(12rem,28vw,26rem)] font-black leading-none bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent md:gap-10"><span>Rue</span><span class="pl-1">.JS</span></div></div></footer></div></div>
+    <div id="app"><div class="min-h-screen bg-base-100 text-base-content"><header class="site-header fixed top-0 left-0 right-0 z-50 w-full"><div class="navbar bg-transparent max-w-[1400px] mx-auto w-full px-6 items-center"><div class="navbar-start gap-4"><a href="/" class="flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 shadow-lg ring-1 ring-white/30"><span class="text-white font-extrabold text-[32px] md:text-[50px]">R</span></span><span class="text-lg md:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">后悔药 Rue.js</span></a></div><nav class="navbar-center hidden md:flex" aria-label="主导航"><ul class="menu menu-horizontal px-1 text-sm"><li><a href="/" class="btn btn-ghost btn-sm">首页</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">文档</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/guide/guide/introduction">深度指南</a></li><li><a href="/examples/hello-world">实战例子</a></li><li><a href="/guide/guide/quick-start">快速上手</a></li><li><a href="/page/routing">路由指南</a></li><li><a href="/page/glossary/index">术语表</a></li><li><a href="/page/error-reference/index">错误代码参考</a></li></ul></li><li><a href="/api/api/index" class="btn btn-ghost btn-sm">API</a></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">生态</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/partners/index">合作伙伴</a></li><li><a href="/plugins">插件</a></li><li><a href="/design/button">组件库</a></li><li><a href="/guide/guide/scaling-up/tooling">工具链</a></li><li><a href="/textjs">Text.js</a></li><li><a href="/page/ecosystem/newsletters">新闻简报</a></li></ul></li><li class="site-nav-dropdown relative"><button type="button" class="btn btn-ghost btn-sm site-nav-trigger" aria-haspopup="menu">关于</button><ul class="site-nav-submenu menu bg-base-100 rounded-box z-50 w-35 p-2 dropdown-panel text-center"><li><a href="/page/about/faq">常见问题</a></li><li><a href="/page/about/team">团队</a></li><li><a href="/page/about/releases">版本发布</a></li><li><a href="/page/about/community-guide">社区指南</a></li><li><a href="/page/about/coc">行为规范</a></li><li><a href="/page/about/privacy">隐私政策</a></li></ul></li><li><a href="/page/sponsor/index" class="btn btn-ghost btn-sm">赞助</a></li><li><a href="/page/partners/index" class="btn btn-ghost btn-sm">合作伙伴</a></li></ul></nav><div class="navbar-end gap-2 items-center"><a href="/settings" class="btn btn-ghost btn-sm">设置</a></div></div></header><main class="min-h-[60vh] pt-24"><div class="max-w-[1400px] mx-auto px-6 py-10"><article><div><div class="max-w-none prose prose-sm md:prose-base" id="doc-body"><p class="text-base-content/70">加载文档失败</p></div></div></article></div></main><footer class="w-full bg-base-200 overflow-hidden"><div class="max-w-[1100px] mx-auto w-full px-6 py-12 grid gap-8 grid-cols-1 md:grid-cols-3"><div><div class="text-base-content font-semibold mb-2">文档</div><ul class="space-y-2 text-sm"><li><a href="/jsx/basic-elements" class="hover:underline">深度指南</a></li><li><a href="/examples/hello-world" class="hover:underline">实战例子</a></li><li><a href="/guide/guide/quick-start" class="hover:underline">快速上手</a></li><li><a href="/page/glossary/index" class="hover:underline">术语表</a></li><li><a href="/page/error-reference/index" class="hover:underline">错误码参照表</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">关于</div><ul class="space-y-2 text-sm"><li><a href="/page/about/faq" class="hover:underline">常见问题</a></li><li><a href="/page/about/team" class="hover:underline">团队</a></li><li><a href="/page/about/releases" class="hover:underline">版本发布</a></li><li><a href="/page/about/community-guide" class="hover:underline">社区指南</a></li></ul></div><div><div class="text-base-content font-semibold mb-2">生态</div><ul class="space-y-2 text-sm"><li><a href="/plugins" class="hover:underline">插件</a></li><li><a href="/design/button" class="hover:underline">组件库</a></li><li><a href="/page/routing" class="hover:underline">路由指南</a></li><li><a href="/textjs" class="hover:underline">Text.js</a></li></ul></div></div><div class="max-w-[1100px] mx-auto px-6"><div class="text-center text-xs text-base-content/60 pb-8">© 2024-2026 Xiangmin Liu</div></div><div class="mx-auto w-full px-6 pb-4 text-center"><div class="flex select-none items-end justify-center gap-6 whitespace-nowrap text-[clamp(12rem,28vw,26rem)] font-black leading-none bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent md:gap-10"><span>Rue</span><span class="pl-1">.JS</span></div></div></footer></div></div>
   </body>
 </html>

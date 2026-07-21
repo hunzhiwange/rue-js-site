@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="luxury">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,50 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
     />
+    <script>
+      ;(function () {
+        try {
+          var defaultTheme = 'luxury'
+          var themes = [
+            'light',
+            'dark',
+            'cupcake',
+            'bumblebee',
+            'emerald',
+            'corporate',
+            'synthwave',
+            'retro',
+            'cyberpunk',
+            'valentine',
+            'halloween',
+            'garden',
+            'forest',
+            'aqua',
+            'lofi',
+            'pastel',
+            'fantasy',
+            'wireframe',
+            'black',
+            'luxury',
+            'dracula',
+            'cmyk',
+            'autumn',
+            'business',
+            'acid',
+            'lemonade',
+            'night',
+            'coffee',
+            'winter',
+            'dim',
+            'nord',
+            'sunset',
+          ]
+          var storedTheme = localStorage.getItem('rue.theme')
+          var theme = themes.includes(storedTheme) ? storedTheme : defaultTheme
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch (e) {}
+      })()
+    </script>
     <style>
       /* 取消 body 的宽度与背景限制，交由应用布局控制 */
       body {
@@ -22,7 +66,7 @@
         margin-bottom: 20px;
       }
     </style>
-    <link rel="stylesheet" crossorigin href="/assets/main-B2a_JFaa.css">
+    <link rel="stylesheet" crossorigin href="/assets/main-DBuvkGkn.css">
   </head>
 
   <body>
@@ -30,7 +74,30 @@
 <p>像 TypeScript 这样的类型系统可以通过在构建时进行静态分析来检测许多常见错误。这减少了生产环境中运行时错误的机会，也使我们能够更有信心地重构大规模应用程序中的代码。TypeScript 还通过 IDE 中的基于类型的自动完成改善了开发者体验。</p>
 <p>Rue 本身是用 TypeScript 编写的，并提供一流的 TypeScript 支持。所有官方 Rue 包都带有捆绑的类型声明，应该可以开箱即用。</p>
 <h2 id="project-setup">项目设置</h2>
-<p><a href="https://github.com/@rue-js/ruejs/create-rue"><code>create-rue</code></a>，官方项目脚手架工具，提供用于脚手架基于 <a href="https://vitejs.dev/">Vite</a> 的、支持 TypeScript 的 Rue 项目的选项。</p>
+<p><a href="https://github.com/hunzhiwange/create-rue"><code>create-rue</code></a> 是创建 <a href="https://vite.dev/">Vite</a> + Rue 项目的官方脚手架，并提供 TypeScript 选项：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#C0CAF5">npm</span><span style="color:#C0CAF5"> create</span><span style="color:#C0CAF5"> rue</span><span style="color:#A9B1D6">@</span><span style="color:#C0CAF5">latest</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>如果要在现有的 Vite + TypeScript 项目中接入 Rue，可以安装 Rue 及其 Vite 插件：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#C0CAF5">pnpm</span><span style="color:#C0CAF5"> add</span><span style="color:#89DDFF"> @</span><span style="color:#C0CAF5">rue</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">js</span><span style="color:#89DDFF">/</span><span style="color:#C0CAF5">rue</span></span>
+<span class="line"><span style="color:#C0CAF5">pnpm</span><span style="color:#C0CAF5"> add</span><span style="color:#89DDFF"> -</span><span style="color:#FF9E64">D</span><span style="color:#89DDFF"> @</span><span style="color:#C0CAF5">rue</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">js</span><span style="color:#89DDFF">/</span><span style="color:#C0CAF5">vite</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">plugin</span><span style="color:#89DDFF">-</span><span style="color:#C0CAF5">rue</span><span style="color:#C0CAF5"> typescript</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>然后在 Vite 配置中启用 Rue 的 JSX / TSX 转换：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">defineConfig</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">vite</span><span style="color:#89DDFF">'</span></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#0DB9D7"> rue</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/vite-plugin-rue</span><span style="color:#89DDFF">'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">export</span><span style="color:#7DCFFF"> default</span><span style="color:#7AA2F7"> defineConfig</span><span style="color:#9ABDF5">({</span></span>
+<span class="line"><span style="color:#73DACA">  plugins</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> [</span><span style="color:#7AA2F7">rue</span><span style="color:#9ABDF5">()]</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"></span></code></pre>
+</div>
 <h3 id="overview">概述</h3>
 <p>使用基于 Vite 的设置，开发服务器和打包器仅进行转译，不执行任何类型检查。这确保即使使用 TypeScript，Vite 开发服务器也能保持极快的速度。</p>
 <ul>
@@ -38,7 +105,7 @@
 <p>在开发期间，我们建议依赖良好的 <a href="#ide-support">IDE 设置</a>来获取类型错误的即时反馈。</p>
 </li>
 <li>
-<p>对于 TS/TSX 项目，以及本仓库当前的命令行类型检查脚本，我们统一使用 <code>tsgo</code>。你可以在并行于 Vite 开发服务器的情况下在监视模式下运行 <code>rue-tsc</code>，或使用像 <a href="https://vite-plugin-checker.netlify.app/">vite-plugin-checker</a> 这样的 Vite 插件，它在单独的 worker 线程中运行检查。</p>
+<p>对于 TS/TSX 项目，本仓库使用 TypeScript 7 的 <code>tsc</code> 进行类型检查。你可以运行 <code>tsc --noEmit</code> 做一次检查，或在 Vite 开发服务器之外运行 <code>tsc --noEmit --watch</code> 持续检查。</p>
 </li>
 </ul>
 <h3 id="ide-support">IDE 支持</h3>
@@ -51,88 +118,66 @@
 </li>
 </ul>
 <h3 id="configuring-tsconfig-json">配置 <code>tsconfig.json</code></h3>
-<p>通过 <code>create-rue</code> 脚手架的项目包含预配置的 <code>tsconfig.json</code>。基本配置抽象在 <a href="https://github.com/@rue-js/ruejs/tsconfig"><code>rue-tsconfig</code></a> 包中。在项目内部，我们使用<a href="https://www.typescriptlang.org/docs/handbook/project-references.html">项目引用</a>来确保在不同环境中运行的代码（例如应用代码和测试代码应有不同的全局变量）具有正确的类型。</p>
-<p>手动配置 <code>tsconfig.json</code> 时，一些值得注意的选项包括：</p>
+<p>下面是一份适合 Rue TSX 项目的基础配置：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9ABDF5">{</span></span>
+<span class="line"><span style="color:#89DDFF">  "</span><span style="color:#9ECE6A">compilerOptions</span><span style="color:#89DDFF">"</span><span style="color:#9ABDF5">: {</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#9ECE6A">target</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#9ECE6A">ES2022</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#9ECE6A">module</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#9ECE6A">ESNext</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#9ECE6A">moduleResolution</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#9ECE6A">bundler</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#9ECE6A">jsx</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#9ECE6A">react-jsx</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#9ECE6A">jsxImportSource</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> "</span><span style="color:#9ECE6A">@rue-js</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#9ECE6A">strict</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> true</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#9ECE6A">isolatedModules</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> true</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#9ECE6A">noEmit</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> true</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#9ECE6A">types</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> [</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">vite/client</span><span style="color:#89DDFF">"</span><span style="color:#9ABDF5">]</span></span>
+<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#89DDFF">  "</span><span style="color:#9ECE6A">include</span><span style="color:#89DDFF">"</span><span style="color:#9ABDF5">: [</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">src</span><span style="color:#89DDFF">"</span><span style="color:#9ABDF5">]</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>其中需要特别注意：</p>
 <ul>
 <li>
-<p><a href="https://www.typescriptlang.org/tsconfig#isolatedModules"><code>compilerOptions.isolatedModules</code></a> 设置为 <code>true</code>，因为 Vite 使用 <a href="https://esbuild.github.io/">esbuild</a> 转译 TypeScript，并受限于单文件转译。<a href="https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax"><code>compilerOptions.verbatimModuleSyntax</code></a> 是 <code>isolatedModules</code> 的<a href="https://github.com/microsoft/TypeScript/issues/53601">超集</a>，也是一个不错的选择——这是 <a href="https://github.com/@rue-js/ruejs/tsconfig"><code>rue-tsconfig</code></a> 使用的。</p>
+<p><a href="https://www.typescriptlang.org/tsconfig#jsx"><code>compilerOptions.jsx</code></a> 应设为 <code>"react-jsx"</code>，并将 <a href="https://www.typescriptlang.org/tsconfig#jsxImportSource"><code>compilerOptions.jsxImportSource</code></a> 设为 <code>"@rue-js"</code>，让 TypeScript 使用 Rue 提供的 JSX runtime 和类型声明。</p>
 </li>
 <li>
-<p>如果你在构建工具中配置了解析器别名，例如 <code>create-rue</code> 项目中默认配置的 <code>@/*</code> 别名，你也需要通过 <a href="https://www.typescriptlang.org/tsconfig#paths"><code>compilerOptions.paths</code></a> 为 TypeScript 配置它。</p>
+<p><a href="https://www.typescriptlang.org/tsconfig#isolatedModules"><code>compilerOptions.isolatedModules</code></a> 建议设为 <code>true</code>，以便尽早发现不适用于 Vite 单文件转换流程的写法。</p>
 </li>
 <li>
-<p>如果你打算将 TSX 与 Rue 一起使用，将 <a href="https://www.typescriptlang.org/tsconfig#jsx"><code>compilerOptions.jsx</code></a> 设置为 <code>"preserve"</code>，并将 <a href="https://www.typescriptlang.org/tsconfig#jsxImportSource"><code>compilerOptions.jsxImportSource</code></a> 设置为 <code>"@rue-js/rue"</code>。</p>
+<p>如果你在 Vite 中配置了解析器别名，也需要通过 <a href="https://www.typescriptlang.org/tsconfig#paths"><code>compilerOptions.paths</code></a> 为 TypeScript 配置对应的路径。</p>
 </li>
 </ul>
 <p>另请参阅：</p>
 <ul>
 <li><a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">官方 TypeScript 编译器选项文档</a></li>
-<li><a href="https://esbuild.github.io/content-types/#typescript-caveats">esbuild TypeScript 编译注意事项</a></li>
+<li><a href="https://vite.dev/guide/features.html#typescript">Vite 的 TypeScript 说明</a></li>
 </ul>
-<h3 id="note-on-rue-cli-and-ts-loader">关于 Rue CLI 和 <code>ts-loader</code> 的说明</h3>
-<p>在基于 webpack 的设置（如 Rue CLI）中，通常将类型检查作为模块转换管道的一部分执行，例如使用 <code>ts-loader</code>。然而，这不是一个干净的解决方案，因为类型系统需要整个模块图的知识来执行类型检查。单个模块的转换步骤根本不是完成此任务的正确位置。它导致以下问题：</p>
-<ul>
-<li>
-<p><code>ts-loader</code> 只能对转换后的代码进行类型检查。这与我们在 IDE、<code>tsgo</code> 或 <code>rue-tsc</code> 看到的错误不一致，后者直接映射回源代码。</p>
-</li>
-<li>
-<p>类型检查可能很慢。当它与代码转换在同一线程/进程中执行时，会显著影响整个应用程序的构建速度。</p>
-</li>
-<li>
-<p>我们已经在 IDE 中的单独进程中运行类型检查，因此开发者体验变慢的成本根本不是一个好的权衡。</p>
-</li>
-</ul>
-<p>如果你当前通过 Rue CLI 使用 Rue 3 + TypeScript，我们强烈建议迁移到 Vite。我们也在研究启用仅转译 TS 支持的 CLI 选项，以便你可以根据场景切换到 <code>rue-tsc</code> 或 <code>tsgo</code> 进行类型检查。</p>
 <h2 id="general-usage-notes">一般使用说明</h2>
-<h3 id="definecomponent"><code>defineComponent()</code></h3>
-<p>为了让 TypeScript 正确推断组件选项内部的类型，我们需要使用 <a href="/api/api/general#definecomponent"><code>defineComponent()</code></a> 定义组件：</p>
+<h3 id="typing-function-components">函数组件与 Props 类型</h3>
+<p>Rue 组件是普通的 TSX 函数。使用 <code>FC&lt;Props&gt;</code> 可以声明组件的 props，并直接获得参数和 JSX 调用处的类型检查：</p>
 <div class="relative group doc-code-wrapper">
   <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">defineComponent</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
-<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#BB9AF7"> type</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">FC</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#BB9AF7">type</span><span style="color:#0DB9D7"> FC</span><span style="color:#89DDFF">,</span><span style="color:#0DB9D7"> ref</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> App</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> FC</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> defineComponent</span><span style="color:#9ABDF5">({</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  // 启用类型推断</span></span>
-<span class="line"><span style="color:#73DACA">  props</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#73DACA">    name</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> String</span><span style="color:#89DDFF">,</span></span>
-<span class="line"><span style="color:#73DACA">    msg</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span><span style="color:#41A6B5"> type</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> String</span><span style="color:#89DDFF">,</span><span style="color:#41A6B5"> required</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> true</span><span style="color:#9ABDF5"> }</span><span style="color:#89DDFF">,</span></span>
-<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
-<span class="line"><span style="color:#7AA2F7">  data</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#BB9AF7;font-style:italic">    return</span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#73DACA">      count</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 1</span><span style="color:#89DDFF">,</span></span>
-<span class="line"><span style="color:#9ABDF5">    }</span></span>
-<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
-<span class="line"><span style="color:#7AA2F7">  mounted</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#F7768E">    this</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">name</span><span style="color:#51597D;font-style:italic"> // 类型: string | undefined</span></span>
-<span class="line"><span style="color:#F7768E">    this</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">msg</span><span style="color:#51597D;font-style:italic"> // 类型: string</span></span>
-<span class="line"><span style="color:#F7768E">    this</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">count</span><span style="color:#51597D;font-style:italic"> // 类型: number</span></span>
-<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
-<span class="line"><span style="color:#9ABDF5">})</span></span>
+<span class="line"><span style="color:#BB9AF7">interface</span><span style="color:#C0CAF5"> CounterProps</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  label</span><span style="color:#89DDFF">:</span><span style="color:#0DB9D7"> string</span></span>
+<span class="line"><span style="color:#C0CAF5">  initialValue</span><span style="color:#89DDFF">?:</span><span style="color:#0DB9D7"> number</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#7AA2F7"> Counter</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> FC</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">CounterProps</span><span style="color:#89DDFF">></span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> (</span><span style="color:#89DDFF">{</span><span style="color:#E0AF68"> label</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> initialValue</span><span style="color:#89DDFF"> =</span><span style="color:#FF9E64"> 0</span><span style="color:#89DDFF"> }</span><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#9D7CD8;font-style:italic">  const</span><span style="color:#BB9AF7"> count</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> ref</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">initialValue</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">  return</span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#F7768E">button</span><span style="color:#BB9AF7"> onClick</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#9ABDF5">()</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> count</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#89DDFF">++</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#7DCFFF">      {</span><span style="color:#C0CAF5">label</span><span style="color:#7DCFFF">}</span><span style="color:#9AA5CE">: </span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">count</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value}</span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;/</span><span style="color:#F7768E">button</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">  )</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
 <span class="line"></span></code></pre>
 </div>
-<p>如果你仍然需要显式声明运行时 <code>props</code> 选项，<code>defineComponent()</code> 也能为这些选项提供类型推断：</p>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#7DCFFF">import</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">defineComponent</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
-<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#BB9AF7"> type</span><span style="color:#9ABDF5"> { </span><span style="color:#0DB9D7">FC</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF"> from</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">@rue-js/rue</span><span style="color:#89DDFF">'</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> App</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> FC</span><span style="color:#89DDFF"> =</span><span style="color:#7AA2F7"> defineComponent</span><span style="color:#9ABDF5">({</span></span>
-<span class="line"><span style="color:#51597D;font-style:italic">  // 启用类型推断</span></span>
-<span class="line"><span style="color:#73DACA">  props</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#73DACA">    message</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> String</span><span style="color:#89DDFF">,</span></span>
-<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
-<span class="line"><span style="color:#7AA2F7">  mounted</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
-<span class="line"><span style="color:#F7768E">    this</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">message</span><span style="color:#51597D;font-style:italic"> // 类型: string | undefined</span></span>
-<span class="line"><span style="color:#9ABDF5">  }</span><span style="color:#89DDFF">,</span></span>
-<span class="line"><span style="color:#9ABDF5">})</span></span>
-<span class="line"></span></code></pre>
-</div>
-<p>另请参阅：</p>
-<ul>
-<li><a href="/api/api/general#note-on-webpack-treeshaking">关于 webpack Treeshaking 的说明</a></li>
-<li><a href="https://github.com/@rue-js/ruejs/core/blob/main/packages-private/dts-test/defineComponent.test-d.tsx"><code>defineComponent</code> 的类型测试</a></li>
-</ul>
-<div class="tip"><p><code>defineComponent()</code> 也为用纯 JavaScript 定义的组件启用类型推断。</p></div>
+<p>更多 props、事件回调和 DOM 引用的类型写法见 <a href="/guide/guide/typescript/composition-api">TypeScript 与 Composition API</a>。</p>
 <h3 id="usage-with-tsx">与 TSX 一起使用</h3>
 <p>Rue 支持使用 JSX / TSX 编写组件。直接在组件函数中声明响应式状态时，TypeScript 可以对表达式、props 和事件回调提供完整的类型检查：</p>
 <div class="relative group doc-code-wrapper">
@@ -162,7 +207,25 @@
 <span class="line"></span></code></pre>
 </div>
 <h2 id="generic-components">泛型组件</h2>
-<p>泛型组件在渲染函数 / JSX 组件中受支持，详见 <a href="/api/api/general#function-signature"><code>defineComponent()</code> 的函数签名</a>。</p>
+<p>泛型组件可以直接使用 TypeScript 的泛型函数定义：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">interface</span><span style="color:#C0CAF5"> ListProps</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">  items</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span><span style="color:#9ABDF5">[]</span></span>
+<span class="line"><span style="color:#7AA2F7">  renderItem</span><span style="color:#89DDFF">:</span><span style="color:#9ABDF5"> (</span><span style="color:#E0AF68">item</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> T</span><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> =></span><span style="color:#C0CAF5"> JSX</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">Element</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">function</span><span style="color:#7AA2F7"> List</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">{</span><span style="color:#E0AF68"> items</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> renderItem</span><span style="color:#89DDFF"> }:</span><span style="color:#C0CAF5"> ListProps</span><span style="color:#89DDFF">&#x3C;</span><span style="color:#C0CAF5">T</span><span style="color:#89DDFF">></span><span style="color:#9ABDF5">)</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7;font-style:italic">  return</span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#7DCFFF">      {</span><span style="color:#C0CAF5">items</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">map</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">item</span><span style="color:#BB9AF7"> =></span><span style="color:#9ABDF5"> (</span></span>
+<span class="line"><span style="color:#BA3C97">        &#x3C;</span><span style="color:#F7768E">li</span><span style="color:#BA3C97">></span><span style="color:#7DCFFF">{</span><span style="color:#7AA2F7">renderItem</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">item</span><span style="color:#9ABDF5">)</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">li</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">      ))</span><span style="color:#7DCFFF">}</span></span>
+<span class="line"><span style="color:#BA3C97">    &#x3C;/</span><span style="color:#F7768E">ul</span><span style="color:#BA3C97">></span></span>
+<span class="line"><span style="color:#9ABDF5">  )</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span></code></pre>
+</div>
 <h2 id="api-specific-recipes">API 特定配方</h2>
 <ul>
 <li><a href="/guide/guide/typescript/composition-api">TS 与 Composition API</a></li>

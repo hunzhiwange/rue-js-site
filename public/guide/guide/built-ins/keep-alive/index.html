@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="luxury">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,50 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
     />
+    <script>
+      ;(function () {
+        try {
+          var defaultTheme = 'luxury'
+          var themes = [
+            'light',
+            'dark',
+            'cupcake',
+            'bumblebee',
+            'emerald',
+            'corporate',
+            'synthwave',
+            'retro',
+            'cyberpunk',
+            'valentine',
+            'halloween',
+            'garden',
+            'forest',
+            'aqua',
+            'lofi',
+            'pastel',
+            'fantasy',
+            'wireframe',
+            'black',
+            'luxury',
+            'dracula',
+            'cmyk',
+            'autumn',
+            'business',
+            'acid',
+            'lemonade',
+            'night',
+            'coffee',
+            'winter',
+            'dim',
+            'nord',
+            'sunset',
+          ]
+          var storedTheme = localStorage.getItem('rue.theme')
+          var theme = themes.includes(storedTheme) ? storedTheme : defaultTheme
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch (e) {}
+      })()
+    </script>
     <style>
       /* 取消 body 的宽度与背景限制，交由应用布局控制 */
       body {
@@ -22,7 +66,7 @@
         margin-bottom: 20px;
       }
     </style>
-    <link rel="stylesheet" crossorigin href="/assets/main-B2a_JFaa.css">
+    <link rel="stylesheet" crossorigin href="/assets/main-DBuvkGkn.css">
   </head>
 
   <body>
@@ -121,6 +165,15 @@
 <span class="line"><span style="color:#9ABDF5">}</span></span>
 <span class="line"></span></code></pre>
 </div>
+<h2 id="router-view-persist">与 RouterView 配合</h2>
+<p><code>@rue-js/router</code> 已在 RouterView 内部复用同一套 KeepAlive range 缓存。无需手动包装 RouterView，只需在路由记录上声明：</p>
+<div class="relative group doc-code-wrapper">
+  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
+  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#9D7CD8;font-style:italic">const</span><span style="color:#BB9AF7"> routes</span><span style="color:#89DDFF"> =</span><span style="color:#9ABDF5"> [{</span><span style="color:#73DACA"> path</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">/workspace/:id</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> component</span><span style="color:#89DDFF">:</span><span style="color:#7DCFFF"> Workspace</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> persist</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> true</span><span style="color:#9ABDF5"> }]</span></span>
+<span class="line"></span></code></pre>
+</div>
+<p>离开后页面实例、表单值和岛内状态会保留；以新 params 返回同一记录时，已缓存实例会收到新参数而不重新 mount。默认缓存 key 是完整路由路径，也可声明 <code>persistKey</code>。根应用卸载时，活动与离线缓存都会一起清理。</p>
+<p>此能力保留的是 Rue SPA Router 中的路由组件。它不会像跨文档 DOM 匹配器那样，按任意 HTML 元素名称在两个文档之间搬运节点。</p>
 <hr>
 <p><strong>相关</strong></p>
 <ul>

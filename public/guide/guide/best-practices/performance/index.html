@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="luxury">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,50 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='34' font-family='Arial' font-weight='700' fill='%23f8fafc'%3ER%3C/text%3E%3C/svg%3E"
     />
+    <script>
+      ;(function () {
+        try {
+          var defaultTheme = 'luxury'
+          var themes = [
+            'light',
+            'dark',
+            'cupcake',
+            'bumblebee',
+            'emerald',
+            'corporate',
+            'synthwave',
+            'retro',
+            'cyberpunk',
+            'valentine',
+            'halloween',
+            'garden',
+            'forest',
+            'aqua',
+            'lofi',
+            'pastel',
+            'fantasy',
+            'wireframe',
+            'black',
+            'luxury',
+            'dracula',
+            'cmyk',
+            'autumn',
+            'business',
+            'acid',
+            'lemonade',
+            'night',
+            'coffee',
+            'winter',
+            'dim',
+            'nord',
+            'sunset',
+          ]
+          var storedTheme = localStorage.getItem('rue.theme')
+          var theme = themes.includes(storedTheme) ? storedTheme : defaultTheme
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch (e) {}
+      })()
+    </script>
     <style>
       /* 取消 body 的宽度与背景限制，交由应用布局控制 */
       body {
@@ -22,7 +66,7 @@
         margin-bottom: 20px;
       }
     </style>
-    <link rel="stylesheet" crossorigin href="/assets/main-B2a_JFaa.css">
+    <link rel="stylesheet" crossorigin href="/assets/main-DBuvkGkn.css">
   </head>
 
   <body>
@@ -120,6 +164,9 @@
 <span class="line"></span></code></pre>
 </div>
 <p>对于使用 Rue Router 的应用，强烈建议对路由组件使用懒加载。Rue Router 对懒加载有显式支持，与 <code>lazy</code> 分开。</p>
+<h3 id="client-islands">用客户端岛减少首屏 JavaScript</h3>
+<p>对于以内容为主、只有局部交互的页面，优先使用<a href="/guide/guide/extras/islands">客户端岛屿</a>，而不是加载完整 SPA 入口。无 <code>client:*</code> 的页面会保持零 Rue JS；有岛的页面只加载小型启动器，并在对应策略触发时下载组件 chunk。需要完整客户端路由和全局状态的页面再显式选择 <code>meta.clientMode: 'app'</code>。</p>
+<p>主题初始化、埋点等业务内联脚本不由岛资源模式管理。应让它们保持独立、短小，并避免把应用主入口伪装成普通用户脚本来绕过资源所有权判断。</p>
 <h2 id="update-optimizations">更新优化 (Update Optimizations)</h2>
 <h3 id="props-stability">Props 稳定性 (Props Stability)</h3>
 <p>在 Rue 中，子组件只有在接收到的至少一个 props 发生变化时才会更新。考虑以下示例：</p>

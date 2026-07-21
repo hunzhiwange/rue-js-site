@@ -1,0 +1,1 @@
+import{t as e}from"./IdlePanel-SKWDxqpt.js";export{e as default};

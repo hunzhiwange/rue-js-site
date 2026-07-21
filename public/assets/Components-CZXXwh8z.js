@@ -1,0 +1,12 @@
+import{Cn as e,Ct as t,Tt as n,dt as r,ft as i,mt as a,ot as o,pn as s,pt as c,st as l,tn as u,vn as d}from"./context-8lXZvIn-.js";import{l as f,o as p,t as m}from"./vapor-runtime-ygJWVcNn.js";import{a as h}from"./vapor-helpers-vapor-CMwHgsXf.js";import{t as g}from"./Code-DhoWkRkB.js";import{r as _}from"./SidebarPlaygroundExample-B78jsvoF.js";var v=e=>f(t=>{let n=c(`div`,t);l(n,a(`你好，`));let i=r(`rue:slot:anchor`);return l(n,i),u(()=>{let t=e.name;d(()=>p(t,n,i))}),n}),y=()=>{let{activeTab:y}=h(`useSetup:0:0`,()=>e(()=>({activeTab:h(`ref:1:0`,()=>s(`code`))})));return f(e=>{let s=i(),h=r(`rue:component:anchor`);return l(s,h),p(m(_,{children:f(()=>{let e=i(),s=c(`h1`,e);l(e,s),n(s,`text-5xl font-semibold mb-4 md:mb-4`),l(s,a(`组件与 Props 传递`));let h=c(`div`,e);l(e,h),t(h,`role`,`tablist`),n(h,`tabs tabs-box`);let _=c(`button`,h);l(h,_),t(_,`role`,`tab`),u(()=>{n(_,`tab ${y.value===`preview`?`tab-active`:``}`)}),o(_,`click`,()=>{y.value=`preview`}),l(_,a(`效果`));let b=c(`button`,h);l(h,b),t(b,`role`,`tab`),u(()=>{n(b,`tab ${y.value===`code`?`tab-active`:``}`)}),o(b,`click`,()=>{y.value=`code`}),l(b,a(`代码`));let x=c(`div`,e);l(e,x),n(x,`mt-4 grid md:grid-cols-1 gap-6 items-start`);let S=r(`rue:slot:anchor`);l(x,S),u(()=>{let e=y.value===`code`?f(()=>{let e=i(),t=c(`div`,e);l(e,t),n(t,`card bg-base-100 shadow overflow-auto`);let a=c(`div`,t);l(t,a),n(a,`card-body p-0`);let o=r(`rue:component:anchor`);return l(a,o),u(()=>{let e=m(g,{className:`h-full`,lang:`tsx`,code:`import { type FC } from '@rue-js/rue';
+
+const Hello: FC<{ name: string }> = (props) => <div>你好，{props.name}</div>;
+
+const Components: FC = () => (
+  <div className="grid gap-4">
+    <Hello name="Rue" />
+    <Hello name="World" />
+  </div>
+);
+
+export default Components;`});d(()=>p(e,a,o))}),e}):``;d(()=>p(e,x,S))}),l(x,a(` `));let C=r(`rue:slot:anchor`);return l(x,C),u(()=>{let e=y.value===`preview`?f(()=>{let e=i(),t=c(`div`,e);l(e,t),n(t,`card bg-base-100 shadow`);let a=c(`div`,t);l(t,a),n(a,`card-body grid gap-4`);let o=r(`rue:component:anchor`);l(a,o),p(m(v,{name:`Rue`}),a,o);let s=r(`rue:component:anchor`);return l(a,s),p(m(v,{name:`World`}),a,s),e}):``;d(()=>p(e,x,C))}),e})}),s,h),s})};export{y as default};

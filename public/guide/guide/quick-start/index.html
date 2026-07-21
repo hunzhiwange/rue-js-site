@@ -66,17 +66,9 @@
         margin-bottom: 20px;
       }
     </style>
-    <script type="module" crossorigin src="/assets/main-Dvu29zf_.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/preload-helper-Bf_JiD2A.js">
-    <link rel="modulepreload" crossorigin href="/assets/chunk-62oNxeRG.js">
-    <link rel="modulepreload" crossorigin href="/assets/vapor-runtime-x7F5M-49.js">
-    <link rel="modulepreload" crossorigin href="/assets/state-iCxTcXl5.js">
-    <link rel="modulepreload" crossorigin href="/assets/src-CHb2ltYS.js">
-    <link rel="modulepreload" crossorigin href="/assets/src-BEG41jq3.js">
-    <link rel="modulepreload" crossorigin href="/assets/useApp-l3GbGuGa.js">
-    <link rel="modulepreload" crossorigin href="/assets/useComponent-BNhmDv_B.js">
-    <link rel="modulepreload" crossorigin href="/assets/vapor-helpers-vapor-D1LP4JjK.js">
-    <link rel="stylesheet" crossorigin href="/assets/main-B2a_JFaa.css">
+    <link rel="stylesheet" crossorigin href="/assets/main-DBuvkGkn.css">
+      <link rel="modulepreload" crossorigin href="/assets/docCodeTabsEnhancer-2JWYT5R0.js">
+    <script type="module" crossorigin src="/assets/docs-mmMzhM4N.js"></script>
   </head>
 
   <body>
@@ -88,7 +80,7 @@
 </ul></div>
 <p>在本节中，我们将介绍如何在本地机器上搭建一个 Rue <a href="/guide/guide/extras/ways-of-using-rue#single-page-application-spa">单页应用</a>。创建的项目将使用基于 <a href="https://vitejs.dev">Vite</a> 的构建设置，并允许我们使用 JSX/TSX 编写组件。</p>
 <p>确保你已安装最新版本的 <a href="https://nodejs.org/">Node.js</a>，并且当前工作目录是你打算创建项目的目录。在命令行中运行以下命令（不带 <code>$</code> 符号）：</p>
-<div class="doc-code-tabs my-5"><div class="tabs tabs-boxed w-fit" role="tablist" aria-label="创建 Rue 应用"><button type="button" id="doc-code-tabs-1-tab-npm" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-1-panel-npm" tabIndex="-1">npm</button><button type="button" id="doc-code-tabs-1-tab-pnpm" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-1-panel-pnpm" tabIndex="-1">pnpm</button><button type="button" id="doc-code-tabs-1-tab-yarn" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-1-panel-yarn" tabIndex="-1">yarn</button><button type="button" id="doc-code-tabs-1-tab-bun" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-1-panel-bun" tabIndex="-1">bun</button></div><div id="doc-code-tabs-1-panel-npm" class="mt-3 hidden" role="tabpanel" aria-labelledby="doc-code-tabs-1-tab-npm" aria-hidden="true"><pre><code class="language-sh">$ npm create rue@latest
+<div class="doc-code-tabs my-5" data-rue-doc-code-tabs=""><div class="tabs tabs-boxed w-fit" role="tablist" aria-label="创建 Rue 应用"><button type="button" id="doc-code-tabs-1-tab-npm" class="tab tab-active" role="tab" aria-selected="true" aria-controls="doc-code-tabs-1-panel-npm" tabIndex="0">npm</button><button type="button" id="doc-code-tabs-1-tab-pnpm" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-1-panel-pnpm" tabIndex="-1">pnpm</button><button type="button" id="doc-code-tabs-1-tab-yarn" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-1-panel-yarn" tabIndex="-1">yarn</button><button type="button" id="doc-code-tabs-1-tab-bun" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-1-panel-bun" tabIndex="-1">bun</button></div><div id="doc-code-tabs-1-panel-npm" class="mt-3 " role="tabpanel" aria-labelledby="doc-code-tabs-1-tab-npm" aria-hidden="false"><pre><code class="language-sh">$ npm create rue@latest
 </code></pre></div><div id="doc-code-tabs-1-panel-pnpm" class="mt-3 hidden" role="tabpanel" aria-labelledby="doc-code-tabs-1-tab-pnpm" aria-hidden="true"><pre><code class="language-sh">$ pnpm create rue@latest
 </code></pre></div><div id="doc-code-tabs-1-panel-yarn" class="mt-3 hidden" role="tabpanel" aria-labelledby="doc-code-tabs-1-tab-yarn" aria-hidden="true"><pre><code class="language-sh"># 对于 Yarn (v1+)
 $ yarn create rue
@@ -106,7 +98,7 @@ $ yarn dlx create-rue@latest
 完成。
 </code></pre>
 <p>如果你不确定某个选项，现在只需按回车选择 <code>No</code>。项目创建完成后，按照说明安装依赖并启动开发服务器：</p>
-<div class="doc-code-tabs my-5"><div class="tabs tabs-boxed w-fit" role="tablist" aria-label="安装依赖并启动开发服务器"><button type="button" id="doc-code-tabs-2-tab-npm" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-2-panel-npm" tabIndex="-1">npm</button><button type="button" id="doc-code-tabs-2-tab-pnpm" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-2-panel-pnpm" tabIndex="-1">pnpm</button><button type="button" id="doc-code-tabs-2-tab-yarn" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-2-panel-yarn" tabIndex="-1">yarn</button><button type="button" id="doc-code-tabs-2-tab-bun" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-2-panel-bun" tabIndex="-1">bun</button></div><div id="doc-code-tabs-2-panel-npm" class="mt-3 hidden" role="tabpanel" aria-labelledby="doc-code-tabs-2-tab-npm" aria-hidden="true"><pre><code class="language-sh">$ cd &lt;your-project-name&gt;
+<div class="doc-code-tabs my-5" data-rue-doc-code-tabs=""><div class="tabs tabs-boxed w-fit" role="tablist" aria-label="安装依赖并启动开发服务器"><button type="button" id="doc-code-tabs-2-tab-npm" class="tab tab-active" role="tab" aria-selected="true" aria-controls="doc-code-tabs-2-panel-npm" tabIndex="0">npm</button><button type="button" id="doc-code-tabs-2-tab-pnpm" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-2-panel-pnpm" tabIndex="-1">pnpm</button><button type="button" id="doc-code-tabs-2-tab-yarn" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-2-panel-yarn" tabIndex="-1">yarn</button><button type="button" id="doc-code-tabs-2-tab-bun" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-2-panel-bun" tabIndex="-1">bun</button></div><div id="doc-code-tabs-2-panel-npm" class="mt-3 " role="tabpanel" aria-labelledby="doc-code-tabs-2-tab-npm" aria-hidden="false"><pre><code class="language-sh">$ cd &lt;your-project-name&gt;
 $ npm install
 $ npm run dev
 </code></pre></div><div id="doc-code-tabs-2-panel-pnpm" class="mt-3 hidden" role="tabpanel" aria-labelledby="doc-code-tabs-2-tab-pnpm" aria-hidden="true"><pre><code class="language-sh">$ cd &lt;your-project-name&gt;
@@ -127,7 +119,7 @@ $ bun run dev
 <li>如果你选择使用 TypeScript，请查看 <a href="/guide/guide/typescript/overview">TypeScript 使用指南</a>。</li>
 </ul>
 <p>当你准备将应用部署到生产环境时，运行以下命令：</p>
-<div class="doc-code-tabs my-5"><div class="tabs tabs-boxed w-fit" role="tablist" aria-label="生产构建"><button type="button" id="doc-code-tabs-3-tab-npm" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-3-panel-npm" tabIndex="-1">npm</button><button type="button" id="doc-code-tabs-3-tab-pnpm" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-3-panel-pnpm" tabIndex="-1">pnpm</button><button type="button" id="doc-code-tabs-3-tab-yarn" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-3-panel-yarn" tabIndex="-1">yarn</button><button type="button" id="doc-code-tabs-3-tab-bun" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-3-panel-bun" tabIndex="-1">bun</button></div><div id="doc-code-tabs-3-panel-npm" class="mt-3 hidden" role="tabpanel" aria-labelledby="doc-code-tabs-3-tab-npm" aria-hidden="true"><pre><code class="language-sh">$ npm run build
+<div class="doc-code-tabs my-5" data-rue-doc-code-tabs=""><div class="tabs tabs-boxed w-fit" role="tablist" aria-label="生产构建"><button type="button" id="doc-code-tabs-3-tab-npm" class="tab tab-active" role="tab" aria-selected="true" aria-controls="doc-code-tabs-3-panel-npm" tabIndex="0">npm</button><button type="button" id="doc-code-tabs-3-tab-pnpm" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-3-panel-pnpm" tabIndex="-1">pnpm</button><button type="button" id="doc-code-tabs-3-tab-yarn" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-3-panel-yarn" tabIndex="-1">yarn</button><button type="button" id="doc-code-tabs-3-tab-bun" class="tab " role="tab" aria-selected="false" aria-controls="doc-code-tabs-3-panel-bun" tabIndex="-1">bun</button></div><div id="doc-code-tabs-3-panel-npm" class="mt-3 " role="tabpanel" aria-labelledby="doc-code-tabs-3-tab-npm" aria-hidden="false"><pre><code class="language-sh">$ npm run build
 </code></pre></div><div id="doc-code-tabs-3-panel-pnpm" class="mt-3 hidden" role="tabpanel" aria-labelledby="doc-code-tabs-3-tab-pnpm" aria-hidden="true"><pre><code class="language-sh">$ pnpm run build
 </code></pre></div><div id="doc-code-tabs-3-panel-yarn" class="mt-3 hidden" role="tabpanel" aria-labelledby="doc-code-tabs-3-tab-yarn" aria-hidden="true"><pre><code class="language-sh">$ yarn build
 </code></pre></div><div id="doc-code-tabs-3-panel-bun" class="mt-3 hidden" role="tabpanel" aria-labelledby="doc-code-tabs-3-tab-bun" aria-hidden="true"><pre><code class="language-sh">$ bun run build
