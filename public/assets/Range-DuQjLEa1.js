@@ -1,0 +1,84 @@
+import{Bt as e,C as t,Et as n,H as r,K as i,Kt as a,Mt as o,S as s,V as c,W as l,Y as u,_n as d,_t as f,b as p,bn as m,fn as h,gn as g,hn as _,ht as v,kn as y,mn as b,nt as x,pn as S,q as C,wn as w,x as T,z as E}from"./rue-runtime-CwEGJ854.js";import{t as D}from"./Code-DUvGro8N.js";import{t as O}from"./tabs-DUviBzjL.js";import{t as k}from"./range-BHS4v53x.js";import{r as A}from"./SidebarPlaygroundDesign-CwCJwf8H.js";var j=d(`<div class="space-y-6"><div class="flex w-full max-w-sm flex-col gap-4"><!--rue:text-hole:0--></div><div class="grid gap-3 rounded-box border border-dashed border-base-300 bg-base-100 p-4 text-sm sm:grid-cols-3"><!--rue:text-hole:1--></div></div>`),M=d(`<div class="component-preview not-prose text-base-content my-6 lg:my-12"><div class="flex flex-wrap items-start justify-between gap-3"><div><h2 class="component-preview-title mt-2 mb-1 text-lg font-semibold"># <!--rue:text-hole:0--></h2><!--rue:text-hole:1--></div></div><!--rue:opaque-hole:2--><!--rue:text-hole:3--></div>`),N=d(`<div class="not-prose overflow-x-auto rounded-box border border-base-300 bg-base-100"><table class="table table-zebra"><thead><tr><th>属性</th><th>说明</th><th>类型</th><th>默认值</th></tr></thead><tbody><!--rue:text-hole:0--></tbody></table></div>`),P=d(`<div class="w-full max-w-xs space-y-3"><!--rue:opaque-hole:0--><p class="m-0 text-sm text-base-content/70">当前值：<!--rue:text-hole:1--></p></div>`),F=d(`<div class="w-full max-w-lg space-y-4 rounded-box border border-base-300 bg-base-100 p-5"><!--rue:opaque-hole:0--><div class="grid gap-3 rounded-box bg-base-200/70 p-4 text-sm sm:grid-cols-3"><div><div class="text-xs uppercase tracking-wide text-base-content/50">每秒请求</div><div class="mt-1 text-lg font-semibold text-base-content"><!--rue:text-hole:1-->k</div></div><div><div class="text-xs uppercase tracking-wide text-base-content/50">区域副本</div><div class="mt-1 text-lg font-semibold text-base-content"><!--rue:text-hole:2--></div></div><div><div class="text-xs uppercase tracking-wide text-base-content/50">推荐套餐</div><div class="mt-1 text-lg font-semibold text-base-content"><!--rue:text-hole:3--></div></div></div></div>`),I=d(`<div class="w-full max-w-lg rounded-box border border-base-300 bg-base-100 p-5"><!--rue:opaque-hole:0--><div class="mt-4 grid gap-3 text-sm sm:grid-cols-2"><div class="rounded-box bg-base-200/70 p-4"><div class="text-xs uppercase tracking-wide text-base-content/50">实时预算</div><div class="mt-2 text-lg font-semibold text-base-content">¥ <!--rue:text-hole:1--> / 月</div></div><div class="rounded-box bg-base-200/70 p-4"><div class="text-xs uppercase tracking-wide text-base-content/50">已确认席位</div><div class="mt-2 text-lg font-semibold text-base-content"><!--rue:text-hole:2--> seats</div></div></div></div>`),L=d(`<div class="w-full max-w-sm"><!--rue:opaque-hole:0--></div>`),R=d(`<div class="grid gap-4"><!--rue:text-hole:0--></div>`),z=d(`<div class="w-full max-w-sm space-y-3 rounded-box border border-base-300 bg-base-100 p-4"><!--rue:opaque-hole:0--></div>`),B=d(`<div class="max-w-none prose prose-sm md:prose-base"><h1>Range Slider 范围选择</h1><p class="mt-3 mb-3 text-sm">Range 仍然坚持原生 <code>input type="range"</code> 的语义，但不再只是一条裸滑杆。现在可以直接在组件层补充标题、提示、刻度、值展示和语义回调，设计页也按能力分层重新组织。</p><!--rue:opaque-hole:0--><!--rue:opaque-hole:1--><!--rue:opaque-hole:2--><!--rue:opaque-hole:3--><!--rue:opaque-hole:4--><!--rue:opaque-hole:5--><!--rue:opaque-hole:6--><div class="component-preview not-prose text-base-content my-6 lg:my-12"><h2 class="component-preview-title mt-2 mb-3 text-lg font-semibold"># API</h2><p class="mb-4 text-sm text-base-content/70">不做增强展示时，Range 仍然是一个直接透传原生属性的滑杆；一旦传入 <code>label</code>、 <code>showValue</code>、<code>marks</code> 等属性，就会自动切换到更完整的展示结构。</p><!--rue:opaque-hole:7--></div></div>`),V=[`neutral`,`primary`,`secondary`,`accent`,`success`,`warning`,`info`,`error`],H=[`xs`,`sm`,`md`,`lg`,`xl`],U=[`small`,`medium`,`large`],W=e=>v(t=>{let a=M().content.cloneNode(!0).firstChild,o=a.childNodes[0].childNodes[0].childNodes[0].childNodes[1],s=o.parentNode,l=a.childNodes[0].childNodes[0].childNodes[1],d=l.parentNode,f=a.childNodes[1],m=f.parentNode,g=a.childNodes[2],v=g.parentNode;p({parent:s,before:o},()=>e.title,()=>({})),c(d,l,()=>e.summary?{__rue_compiled_branch_key:!0,create:()=>n(Object.assign(t=>{let n=_(`p`,t);n.className=`m-0 text-sm opacity-70`;let r=S(`rue:compiled-slot`);return h(n,r),p({parent:n,before:r},()=>e.summary,()=>({})),{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0}))}:{__rue_compiled_branch_key:!1,create:()=>n(Object.assign(e=>{let t=x();return{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))});let C=b(m);return i(C,O,()=>({style:`box`,items:[{key:`preview`,label:`预览`},{key:`code`,label:`JSX代码`}],activeKey:e.tab.value,onChange:t=>e.tab.value=t,className:`mb-3 mt-4`})),m.insertBefore(C,f),w(()=>{let t=e.tab.value===`preview`?e.preview():r(D,()=>({className:`mt-2`,lang:`tsx`,code:e.code}));y(()=>u(t,v,g))}),a}),G=e=>{let r=l(e.rows);return C(n(Object.assign(e=>{let i=N().content.cloneNode(!0).firstChild,a=i.childNodes[0].childNodes[1].childNodes[0],o=a.parentNode,c=[];return w(()=>{let e=r.get()||[];c=t(o,a,c,e,(e,t)=>e.prop,(e,t)=>{let r=l(e),i=l(t);return s((e,t,i)=>T(e,i,()=>n(Object.assign(e=>{let t=_(`tr`,e),n=_(`td`,t);h(t,n);let i=_(`code`,n);h(n,i);let a=g(``);h(i,a),m(a,()=>r.get().prop);let o=_(`td`,t);h(t,o);let s=g(``);h(o,s),m(s,()=>r.get().description);let c=_(`td`,t);h(t,c);let l=_(`code`,c);h(c,l);let u=g(``);h(l,u),m(u,()=>r.get().type);let d=_(`td`,t);h(t,d);let f=_(`code`,d);h(d,f);let p=g(``);return h(f,p),m(p,()=>r.get().defaultValue),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))),(n,a)=>{e=n,t=a,r.set(n),i.set(a)})})}),{__rue_compiled_host:i,__rue_compiled_roots:[i]}},{__rue_compiled_explicit_roots:!0})),e=>E(()=>{r.set(e.rows)}),()=>e)},K=()=>{let t=e(`40`);return o(()=>C(n(Object.assign(e=>{let n=P().content.cloneNode(!0).firstChild,r=n.childNodes[0],a=r.parentNode,o=n.childNodes[1].childNodes[1],s=o.parentNode,c=b(a);i(c,k,()=>({"data-testid":`range-basic`,min:0,max:100,defaultValue:40,onValueChange:e=>{t.value=String(e)}})),a.insertBefore(c,r);let l=g(``);return s.insertBefore(l,o),s.removeChild(o),m(l,()=>t.value),{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0})),e=>E(()=>{})))},q=()=>{let t=e(250);return o(()=>C(v(()=>{let e=x(),n=F().content.cloneNode(!0),r=n.firstChild,a=r.childNodes[0],o=a.parentNode,s=r.childNodes[1].childNodes[0].childNodes[1].childNodes[0],c=s.parentNode,l=r.childNodes[1].childNodes[1].childNodes[1].childNodes[0],d=l.parentNode,f=r.childNodes[1].childNodes[2].childNodes[1].childNodes[0],p=f.parentNode;e.appendChild(n);let m=b(o);return i(m,k,()=>({min:100,max:1e3,step:50,defaultValue:250,color:`primary`,label:`边缘带宽`,hint:`滑动查看不同档位的交付能力。`,helper:`超过 500 Mbps 后，建议同步升级防护策略与监控采样。`,showValue:{formatter:e=>`${e} Mbps`},marks:[{value:100,label:`Lite`},{value:250,label:`Start`},{value:500,label:`Growth`},{value:750,label:`Scale`},{value:1e3,label:`Max`}],onValueChange:e=>{t.value=e}})),o.insertBefore(m,a),w(()=>{let e=Math.round(t.value/10*18);y(()=>u(e,c,s))}),w(()=>{let e=t.value>=500?`6 个`:`3 个`;y(()=>u(e,d,l))}),w(()=>{let e=t.value>=750?`Enterprise`:t.value>=500?`Scale`:t.value>=250?`Growth`:`Starter`;y(()=>u(e,p,f))}),e},!0),e=>E(()=>{})))},J=()=>{let t=e(12),r=e(12);return o(()=>C(n(Object.assign(e=>{let n=I().content.cloneNode(!0).firstChild,a=n.childNodes[0],o=a.parentNode,s=n.childNodes[1].childNodes[0].childNodes[1].childNodes[1],c=s.parentNode,l=n.childNodes[1].childNodes[1].childNodes[1].childNodes[0],u=l.parentNode,d=b(o);i(d,k,()=>({min:5,max:60,step:5,defaultValue:12,color:`secondary`,showValue:{formatter:e=>`${e} seats`,placement:`below`},label:`团队席位`,hint:`拖动时实时更新预算，松手后再提交确认值。`,marks:[5,15,30,45,60],onValueChange:e=>{t.value=e},onValueCommit:e=>{r.value=e}})),o.insertBefore(d,a);let f=g(``);c.insertBefore(f,s),c.removeChild(s),m(f,()=>t.value*129);let p=g(``);return u.insertBefore(p,l),u.removeChild(l),m(p,()=>r.value),{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0})),e=>E(()=>{})))},ee=()=>C(n(Object.assign(e=>{let t=L().content.cloneNode(!0).firstChild,n=t.childNodes[0],r=n.parentNode,a=b(r);return i(a,k,()=>({min:0,max:100,defaultValue:25,step:25,showValue:{placement:`below`,formatter:e=>`${e}%`},marks:[{value:0,label:`1`},{value:25,label:`2`},{value:50,label:`3`},{value:75,label:`4`},{value:100,label:`5`}]})),r.insertBefore(a,n),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0})),e=>E(()=>{})),te=()=>C(n(Object.assign(e=>{let r=R().content.cloneNode(!0).firstChild,a=r.childNodes[0],o=a.parentNode,c=[];return w(()=>{c=t(o,a,c,V||[],(e,t)=>e,(e,t)=>{let r=l(e),a=l(t);return s((e,t,a)=>T(e,a,()=>n(Object.assign(e=>{let t=_(`div`,e);t.className=`space-y-2 rounded-box border border-base-300 bg-base-100 p-4`;let n=_(`div`,t);h(t,n),n.className=`text-xs uppercase tracking-wide text-base-content/60`;let a=g(``);return h(n,a),m(a,()=>r.get()),i(t,k,()=>({color:r.get(),min:0,max:100,defaultValue:40,showValue:!0})),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))),(n,i)=>{e=n,t=i,r.set(n),a.set(i)})})}),{__rue_compiled_host:r,__rue_compiled_roots:[r]}},{__rue_compiled_explicit_roots:!0})),e=>E(()=>{})),ne=()=>C(n(Object.assign(e=>{let t=z().content.cloneNode(!0).firstChild,n=t.childNodes[0],r=n.parentNode,a=b(r);return i(a,k,()=>({min:0,max:100,defaultValue:40,showValue:{formatter:e=>`mix ${e}`},className:`text-blue-300 [--range-bg:orange] [--range-thumb:blue] [--range-fill:0]`})),r.insertBefore(a,n),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0})),e=>E(()=>{})),re=[{prop:`className`,description:`追加到原生 input 的类名，适合继续覆写 CSS 变量`,type:`string`,defaultValue:`-`},{prop:`color`,description:`语义色，映射到 range-* 颜色类`,type:`'neutral' | 'primary' | 'secondary' | 'accent' | 'success' | 'warning' | 'info' | 'error'`,defaultValue:`-`},{prop:`defaultValue`,description:`非受控初始值`,type:`string | number`,defaultValue:`-`},{prop:`formatter`,description:`值格式化函数，可与 showValue 组合使用`,type:`(value: number, info: { min: number; max: number; percent: number }) => any`,defaultValue:`-`},{prop:`helper`,description:`底部辅助文案`,type:`any`,defaultValue:`-`},{prop:`hint`,description:`标题下方的简短说明`,type:`any`,defaultValue:`-`},{prop:`label`,description:`顶部标题，自动关联 input id`,type:`any`,defaultValue:`-`},{prop:`marks`,description:`刻度点，可传 number / string 或 { value, label } 数组`,type:`Array<string | number | { value: string | number; label?: any }>`,defaultValue:`-`},{prop:`max`,description:`最大值`,type:`string | number`,defaultValue:`100`},{prop:`min`,description:`最小值`,type:`string | number`,defaultValue:`0`},{prop:`onValueChange`,description:`拖动过程中的语义回调，返回解析后的 number`,type:`(value: number, event: Event) => void`,defaultValue:`-`},{prop:`onValueCommit`,description:`原生 change 阶段的语义回调，适合提交确认值`,type:`(value: number, event: Event) => void`,defaultValue:`-`},{prop:`rootClassName`,description:`增强结构外层容器类名，仅在展示层激活时生效`,type:`string`,defaultValue:`-`},{prop:`showValue`,description:`显示当前值，可配置 formatter、placement 和 className`,type:`boolean | { formatter?: (value: number, info: { min: number; max: number; percent: number }) => any; placement?: 'inline' | 'below'; className?: string }`,defaultValue:`false`},{prop:`size`,description:`尺寸，支持 xs-xl 以及 small / medium / large 别名`,type:`'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'small' | 'medium' | 'large'`,defaultValue:`'md'`},{prop:`step`,description:`步长`,type:`string | number`,defaultValue:`1`},{prop:`value`,description:`受控值`,type:`string | number`,defaultValue:`-`}],Y=()=>{let c=e(`preview`),d=e(`preview`),p=e(`preview`),S=e(`preview`),D=e(`preview`),O=e(`preview`),M=e(`preview`);return o(()=>C((()=>{let e=v(()=>{let e=x(),o=B().content.cloneNode(!0),v=o.firstChild,C=v.childNodes[2],E=C.parentNode,A=v.childNodes[3],N=A.parentNode,P=v.childNodes[4],F=P.parentNode,I=v.childNodes[5],L=I.parentNode,R=v.childNodes[6],z=R.parentNode,V=v.childNodes[7],Y=V.parentNode,X=v.childNodes[8],ie=X.parentNode,Z=v.childNodes[9].childNodes[2],Q=Z.parentNode;e.appendChild(o),w(()=>{let e=f(W,()=>({title:`Range`,summary:`展示最小写法；如果你只想要一个原生滑杆，API 仍然保持直接。`,tab:c,preview:a(()=>r(K,()=>({}))),code:`<Range min={0} max={100} value={40} />`}));y(()=>u(e,E,C))}),w(()=>{let e=f(W,()=>({title:`带文案与实时值`,summary:`把 label、hint、helper、showValue 和 marks 叠到组件自身，适合做套餐档位和配置面板。`,tab:d,preview:a(()=>r(q,()=>({}))),code:`const bandwidth = ref(250)
+
+<Range
+  min={100}
+  max={1000}
+  step={50}
+  defaultValue={250}
+  color="primary"
+  label="边缘带宽"
+  hint="滑动查看不同档位的交付能力。"
+  helper="超过 500 Mbps 后，建议同步升级防护策略与监控采样。"
+  showValue={{ formatter: value => value + ' Mbps' }}
+  marks={[
+    { value: 100, label: 'Lite' },
+    { value: 250, label: 'Start' },
+    { value: 500, label: 'Growth' },
+    { value: 750, label: 'Scale' },
+    { value: 1000, label: 'Max' },
+  ]}
+  onValueChange={nextValue => {
+    bandwidth.value = nextValue
+  }}
+/>`}));y(()=>u(e,N,A))}),w(()=>{let e=f(W,()=>({title:`With steps and measure`,summary:`基础示例 保持，但把刻度线和标签收进 marks，减少样板代码。`,tab:p,preview:a(()=>r(ee,()=>({}))),code:`<Range
+  min={0}
+  max={100}
+  defaultValue={25}
+  step={25}
+  showValue={{ placement: 'below', formatter: currentValue => currentValue + '%' }}
+  marks={[
+    { value: 0, label: '1' },
+    { value: 25, label: '2' },
+    { value: 50, label: '3' },
+    { value: 75, label: '4' },
+    { value: 100, label: '5' },
+  ]}
+/>`}));y(()=>u(e,F,P))}),w(()=>{let e=f(W,()=>({title:`Range colors`,summary:`使用颜色矩阵，同时展示语义 API 与颜色类可以自然叠加。`,tab:S,preview:a(()=>r(te,()=>({}))),code:`const colors = ['neutral', 'primary', 'secondary', 'accent', 'success', 'warning', 'info', 'error'] as const
+
+<div className="grid gap-4">
+  {colors.map(color => (
+    <div key={color} className="space-y-2 rounded-box border border-base-300 bg-base-100 p-4">
+      <div className="text-xs uppercase tracking-wide text-base-content/60">{color}</div>
+      <Range
+        color={color}
+        min={0}
+        max={100}
+        defaultValue={40}
+        showValue={true}
+      />
+    </div>
+  ))}
+</div>`}));y(()=>u(e,L,I))}),w(()=>{let e=f(W,()=>({title:`Sizes`,summary:`展示 xs 到 xl 的基础尺寸，同时补上 small / medium / large 三个别名，方便和其他组件对齐。`,tab:D,preview:a(()=>n(Object.assign(e=>{let a=j().content.cloneNode(!0).firstChild,o=a.childNodes[0].childNodes[0],c=o.parentNode,u=a.childNodes[1].childNodes[0],d=u.parentNode,f=[];w(()=>{f=t(c,o,f,H||[],(e,t)=>e,(e,t)=>{let n=l(e),i=l(t);return s((e,t,a)=>T(e,a,()=>r(k,()=>({size:n.get(),min:0,max:100,defaultValue:30+i.get()*10}))),(r,a)=>{e=r,t=a,n.set(r),i.set(a)})})});let p=[];return w(()=>{p=t(d,u,p,U||[],(e,t)=>e,(e,t)=>{let r=l(e),a=l(t);return s((e,t,o)=>T(e,o,()=>n(Object.assign(e=>{let t=_(`div`,e);t.className=`space-y-2`;let n=_(`div`,t);h(t,n),n.className=`text-xs uppercase tracking-wide text-base-content/60`;let o=g(``);return h(n,o),m(o,()=>r.get()),i(t,k,()=>({size:r.get(),min:0,max:100,defaultValue:35+a.get()*20})),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))),(n,i)=>{e=n,t=i,r.set(n),a.set(i)})})}),{__rue_compiled_host:a,__rue_compiled_roots:[a]}},{__rue_compiled_explicit_roots:!0}))),code:`<Range size="xs" min={0} max={100} defaultValue={30} />
+<Range size="sm" min={0} max={100} defaultValue={40} />
+<Range size="md" min={0} max={100} defaultValue={50} />
+<Range size="lg" min={0} max={100} defaultValue={60} />
+<Range size="xl" min={0} max={100} defaultValue={70} />
+
+<Range size="small" min={0} max={100} defaultValue={35} />
+<Range size="medium" min={0} max={100} defaultValue={55} />
+<Range size="large" min={0} max={100} defaultValue={75} />`}));y(()=>u(e,z,R))}),w(()=>{let e=f(W,()=>({title:`受控提交`,summary:`拖动中用 onValueChange 更新即时反馈，松手后用 onValueCommit 记录确认值。`,tab:O,preview:a(()=>r(J,()=>({}))),code:`const seats = ref(12)
+const committedSeats = ref(12)
+
+<Range
+  min={5}
+  max={60}
+  step={5}
+  defaultValue={12}
+  color="secondary"
+  showValue={{ formatter: value => value + ' seats', placement: 'below' }}
+  label="团队席位"
+  hint="拖动时实时更新预算，松手后再提交确认值。"
+  marks={[5, 15, 30, 45, 60]}
+  onValueChange={nextValue => {
+    seats.value = nextValue
+  }}
+  onValueCommit={nextValue => {
+    committedSeats.value = nextValue
+  }}
+/>`}));y(()=>u(e,Y,V))}),w(()=>{let e=f(W,()=>({title:`Range with custom color and no fill`,summary:`基础的自定义 CSS 变量方案继续可用；语义 API 不会挡住底层变量覆写。`,tab:M,preview:a(()=>r(ne,()=>({}))),code:`<Range
+  min={0}
+  max={100}
+  defaultValue={40}
+  showValue={{ formatter: currentValue => 'mix ' + currentValue }}
+  className="text-blue-300 [--range-bg:orange] [--range-thumb:blue] [--range-fill:0]"
+/>`}));y(()=>u(e,ie,X))});let $=b(Q);return i($,G,()=>({rows:re})),Q.insertBefore($,Z),e});return f(A,()=>({children:e}))})(),e=>E(()=>{})))};export{Y as default};

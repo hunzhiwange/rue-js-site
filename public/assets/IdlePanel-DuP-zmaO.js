@@ -1,0 +1,1 @@
+import{t as e}from"./IdlePanel-CKM7hETB.js";export{e as default};

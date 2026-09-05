@@ -1,1 +1,0 @@
-import{Ct as e,dt as t,pt as n,st as r,tn as i,vn as a}from"./context-8lXZvIn-.js";import{l as o,o as s}from"./vapor-runtime-ygJWVcNn.js";var c=c=>o(o=>{let l=n(`section`,o);e(l,`data-only-client`,`true`);let u=t(`rue:slot:anchor`);return r(l,u),i(()=>{let e=c.label;a(()=>s(e,l,u))}),l});export{c as default};

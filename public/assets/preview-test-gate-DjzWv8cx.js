@@ -1,0 +1,1 @@
+import{_t as e}from"./rue-runtime-CwEGJ854.js";var t=()=>!!globalThis.vitest,n=e=>{if(!t())return!0;let n=globalThis.__RUE_TEST_ENABLED_DESIGN_PREVIEWS__;return n?n instanceof Set?n.has(e):!Array.isArray(n)||n.includes(e):!0},r=(t,r)=>n(t)?typeof r==`function`?e(r,()=>({})):r??null:null;export{r as t};

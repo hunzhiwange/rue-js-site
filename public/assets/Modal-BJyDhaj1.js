@@ -1,0 +1,284 @@
+import{B as e,Bt as t,Dn as n,Et as r,H as i,K as a,L as o,Lt as s,Sn as c,V as l,W as u,Wt as d,X as f,Y as p,_n as m,_t as h,bn as g,fn as _,g as v,gn as y,hn as b,ht as x,it as S,kn as C,nt as w,ot as T,pt as E,q as D,qt as O,rt as k,tt as A,v as j,wn as M,x as N,z as P}from"./rue-runtime-CwEGJ854.js";import{t as F}from"./Code-DUvGro8N.js";import{r as I}from"./SidebarPlaygroundExample-EGR0CyDT.js";var L=m(`<div class="modal-mask"><div class="modal-container"><div class="modal-header"><h3>Custom Header</h3></div><div class="modal-body"><p>Custom body content is rendered inside the transitioned modal.</p></div><div class="modal-footer"><button class="modal-default-button">OK</button></div></div></div>`),R=m(`<div class="mt-3 rounded-box border border-base-300 bg-base-100 p-3"><div class="text-xs font-medium uppercase tracking-wide text-base-content/50"><!--rue:text-hole:0--></div><div></div></div>`),z=m(`<h1 class="text-5xl font-semibold mb-4 md:mb-4">带过渡动效的模态框（移植自 Vue）</h1>`),B=m(`<div role="tablist" class="tabs tabs-box"><button role="tab">效果</button><button role="tab">代码</button></div>`),V=m(`<div class="mt-4 grid md:grid-cols-1 gap-6 items-start"><!--rue:text-hole:0--><!--rue:text-hole:1--></div>`),H=`
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.modal-container {
+  width: min(100%, 28rem);
+  border-radius: 1rem;
+  background: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.28);
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.modal-body {
+  margin: 1rem 0 1.25rem;
+  color: #475569;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-default-button {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 300ms ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active .modal-container,
+.modal-leave-active .modal-container {
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.modal-enter-from .modal-container,
+.modal-leave-to .modal-container {
+  transform: translateY(16px) scale(0.96);
+  opacity: 0;
+}
+`,U=`import { type FC, Teleport, Transition, ref } from '@rue-js/rue';
+
+const modalStyles = \`
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.modal-container {
+  width: min(100%, 28rem);
+  border-radius: 1rem;
+  background: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.28);
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.modal-body {
+  margin: 1rem 0 1.25rem;
+  color: #475569;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-default-button {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 300ms ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active .modal-container,
+.modal-leave-active .modal-container {
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.modal-enter-from .modal-container,
+.modal-leave-to .modal-container {
+  transform: translateY(16px) scale(0.96);
+  opacity: 0;
+}
+\`;
+
+const Modal: FC<{ visible: boolean; onClose?: () => void }> = (props) => (
+  <Teleport to="body">
+    <>
+      <style>{modalStyles}</style>
+      <Transition name="modal" type="transition" duration={300} appear>
+        {props.visible ? (
+          <div className="modal-mask" onClick={() => props.onClose && props.onClose()}>
+            <div className="modal-container" onClick={(event: any) => event.stopPropagation()}>
+              <div className="modal-header">
+                <h3>Custom Header</h3>
+              </div>
+              <div className="modal-body">
+                <p>Custom body content is rendered inside the transitioned modal.</p>
+              </div>
+              <div className="modal-footer">
+                <button className="modal-default-button" onClick={() => props.onClose && props.onClose()}>
+                  OK
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : null}
+      </Transition>
+    </>
+  </Teleport>
+);
+
+const ensureLateTarget = (shellId: string, targetId: string) => {
+  if (typeof document === 'undefined') return;
+  const shell = document.getElementById(shellId);
+  if (!shell || document.getElementById(targetId)) return;
+  const target = document.createElement('div');
+  target.id = targetId;
+  target.className = 'mt-3 min-h-16 rounded-box border border-dashed border-info/50 bg-base-100 p-3';
+  target.textContent = 'late target created';
+  shell.appendChild(target);
+};
+
+const clearLateTargetShell = (shellId: string) => {
+  if (typeof document === 'undefined') return;
+  document.getElementById(shellId)?.replaceChildren();
+};
+
+const LateTargetHost: FC<{ shellId: string; label: string }> = (props) => {
+  return (
+    <div className="mt-3 rounded-box border border-base-300 bg-base-100 p-3">
+      <div className="text-xs font-medium uppercase tracking-wide text-base-content/50">{props.label}</div>
+      <div id={props.shellId} />
+    </div>
+  );
+};
+
+const ModalExample: FC = () => {
+  const visibleModal = ref(false);
+  const normalRun = ref(0);
+  const normalActive = ref(false);
+  const deferRun = ref(0);
+  const normalTargetId = 'modal-normal-late-target-' + normalRun.value;
+  const deferTargetId = 'modal-defer-late-target-' + deferRun.value;
+
+  if (normalRun.value > 0) {
+    queueMicrotask(() => ensureLateTarget('modal-normal-late-shell', normalTargetId));
+  }
+  if (deferRun.value > 0) {
+    queueMicrotask(() => ensureLateTarget('modal-defer-late-shell', deferTargetId));
+  }
+
+  return (
+    <div className="grid gap-6">
+      <div className="card bg-base-100 shadow">
+        <div className="card-body grid gap-4">
+          <button id="visible-modal" className="btn btn-primary w-fit" onClick={() => (visibleModal.value = true)}>
+            Visible Modal
+          </button>
+          <Modal visible={visibleModal.value} onClose={() => (visibleModal.value = false)} />
+        </div>
+      </div>
+      <div className="card bg-base-100 shadow">
+        <div className="card-body grid gap-4">
+          <div>
+            <h2 className="card-title text-xl">Teleport defer 对照</h2>
+            <p className="text-sm text-base-content/70">
+              目标在同一轮更新末尾才出现：普通 Teleport 查找一次后结束，defer 会在微任务里再查找。
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            <section className="rounded-box border border-base-300 p-4">
+              <div className="font-medium">不使用 defer</div>
+              <button
+                id="run-normal-teleport"
+                className="btn btn-outline btn-sm mt-3"
+                onClick={() => {
+                  const nextRun = normalRun.value + 1;
+                  clearLateTargetShell('modal-normal-late-shell');
+                  normalActive.value = true;
+                  queueMicrotask(() =>
+                    ensureLateTarget('modal-normal-late-shell', 'modal-normal-late-target-' + nextRun),
+                  );
+                  queueMicrotask(() => {
+                    normalActive.value = false;
+                  });
+                  normalRun.value = nextRun;
+                }}
+              >
+                Run normal
+              </button>
+              {normalRun.value > 0 ? (
+                <p className="mt-2 text-xs text-base-content/60">
+                  target 已晚到；普通 Teleport 没有再次解析。
+                </p>
+              ) : null}
+              {normalActive.value && normalRun.value > 0 ? (
+                <Teleport to={'#' + normalTargetId}>
+                  <div className="alert alert-warning mt-3 py-3">Normal payload</div>
+                </Teleport>
+              ) : null}
+              <LateTargetHost shellId="modal-normal-late-shell" label="late target" />
+            </section>
+            <section className="rounded-box border border-info/40 p-4">
+              <div className="font-medium">使用 defer</div>
+              <button
+                id="run-defer-teleport"
+                className="btn btn-primary btn-sm mt-3"
+                onClick={() => {
+                  const nextRun = deferRun.value + 1;
+                  clearLateTargetShell('modal-defer-late-shell');
+                  queueMicrotask(() =>
+                    ensureLateTarget('modal-defer-late-shell', 'modal-defer-late-target-' + nextRun),
+                  );
+                  deferRun.value = nextRun;
+                }}
+              >
+                Run defer
+              </button>
+              {deferRun.value > 0 ? (
+                <p className="mt-2 text-xs text-base-content/60">
+                  target 晚到后，defer 重新解析并传送内容。
+                </p>
+              ) : null}
+              {deferRun.value > 0 ? (
+                <Teleport to={'#' + deferTargetId} defer>
+                  <div className="alert alert-info mt-3 py-3">Deferred payload</div>
+                </Teleport>
+              ) : null}
+              <LateTargetHost shellId="modal-defer-late-shell" label="late target" />
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ModalExample;`,W=e=>{let t=u(e.onClose),i=u(e.visible);return D(x(()=>{let e=w();f(e,S(` `));let a=k(`style`,e);f(e,a),M(()=>{E(a,H)}),f(e,S(` `));let o=A(`rue:component:anchor`);return f(e,o),M(()=>{let a=h(j,()=>({name:`modal`,type:`transition`,duration:300,appear:!0,__rueTransitionChildFactory:()=>i.get()?r(Object.assign(e=>{let r=L().content.cloneNode(!0).firstChild,i=r,a=r.childNodes[0],o=r.childNodes[0].childNodes[2].childNodes[0];i.className=`modal-mask`;let s=e=>{let n=()=>{t.get()&&t.get()()};typeof n==`function`&&n(e)};i.addEventListener(`click`,s),n(()=>i.removeEventListener(`click`,s)),a.className=`modal-container`;let c=e=>{let t=e=>{e.stopPropagation()};typeof t==`function`&&t(e)};a.addEventListener(`click`,c),n(()=>a.removeEventListener(`click`,c)),o.className=`modal-default-button`;let l=e=>{let n=()=>{t.get()&&t.get()()};typeof n==`function`&&n(e)};return o.addEventListener(`click`,l),n(()=>o.removeEventListener(`click`,l)),{__rue_compiled_host:r,__rue_compiled_roots:[r]}},{__rue_compiled_explicit_roots:!0})):null})),s=h(v,()=>({to:`body`,children:a}));C(()=>p(s,e,o))}),f(e,S(` `)),e},!0),e=>P(()=>{t.set(e.onClose),i.set(e.visible)}),()=>e)},G=(e,t)=>{if(typeof document>`u`)return;let n=document.getElementById(e);if(!n||document.getElementById(t))return;let r=document.createElement(`div`);r.id=t,r.className=`mt-3 min-h-16 rounded-box border border-dashed border-info/50 bg-base-100 p-3`,r.textContent=`late target created`,n.appendChild(r)},K=e=>{typeof document>`u`||document.getElementById(e)?.replaceChildren()},q=e=>{let t=u(e.label),n=u(e.shellId);return D(r(Object.assign(e=>{let r=R().content.cloneNode(!0).firstChild,i=r.childNodes[1],a=r.childNodes[0].childNodes[0],o=a.parentNode,s;M(()=>{let e=n.get();Object.is(s,e)||(s=e,e==null||e===!1?i.removeAttribute(`id`):i.setAttribute(`id`,String(e)))});let c=y(``);return o.insertBefore(c,a),o.removeChild(a),g(c,()=>t.get()),{__rue_compiled_host:r,__rue_compiled_roots:[r]}},{__rue_compiled_explicit_roots:!0})),e=>P(()=>{t.set(e.label),n.set(e.shellId)}),()=>e)},J=()=>{let{visibleModal:u,normalRun:f,normalActive:p,deferRun:m,activeTab:h,normalTargetId:g,__rue_phase2_normalTargetId:x,deferTargetId:S,__rue_phase2_deferTargetId:C}=O(`useSetup:0:0`,()=>d(()=>{let e=t(!1),n=t(0),r=t(!1),i=t(0),a=t(`preview`),o=c(()=>`modal-normal-late-target-`+n.value);o.get();let s=o,l=c(()=>`modal-defer-late-target-`+i.value);l.get();let u=l;return n.value>0&&queueMicrotask(()=>G(`modal-normal-late-shell`,s.get())),i.value>0&&queueMicrotask(()=>G(`modal-defer-late-shell`,u.get())),{visibleModal:e,normalRun:n,normalActive:r,deferRun:i,activeTab:a,normalTargetId:o,__rue_phase2_normalTargetId:s,deferTargetId:l,__rue_phase2_deferTargetId:u}}));return i(I,()=>({children:[(e,t,n)=>N(e,n,()=>r(Object.assign(e=>{let t=w();return t.appendChild(z().content.cloneNode(!0)),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))),(e,t,n)=>N(e,n,()=>r(Object.assign(e=>{let t=w(),n=B().content.cloneNode(!0),r=n.firstChild,i=r.childNodes[0],a=r.childNodes[1];t.appendChild(n),T(i,`role`,`tab`),M(()=>{o(i,`tab ${h.value===`preview`?`tab-active`:``}`)});let c=e=>{let t=()=>{h.value=`preview`};typeof t==`function`&&t(e)};i.addEventListener(`click`,c),s(()=>i.removeEventListener(`click`,c)),T(a,`role`,`tab`),M(()=>{o(a,`tab ${h.value===`code`?`tab-active`:``}`)});let l=e=>{let t=()=>{h.value=`code`};typeof t==`function`&&t(e)};return a.addEventListener(`click`,l),s(()=>a.removeEventListener(`click`,l)),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))),(t,o,s)=>N(t,s,()=>r(Object.assign(t=>{let o=w(),s=V().content.cloneNode(!0),c=s.firstChild,d=c.childNodes[0],x=d.parentNode,C=c.childNodes[1],T=C.parentNode;return o.appendChild(s),l(x,d,()=>{let e=h.value===`code`;return e?{__rue_compiled_branch_key:!0,create:()=>r(Object.assign(e=>{let t=b(`div`,e);return t.className=`card bg-base-100 shadow overflow-auto h-[360px] md:h-[560px]`,a(t,F,()=>({className:`h-full`,lang:`tsx`,code:U})),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}:typeof e==`number`||typeof e==`bigint`?{__rue_compiled_branch_key:e,create:()=>r(Object.assign(t=>{let n=y(typeof e==`string`||typeof e==`number`||typeof e==`bigint`?e:``);return{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0}))}:{__rue_compiled_branch_key:!1,create:()=>r(Object.assign(e=>{let t=w();return{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}}),l(T,C,()=>{let t=h.value===`preview`;return t?{__rue_compiled_branch_key:!0,create:()=>r(Object.assign(t=>{let o=b(`div`,t);o.className=`grid gap-6`;let s=b(`div`,o);_(o,s),s.className=`card bg-base-100 shadow`;let c=b(`div`,s);_(s,c),c.className=`card-body grid gap-4`;let l=b(`button`,c);_(c,l),l.setAttribute(`id`,`visible-modal`),l.className=`btn btn-primary w-fit`;let d=e=>{let t=()=>{u.value=!0};typeof t==`function`&&t(e)};l.addEventListener(`click`,d),n(()=>l.removeEventListener(`click`,d)),_(l,y(`Visible Modal`)),a(c,W,()=>({visible:u.value,onClose:()=>{u.value=!1}}));let h=b(`div`,o);_(o,h),h.className=`card bg-base-100 shadow`;let x=b(`div`,h);_(h,x),x.className=`card-body grid gap-4`;let C=b(`div`,x);_(x,C);let T=b(`h2`,C);_(C,T),T.className=`card-title text-xl`,_(T,y(`Teleport defer 对照`));let E=b(`p`,C);_(C,E),E.className=`text-sm text-base-content/70`,_(E,y(`目标在同一轮更新末尾才出现：普通 Teleport 查找一次后结束，defer 会在微任务里再查找。`));let D=b(`div`,x);_(x,D),D.className=`grid gap-4 md:grid-cols-2`;let O=b(`section`,D);_(D,O),O.className=`rounded-box border border-base-300 p-4`;let k=b(`div`,O);_(O,k),k.className=`font-medium`,_(k,y(`不使用 defer`));let A=b(`button`,O);_(O,A),A.setAttribute(`id`,`run-normal-teleport`),A.className=`btn btn-outline btn-sm mt-3`;let j=e=>{let t=()=>{let e=f.value+1;K(`modal-normal-late-shell`),p.value=!0,queueMicrotask(()=>G(`modal-normal-late-shell`,`modal-normal-late-target-`+e)),queueMicrotask(()=>{p.value=!1}),f.value=e};typeof t==`function`&&t(e)};A.addEventListener(`click`,j),n(()=>A.removeEventListener(`click`,j)),_(A,y(`Run normal`)),e(()=>f.value>0?{__rue_compiled_branch_key:!0,create:()=>r(Object.assign(e=>{let t=b(`p`,e);return t.className=`mt-2 text-xs text-base-content/60`,_(t,y(`target 已晚到；普通 Teleport 没有再次解析。`)),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}:{__rue_compiled_branch_key:!1,create:()=>r(Object.assign(e=>{let t=w();return{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}).__rue_compiled_mount(O),e(()=>p.value&&f.value>0?{__rue_compiled_branch_key:!0,create:()=>i(v,()=>({to:`#`+g.get(),children:(e,t,n)=>N(e,n,()=>r(Object.assign(e=>{let t=w(),n=b(`div`,t);return _(t,n),n.className=`alert alert-warning mt-3 py-3`,_(n,y(`Normal payload`)),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0})))}))}:{__rue_compiled_branch_key:!1,create:()=>r(Object.assign(e=>{let t=w();return{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}).__rue_compiled_mount(O),a(O,q,()=>({shellId:`modal-normal-late-shell`,label:`late target`}));let M=b(`section`,D);_(D,M),M.className=`rounded-box border border-info/40 p-4`;let P=b(`div`,M);_(M,P),P.className=`font-medium`,_(P,y(`使用 defer`));let F=b(`button`,M);_(M,F),F.setAttribute(`id`,`run-defer-teleport`),F.className=`btn btn-primary btn-sm mt-3`;let I=e=>{let t=()=>{let e=m.value+1;K(`modal-defer-late-shell`),queueMicrotask(()=>G(`modal-defer-late-shell`,`modal-defer-late-target-`+e)),m.value=e};typeof t==`function`&&t(e)};return F.addEventListener(`click`,I),n(()=>F.removeEventListener(`click`,I)),_(F,y(`Run defer`)),e(()=>m.value>0?{__rue_compiled_branch_key:!0,create:()=>r(Object.assign(e=>{let t=b(`p`,e);return t.className=`mt-2 text-xs text-base-content/60`,_(t,y(`target 晚到后，defer 重新解析并传送内容。`)),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}:{__rue_compiled_branch_key:!1,create:()=>r(Object.assign(e=>{let t=w();return{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}).__rue_compiled_mount(M),e(()=>m.value>0?{__rue_compiled_branch_key:!0,create:()=>i(v,()=>({to:`#`+S.get(),defer:!0,children:(e,t,n)=>N(e,n,()=>r(Object.assign(e=>{let t=w(),n=b(`div`,t);return _(t,n),n.className=`alert alert-info mt-3 py-3`,_(n,y(`Deferred payload`)),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0})))}))}:{__rue_compiled_branch_key:!1,create:()=>r(Object.assign(e=>{let t=w();return{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}).__rue_compiled_mount(M),a(M,q,()=>({shellId:`modal-defer-late-shell`,label:`late target`})),{__rue_compiled_host:o,__rue_compiled_roots:[o]}},{__rue_compiled_explicit_roots:!0}))}:typeof t==`number`||typeof t==`bigint`?{__rue_compiled_branch_key:t,create:()=>r(Object.assign(e=>{let n=y(typeof t==`string`||typeof t==`number`||typeof t==`bigint`?t:``);return{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0}))}:{__rue_compiled_branch_key:!1,create:()=>r(Object.assign(e=>{let t=w();return{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}}),{__rue_compiled_host:o,__rue_compiled_roots:[o]}},{__rue_compiled_explicit_roots:!0})))]}))};export{J as default};

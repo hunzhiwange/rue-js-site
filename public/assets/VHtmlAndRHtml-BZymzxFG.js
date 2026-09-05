@@ -1,0 +1,22 @@
+import{Bt as e,Dn as t,Et as n,K as r,L as i,Lt as a,Mt as o,V as s,X as c,Y as l,_n as u,_t as d,fn as f,gn as p,hn as m,ht as h,it as g,kn as _,lt as v,nt as y,q as b,rt as x,wn as S,z as C}from"./rue-runtime-CwEGJ854.js";import{t as w}from"./Code-DUvGro8N.js";import{r as T}from"./SidebarPlaygroundExample-EGR0CyDT.js";var E=u(`<h1 class="text-5xl font-semibold mb-4 md:mb-4">v-html / r-html</h1>`),D=u(`<div role="tablist" class="tabs tabs-box"><button role="tab">效果</button><button role="tab">代码</button></div>`),O=u(`<div class="mt-4 grid md:grid-cols-1 gap-6 items-start"><!--rue:text-hole:0--><!--rue:text-hole:1--></div>`),k=()=>{let u=e(`code`),k=e(`<strong>草稿</strong><span> 文档仍在编辑中。</span>`),A=e(`<strong>Pro</strong><span> 专业版在线</span>`);return o(()=>b((()=>{let e=h(()=>{let e=y(),t=O().content.cloneNode(!0),o=t.firstChild,d=o.childNodes[0],b=d.parentNode,C=o.childNodes[1],T=C.parentNode;return e.appendChild(t),s(b,d,()=>{let e=u.value===`code`;return e?{__rue_compiled_branch_key:!0,create:()=>n(Object.assign(e=>{let t=m(`div`,e);t.className=`card bg-base-100 shadow overflow-auto`;let n=m(`div`,t);return f(t,n),n.className=`card-body p-0`,r(n,w,()=>({className:`h-full`,lang:`tsx`,code:`import { type FC, ref } from '@rue-js/rue';
+
+const VHtmlAndRHtml: FC = () => {
+  const articleHtml = ref('<strong>草稿</strong><span> 文档仍在编辑中。</span>');
+  const badgeHtml = ref('<strong>Pro</strong><span> 专业版在线</span>');
+
+  return (
+    <div className="grid gap-4">
+      <button className="btn btn-sm" onClick={() => {
+        articleHtml.value = '<strong>已发布</strong><span> 文档已经公开。</span>';
+        badgeHtml.value = '<strong>Basic</strong><span> 标准版在线</span>';
+      }}>
+        更新 HTML
+      </button>
+
+      <div v-html="articleHtml.value" className="alert alert-info"></div>
+      <p r-html={badgeHtml.value} className="badge badge-success badge-lg"></p>
+    </div>
+  );
+};
+
+export default VHtmlAndRHtml;`})),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}:typeof e==`number`||typeof e==`bigint`?{__rue_compiled_branch_key:e,create:()=>n(Object.assign(t=>{let n=p(typeof e==`string`||typeof e==`number`||typeof e==`bigint`?e:``);return{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0}))}:{__rue_compiled_branch_key:!1,create:()=>n(Object.assign(e=>{let t=y();return{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}}),S(()=>{let e=u.value===`preview`?h(()=>{let e=y(),t=x(`div`,e);c(e,t),i(t,`card bg-base-100 shadow`);let n=x(`div`,t);c(t,n),i(n,`card-body grid gap-6`);let r=x(`section`,n);c(n,r),i(r,`space-y-3`);let o=x(`div`,r);c(r,o),i(o,`flex flex-wrap items-center justify-between gap-3`);let s=x(`h2`,o);c(o,s),i(s,`text-xl font-semibold`),c(s,g(`v-html / r-html`));let l=x(`button`,o);c(o,l),i(l,`btn btn-sm`);let u=e=>{let t=()=>{k.value=`<strong>已发布</strong><span> 文档已经公开。</span>`,A.value=`<strong>Basic</strong><span> 标准版在线</span>`};typeof t==`function`&&t(e)};l.addEventListener(`click`,u),a(()=>l.removeEventListener(`click`,u)),c(l,g(`更新 HTML`));let d=x(`div`,r);c(r,d),i(d,`rounded-box border border-base-300 p-4 grid gap-3`);let f=x(`div`,d);c(d,f),i(f,`alert alert-info`),S(()=>{let e={__html:k.value};v(f,e&&`__html`in e?e.__html:``)});let p=x(`p`,d);return c(d,p),i(p,`badge badge-success badge-lg`),S(()=>{let e={__html:A.value};v(p,e&&`__html`in e?e.__html:``)}),e},!0):``;_(()=>l(e,T,C))}),e});return d(T,()=>({children:[n(e=>E().content.cloneNode(!0).firstChild),n(Object.assign(e=>{let n=D().content.cloneNode(!0).firstChild,r=n.childNodes[0],i=n.childNodes[1];r.setAttribute(`role`,`tab`);let a;S(()=>{let e=`tab ${u.value===`preview`?`tab-active`:``}`,t=e==null?``:String(e);Object.is(a,t)||(a=t,r.className=t)});let o=e=>{let t=()=>{u.value=`preview`};typeof t==`function`&&t(e)};r.addEventListener(`click`,o),t(()=>r.removeEventListener(`click`,o)),i.setAttribute(`role`,`tab`);let s;S(()=>{let e=`tab ${u.value===`code`?`tab-active`:``}`,t=e==null?``:String(e);Object.is(s,t)||(s=t,i.className=t)});let c=e=>{let t=()=>{u.value=`code`};typeof t==`function`&&t(e)};return i.addEventListener(`click`,c),t(()=>i.removeEventListener(`click`,c)),{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0})),e]}))})(),e=>C(()=>{})))};export{k as default};
