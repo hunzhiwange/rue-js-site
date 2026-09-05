@@ -1,5 +1,5 @@
 Static render report
-Generated at: 2026-09-05T01:52:14.842Z
+Generated at: 2026-09-05T03:47:48.902Z
 
 ## Summary
 
@@ -20,16 +20,16 @@ fatalFailures: 0
 Recovered by: static-snapshot
 
 Error: TypeError: Rue runtime: render input not supported on the default path
-    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5288:9)
-    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5506:9)
-    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5511:63)
-    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6718:17)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6786:19
-    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5142:10)
-    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5217:10)
-    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6785:25)
-    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:4869:27)
-    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:9248:60)
+    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5288:9)
+    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5506:9)
+    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5511:63)
+    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6718:17)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6786:19
+    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5142:10)
+    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5217:10)
+    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6785:25)
+    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:4869:27)
+    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:9248:60)
     at ChildProcess.<anonymous> (file:///Users/Shared/work/dir/data/codes/ruejs/packages/server-renderer/dist/server-renderer.static.esm-bundler.js:215:26)
     at ChildProcess.emit (node:events:509:20)
     at emit (node:internal/child_process:956:14)
@@ -39,13 +39,13 @@ Error: TypeError: Rue runtime: render input not supported on the default path
 
 Recovered by: static-snapshot
 
-Error: file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/Descriptions-Bhsa2AMG.mjs:288
+Error: file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/Descriptions-Bhsa2AMG.mjs:288
 		const nextItems = Array.from(host.querySelectorAll(`[${RUE_PROXY_ATTR}="true"]`)).map((element, index) => {
 		                                  ^
 
 TypeError: host.querySelectorAll is not a function
-    at syncCollectedItems (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/Descriptions-Bhsa2AMG.mjs:288:37)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/Descriptions-Bhsa2AMG.mjs:279:4
+    at syncCollectedItems (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/Descriptions-Bhsa2AMG.mjs:288:37)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/Descriptions-Bhsa2AMG.mjs:279:4
     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
 
 Node.js v26.0.0
@@ -61,13 +61,53 @@ Node.js v26.0.0
 
 Recovered by: static-snapshot
 
-Error: file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/Divider-Bs_Z1NHo.mjs:61
+Error: file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/Divider-Bs_Z1NHo.mjs:61
 				const content = element.querySelector(":scope > span");
 				                        ^
 
 TypeError: element.querySelector is not a function
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/Divider-Bs_Z1NHo.mjs:61:29
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/Divider-Bs_Z1NHo.mjs:61:29
     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v26.0.0
+    at createWorkerExitError (file:///Users/Shared/work/dir/data/codes/ruejs/packages/server-renderer/dist/server-renderer.static.esm-bundler.js:104:22)
+    at ChildProcess.<anonymous> (file:///Users/Shared/work/dir/data/codes/ruejs/packages/server-renderer/dist/server-renderer.static.esm-bundler.js:233:56)
+    at ChildProcess.emit (node:events:509:20)
+    at maybeClose (node:internal/child_process:1108:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:305:5)
+
+### 4. /design/form
+
+Recovered by: static-snapshot
+
+Error: Rue Error - The Compiler Framework For Native DOM
+Rue runtime: render input not supported on the default path
+TypeError: Rue runtime: render input not supported on the default path
+    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5288:9)
+    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5506:9)
+    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5511:63)
+    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6718:17)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6786:19
+    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5142:10)
+    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5217:10)
+    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6785:25)
+    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:4869:27)
+    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:9248:60)
+node:internal/process/task_queues:104
+    runMicrotasks();
+    ^
+
+TypeError: Rue runtime: render input not supported on the default path
+    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5288:9)
+    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5506:9)
+    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5511:63)
+    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6718:17)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6786:19
+    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5142:10)
+    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5217:10)
+    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6785:25)
+    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:4869:27)
+    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:9248:60)
 
 Node.js v26.0.0
     at createWorkerExitError (file:///Users/Shared/work/dir/data/codes/ruejs/packages/server-renderer/dist/server-renderer.static.esm-bundler.js:104:22)
@@ -78,61 +118,21 @@ Node.js v26.0.0
     at Socket.emit (node:events:509:20)
     at Pipe.<anonymous> (node:net:350:12)
 
-### 4. /design/form
-
-Recovered by: static-snapshot
-
-Error: Rue Error - The Compiler Framework For Native DOM
-Rue runtime: render input not supported on the default path
-TypeError: Rue runtime: render input not supported on the default path
-    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5288:9)
-    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5506:9)
-    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5511:63)
-    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6718:17)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6786:19
-    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5142:10)
-    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5217:10)
-    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6785:25)
-    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:4869:27)
-    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:9248:60)
-node:internal/process/task_queues:104
-    runMicrotasks();
-    ^
-
-TypeError: Rue runtime: render input not supported on the default path
-    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5288:9)
-    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5506:9)
-    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5511:63)
-    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6718:17)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6786:19
-    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5142:10)
-    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5217:10)
-    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6785:25)
-    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:4869:27)
-    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:9248:60)
-
-Node.js v26.0.0
-    at createWorkerExitError (file:///Users/Shared/work/dir/data/codes/ruejs/packages/server-renderer/dist/server-renderer.static.esm-bundler.js:104:22)
-    at ChildProcess.<anonymous> (file:///Users/Shared/work/dir/data/codes/ruejs/packages/server-renderer/dist/server-renderer.static.esm-bundler.js:233:56)
-    at ChildProcess.emit (node:events:509:20)
-    at maybeClose (node:internal/child_process:1108:16)
-    at ChildProcess._handle.onexit (node:internal/child_process:305:5)
-
 ### 5. /design/indicator
 
 Recovered by: static-snapshot
 
 Error: TypeError: element.style.setProperty is not a function
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/Indicator-XORwNTv8.mjs:145:73
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/Indicator-XORwNTv8.mjs:145:73
     at Array.forEach (<anonymous>)
-    at ref (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/Indicator-XORwNTv8.mjs:145:32)
-    at BrowserDOMAdapter.applyRef (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:4555:34)
-    at createServerNodeFromProtocolElement (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:9796:28)
-    at normalizeServerProtocolRenderable (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:10003:9)
-    at normalizeServerProtocolRenderable (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:9889:10)
-    at normalizeServerProtocolRenderable (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:9998:41)
-    at normalizeServerProtocolRenderable (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:9889:10)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:10003:108
+    at ref (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/Indicator-XORwNTv8.mjs:145:32)
+    at BrowserDOMAdapter.applyRef (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:4555:34)
+    at createServerNodeFromProtocolElement (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:9796:28)
+    at normalizeServerProtocolRenderable (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:10003:9)
+    at normalizeServerProtocolRenderable (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:9889:10)
+    at normalizeServerProtocolRenderable (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:9998:41)
+    at normalizeServerProtocolRenderable (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:9889:10)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:10003:108
     at ChildProcess.<anonymous> (file:///Users/Shared/work/dir/data/codes/ruejs/packages/server-renderer/dist/server-renderer.static.esm-bundler.js:215:26)
     at ChildProcess.emit (node:events:509:20)
     at emit (node:internal/child_process:956:14)
@@ -143,16 +143,16 @@ Error: TypeError: element.style.setProperty is not a function
 Recovered by: static-snapshot
 
 Error: TypeError: Rue runtime: render input not supported on the default path: invalid mount handle id
-    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5288:9)
-    at takeTaggedMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5433:27)
-    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5508:69)
-    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5511:63)
-    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6718:17)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6786:19
-    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5142:10)
-    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5217:10)
-    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6785:25)
-    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:4869:27)
+    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5288:9)
+    at takeTaggedMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5433:27)
+    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5508:69)
+    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5511:63)
+    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6718:17)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6786:19
+    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5142:10)
+    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5217:10)
+    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6785:25)
+    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:4869:27)
     at ChildProcess.<anonymous> (file:///Users/Shared/work/dir/data/codes/ruejs/packages/server-renderer/dist/server-renderer.static.esm-bundler.js:215:26)
     at ChildProcess.emit (node:events:509:20)
     at emit (node:internal/child_process:956:14)
@@ -165,14 +165,14 @@ Recovered by: static-snapshot
 Error: TypeError: The provided value is not of type 'Element'.
     at exports.convert (/Users/Shared/work/dir/data/codes/ruejs/node_modules/jsdom/lib/generated/idl/Element.js:28:9)
     at window.getComputedStyle (/Users/Shared/work/dir/data/codes/ruejs/node_modules/jsdom/lib/jsdom/browser/Window.js:856:33)
-    at syncAutoSize (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/Mentions-DXZEF8ge.mjs:382:32)
-    at MentionsRoot.watch.immediate (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/Mentions-DXZEF8ge.mjs:769:3)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:3435:70
-    at ReactiveRuntimeState.runUntracked (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:2548:11)
-    at ReactiveEffectRuntime.untrack (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:2993:21)
-    at ReactiveEffectRuntime.runWatcherHandler (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:2987:16)
-    at callback (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:3435:35)
-    at ReactiveRuntimeState.runWithScope (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:2590:11)
+    at syncAutoSize (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/Mentions-DXZEF8ge.mjs:382:32)
+    at MentionsRoot.watch.immediate (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/Mentions-DXZEF8ge.mjs:769:3)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:3435:70
+    at ReactiveRuntimeState.runUntracked (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:2548:11)
+    at ReactiveEffectRuntime.untrack (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:2993:21)
+    at ReactiveEffectRuntime.runWatcherHandler (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:2987:16)
+    at callback (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:3435:35)
+    at ReactiveRuntimeState.runWithScope (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:2590:11)
     at ChildProcess.<anonymous> (file:///Users/Shared/work/dir/data/codes/ruejs/packages/server-renderer/dist/server-renderer.static.esm-bundler.js:215:26)
     at ChildProcess.emit (node:events:509:20)
     at emit (node:internal/child_process:956:14)
@@ -183,16 +183,16 @@ Error: TypeError: The provided value is not of type 'Element'.
 Recovered by: static-snapshot
 
 Error: TypeError: Rue runtime: render input not supported on the default path: invalid mount handle id
-    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5288:9)
-    at takeTaggedMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5433:27)
-    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5508:69)
-    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5511:63)
-    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6718:17)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6786:19
-    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5142:10)
-    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5217:10)
-    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6785:25)
-    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:4869:27)
+    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5288:9)
+    at takeTaggedMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5433:27)
+    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5508:69)
+    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5511:63)
+    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6718:17)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6786:19
+    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5142:10)
+    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5217:10)
+    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6785:25)
+    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:4869:27)
     at ChildProcess.<anonymous> (file:///Users/Shared/work/dir/data/codes/ruejs/packages/server-renderer/dist/server-renderer.static.esm-bundler.js:215:26)
     at ChildProcess.emit (node:events:509:20)
     at emit (node:internal/child_process:956:14)
@@ -205,57 +205,57 @@ Recovered by: static-snapshot
 Error: Rue Error - The Compiler Framework For Native DOM
 Rue runtime: render input not supported on the default path
 TypeError: Rue runtime: render input not supported on the default path
-    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5288:9)
-    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5506:9)
-    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5511:63)
-    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6718:17)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6786:19
-    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5142:10)
-    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5217:10)
-    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6785:25)
-    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:4869:27)
-    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:9248:60)
+    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5288:9)
+    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5506:9)
+    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5511:63)
+    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6718:17)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6786:19
+    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5142:10)
+    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5217:10)
+    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6785:25)
+    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:4869:27)
+    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:9248:60)
 Rue Error - The Compiler Framework For Native DOM
 Rue runtime: render input not supported on the default path
 TypeError: Rue runtime: render input not supported on the default path
-    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5288:9)
-    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5506:9)
-    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5511:63)
-    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6718:17)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6786:19
-    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5142:10)
-    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5217:10)
-    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6785:25)
-    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:4869:27)
-    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:9248:60)
+    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5288:9)
+    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5506:9)
+    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5511:63)
+    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6718:17)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6786:19
+    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5142:10)
+    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5217:10)
+    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6785:25)
+    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:4869:27)
+    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:9248:60)
 Rue Error - The Compiler Framework For Native DOM
 Rue runtime: render input not supported on the default path
 TypeError: Rue runtime: render input not supported on the default path
-    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5288:9)
-    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5506:9)
-    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5511:63)
-    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6718:17)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6786:19
-    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5142:10)
-    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5217:10)
-    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6785:25)
-    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:4869:27)
-    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:9248:60)
+    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5288:9)
+    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5506:9)
+    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5511:63)
+    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6718:17)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6786:19
+    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5142:10)
+    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5217:10)
+    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6785:25)
+    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:4869:27)
+    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:9248:60)
 node:internal/process/task_queues:104
     runMicrotasks();
     ^
 
 TypeError: Rue runtime: render input not supported on the default path
-    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5288:9)
-    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5506:9)
-    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5511:63)
-    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6718:17)
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6786:19
-    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5142:10)
-    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:5217:10)
-    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:6785:25)
-    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:4869:27)
-    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/src-Bno5RywV.mjs:9248:60)
+    at protocolError (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5288:9)
+    at normalizeMountInputValue (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5506:9)
+    at normalizeMountInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5511:63)
+    at recordInput (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6718:17)
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6786:19
+    at withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5142:10)
+    at Object.withCurrentContainer (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:5217:10)
+    at Object.render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:6785:25)
+    at Object.wrappedRuntimeEntry [as render] (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:4869:27)
+    at render (file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/src-Bno5RywV.mjs:9248:60)
 
 Node.js v26.0.0
     at createWorkerExitError (file:///Users/Shared/work/dir/data/codes/ruejs/packages/server-renderer/dist/server-renderer.static.esm-bundler.js:104:22)
@@ -270,12 +270,12 @@ Node.js v26.0.0
 
 Recovered by: static-snapshot
 
-Error: file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/Validator-Dv9KKU4Y.mjs:54
+Error: file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/Validator-Dv9KKU4Y.mjs:54
 				element.value = element.value.trim();
 				                              ^
 
 TypeError: Cannot read properties of undefined (reading 'trim')
-    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-16025-mtnq96cq-8g8x0tu48bv/ssr/chunks/Validator-Dv9KKU4Y.mjs:54:35
+    at file:///Users/Shared/work/dir/data/codes/ruejs/.tmp/app-static-build-30396-mtnudsp9-2odou0qnpkz/ssr/chunks/Validator-Dv9KKU4Y.mjs:54:35
     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
 
 Node.js v26.0.0

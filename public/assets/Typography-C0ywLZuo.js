@@ -1,0 +1,65 @@
+import{Bt as e,C as t,Et as n,G as r,H as i,K as a,Mt as o,S as s,V as c,W as l,Y as u,_n as d,_t as f,b as p,bn as m,fn as h,gn as g,hn as _,ht as v,kn as y,mn as b,nt as x,q as S,wn as C,x as w,z as T}from"./rue-runtime-CwEGJ854.js";import{t as E}from"./Code-B3jCYMAr.js";import{t as D}from"./tabs-DUviBzjL.js";import{n as O,t as k}from"./text-rotate-DxYeMGru.js";import{r as A}from"./SidebarPlaygroundDesign-CwCJwf8H.js";var j=d(`<div class="flex flex-wrap items-center gap-4 text-lg"><!--rue:opaque-hole:0--><!--rue:opaque-hole:1--><!--rue:opaque-hole:2--><!--rue:opaque-hole:3--><!--rue:opaque-hole:4--><!--rue:opaque-hole:5--><!--rue:opaque-hole:6--></div>`),M=d(`<div class="space-y-3"><!--rue:opaque-hole:0--><!--rue:opaque-hole:1--><!--rue:opaque-hole:2--><!--rue:opaque-hole:3--><!--rue:opaque-hole:4--></div>`),N=d(`<div class="component-preview not-prose text-base-content my-6 lg:my-12"><h2 class="component-preview-title mt-2 mb-1 text-lg font-semibold"><!--rue:text-hole:0--></h2><p class="text-sm mt-3 mb-3"><!--rue:text-hole:1--></p><!--rue:opaque-hole:2--><!--rue:text-hole:3--></div>`),P=d(`<div class="not-prose overflow-x-auto rounded-box border border-base-300 bg-base-100"><table class="table table-zebra"><thead><tr><th>属性</th><th>说明</th><th>类型</th><th>默认值</th></tr></thead><tbody><!--rue:text-hole:0--></tbody></table></div>`),F=d(`<div class="max-w-none prose prose-sm md:prose-base"><h1>Typography 排版</h1><p class="text-sm mt-3 mb-3">Typography 采用常见业务排版组件的组织方式，提供 <code>Text</code>、<code>Link</code>、 <code>Title</code>、<code>Paragraph</code> 这组复合 API。</p><p class="text-sm mb-3 opacity-80">它使用 Rue 当前轻量、类名直连的风格，同时也成为 Text Rotate 等组件的语义文本底座。</p><!--rue:opaque-hole:0--><!--rue:opaque-hole:1--><!--rue:opaque-hole:2--><!--rue:opaque-hole:3--><h2>API</h2><p class="text-sm opacity-80">API 按根组件、内联语义组件和排版语义组件拆分，便于先搭内容结构，再补细粒度的强调方式。</p><div class="not-prose mt-4 grid gap-4 md:grid-cols-3"><div class="rounded-box border border-base-300 bg-base-100 p-4 shadow-sm"><div class="text-sm font-medium">Typography Root</div><p class="mt-2 text-sm opacity-70">根组件适合承接完整文案区块，本身不强加复杂布局，只提供稳定的文本基底。</p></div><div class="rounded-box border border-base-300 bg-base-100 p-4 shadow-sm"><div class="text-sm font-medium">Text / Link</div><p class="mt-2 text-sm opacity-70">这组组件偏内联表达，适合补 tone、强调状态、代码语义和链接能力。</p></div><div class="rounded-box border border-base-300 bg-base-100 p-4 shadow-sm"><div class="text-sm font-medium">Title / Paragraph</div><p class="mt-2 text-sm opacity-70">用于标题层级和正文节奏，适合和其他业务组件组合成完整的内容模块。</p></div></div><h3 class="mt-8">Typography</h3><p class="text-sm opacity-70">根组件负责承接一整段排版内容，适合包裹标题、正文和其他语义文本节点。</p><!--rue:opaque-hole:4--><h3>Typography.Text / Typography.Link</h3><p class="text-sm opacity-70">内联子组件负责 tone、强调和链接表达，适合放进句子、描述和其他组件的插槽里复用。</p><!--rue:opaque-hole:5--><h3>Typography.Title / Typography.Paragraph</h3><p class="text-sm opacity-70">排版子组件负责标题层级和正文节奏，也可以直接和 Text Rotate 之类的组件组合使用。</p><!--rue:opaque-hole:6--></div>`),I=e=>n(Object.assign(t=>{let n=N().content.cloneNode(!0).firstChild,o=n.childNodes[0].childNodes[0],s=o.parentNode,l=n.childNodes[1].childNodes[0],u=l.parentNode,d=n.childNodes[2],f=d.parentNode,m=n.childNodes[3],h=m.parentNode;p({parent:s,before:o},()=>e.title,()=>({})),p({parent:u,before:l},()=>e.description,()=>({}));let g=b(f);return a(g,D,()=>({style:`box`,items:[{key:`preview`,label:`预览`},{key:`code`,label:`JSX代码`}],activeKey:e.activeKey.value,onChange:t=>e.activeKey.value=t,className:`mb-3`})),f.insertBefore(g,d),c(h,m,()=>e.activeKey.value===`preview`?{__rue_compiled_branch_key:!0,create:()=>r(()=>e.preview)}:{__rue_compiled_branch_key:!1,create:()=>i(E,()=>({className:`mt-2`,lang:`tsx`,code:e.code}))}),{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0})),L=e=>{let r=l(e.rows);return S(n(Object.assign(e=>{let i=P().content.cloneNode(!0).firstChild,a=i.childNodes[0].childNodes[1].childNodes[0],o=a.parentNode,c=[];return C(()=>{let e=r.get()||[];c=t(o,a,c,e,(e,t)=>e.prop,(e,t)=>{let r=l(e),i=l(t);return s((e,t,i)=>w(e,i,()=>n(Object.assign(e=>{let t=_(`tr`,e),n=_(`td`,t);h(t,n);let i=_(`code`,n);h(n,i);let a=g(``);h(i,a),m(a,()=>r.get().prop);let o=_(`td`,t);h(t,o);let s=g(``);h(o,s),m(s,()=>r.get().description);let c=_(`td`,t);h(t,c);let l=_(`code`,c);h(c,l);let u=g(``);h(l,u),m(u,()=>r.get().type);let d=_(`td`,t);h(t,d);let f=_(`code`,d);h(d,f);let p=g(``);return h(f,p),m(p,()=>r.get().defaultValue),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))),(n,a)=>{e=n,t=a,r.set(n),i.set(a)})})}),{__rue_compiled_host:i,__rue_compiled_roots:[i]}},{__rue_compiled_explicit_roots:!0})),e=>T(()=>{r.set(e.rows)}),()=>e)},R=`<div className="flex flex-wrap items-center gap-4 text-lg">
+  <Typography.Text>Rue</Typography.Text>
+  <Typography.Text type="secondary">Secondary</Typography.Text>
+  <Typography.Text type="success" strong>
+    Success
+  </Typography.Text>
+  <Typography.Text type="warning" mark>
+    Highlight
+  </Typography.Text>
+  <Typography.Text code>pnpm dev</Typography.Text>
+  <Typography.Text keyboard>Esc</Typography.Text>
+  <Typography.Link href="https://rue.dev" target="_blank" type="danger">
+    Danger Link
+  </Typography.Link>
+</div>`,z=`<Typography className="space-y-4">
+  <Typography.Title level={2} className="font-title">
+    Release notes that stay readable
+  </Typography.Title>
+
+  <Typography.Paragraph>
+    Use <Typography.Text strong>Text</Typography.Text> for emphasis,{' '}
+    <Typography.Text code>code</Typography.Text> for commands, and{' '}
+    <Typography.Link href="https://rue.dev" target="_blank">
+      Typography.Link
+    </Typography.Link>{' '}
+    for inline actions.
+  </Typography.Paragraph>
+
+  <Typography.Paragraph type="secondary">
+    Paragraph keeps the reading rhythm while letting inline semantics stay expressive.
+  </Typography.Paragraph>
+</Typography>`,B=`<div className="space-y-3">
+  <Typography.Title level={1}>Heading 1</Typography.Title>
+  <Typography.Title level={2}>Heading 2</Typography.Title>
+  <Typography.Title level={3}>Heading 3</Typography.Title>
+  <Typography.Title level={4}>Heading 4</Typography.Title>
+  <Typography.Title level={5}>Heading 5</Typography.Title>
+</div>`,V=`<Typography className="space-y-4">
+  <Typography.Title level={3} className="font-title">
+    Ship better UI for{' '}
+    <TextRotate
+      className="text-primary"
+      innerClassName="justify-items-start"
+      items={[
+        { text: 'design systems', strong: true },
+        { text: 'docs sites', type: 'success', strong: true },
+        { text: 'team workflows', type: 'warning', mark: true },
+      ]}
+    />
+  </Typography.Title>
+
+  <Typography.Paragraph>
+    TextRotate items reuse the same semantic API, so headings, body copy and rotating words stay in one typography system.
+  </Typography.Paragraph>
+
+  <TextRotate
+    className="text-2xl font-title"
+    innerClassName="justify-items-start"
+    items={[
+      { text: 'Readable', strong: true },
+      { text: 'Reviewable', type: 'secondary', underline: true },
+      { text: 'Deployable', href: 'https://rue.dev', type: 'danger' },
+    ]}
+  />
+</Typography>`,H=[{prop:`as`,description:`根节点标签，适合在 div、section、article 之间切换。`,type:`'div' | 'section' | 'article'`,defaultValue:`'div'`},{prop:`className / style`,description:`补充根节点样式；默认带有 rue-typography 与基础文本颜色。`,type:`string / any`,defaultValue:`-`},{prop:`children`,description:`放置 Text、Link、Title、Paragraph 或任意可组合内容。`,type:`any`,defaultValue:`-`}],U=[{prop:`as`,description:`仅 Typography.Text 支持，用于指定输出标签。`,type:`'span' | 'div' | 'p'`,defaultValue:`'span'`},{prop:`type`,description:`文本语气，默认普通文本，其余映射到语义颜色。`,type:`TypographyTone`,defaultValue:`'default'`},{prop:`disabled`,description:`禁用交互并弱化视觉，同时补充 aria-disabled。`,type:`boolean`,defaultValue:`false`},{prop:`mark / code / keyboard`,description:`将内容包装成高亮、代码片段或键帽样式。`,type:`boolean`,defaultValue:`false`},{prop:`underline / delete / strong / italic`,description:`控制下划线、删除线、加粗和斜体等强调方式。`,type:`boolean`,defaultValue:`false`},{prop:`href / target / rel`,description:`仅 Typography.Link 支持的链接属性，target 为 _blank 时默认补 noreferrer。`,type:`string`,defaultValue:`-`}],W=[{prop:`level`,description:`仅 Typography.Title 支持，映射 h1 到 h5 的标题层级与字号。`,type:`1 | 2 | 3 | 4 | 5`,defaultValue:`1`},{prop:`type`,description:`标题和段落都支持语义色调，便于和正文 tone 保持统一。`,type:`TypographyTone`,defaultValue:`'default'`},{prop:`disabled`,description:`弱化显示并补 aria-disabled，适合只读或禁用态文案。`,type:`boolean`,defaultValue:`false`},{prop:`mark / code / keyboard`,description:`允许标题和段落复用高亮、代码和键帽包装能力。`,type:`boolean`,defaultValue:`false`},{prop:`underline / delete / strong / italic`,description:`支持强调、删除和斜体等排版修饰。`,type:`boolean`,defaultValue:`false`},{prop:`className / style / children`,description:`用于补充样式和传入可组合内容，Paragraph 默认输出段落节点。`,type:`any`,defaultValue:`-`}],G=()=>{let t=e(`preview`),n=e(`preview`),r=e(`preview`),i=e(`preview`);return o(()=>S((()=>{let e=v(()=>{let e=x(),o=F().content.cloneNode(!0),s=o.firstChild,c=s.childNodes[3],l=c.parentNode,d=s.childNodes[4],p=d.parentNode,m=s.childNodes[5],h=m.parentNode,g=s.childNodes[6],_=g.parentNode,S=s.childNodes[12],w=S.parentNode,T=s.childNodes[15],E=T.parentNode,D=s.childNodes[18],A=D.parentNode;e.appendChild(o),C(()=>{let e=f(I,()=>({title:`# Inline text states`,description:`Use Text and Link for tone, emphasis and inline semantic content`,activeKey:t,preview:v(()=>{let e=x(),t=j().content.cloneNode(!0),n=t.firstChild,r=n.childNodes[0],i=r.parentNode,a=n.childNodes[1],o=a.parentNode,s=n.childNodes[2],c=s.parentNode,l=n.childNodes[3],d=l.parentNode,p=n.childNodes[4],m=p.parentNode,h=n.childNodes[5],g=h.parentNode,_=n.childNodes[6],v=_.parentNode;e.appendChild(t);let b=f(O.Text,()=>({children:`Rue`}));u(b,i,r);let S=f(O.Text,()=>({type:`secondary`,children:`Secondary`}));u(S,o,a),C(()=>{let e=f(O.Text,()=>({type:`success`,strong:!0,children:`Success`}));y(()=>u(e,c,s))}),C(()=>{let e=f(O.Text,()=>({type:`warning`,mark:!0,children:`Highlight`}));y(()=>u(e,d,l))}),C(()=>{let e=f(O.Text,()=>({code:!0,children:`pnpm dev`}));y(()=>u(e,m,p))}),C(()=>{let e=f(O.Text,()=>({keyboard:!0,children:`Esc`}));y(()=>u(e,g,h))});let w=f(O.Link,()=>({href:`https://rue.dev`,target:`_blank`,type:`danger`,children:`Danger Link`}));return u(w,v,_),e},!0),code:R}));y(()=>u(e,l,c))}),C(()=>{let e=f(I,()=>({title:`# Title and paragraph composition`,description:`Organize headings, body copy and inline emphasis in one consistent text system`,activeKey:n,preview:(()=>{let e=f(O.Title,()=>({level:2,className:`font-title`,children:`Release notes that stay readable`})),t=f(O.Text,()=>({strong:!0,children:`Text`})),n=f(O.Text,()=>({code:!0,children:`code`})),r=f(O.Link,()=>({href:`https://rue.dev`,target:`_blank`,children:`Typography.Link`})),i=f(O.Paragraph,()=>({children:[`Use`,t,`for emphasis,`,` `,n,`for commands, and`,` `,r,` `,`for inline actions.`]})),a=f(O.Paragraph,()=>({type:`secondary`,children:`Paragraph keeps the reading rhythm while letting inline semantics stay expressive.`}));return f(O,()=>({className:`space-y-4`,children:[e,i,a]}))})(),code:z}));y(()=>u(e,p,d))}),C(()=>{let e=f(I,()=>({title:`# Heading levels`,description:`Map Title level to h1 through h5 while keeping Rue's typography rhythm`,activeKey:r,preview:v(()=>{let e=x(),t=M().content.cloneNode(!0),n=t.firstChild,r=n.childNodes[0],i=r.parentNode,a=n.childNodes[1],o=a.parentNode,s=n.childNodes[2],c=s.parentNode,l=n.childNodes[3],d=l.parentNode,p=n.childNodes[4],m=p.parentNode;e.appendChild(t);let h=f(O.Title,()=>({level:1,children:`Heading 1`}));u(h,i,r);let g=f(O.Title,()=>({level:2,children:`Heading 2`}));u(g,o,a);let _=f(O.Title,()=>({level:3,children:`Heading 3`}));u(_,c,s);let v=f(O.Title,()=>({level:4,children:`Heading 4`}));u(v,d,l);let y=f(O.Title,()=>({level:5,children:`Heading 5`}));return u(y,m,p),e},!0),code:B}));y(()=>u(e,h,m))}),C(()=>{let e=f(I,()=>({title:`# Compose with Text Rotate`,description:`The semantic API is shared, so static copy and rotating words feel like one family`,activeKey:i,preview:(()=>{let e=f(k,()=>({className:`text-primary`,innerClassName:`justify-items-start`,items:[{text:`design systems`,strong:!0},{text:`docs sites`,type:`success`,strong:!0},{text:`team workflows`,type:`warning`,mark:!0}]})),t=f(O.Title,()=>({level:3,className:`font-title`,children:[`Ship better UI for`,` `,e]})),n=f(O.Paragraph,()=>({children:`TextRotate items reuse the same semantic API, so headings, body copy and rotating words stay in one typography system.`})),r=f(k,()=>({className:`text-2xl font-title`,innerClassName:`justify-items-start`,items:[{text:`Readable`,strong:!0},{text:`Reviewable`,type:`secondary`,underline:!0},{text:`Deployable`,href:`https://rue.dev`,type:`danger`}]}));return f(O,()=>({className:`space-y-4`,children:[t,n,r]}))})(),code:V}));y(()=>u(e,_,g))});let N=b(w);a(N,L,()=>({rows:H})),w.insertBefore(N,S);let P=b(E);a(P,L,()=>({rows:U})),E.insertBefore(P,T);let G=b(A);return a(G,L,()=>({rows:W})),A.insertBefore(G,D),e});return f(A,()=>({children:e}))})(),e=>T(()=>{})))};export{G as default};
