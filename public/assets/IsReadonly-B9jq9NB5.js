@@ -1,0 +1,37 @@
+import{B as e,C as t,Dn as n,E as r,P as i,Q as a,Qt as o,R as s,U as c,Vt as l,_n as u,_t as d,at as f,b as p,ct as m,et as h,gn as g,kn as _,mn as v,nt as y,pn as b,qt as x,rt as S,st as C,tn as w,ut as T,vn as E,w as D,wn as O,xn as k,xt as A,z as j}from"./rue-runtime-HIMg8Lz8.js";import{t as M}from"./Code-DpH7u0gk.js";import{r as N}from"./SidebarPlaygroundExample-BCPRe0hA.js";var P=E(`<h1 class="text-5xl font-semibold mb-4 md:mb-4">isReadonly 判断边界</h1>`),F=E(`<div role="tablist" class="tabs tabs-box"><button role="tab">效果</button><button role="tab">代码</button></div>`),I=E(`<div class="mt-4 grid md:grid-cols-1 gap-6 items-start"><!--rue:text-hole:0--><!--rue:text-hole:1--></div>`),L=`import {
+  computed,
+  isReadonly,
+  reactive,
+  readonly,
+  ref,
+  shallowReadonly,
+  type FC,
+} from '@rue-js/rue';
+
+const IsReadonlyDemo: FC = () => {
+  const mutable = reactive({ count: 0 });
+  const locked = readonly({ label: 'locked', nested: { count: 10 } });
+  const shallow = shallowReadonly({ label: 'root locked', nested: { count: 20 } });
+  const base = ref(2);
+  const doubled = computed(() => base.value * 2);
+  const writable = computed({
+    get: () => base.value,
+    set: value => {
+      base.value = value;
+    },
+  });
+
+  return (
+    <div>
+      <p>reactive: {String(isReadonly(mutable))}</p>
+      <p>readonly: {String(isReadonly(locked))}</p>
+      <p>readonly nested: {String(isReadonly(locked.nested))}</p>
+      <p>shallowReadonly root: {String(isReadonly(shallow))}</p>
+      <p>shallowReadonly nested: {String(isReadonly(shallow.nested))}</p>
+      <p>computed readonly: {String(isReadonly(doubled))}</p>
+      <p>writable computed: {String(isReadonly(writable))}</p>
+    </div>
+  );
+};
+
+export default IsReadonlyDemo;`,R=e=>e?`true`:`false`,z=()=>{let E=w(`preview`),z=j({count:0}),B=e({label:`locked`,nested:{count:10}}),V=c({label:`root locked`,nested:{count:20}}),H=w(2),U=i(()=>H.value*2),W=i({get:()=>H.value,set:e=>{H.value=e}}),G=w(`点击按钮观察 readonly 与 shallowReadonly 的边界。`),K=()=>{try{B.label=`changed`,G.value=`readonly 写入未生效。`}catch(e){G.value=`readonly 拒绝写入：${e.name}`}},q=()=>{z.count+=1,G.value=`reactive 可以正常写入。`},J=()=>{V.nested.count+=1,G.value=`shallowReadonly 只保护根级属性，nested 仍可写。`},Y=()=>{W.set(W.get()+1),G.value=`带 setter 的 computed 是可写的。`},X=[[`reactive(mutable)`,s(z),`count: ${z.count}`],[`readonly(locked)`,s(B),B.label],[`readonly(locked.nested)`,s(B.nested),`count: ${B.nested.count}`],[`shallowReadonly(shallow)`,s(V),V.label],[`shallowReadonly(shallow.nested)`,s(V.nested),`count: ${V.nested.count}`],[`computed(() => base * 2)`,s(U),`value: ${U.get()}`],[`computed({ get, set })`,s(W),`value: ${W.get()}`]];return x(()=>m(S(N,()=>({children:[(e,t,n)=>r(e,n,()=>l(Object.assign(e=>{let t=d();return t.appendChild(P().content.cloneNode(!0)),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))),(e,t,n)=>r(e,n,()=>l(Object.assign(e=>{let t=d(),n=F().content.cloneNode(!0),r=n.firstChild,i=r.childNodes[0],s=r.childNodes[1];t.appendChild(n),A(i,`role`,`tab`),O(()=>{a(i,`tab ${E.value===`preview`?`tab-active`:``}`)});let c=e=>{let t=()=>{E.value=`preview`};typeof t==`function`&&t(e)};i.addEventListener(`click`,c),o(()=>i.removeEventListener(`click`,c)),A(s,`role`,`tab`),O(()=>{a(s,`tab ${E.value===`code`?`tab-active`:``}`)});let l=e=>{let t=()=>{E.value=`code`};typeof t==`function`&&t(e)};return s.addEventListener(`click`,l),o(()=>s.removeEventListener(`click`,l)),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))),(e,i,a)=>r(e,a,()=>l(Object.assign(e=>{let i=d(),a=I().content.cloneNode(!0),o=a.firstChild,s=o.childNodes[0],c=s.parentNode,m=o.childNodes[1],h=m.parentNode;return i.appendChild(a),y(c,s,()=>{let e=E.value===`code`;return e?{__rue_compiled_branch_key:!0,create:()=>l(Object.assign(e=>{let t=g(`div`,e);t.className=`card bg-base-100 shadow overflow-auto`;let n=g(`div`,t);return b(t,n),n.className=`card-body p-0`,C(n,M,()=>({className:`h-full`,lang:`tsx`,code:L})),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}:typeof e==`number`||typeof e==`bigint`?{__rue_compiled_branch_key:e,create:()=>l(Object.assign(t=>{let n=u(typeof e==`string`||typeof e==`number`||typeof e==`bigint`?e:``);return{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0}))}:{__rue_compiled_branch_key:!1,create:()=>l(Object.assign(e=>{let t=d();return{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}}),y(h,m,()=>{let e=E.value===`preview`;return e?{__rue_compiled_branch_key:!0,create:()=>l(Object.assign(e=>{let i=g(`div`,e);i.className=`card bg-base-100 shadow`;let a=g(`div`,i);b(i,a),a.className=`card-body gap-5`;let o=g(`div`,a);b(a,o),o.className=`overflow-x-auto`;let s=g(`table`,o);b(o,s),s.className=`table`;let c=g(`thead`,s);b(s,c);let d=g(`tr`,c);b(c,d);let m=g(`th`,d);b(d,m),b(m,u(`值`));let h=g(`th`,d);b(d,h),b(h,u(`isReadonly`));let y=g(`th`,d);b(d,y),b(y,u(`当前状态`));let x=g(`tbody`,s);b(s,x);let S=v(`rue:list:end`);b(x,S);let C=[];O(()=>{C=D(x,S,C,X||[],(e,t)=>t,(e,n)=>{let i=f(e);return t((e,t,n)=>r(e,n,()=>l(Object.assign(e=>{let t=g(`tr`,e),n=g(`td`,t);b(t,n);let r=u(``);b(n,r),k(r,()=>i.get()[0]);let a=g(`td`,t);b(t,a);let o=g(`span`,a);b(a,o);let s;O(()=>{let e=`badge ${i.get()[1]?`badge-primary`:``}`,t=e==null?``:String(e);Object.is(s,t)||(s=t,o.className=t)});let c=v(`rue:compiled-slot`);b(o,c),O(()=>{let e=R(i.get()[1]);_(()=>T(e,o,c))});let l=g(`td`,t);b(t,l);let d=u(``);return b(l,d),k(d,()=>i.get()[2]),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))),(t,r)=>{e=t,n=r,i.set(t)})})}),n(()=>p(C));let w=g(`div`,a);b(a,w),w.className=`flex flex-wrap gap-2`;let E=g(`button`,w);b(w,E),E.className=`btn btn-sm`;let A=e=>{let t=q;typeof t==`function`&&t(e)};E.addEventListener(`click`,A),n(()=>E.removeEventListener(`click`,A)),b(E,u(`reactive +1`));let j=g(`button`,w);b(w,j),j.className=`btn btn-sm`;let M=e=>{let t=K;typeof t==`function`&&t(e)};j.addEventListener(`click`,M),n(()=>j.removeEventListener(`click`,M)),b(j,u(`尝试写 readonly`));let N=g(`button`,w);b(w,N),N.className=`btn btn-sm`;let P=e=>{let t=J;typeof t==`function`&&t(e)};N.addEventListener(`click`,P),n(()=>N.removeEventListener(`click`,P)),b(N,u(`shallow nested +1`));let F=g(`button`,w);b(w,F),F.className=`btn btn-sm`;let I=e=>{let t=Y;typeof t==`function`&&t(e)};F.addEventListener(`click`,I),n(()=>F.removeEventListener(`click`,I)),b(F,u(`writable computed +1`));let L=g(`div`,a);b(a,L),L.className=`alert`;let z=g(`span`,L);b(L,z);let B=u(``);return b(z,B),k(B,()=>G.value),{__rue_compiled_host:i,__rue_compiled_roots:[i]}},{__rue_compiled_explicit_roots:!0}))}:typeof e==`number`||typeof e==`bigint`?{__rue_compiled_branch_key:e,create:()=>l(Object.assign(t=>{let n=u(typeof e==`string`||typeof e==`number`||typeof e==`bigint`?e:``);return{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0}))}:{__rue_compiled_branch_key:!1,create:()=>l(Object.assign(e=>{let t=d();return{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}}),{__rue_compiled_host:i,__rue_compiled_roots:[i]}},{__rue_compiled_explicit_roots:!0})))]})),e=>h(()=>{})))};export{z as default};

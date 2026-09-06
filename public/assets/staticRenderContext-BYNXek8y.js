@@ -1,0 +1,1 @@
+import{M as e,j as t}from"./rue-runtime-HIMg8Lz8.js";var n=`__RUE_STATIC_RENDER_ROUTE__`,r=t(null),i=()=>e(r),a=()=>{let e=globalThis[n];return typeof e==`string`?e:``},o=e=>{if(!e)return``;try{let t=new URL(e,`https://rue.local`);return(t.hash.startsWith(`#/`)?t.hash.slice(1):``)||t.pathname||`/`}catch{return e.split(/[?#]/,1)[0]||`/`}};export{o as n,i as r,a as t};

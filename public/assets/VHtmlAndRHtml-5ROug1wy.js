@@ -1,0 +1,22 @@
+import{At as e,Dn as t,Mt as n,Q as r,Qt as i,Vt as a,_n as o,_t as s,ct as c,dt as l,et as u,gn as d,kn as f,nt as p,pn as m,qt as h,st as g,tn as _,ut as v,vn as y,vt as b,wn as x,wt as S,yt as C}from"./rue-runtime-HIMg8Lz8.js";import{t as w}from"./Code-DpH7u0gk.js";import{r as T}from"./SidebarPlaygroundExample-BCPRe0hA.js";var E=y(`<h1 class="text-5xl font-semibold mb-4 md:mb-4">v-html / r-html</h1>`),D=y(`<div role="tablist" class="tabs tabs-box"><button role="tab">效果</button><button role="tab">代码</button></div>`),O=y(`<div class="mt-4 grid md:grid-cols-1 gap-6 items-start"><!--rue:text-hole:0--><!--rue:text-hole:1--></div>`),k=()=>{let y=_(`code`),k=_(`<strong>草稿</strong><span> 文档仍在编辑中。</span>`),A=_(`<strong>Pro</strong><span> 专业版在线</span>`);return h(()=>c((()=>{let c=e(()=>{let t=s(),n=O().content.cloneNode(!0),c=n.firstChild,u=c.childNodes[0],h=u.parentNode,_=c.childNodes[1],T=_.parentNode;return t.appendChild(n),p(h,u,()=>{let e=y.value===`code`;return e?{__rue_compiled_branch_key:!0,create:()=>a(Object.assign(e=>{let t=d(`div`,e);t.className=`card bg-base-100 shadow overflow-auto`;let n=d(`div`,t);return m(t,n),n.className=`card-body p-0`,g(n,w,()=>({className:`h-full`,lang:`tsx`,code:`import { type FC, ref } from '@rue-js/rue';
+
+const VHtmlAndRHtml: FC = () => {
+  const articleHtml = ref('<strong>草稿</strong><span> 文档仍在编辑中。</span>');
+  const badgeHtml = ref('<strong>Pro</strong><span> 专业版在线</span>');
+
+  return (
+    <div className="grid gap-4">
+      <button className="btn btn-sm" onClick={() => {
+        articleHtml.value = '<strong>已发布</strong><span> 文档已经公开。</span>';
+        badgeHtml.value = '<strong>Basic</strong><span> 标准版在线</span>';
+      }}>
+        更新 HTML
+      </button>
+
+      <div v-html="articleHtml.value" className="alert alert-info"></div>
+      <p r-html={badgeHtml.value} className="badge badge-success badge-lg"></p>
+    </div>
+  );
+};
+
+export default VHtmlAndRHtml;`})),{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}:typeof e==`number`||typeof e==`bigint`?{__rue_compiled_branch_key:e,create:()=>a(Object.assign(t=>{let n=o(typeof e==`string`||typeof e==`number`||typeof e==`bigint`?e:``);return{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0}))}:{__rue_compiled_branch_key:!1,create:()=>a(Object.assign(e=>{let t=s();return{__rue_compiled_host:t,__rue_compiled_roots:[t]}},{__rue_compiled_explicit_roots:!0}))}}),x(()=>{let t=y.value===`preview`?e(()=>{let e=s(),t=b(`div`,e);l(e,t),r(t,`card bg-base-100 shadow`);let n=b(`div`,t);l(t,n),r(n,`card-body grid gap-6`);let a=b(`section`,n);l(n,a),r(a,`space-y-3`);let o=b(`div`,a);l(a,o),r(o,`flex flex-wrap items-center justify-between gap-3`);let c=b(`h2`,o);l(o,c),r(c,`text-xl font-semibold`),l(c,C(`v-html / r-html`));let u=b(`button`,o);l(o,u),r(u,`btn btn-sm`);let d=e=>{let t=()=>{k.value=`<strong>已发布</strong><span> 文档已经公开。</span>`,A.value=`<strong>Basic</strong><span> 标准版在线</span>`};typeof t==`function`&&t(e)};u.addEventListener(`click`,d),i(()=>u.removeEventListener(`click`,d)),l(u,C(`更新 HTML`));let f=b(`div`,a);l(a,f),r(f,`rounded-box border border-base-300 p-4 grid gap-3`);let p=b(`div`,f);l(f,p),r(p,`alert alert-info`),x(()=>{let e={__html:k.value};S(p,e&&`__html`in e?e.__html:``)});let m=b(`p`,f);return l(f,m),r(m,`badge badge-success badge-lg`),x(()=>{let e={__html:A.value};S(m,e&&`__html`in e?e.__html:``)}),e},!0):``;f(()=>v(t,T,_))}),t});return n(T,()=>({children:[a(e=>E().content.cloneNode(!0).firstChild),a(Object.assign(e=>{let n=D().content.cloneNode(!0).firstChild,r=n.childNodes[0],i=n.childNodes[1];r.setAttribute(`role`,`tab`);let a;x(()=>{let e=`tab ${y.value===`preview`?`tab-active`:``}`,t=e==null?``:String(e);Object.is(a,t)||(a=t,r.className=t)});let o=e=>{let t=()=>{y.value=`preview`};typeof t==`function`&&t(e)};r.addEventListener(`click`,o),t(()=>r.removeEventListener(`click`,o)),i.setAttribute(`role`,`tab`);let s;x(()=>{let e=`tab ${y.value===`code`?`tab-active`:``}`,t=e==null?``:String(e);Object.is(s,t)||(s=t,i.className=t)});let c=e=>{let t=()=>{y.value=`code`};typeof t==`function`&&t(e)};return i.addEventListener(`click`,c),t(()=>i.removeEventListener(`click`,c)),{__rue_compiled_host:n,__rue_compiled_roots:[n]}},{__rue_compiled_explicit_roots:!0})),c]}))})(),e=>u(()=>{})))};export{k as default};

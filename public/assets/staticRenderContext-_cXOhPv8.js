@@ -1,1 +1,0 @@
-import{O as e,k as t}from"./rue-runtime-CwEGJ854.js";var n=`__RUE_STATIC_RENDER_ROUTE__`,r=e(null),i=()=>t(r),a=()=>{let e=globalThis[n];return typeof e==`string`?e:``},o=e=>{if(!e)return``;try{let t=new URL(e,`https://rue.local`);return(t.hash.startsWith(`#/`)?t.hash.slice(1):``)||t.pathname||`/`}catch{return e.split(/[?#]/,1)[0]||`/`}};export{o as n,i as r,a as t};
