@@ -62,16 +62,24 @@ app.mount('#app')
 
 ## 应用配置 {#app-configurations}
 
-应用实例暴露了一个 `.config` 对象，允许我们配置一些应用级选项。例如，定义一个应用级错误处理器来捕获所有后代组件的错误：
+当 Rue 运行时错误未被组件错误边界处理时，Rue 会默认将其输出到控制台，无需安装或清理额外的错误处理器。祖先组件可以使用 `onErrorCaptured` 捕获后代组件错误；返回 `false` 表示错误已处理，会停止继续传播和默认控制台输出。
+
+如果需要将未被边界处理的 Rue 错误发送到 Sentry 等跟踪服务，可以使用全局 `onError` 订阅：
 
 ```tsx
-import { useError } from '@rue-js/rue'
+import { onError } from '@rue-js/rue'
 
-useError({
-  overlay: true, // 显示错误遮罩层
-  console: true, // 在控制台输出错误
+const stopTracking = onError((error, instance, info) => {
+  // sentry.captureException(error)
 })
+
+// 在宿主页面销毁或热更新卸载时调用
+function disposeErrorTracking() {
+  stopTracking()
+}
 ```
+
+`onError` 会在默认控制台输出前收到 Rue 运行时错误，并返回取消订阅函数。它不会自动订阅浏览器原生的 `error` 或 `unhandledrejection` 事件；如果需要跟踪这些错误，请使用跟踪服务提供的浏览器集成。
 
 应用实例还提供了一些用于注册应用范围资源的方法。例如，注册一个插件：
 
@@ -108,12 +116,9 @@ app2.mount('#container-2')
 
 ```tsx
 // main.tsx
-import { type FC, useApp, useError } from '@rue-js/rue'
+import { type FC, useApp } from '@rue-js/rue'
 import { RouterView } from '@rue-js/router'
 import router from './router'
-
-// 启用错误处理
-useError({ overlay: true, console: true })
 
 // 根组件
 const App: FC = () => {

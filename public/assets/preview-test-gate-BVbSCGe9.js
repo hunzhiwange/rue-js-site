@@ -1,0 +1,1 @@
+var e=()=>!!globalThis.vitest,t=t=>{if(!e())return!0;let n=globalThis.__RUE_TEST_ENABLED_DESIGN_PREVIEWS__;return n?n instanceof Set?n.has(t):!Array.isArray(n)||n.includes(t):!0},n=(e,n)=>t(e)?typeof n==`function`?n():n??null:null;export{n as t};

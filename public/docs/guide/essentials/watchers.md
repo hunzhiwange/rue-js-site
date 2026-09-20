@@ -74,72 +74,23 @@ watch([x, () => y.value], ([newX, newY]) => {
 })
 ```
 
-请注意，你不能像这样观察响应式对象的属性：
+## 路径侦听与深层状态 {#deep-watchers}
 
-```js
-const obj = reactive({ count: 0 })
+传给 watch 的 getter 应在执行时读取路径，而不是传入提前求值的普通数值：
 
-// 这不会生效，因为我们传递了一个数字给 watch()
-watch(obj.count, count => {
-  console.log(`计数是：${count}`)
-})
-```
-
-相反，使用 getter：
-
-```js
-// 相反，使用 getter：
+```ts
+import { signal, watch } from '@rue-js/rue'
+const state = signal({ count: 0 })
 watch(
-  () => obj.count,
-  count => {
-    console.log(`计数是：${count}`)
+  () => state.getPath('count'),
+  (count, previous) => {
+    console.log(count, previous)
   },
 )
+state.updatePath('count', value => Number(value) + 1)
 ```
 
-## 深层侦听器 {#deep-watchers}
-
-当你在响应式对象上直接调用 `watch()` 时，它会隐式创建一个深层侦听器——回调将在所有嵌套变更时触发：
-
-```js
-const obj = reactive({ count: 0 })
-
-watch(obj, (newValue, oldValue) => {
-  // 在嵌套属性变更时触发
-  // 注意：`newValue` 在这里将等于 `oldValue`
-  // 因为它们都指向同一个对象！
-})
-
-obj.count++
-```
-
-这应该与返回响应式对象的 getter 区分开来——在后一种情况下，只有当 getter 返回不同的对象时，回调才会触发：
-
-```js
-watch(
-  () => state.someObject,
-  () => {
-    // 只在 state.someObject 被替换时触发
-  },
-)
-```
-
-但是，你可以通过显式使用 `deep` 选项强制第二种情况成为深层侦听器：
-
-```js
-watch(
-  () => state.someObject,
-  (newValue, oldValue) => {
-    // 注意：除非 state.someObject 已被替换
-    // 否则 `newValue` 将等于 `oldValue`
-  },
-  { deep: true },
-)
-```
-
-:::warning 谨慎使用
-深层侦听需要遍历被侦听对象的所有嵌套属性，在大数据结构上使用可能代价高昂。只在必要时使用，并注意性能影响。
-:::
+普通对象的深度遍历不具备拦截写入的能力。`deep` 不能将对象转换为代理；所有更新仍须通过 Signal 或编译期状态写入。
 
 ## 即时回调的侦听器 {#eager-watchers}
 
@@ -232,28 +183,7 @@ watch(id, newId => {
 
 但是如果 `id` 在请求完成之前发生变化呢？当前一个请求完成时，它仍然会用已经过时的 ID 值触发回调。理想情况下，我们希望在 `id` 变化为新值时能够取消过时的请求。
 
-我们可以使用 [`onWatcherCleanup()`](/api/api/reactivity-core#onwatchercleanup) API 注册一个清理函数，该函数将在侦听器失效并即将重新运行时调用：
-
-```js
-import { watch, onWatcherCleanup } from '@rue-js/rue'
-
-watch(id, newId => {
-  const controller = new AbortController()
-
-  fetch(`/api/${newId}`, { signal: controller.signal }).then(() => {
-    // 回调逻辑
-  })
-
-  onWatcherCleanup(() => {
-    // 中止过时的请求
-    controller.abort()
-  })
-})
-```
-
-请注意，`onWatcherCleanup` 只在 Rue 3.5+ 中受支持，并且必须在 `watchEffect` 效果函数或 `watch` 回调函数的同步执行期间调用：你不能在异步函数的 `await` 语句之后调用它。
-
-或者，一个 `onCleanup` 函数也会作为第三个参数传递给侦听器回调，作为 `watchEffect` 效果函数的第一个参数：
+一个 `onCleanup` 函数也会作为第三个参数传递给侦听器回调，作为 `watchEffect` 效果函数的第一个参数：
 
 ```js
 watch(id, (newId, oldId, onCleanup) => {
@@ -271,7 +201,7 @@ watchEffect(onCleanup => {
 })
 ```
 
-这适用于 3.5 之前的版本。此外，通过函数参数传递的 `onCleanup` 绑定到侦听器实例，因此不受 `onWatcherCleanup` 的同步限制。
+通过函数参数传递的 `onCleanup` 绑定到侦听器实例，也是 compiler-only 公共能力面唯一支持的 watcher 清理入口。
 
 ## 回调刷新时机 {#callback-flush-timing}
 
@@ -295,15 +225,7 @@ watchEffect(callback, {
 })
 ```
 
-Post-flush `watchEffect()` 还有一个便捷的别名 `watchPostEffect()`：
-
-```js
-import { watchPostEffect } from '@rue-js/rue'
-
-watchPostEffect(() => {
-  /* 在 Rue 更新后执行 */
-})
-```
+compiler-only 公共能力面不提供 `watchPostEffect` 别名，请继续使用上面的 `flush: 'post'` 选项。
 
 ### 同步侦听器 {#sync-watchers}
 
@@ -319,15 +241,7 @@ watchEffect(callback, {
 })
 ```
 
-Sync `watchEffect()` 还有一个便捷的别名 `watchSyncEffect()`：
-
-```js
-import { watchSyncEffect } from '@rue-js/rue'
-
-watchSyncEffect(() => {
-  /* 在响应式数据变化时同步执行 */
-})
-```
+compiler-only 公共能力面不提供 `watchSyncEffect` 别名，请继续使用上面的 `flush: 'sync'` 选项。
 
 :::warning 谨慎使用
 同步侦听器没有批处理，每次检测到响应式变更时都会触发。用它们观察简单的布尔值是可以的，但避免在可能同步变更多次的数据源上使用它们，例如数组。
