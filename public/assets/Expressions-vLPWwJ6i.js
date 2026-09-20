@@ -1,0 +1,15 @@
+import{Bt as e,Dt as t,F as n,M as r,Ut as i,V as a,Vt as o,Wt as s,_n as c,fn as l,gn as u,hn as d,in as f,mn as p,mt as m,nt as h,sn as g,u as _,vn as v,yn as y}from"./rue-runtime-BWbIfNT8.js";import{t as b}from"./Code-C5ZhIIr9.js";import{r as x}from"./SidebarPlaygroundExample-DUmYtIFQ.js";var S=y(`<h1 class="text-5xl font-semibold mb-4 md:mb-4">表达式与插值</h1>`),C=y(`<div role="tablist" class="tabs tabs-box"><button role="tab">效果</button><button role="tab">代码</button></div>`),w=y(`<div class="mt-4 grid md:grid-cols-1 gap-6 items-start"><!--rue:text-hole:0--><!--rue:text-hole:1--></div>`),T={name:`Alice`,age:20},E=(y,E,D)=>{let O=m(`code`);return h(()=>(()=>{let m=s(r=>{let m=p(),h=w().content.cloneNode(!0),g=h.firstChild,_=g.childNodes[0],y=_.parentNode,x=g.childNodes[1],S=x.parentNode;m.appendChild(h),i(y,_,()=>{let e=O.value===`code`;return e?{__rue_compiled_branch_key:!0,create:()=>s(e=>{let t=d(`div`,e);t.setAttribute(`class`,`card bg-base-100 shadow overflow-auto`);let r=d(`div`,t);return l(t,r),r.setAttribute(`class`,`card-body p-0`),n(r,b,()=>({className:`h-full`,lang:`tsx`,code:`import { type FC } from '@rue-js/rue';
+
+const n = 7;
+const user = { name: 'Alice', age: 20 };
+
+const Expressions: FC = () => (
+  <div className="grid gap-2">
+    <div>{1 + 2}</div>
+    <div>{\`hello \${user.name}\`}</div>
+    <div>{n > 5 ? '大于5' : '不大于5'}</div>
+    <div>{['A', 'B'].join(',')}</div>
+  </div>
+);
+
+export default Expressions;`})),[t,t]})}:typeof e==`number`||typeof e==`bigint`?{__rue_compiled_branch_key:e,create:()=>a(t=>{let n=u(typeof e==`string`||typeof e==`number`||typeof e==`bigint`?e:``);return[n,n]})}:{__rue_compiled_branch_key:!1,create:()=>a(e=>{let t=p();return[t.firstChild,t.lastChild]})}}),e({parent:S,before:x},()=>O.value===`preview`?(e,n,r)=>o(e,r,()=>s(()=>{let e=p(),n=d(`div`,e);l(e,n),t(n,`card bg-base-100 shadow`);let r=d(`div`,n);l(n,r),t(r,`card-body grid gap-2`);let i=d(`div`,r);l(r,i);let a=c(i);l(i,a),f(()=>{v(a,3)});let o=d(`div`,r);l(r,o);let s=c(o);l(o,s),f(()=>{v(s,`hello ${T.name}`)});let m=d(`div`,r);l(r,m);let h=c(m);l(m,h),f(()=>{v(h,`大于5`)});let g=d(`div`,r);l(r,g);let _=c(g);l(g,_),f(()=>{v(_,[`A`,`B`].join(`,`))});let y=u(``),b=u(``);return e.insertBefore(y,e.firstChild),e.appendChild(b),[e.firstChild,e.lastChild]})):(e,t,n)=>{let r=()=>a(e=>{let t=u(``);return[t,t]});return e==null?r():o(e,n,r)},()=>({}));let C=u(``),E=u(``);return m.insertBefore(C,m.firstChild),m.appendChild(E),[m.firstChild,m.lastChild]});return r(x,()=>({children:[a(e=>{let t=S().content.cloneNode(!0).firstChild;return[t,t]}),s(e=>{let t=C().content.cloneNode(!0).firstChild,n=t.childNodes[0],r=t.childNodes[1];n.setAttribute(`role`,`tab`);let i;f(()=>{let e=`tab ${O.value===`preview`?`tab-active`:``}`,t=e===!1||e==null?``:String(e);Object.is(i,t)||(i=t,n.setAttribute(`class`,t))}),g(_(e,n,`click`,()=>()=>{O.value=`preview`})),r.setAttribute(`role`,`tab`);let a;return f(()=>{let e=`tab ${O.value===`code`?`tab-active`:``}`,t=e===!1||e==null?``:String(e);Object.is(a,t)||(a=t,r.setAttribute(`class`,t))}),g(_(e,r,`click`,()=>()=>{O.value=`code`})),[t,t]}),m]}))})())};export{E as default};

@@ -1,1 +1,0 @@
-import{c as e,gt as t,s as n}from"./rue-runtime-Cv6BZekS.js";var r=(r,i,a)=>i=>{n(i,`0`,`section`,()=>null,n=>{e(n,`1`,()=>t(r,`label`))})};export{r as default};

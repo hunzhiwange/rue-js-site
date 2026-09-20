@@ -1,0 +1,17 @@
+import{B as e,Bt as t,F as n,I as r,P as i,Ut as a,V as o,Vt as s,W as c,Wt as l,en as u,fn as d,gn as f,hn as p,in as m,mn as h,mt as g,nt as _,pn as v,sn as y,u as b,yn as x,z as S,zt as C}from"./rue-runtime-BWbIfNT8.js";import{t as w}from"./Code-C5ZhIIr9.js";import{r as T}from"./SidebarPlaygroundExample-DUmYtIFQ.js";var E=x(`<h1 class="text-5xl font-semibold mb-4 md:mb-4">对象展开属性（spread props）</h1>`),D=x(`<div role="tablist" class="tabs tabs-box"><button role="tab">效果</button><button role="tab">代码</button></div>`),O=x(`<div class="mt-4 grid md:grid-cols-1 gap-6 items-start"><!--rue:text-hole:0--><!--rue:text-hole:1--></div>`),k=(n,i,a)=>{let o=c(S(n,`className`)),s=c(S(n,`text`));return r(l(e=>{let n=p(`button`,e),r;m(()=>{let e=o.get(),t=e===!1||e==null?``:String(e);Object.is(r,t)||(r=t,n.setAttribute(`class`,t))});let i=v(`rue:compiled-slot`);return d(n,i),t({parent:n,before:i},()=>C(s.get()),()=>({})),[n,n]}),e=>u(()=>{o.set(e.className),s.set(e.text)}),()=>e(n))},A=(e,t,r)=>{let c={className:`btn btn-primary`},u={text:`确定按钮`},v=g(`code`);return _(()=>i(T,()=>({children:(e,t,r)=>{let i=()=>l(e=>{let t=h();t.appendChild(E().content.cloneNode(!0));let r=D().content.cloneNode(!0),i=r.firstChild,s=i.childNodes[0],g=i.childNodes[1];t.appendChild(r),s.setAttribute(`role`,`tab`);let _;m(()=>{let e=`tab ${v.value===`preview`?`tab-active`:``}`,t=e===!1||e==null?``:String(e);Object.is(_,t)||(_=t,s.setAttribute(`class`,t))}),y(b(e,s,`click`,()=>()=>{v.value=`preview`})),g.setAttribute(`role`,`tab`);let x;m(()=>{let e=`tab ${v.value===`code`?`tab-active`:``}`,t=e===!1||e==null?``:String(e);Object.is(x,t)||(x=t,g.setAttribute(`class`,t))}),y(b(e,g,`click`,()=>()=>{v.value=`code`}));let S=O().content.cloneNode(!0),C=S.firstChild,T=C.childNodes[0],A=T.parentNode,j=C.childNodes[1],M=j.parentNode;t.appendChild(S),a(A,T,()=>{let e=v.value===`code`;return e?{__rue_compiled_branch_key:!0,create:()=>l(e=>{let t=p(`div`,e);t.setAttribute(`class`,`card bg-base-100 shadow overflow-auto`);let r=p(`div`,t);return d(t,r),r.setAttribute(`class`,`card-body p-0`),n(r,w,()=>({className:`h-full`,lang:`tsx`,code:`import { type FC } from '@rue-js/rue';
+
+const Button: FC<{ text: string; className?: string }> = (props) => (
+  <button className={props.className}>{props.text}</button>
+);
+
+const SpreadProps: FC = () => {
+  const base = { className: 'px-3 py-2 rounded-md bg-blue-600 text-white' };
+  const extra = { text: '确定按钮' };
+  return (
+    <div className="grid gap-4">
+      <Button {...base} {...extra} />
+    </div>
+  );
+};
+
+export default SpreadProps;`})),[t,t]})}:typeof e==`number`||typeof e==`bigint`?{__rue_compiled_branch_key:e,create:()=>o(t=>{let n=f(typeof e==`string`||typeof e==`number`||typeof e==`bigint`?e:``);return[n,n]})}:{__rue_compiled_branch_key:!1,create:()=>o(e=>{let t=h();return[t.firstChild,t.lastChild]})}}),a(M,j,()=>{let e=v.value===`preview`;return e?{__rue_compiled_branch_key:!0,create:()=>l(e=>{let t=p(`div`,e);t.setAttribute(`class`,`card bg-base-100 shadow`);let r=p(`div`,t);return d(t,r),r.setAttribute(`class`,`card-body grid gap-4`),n(r,k,()=>({...c,...u})),[t,t]})}:typeof e==`number`||typeof e==`bigint`?{__rue_compiled_branch_key:e,create:()=>o(t=>{let n=f(typeof e==`string`||typeof e==`number`||typeof e==`bigint`?e:``);return[n,n]})}:{__rue_compiled_branch_key:!1,create:()=>o(e=>{let t=h();return[t.firstChild,t.lastChild]})}});let N=f(``),P=f(``);return t.insertBefore(N,t.firstChild),t.appendChild(P),[t.firstChild,t.lastChild]});return e==null?i():s(e,r,i)}})))};export{A as default};

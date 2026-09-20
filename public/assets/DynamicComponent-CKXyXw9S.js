@@ -1,0 +1,84 @@
+import{B as e,Bt as t,Ht as n,I as r,P as i,V as a,Vt as o,W as s,Wt as c,en as l,fn as u,gn as d,hn as f,in as p,mn as m,mt as h,nt as g,pn as _,sn as v,u as y,yn as b,z as x,zt as S}from"./rue-runtime-BWbIfNT8.js";import{t as ee}from"./Code-C5ZhIIr9.js";import{r as C}from"./SidebarPlaygroundExample-DUmYtIFQ.js";var w=b(`<article><!--rue:text-hole:0--></article>`),te=b(`<h1 class="text-5xl font-semibold mb-4 md:mb-4">动态组件（Component）</h1>`),ne=b(`<div role="tablist" class="tabs tabs-box"><button role="tab">效果</button><button role="tab">代码</button></div>`),re=b(`<div><div class="card bg-base-100 shadow"><div class="card-body gap-6"><section class="space-y-3"><div class="flex flex-wrap items-center justify-between gap-3"><div><h2 class="text-xl font-semibold">1. 直接切换原生标签和组件定义</h2><p class="text-sm opacity-75">这里显式导入并使用 &lt;Component&gt;，is 可以在字符串标签名和函数组件之间来回切换。</p></div><div class="flex flex-wrap gap-3"><div class="join"><button>原生 article</button><button>SalesCard</button><button>StatusStrip</button></div><div class="join"><button>primary</button><button>accent</button></div></div></div><div class="grid gap-4 xl:grid-cols-[minmax(0,1fr)_18rem]"><div class="rounded-box border border-dashed border-base-300 p-4 min-h-44"><!--rue:opaque-hole:0--></div><div class="rounded-box border border-base-300 bg-base-200 p-4 text-sm space-y-2"><div><strong>当前 is</strong>： <!--rue:text-hole:1--></div><div><strong>验证点</strong>：native element、直接组件定义、children 透传。</div><div><strong>说明</strong>：切到 SalesCard 时，tone 也会跟着透传给目标组件。</div></div></div></section><section class="space-y-3"><div class="flex flex-wrap items-center justify-between gap-3"><div><h2 class="text-xl font-semibold">2. 编译期有限组件注册表</h2><p class="text-sm opacity-75">下面这个小区域为 &lt;Component&gt; 显式提供有限 registry，编译器可以提前确定所有 可能的组件工厂。</p></div><div class="join"><button>RegisteredMetric</button><button>RegisteredNotice</button></div></div><div class="grid gap-4 xl:grid-cols-[minmax(0,1fr)_20rem]"><div class="rounded-box border border-dashed border-base-300 p-4 min-h-40"><!--rue:opaque-hole:2--></div><div class="rounded-box border border-base-300 bg-base-200 p-4 text-sm space-y-2"><div>registry 直接写在 &lt;Component&gt; 上，不依赖全局字符串注册或运行时工厂查找。</div><div>编译器会把 registry 降为有限分支，再决定最终渲染哪个组件。</div><div>这也顺带验证了字符串名路径下的 children 透传。</div></div></div></section><div role="alert" class="alert alert-warning alert-soft"><span>注意：如果 is 最终解析成原生 input、select、textarea 之类的节点，写在 &lt;Component&gt; 上的 v-model / r-model 不能像静态原生标签那样在编译期展开，应该在最终原生节点处处理。</span></div></div></div></div>`),ie=b(`<div><div class="card bg-base-100 shadow overflow-auto"><div class="card-body p-0"><!--rue:opaque-hole:0--></div></div></div>`),T={primary:`border-primary/25 bg-primary/10`,accent:`border-accent/25 bg-accent/10`},ae=(n,i,a)=>{let o=s(x(n,`children`)),d=s(x(n,`detail`)),m=s(x(n,`title`)),h=s(x(n,`tone`)),g=s(x(n,`value`));return r(c(e=>{let n=f(`article`,e),r;p(()=>{let e=`rounded-box border p-4 shadow-sm ${T[h.get()??`primary`]}`,t=e===!1||e==null?``:String(e);Object.is(r,t)||(r=t,n.setAttribute(`class`,t))});let i=f(`div`,n);u(n,i),i.setAttribute(`class`,`text-xs uppercase tracking-[0.22em] opacity-60`);let a=_(`rue:compiled-slot`);u(i,a),t({parent:i,before:a},()=>S(m.get()),()=>({}));let s=f(`div`,n);u(n,s),s.setAttribute(`class`,`mt-2 text-3xl font-semibold`);let c=_(`rue:compiled-slot`);u(s,c),t({parent:s,before:c},()=>S(g.get()),()=>({}));let l=f(`div`,n);u(n,l),l.setAttribute(`class`,`mt-1 text-sm opacity-75`);let v=_(`rue:compiled-slot`);u(l,v),t({parent:l,before:v},()=>S(d.get()),()=>({}));let y=f(`div`,n);u(n,y),y.setAttribute(`class`,`mt-4`);let b=_(`rue:compiled-slot`);return u(y,b),t({parent:y,before:b},()=>o.get(),()=>({})),[n,n]}),e=>l(()=>{o.set(e.children),d.set(e.detail),m.set(e.title),h.set(e.tone),g.set(e.value)}),()=>e(n))},E=(n,i,a)=>{let o=s(x(n,`children`)),d=s(x(n,`detail`)),p=s(x(n,`title`));return r(c(e=>{let n=f(`section`,e);n.setAttribute(`class`,`rounded-box border border-info/25 bg-info/10 p-4 shadow-sm`);let r=f(`div`,n);u(n,r),r.setAttribute(`class`,`flex items-center justify-between gap-3`);let i=f(`div`,r);u(r,i);let a=f(`div`,i);u(i,a),a.setAttribute(`class`,`font-semibold`);let s=_(`rue:compiled-slot`);u(a,s),t({parent:a,before:s},()=>S(p.get()),()=>({}));let c=f(`div`,i);u(i,c),c.setAttribute(`class`,`text-sm opacity-75`);let l=_(`rue:compiled-slot`);u(c,l),t({parent:c,before:l},()=>S(d.get()),()=>({}));let m=f(`span`,r);u(r,m),m.setAttribute(`class`,`status status-info status-lg`);let h=f(`div`,n);u(n,h),h.setAttribute(`class`,`mt-4`);let g=_(`rue:compiled-slot`);return u(h,g),t({parent:h,before:g},()=>o.get(),()=>({})),[n,n]}),e=>l(()=>{o.set(e.children),d.set(e.detail),p.set(e.title)}),()=>e(n))},oe=(n,i,a)=>{let o=s(x(n,`children`)),d=s(x(n,`detail`)),p=s(x(n,`title`)),m=s(x(n,`value`));return r(c(e=>{let n=f(`article`,e);n.setAttribute(`class`,`rounded-box border border-secondary/25 bg-secondary/10 p-4 shadow-sm`);let r=f(`div`,n);u(n,r),r.setAttribute(`class`,`text-xs uppercase tracking-[0.22em] opacity-60`);let i=_(`rue:compiled-slot`);u(r,i),t({parent:r,before:i},()=>S(p.get()),()=>({}));let a=f(`div`,n);u(n,a),a.setAttribute(`class`,`mt-2 text-2xl font-semibold`);let s=_(`rue:compiled-slot`);u(a,s),t({parent:a,before:s},()=>S(m.get()??`Registered`),()=>({}));let c=f(`div`,n);u(n,c),c.setAttribute(`class`,`mt-1 text-sm opacity-75`);let l=_(`rue:compiled-slot`);u(c,l),t({parent:c,before:l},()=>S(d.get()),()=>({}));let h=f(`div`,n);u(n,h),h.setAttribute(`class`,`mt-4`);let g=_(`rue:compiled-slot`);return u(h,g),t({parent:h,before:g},()=>o.get(),()=>({})),[n,n]}),e=>l(()=>{o.set(e.children),d.set(e.detail),p.set(e.title),m.set(e.value)}),()=>e(n))},se=(n,i,a)=>{let o=s(x(n,`children`)),d=s(x(n,`detail`)),p=s(x(n,`title`));return r(c(e=>{let n=f(`section`,e);n.setAttribute(`class`,`rounded-box border border-warning/35 bg-warning/15 p-4 shadow-sm`);let r=f(`div`,n);u(n,r),r.setAttribute(`class`,`font-semibold`);let i=_(`rue:compiled-slot`);u(r,i),t({parent:r,before:i},()=>S(p.get()),()=>({}));let a=f(`div`,n);u(n,a),a.setAttribute(`class`,`mt-1 text-sm opacity-75`);let s=_(`rue:compiled-slot`);u(a,s),t({parent:a,before:s},()=>S(d.get()),()=>({}));let c=f(`div`,n);u(n,c),c.setAttribute(`class`,`mt-4`);let l=_(`rue:compiled-slot`);return u(c,l),t({parent:c,before:l},()=>o.get(),()=>({})),[n,n]}),e=>l(()=>{o.set(e.children),d.set(e.detail),p.set(e.title)}),()=>e(n))},ce=(n,i,a)=>{let o=s(x(n,`children`)),u=s(x(n,`className`));return r(c(e=>{let n=w().content.cloneNode(!0).firstChild,r=n,i=n.childNodes[0],a=i.parentNode,s;return p(()=>{let e=u.get(),t=e===!1||e==null?``:String(e);Object.is(s,t)||(s=t,r.setAttribute(`class`,t))}),t({parent:a,before:i},()=>o.get(),()=>({})),[n,n]}),e=>l(()=>{o.set(e.children),u.set(e.className)}),()=>e(n))},le=`import {
+  Component,
+  type FC,
+  ref,
+} from '@rue-js/rue';
+
+const SalesCard: FC<{ title: string; value: string; detail: string }> = (props) => (
+  <article className="rounded-box border border-primary/25 bg-primary/10 p-4">
+    <div className="text-xs uppercase tracking-[0.22em] opacity-60">{props.title}</div>
+    <div className="mt-2 text-3xl font-semibold">{props.value}</div>
+    <div className="mt-1 text-sm opacity-75">{props.detail}</div>
+    <div className="mt-4">{props.children}</div>
+  </article>
+);
+
+const StatusStrip: FC<{ title: string; detail: string }> = (props) => (
+  <section className="rounded-box border border-info/25 bg-info/10 p-4">
+    <div className="font-semibold">{props.title}</div>
+    <div className="text-sm opacity-75">{props.detail}</div>
+    <div className="mt-4">{props.children}</div>
+  </section>
+);
+
+const RegisteredMetric: FC<{ title: string; value?: string; detail: string }> = (props) => (
+  <article className="rounded-box border border-secondary/25 bg-secondary/10 p-4">
+    <div className="text-xs uppercase tracking-[0.22em] opacity-60">{props.title}</div>
+    <div className="mt-2 text-2xl font-semibold">{props.value ?? 'Registered'}</div>
+    <div className="mt-1 text-sm opacity-75">{props.detail}</div>
+    <div className="mt-4">{props.children}</div>
+  </article>
+);
+
+const RegisteredNotice: FC<{ title: string; detail: string }> = (props) => (
+  <section className="rounded-box border border-warning/35 bg-warning/15 p-4">
+    <div className="font-semibold">{props.title}</div>
+    <div className="mt-1 text-sm opacity-75">{props.detail}</div>
+    <div className="mt-4">{props.children}</div>
+  </section>
+);
+
+const Demo: FC = () => {
+  const shell = ref<'native' | 'card' | 'notice'>('native');
+  const registryMode = ref<'metric' | 'notice'>('metric');
+
+  const resolveProps = () =>
+    shell.value === 'native'
+      ? {
+          className: 'rounded-box border border-base-300 bg-base-100 p-4 shadow-sm',
+        }
+      : shell.value === 'card'
+        ? {
+            title: '今日成交额',
+            value: '¥ 128,400',
+            detail: '比昨日 +8.2%',
+          }
+        : {
+            title: '状态切换',
+            detail: '当前目标由 is 决定',
+          };
+
+  return (
+    <div className="grid gap-6">
+      <Component
+        is={shell.value}
+        registry={{ native: NativeArticle, card: SalesCard, notice: StatusStrip }}
+        {...resolveProps()}
+      >
+        <span className="badge badge-outline badge-sm">children 已透传</span>
+      </Component>
+
+      <Component
+        is={registryMode.value}
+        registry={{ metric: RegisteredMetric, notice: RegisteredNotice }}
+        title="运行时注册"
+        value="CardView"
+        detail="通过字符串名解析到已注册组件"
+      >
+        <span className="badge badge-outline badge-sm">children 一样会透传</span>
+      </Component>
+    </div>
+  );
+};
+
+export default Demo;`,D=(e,r,s)=>{let l=h(`preview`),_=h(`native`),b=h(`primary`),x=h(`metric`),S=()=>_.value===`native`?{className:`rounded-box border border-base-300 bg-base-100 p-4 shadow-sm`}:_.value===`card`?{title:`今日成交额`,value:`¥ 128,400`,detail:`比昨日 +8.2%，这里直接把函数组件塞进 is`,tone:b.value}:{title:`状态切换`,detail:`这里的 is 已从原生标签切到另一个组件定义`};return g(()=>i(C,()=>({children:(e,r,s)=>{let h=()=>c(e=>{let r=m();r.appendChild(te().content.cloneNode(!0));let s=ne().content.cloneNode(!0),c=s.firstChild,h=c.childNodes[0],g=c.childNodes[1];r.appendChild(s),h.setAttribute(`role`,`tab`);let C;p(()=>{let e=`tab ${l.value===`preview`?`tab-active`:``}`,t=e===!1||e==null?``:String(e);Object.is(C,t)||(C=t,h.setAttribute(`class`,t))}),v(y(e,h,`click`,()=>()=>{l.value=`preview`})),g.setAttribute(`role`,`tab`);let w;p(()=>{let e=`tab ${l.value===`code`?`tab-active`:``}`,t=e===!1||e==null?``:String(e);Object.is(w,t)||(w=t,g.setAttribute(`class`,t))}),v(y(e,g,`click`,()=>()=>{l.value=`code`}));let T=re().content.cloneNode(!0),D=T.firstChild,ue=D,O=D.childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0],k=D.childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[1],A=D.childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[2],j=D.childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[1].childNodes[0],M=D.childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[1].childNodes[1],N=D.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[1].childNodes[0],P=D.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[1].childNodes[1],F=D.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0],I=F.parentNode,L=D.childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[1].childNodes[0].childNodes[2],de=L.parentNode,R=D.childNodes[0].childNodes[0].childNodes[1].childNodes[1].childNodes[0].childNodes[0],z=R.parentNode;r.appendChild(T);let B;p(()=>{let e=`mt-4 grid md:grid-cols-1 gap-6 items-start ${l.value===`preview`?``:`hidden`}`,t=e===!1||e==null?``:String(e);Object.is(B,t)||(B=t,ue.setAttribute(`class`,t))});let V;p(()=>{let e=`btn btn-sm join-item ${_.value===`native`?`btn-primary`:``}`,t=e===!1||e==null?``:String(e);Object.is(V,t)||(V=t,O.setAttribute(`class`,t))}),v(y(e,O,`click`,()=>()=>{_.value=`native`}));let H;p(()=>{let e=`btn btn-sm join-item ${_.value===`card`?`btn-primary`:``}`,t=e===!1||e==null?``:String(e);Object.is(H,t)||(H=t,k.setAttribute(`class`,t))}),v(y(e,k,`click`,()=>()=>{_.value=`card`}));let U;p(()=>{let e=`btn btn-sm join-item ${_.value===`notice`?`btn-primary`:``}`,t=e===!1||e==null?``:String(e);Object.is(U,t)||(U=t,A.setAttribute(`class`,t))}),v(y(e,A,`click`,()=>()=>{_.value=`notice`}));let W;p(()=>{let e=`btn btn-sm join-item ${b.value===`primary`?`btn-secondary`:``}`,t=e===!1||e==null?``:String(e);Object.is(W,t)||(W=t,j.setAttribute(`class`,t))}),v(y(e,j,`click`,()=>()=>{b.value=`primary`}));let G;p(()=>{let e=`btn btn-sm join-item ${b.value===`accent`?`btn-secondary`:``}`,t=e===!1||e==null?``:String(e);Object.is(G,t)||(G=t,M.setAttribute(`class`,t))}),v(y(e,M,`click`,()=>()=>{b.value=`accent`}));let K;p(()=>{let e=`btn btn-sm join-item ${x.value===`metric`?`btn-primary`:``}`,t=e===!1||e==null?``:String(e);Object.is(K,t)||(K=t,N.setAttribute(`class`,t))}),v(y(e,N,`click`,()=>()=>{x.value=`metric`}));let q;p(()=>{let e=`btn btn-sm join-item ${x.value===`notice`?`btn-primary`:``}`,t=e===!1||e==null?``:String(e);Object.is(q,t)||(q=t,P.setAttribute(`class`,t))}),v(y(e,P,`click`,()=>()=>{x.value=`notice`}));let fe=(e,t,r)=>{let s=()=>n(()=>{switch(_.value){case`native`:return{__rue_compiled_branch_key:`native`,create:()=>i(ce,()=>({...S(),children:(e,t,n)=>{let r=()=>a(e=>{let t=m(),n=f(`span`,t);u(t,n),n.setAttribute(`class`,`badge badge-outline badge-sm`),u(n,d(`children 已透传`));let r=d(``),i=d(``);return t.insertBefore(r,t.firstChild),t.appendChild(i),[t.firstChild,t.lastChild]});return e==null?r():o(e,n,r)}}))};case`card`:return{__rue_compiled_branch_key:`card`,create:()=>i(ae,()=>({...S(),children:(e,t,n)=>{let r=()=>a(e=>{let t=m(),n=f(`span`,t);u(t,n),n.setAttribute(`class`,`badge badge-outline badge-sm`),u(n,d(`children 已透传`));let r=d(``),i=d(``);return t.insertBefore(r,t.firstChild),t.appendChild(i),[t.firstChild,t.lastChild]});return e==null?r():o(e,n,r)}}))};case`notice`:return{__rue_compiled_branch_key:`notice`,create:()=>i(E,()=>({...S(),children:(e,t,n)=>{let r=()=>a(e=>{let t=m(),n=f(`span`,t);u(t,n),n.setAttribute(`class`,`badge badge-outline badge-sm`),u(n,d(`children 已透传`));let r=d(``),i=d(``);return t.insertBefore(r,t.firstChild),t.appendChild(i),[t.firstChild,t.lastChild]});return e==null?r():o(e,n,r)}}))};default:throw Error(`Unknown compiled component key`)}});return e==null?s():o(e,r,s)},pe=F.nextSibling;I.removeChild(F),t({parent:I,before:pe},()=>fe,()=>({})),t({parent:de,before:L},()=>_.value===`native`?(e,t,n)=>{let r=()=>a(e=>{let t=d(`article`);return[t,t]});return e==null?r():o(e,n,r)}:_.value===`card`?(e,t,n)=>{let r=()=>a(e=>{let t=d(`SalesCard`);return[t,t]});return e==null?r():o(e,n,r)}:(e,t,n)=>{let r=()=>a(e=>{let t=d(`StatusStrip`);return[t,t]});return e==null?r():o(e,n,r)},()=>({}));let me=(e,t,r)=>{let s=()=>n(()=>{switch(x.value){case`metric`:return{__rue_compiled_branch_key:`metric`,create:()=>i(oe,()=>({title:`运行时注册`,value:`CardView`,detail:x.value===`metric`?`metric 键在有限 registry 中解析到 RegisteredMetric`:`notice 键在同一个有限 registry 中解析到 RegisteredNotice`,children:(e,t,n)=>{let r=()=>a(e=>{let t=m(),n=f(`span`,t);u(t,n),n.setAttribute(`class`,`badge badge-outline badge-sm`),u(n,d(`children 一样会透传`));let r=d(``),i=d(``);return t.insertBefore(r,t.firstChild),t.appendChild(i),[t.firstChild,t.lastChild]});return e==null?r():o(e,n,r)}}))};case`notice`:return{__rue_compiled_branch_key:`notice`,create:()=>i(se,()=>({title:`运行时注册`,value:`CardView`,detail:x.value===`metric`?`metric 键在有限 registry 中解析到 RegisteredMetric`:`notice 键在同一个有限 registry 中解析到 RegisteredNotice`,children:(e,t,n)=>{let r=()=>a(e=>{let t=m(),n=f(`span`,t);u(t,n),n.setAttribute(`class`,`badge badge-outline badge-sm`),u(n,d(`children 一样会透传`));let r=d(``),i=d(``);return t.insertBefore(r,t.firstChild),t.appendChild(i),[t.firstChild,t.lastChild]});return e==null?r():o(e,n,r)}}))};default:throw Error(`Unknown compiled component key`)}});return e==null?s():o(e,r,s)},he=R.nextSibling;z.removeChild(R),t({parent:z,before:he},()=>me,()=>({}));let J=ie().content.cloneNode(!0),Y=J.firstChild,X=Y,Z=Y.childNodes[0].childNodes[0].childNodes[0],Q=Z.parentNode;r.appendChild(J);let $;p(()=>{let e=`mt-4 grid md:grid-cols-1 gap-6 items-start ${l.value===`code`?``:`hidden`}`,t=e===!1||e==null?``:String(e);Object.is($,t)||($=t,X.setAttribute(`class`,t))});let ge=(e,t,n)=>{let r=()=>i(ee,()=>({className:`h-full`,lang:`tsx`,code:le}));return e==null?r():o(e,n,r)},_e=Z.nextSibling;Q.removeChild(Z),t({parent:Q,before:_e},()=>ge,()=>({}));let ve=d(``),ye=d(``);return r.insertBefore(ve,r.firstChild),r.appendChild(ye),[r.firstChild,r.lastChild]});return e==null?h():o(e,s,h)}})))};export{D as default};

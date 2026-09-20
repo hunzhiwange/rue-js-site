@@ -1,0 +1,20 @@
+import{B as e,Bt as t,F as n,I as r,P as i,Ut as a,V as o,Vt as s,W as c,Wt as l,en as u,fn as d,gn as f,hn as p,in as m,mn as h,mt as g,nt as _,pn as v,sn as y,u as b,yn as x,z as S,zt as C}from"./rue-runtime-BWbIfNT8.js";import{t as w}from"./Code-C5ZhIIr9.js";import{r as T}from"./SidebarPlaygroundExample-DUmYtIFQ.js";var E=x(`<h1 class="text-5xl font-semibold mb-4 md:mb-4">children 插槽与嵌套</h1>`),D=x(`<div role="tablist" class="tabs tabs-box"><button role="tab">效果</button><button role="tab">代码</button></div>`),O=x(`<div class="mt-4 grid md:grid-cols-1 gap-6 items-start"><!--rue:text-hole:0--><!--rue:text-hole:1--></div>`),k=(n,i,a)=>{let o=c(S(n,`children`)),s=c(S(n,`title`));return r(l(e=>{let n=p(`div`,e);n.setAttribute(`class`,`card bg-base-100 border`);let r=p(`div`,n);d(n,r),r.setAttribute(`class`,`card-body space-y-1`);let i=p(`div`,r);d(r,i),i.setAttribute(`class`,`font-semibold`);let a=v(`rue:compiled-slot`);d(i,a),t({parent:i,before:a},()=>C(s.get()),()=>({}));let c=p(`div`,r);d(r,c);let l=v(`rue:compiled-slot`);return d(c,l),t({parent:c,before:l},()=>o.get(),()=>({})),[n,n]}),e=>u(()=>{o.set(e.children),s.set(e.title)}),()=>e(n))},A=(e,t,r)=>{let c=g(`code`);return _(()=>i(T,()=>({children:(e,t,r)=>{let i=()=>l(e=>{let t=h();t.appendChild(E().content.cloneNode(!0));let r=D().content.cloneNode(!0),i=r.firstChild,u=i.childNodes[0],g=i.childNodes[1];t.appendChild(r),u.setAttribute(`role`,`tab`);let _;m(()=>{let e=`tab ${c.value===`preview`?`tab-active`:``}`,t=e===!1||e==null?``:String(e);Object.is(_,t)||(_=t,u.setAttribute(`class`,t))}),y(b(e,u,`click`,()=>()=>{c.value=`preview`})),g.setAttribute(`role`,`tab`);let v;m(()=>{let e=`tab ${c.value===`code`?`tab-active`:``}`,t=e===!1||e==null?``:String(e);Object.is(v,t)||(v=t,g.setAttribute(`class`,t))}),y(b(e,g,`click`,()=>()=>{c.value=`code`}));let x=O().content.cloneNode(!0),S=x.firstChild,C=S.childNodes[0],T=C.parentNode,A=S.childNodes[1],j=A.parentNode;t.appendChild(x),a(T,C,()=>{let e=c.value===`code`;return e?{__rue_compiled_branch_key:!0,create:()=>l(e=>{let t=p(`div`,e);t.setAttribute(`class`,`card bg-base-100 shadow overflow-auto h-[220px] md:h-[440px]`);let r=p(`div`,t);return d(t,r),r.setAttribute(`class`,`card-body p-0`),n(r,w,()=>({className:`h-full`,lang:`tsx`,code:`import { type FC } from '@rue-js/rue';
+
+const Box: FC<{ title: string }> = (props) => (
+  <div className="border p-2 rounded-md space-y-1">
+    <div className="font-semibold">{props.title}</div>
+    <div>{props.children}</div>
+  </div>
+);
+
+const Children: FC = () => (
+  <div className="grid gap-4">
+    <Box title="外层">
+      <Box title="内层">
+        <span>嵌套子元素</span>
+      </Box>
+    </Box>
+  </div>
+);
+
+export default Children;`})),[t,t]})}:typeof e==`number`||typeof e==`bigint`?{__rue_compiled_branch_key:e,create:()=>o(t=>{let n=f(typeof e==`string`||typeof e==`number`||typeof e==`bigint`?e:``);return[n,n]})}:{__rue_compiled_branch_key:!1,create:()=>o(e=>{let t=h();return[t.firstChild,t.lastChild]})}}),a(j,A,()=>{let e=c.value===`preview`;return e?{__rue_compiled_branch_key:!0,create:()=>l(e=>{let t=p(`div`,e);t.setAttribute(`class`,`card bg-base-100 shadow`);let r=p(`div`,t);return d(t,r),r.setAttribute(`class`,`card-body grid gap-4`),n(r,k,()=>({title:`外层`,children:(e,t,r)=>{let i=()=>l(e=>{let t=h();n(t,k,()=>({title:`内层`,children:(e,t,n)=>{let r=()=>o(e=>{let t=h(),n=p(`span`,t);d(t,n),d(n,f(`嵌套子元素`));let r=f(``),i=f(``);return t.insertBefore(r,t.firstChild),t.appendChild(i),[t.firstChild,t.lastChild]});return e==null?r():s(e,n,r)}}));let r=f(``),i=f(``);return t.insertBefore(r,t.firstChild),t.appendChild(i),[t.firstChild,t.lastChild]});return e==null?i():s(e,r,i)}})),[t,t]})}:typeof e==`number`||typeof e==`bigint`?{__rue_compiled_branch_key:e,create:()=>o(t=>{let n=f(typeof e==`string`||typeof e==`number`||typeof e==`bigint`?e:``);return[n,n]})}:{__rue_compiled_branch_key:!1,create:()=>o(e=>{let t=h();return[t.firstChild,t.lastChild]})}});let M=f(``),N=f(``);return t.insertBefore(M,t.firstChild),t.appendChild(N),[t.firstChild,t.lastChild]});return e==null?i():s(e,r,i)}})))};export{A as default};

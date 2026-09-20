@@ -1,0 +1,1 @@
+import{t as e}from"./mdx-detail-fixture-ByBpQkQo.js";export{e as default};

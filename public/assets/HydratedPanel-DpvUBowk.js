@@ -1,0 +1,1 @@
+import{c as e,s as t,z as n}from"./rue-runtime-BWbIfNT8.js";var r=(r,i,a)=>i=>{t(i,`0`,`section`,()=>null,t=>{e(t,`1`,()=>n(r,`label`))})};export{r as default};
