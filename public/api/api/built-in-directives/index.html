@@ -342,17 +342,6 @@
 <span class="line"></span></code></pre>
 </div>
 <p>完整交互示例见 <a href="/jsx/v-on-r-on"><code>v-on / r-on</code> 指令页面</a>。</p>
-<h2 id="v-bind"><code>v-bind</code></h2>
-<p>在 Rue TSX 中，动态属性通常直接使用 JSX 表达式或展开语法，不需要额外的 <code>v-bind</code>。</p>
-<div class="relative group doc-code-wrapper">
-  <button class="copy-code-btn absolute top-2 right-2 z-50 px-2 py-1 bg-black/70 text-white rounded text-xs opacity-80 hover:opacity-100 focus:opacity-100 transition" aria-label="Copy code">Copy</button>
-  <pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">a</span><span style="color:#BB9AF7"> href</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">linkHref</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value}</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">查看详情</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">a</span><span style="color:#BA3C97">></span></span>
-<span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">button</span><span style="color:#7DCFFF"> {</span><span style="color:#F7768E;font-weight:bold">...</span><span style="color:#9ABDF5">{</span><span style="color:#9ABDF5"> [</span><span style="color:#C0CAF5">dynamicKey</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#9ABDF5">]</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5"> dynamicValue</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97">></span><span style="color:#9AA5CE">点击</span><span style="color:#BA3C97">&#x3C;/</span><span style="color:#F7768E">button</span><span style="color:#BA3C97">></span></span>
-<span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">div</span><span style="color:#BB9AF7"> className</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#C0CAF5">isActive</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#BB9AF7"> ?</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">active</span><span style="color:#89DDFF">'</span><span style="color:#BB9AF7"> :</span><span style="color:#89DDFF"> ''</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#F7768E">div</span><span style="color:#BB9AF7"> style</span><span style="color:#89DDFF">=</span><span style="color:#7DCFFF">{</span><span style="color:#9ABDF5">{</span><span style="color:#73DACA"> color</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> '</span><span style="color:#9ECE6A">red</span><span style="color:#89DDFF">'</span><span style="color:#89DDFF">,</span><span style="color:#73DACA"> fontSize</span><span style="color:#89DDFF">:</span><span style="color:#89DDFF"> `</span><span style="color:#7DCFFF">${</span><span style="color:#C0CAF5">size</span><span style="color:#89DDFF">.</span><span style="color:#7DCFFF">value</span><span style="color:#7DCFFF">}</span><span style="color:#9ECE6A">px</span><span style="color:#89DDFF">`</span><span style="color:#9ABDF5"> }</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"><span style="color:#BA3C97">&#x3C;</span><span style="color:#DE5971">ChildComponent </span><span style="color:#7DCFFF">{</span><span style="color:#F7768E;font-weight:bold">...</span><span style="color:#C0CAF5">props</span><span style="color:#7DCFFF">}</span><span style="color:#BA3C97"> /></span></span>
-<span class="line"></span></code></pre>
-</div>
 <h2 id="v-model"><code>v-model</code> / <code>r-model</code></h2>
 <p>在原生表单元素或组件上创建双向绑定。原生输入会被编译为对应的 <code>value</code> / <code>checked</code> 与输入事件；组件会被编译为 <code>modelValue</code> / <code>onUpdateModelValue</code> 或带参数的 prop 组合。</p>
 <div class="relative group doc-code-wrapper">
@@ -566,11 +555,6 @@
 <td><code>v-on</code> / <code>r-on</code></td>
 <td><code>&lt;button v-on:click="save" /&gt;</code></td>
 <td><code>&lt;button onClick={save} /&gt;</code></td>
-</tr>
-<tr>
-<td><code>v-bind</code></td>
-<td>直接使用 JSX 表达式</td>
-<td><code>&lt;a href={url.value} /&gt;</code></td>
 </tr>
 <tr>
 <td><code>v-model</code> / <code>r-model</code></td>
